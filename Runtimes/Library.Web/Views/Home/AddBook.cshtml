@@ -1,0 +1,174 @@
+﻿@using Library.Mvc.Helpers
+@using Library.Mvc.Providers
+@model Library.Mvc.Models.UserModel
+
+@{
+    ViewBag.Title = "AddBook";
+}
+
+
+@section breadcrumb{
+
+    <ol class="breadcrumb">
+        <li><a href="@Url.Action("Index","Home")"><i class="fa fa-dashboard"></i>Home</a></li>
+        <li><a href="#">Layout</a></li>
+        <li class="active">Add Record</li>
+    </ol>
+}
+
+@section userpanel{
+    <ul class="nav navbar-nav">
+        <!-- User Account Menu -->
+        <li class="dropdown user user-menu">
+            <!-- Menu Toggle Button -->
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <!-- The user image in the navbar-->
+                @if (Model.Gender.Equals("Male"))
+                {
+                <img src="../../dist/img/avatar04.png" class="user-image" alt="User Image">
+
+                }
+                else
+                {
+                <img src="../../dist/img/avatar03.png" class="user-image" alt="User Image">
+                }
+                <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                @*<span class="hidden-xs">Test User</span>*@
+                @Html.SpanFor(x => x.Name, new { @class = "hidden-xs" })
+            </a>
+            <ul class="dropdown-menu">
+                <!-- The user image in the menu -->
+                <li class="user-header">
+                    <img src="../../dist/img/avatar04.png" class="img-circle" alt="User Image">
+                    <p>
+                        @Model.Name - @Model.Occupation
+                        <small>Member since @Model.LastLoginDate.Value.ToString("M")</small>
+                    </p>
+                </li>
+                <!-- Menu Body -->
+                @*<li class="user-body">
+                        <div class="row">
+                            <div class="col-xs-4 text-center">
+                                <a href="#">Followers</a>
+                            </div>
+                            <div class="col-xs-4 text-center">
+                                <a href="#">Sales</a>
+                            </div>
+                            <div class="col-xs-4 text-center">
+                                <a href="#">Friends</a>
+                            </div>
+                        </div>
+                    </li>*@
+                <!-- Menu Footer-->
+                <li class="user-footer">
+                    @*<div class="pull-left">
+                            <a href="#" class="btn btn-default btn-flat">Profile</a>
+                        </div>*@
+                    <div class="pull-right">
+                        <a href="@Url.Action("Logout","Authentication")" class="btn btn-default btn-flat">Sign out</a>
+                    </div>
+                </li>
+            </ul>
+        </li>
+    </ul>
+}
+<div class="box-header">
+    @*<h3 class="box-title">Add Book</h3>*@
+</div>
+<div class="box-body">
+    @using (Html.BeginForm("AddBook", "Home", FormMethod.Post, htmlAttributes: new { role = "form" }))
+    {
+        <div class="form-group">
+            @Html.LabelFor(x => x.BookModel.Name)
+            @Html.EditorFor(x => x.BookModel.Name, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(x => x.BookModel.Author)
+            @Html.DropDownListFor(x => x.BookModel.Author, ItemProvider.Authors(), htmlAttributes: new { @class = "form-control" })
+        </div>
+        <div>
+            @Html.ActionLink("Create Writer","CreateWriter","Home")
+            @*<input type="button" value="Create Author" class="btn btn-primary" onclick="@Url.Action("CreateWriter", "Home")"/>*@
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.BookModel.Publisher)
+            @Html.DropDownListFor(x => x.BookModel.Publisher, ItemProvider.Publishers(), htmlAttributes: new {@class = "form-control"})
+        </div>
+        <div>
+            @Html.ActionLink("Create Publisher", "CreatePublisher", "Home")
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.BookModel.Serie)
+            @Html.DropDownListFor(x => x.BookModel.Serie, ItemProvider.Series(), htmlAttributes: new {@class = "form-control"})
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.BookModel.PublishDate)
+            @Html.EditorFor(x => x.BookModel.PublishDate, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.BookModel.Genre)
+            @Html.DropDownListFor(x => x.BookModel.Genre, ItemProvider.Genres(), htmlAttributes: new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.BookModel.No)
+            @Html.EditorFor(x => x.BookModel.No, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.BookModel.SkinType)
+            @Html.DropDownListFor(x => x.BookModel.SkinType, ItemProvider.SkinTypes(), htmlAttributes: new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.BookModel.Shelf)
+            @Html.DropDownListFor(x => x.BookModel.Shelf, ItemProvider.Shelfs(), htmlAttributes: new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.BookModel.Rack)
+            @Html.DropDownListFor(x => x.BookModel.Rack, ItemProvider.Racks(), htmlAttributes: new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-primary" />
+        </div>
+
+    }
+</div>
+
+
+
+@*@using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>BookModel</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.No, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.No, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.No, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@
+

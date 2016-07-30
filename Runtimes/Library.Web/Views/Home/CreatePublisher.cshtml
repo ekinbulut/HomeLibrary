@@ -1,0 +1,101 @@
+﻿@using Library.Mvc.Helpers
+@model Library.Mvc.Models.UserModel
+
+@{
+    ViewBag.Title = "CreatePublisher";
+}
+
+@section breadcrumb{
+
+    <ol class="breadcrumb">
+        <li><a href="@Url.Action("Index","Home")"><i class="fa fa-dashboard"></i>Home</a></li>
+        <li><a href="#">Layout</a></li>
+        <li class="active">Add Publisher</li>
+    </ol>
+}
+
+@section userpanel{
+    <ul class="nav navbar-nav">
+        <!-- User Account Menu -->
+        <li class="dropdown user user-menu">
+            <!-- Menu Toggle Button -->
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <!-- The user image in the navbar-->
+                @if (Model.Gender.Equals("Male"))
+                {
+                <img src="../../dist/img/avatar04.png" class="user-image" alt="User Image">
+
+                }
+                else
+                {
+                <img src="../../dist/img/avatar03.png" class="user-image" alt="User Image">
+                }
+                <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                @*<span class="hidden-xs">Test User</span>*@
+                @Html.SpanFor(x => x.Name, new { @class = "hidden-xs" })
+            </a>
+            <ul class="dropdown-menu">
+                <!-- The user image in the menu -->
+                <li class="user-header">
+                    <img src="../../dist/img/avatar04.png" class="img-circle" alt="User Image">
+                    <p>
+                        @Model.Name - @Model.Occupation
+                        <small>Member since @Model.LastLoginDate.Value.ToString("M")</small>
+                    </p>
+                </li>
+                <!-- Menu Body -->
+                @*<li class="user-body">
+                        <div class="row">
+                            <div class="col-xs-4 text-center">
+                                <a href="#">Followers</a>
+                            </div>
+                            <div class="col-xs-4 text-center">
+                                <a href="#">Sales</a>
+                            </div>
+                            <div class="col-xs-4 text-center">
+                                <a href="#">Friends</a>
+                            </div>
+                        </div>
+                    </li>*@
+                <!-- Menu Footer-->
+                <li class="user-footer">
+                    @*<div class="pull-left">
+                            <a href="#" class="btn btn-default btn-flat">Profile</a>
+                        </div>*@
+                    <div class="pull-right">
+                        <a href="@Url.Action("Logout","Authentication")" class="btn btn-default btn-flat">Sign out</a>
+                    </div>
+                </li>
+            </ul>
+        </li>
+    </ul>
+}
+
+<div class="box-body">
+    @using (Html.BeginForm("CreatePublisher","Home",FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.PublisherModel.PublisherName)
+
+            @Html.EditorFor(model => model.PublisherModel.PublisherName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.PublisherModel.PublisherName, "", new { @class = "text-danger" })
+
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.PublisherModel.SeriesName)
+
+            @Html.EditorFor(model => model.PublisherModel.SeriesName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.PublisherModel.SeriesName, "", new { @class = "text-danger" })
+
+        </div>
+            <div class="form-group">
+
+                <input type="submit" value="Create" class="btn btn-default" />
+
+            </div>
+
+    }
+</div>

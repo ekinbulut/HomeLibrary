@@ -1,0 +1,142 @@
+﻿@using Library.Mvc.Helpers
+@model Library.Mvc.Models.UserModel
+
+@{
+    ViewBag.Title = "Books";
+}
+
+@section breadcrumb{
+
+    <ol class="breadcrumb">
+        <li><a href="@Url.Action("Index","Home")"><i class="fa fa-dashboard"></i>Home</a></li>
+        <li><a href="#">Layout</a></li>
+        <li class="active">Books</li>
+    </ol>
+}
+
+@section userpanel{
+    <ul class="nav navbar-nav">
+        <!-- User Account Menu -->
+        <li class="dropdown user user-menu">
+            <!-- Menu Toggle Button -->
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <!-- The user image in the navbar-->
+                @if (Model.Gender.Equals("Male"))
+                {
+                    <img src="../../dist/img/avatar04.png" class="user-image" alt="User Image">
+
+                }
+                else
+                {
+                    <img src="../../dist/img/avatar03.png" class="user-image" alt="User Image">
+                }
+                <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                @*<span class="hidden-xs">Test User</span>*@
+                @Html.SpanFor(x => x.Name, new { @class = "hidden-xs" })
+            </a>
+            <ul class="dropdown-menu">
+                <!-- The user image in the menu -->
+                <li class="user-header">
+                    <img src="../../dist/img/avatar04.png" class="img-circle" alt="User Image">
+                    <p>
+                        @Model.Name - @Model.Occupation
+                        <small>Member since @Model.LastLoginDate.Value.ToString("M")</small>
+                    </p>
+                </li>
+                <!-- Menu Body -->
+                @*<li class="user-body">
+                        <div class="row">
+                            <div class="col-xs-4 text-center">
+                                <a href="#">Followers</a>
+                            </div>
+                            <div class="col-xs-4 text-center">
+                                <a href="#">Sales</a>
+                            </div>
+                            <div class="col-xs-4 text-center">
+                                <a href="#">Friends</a>
+                            </div>
+                        </div>
+                    </li>*@
+                <!-- Menu Footer-->
+                <li class="user-footer">
+                    @*<div class="pull-left">
+                            <a href="#" class="btn btn-default btn-flat">Profile</a>
+                        </div>*@
+                    <div class="pull-right">
+                        <a href="@Url.Action("Logout","Authentication")" class="btn btn-default btn-flat">Sign out</a>
+                    </div>
+                </li>
+            </ul>
+        </li>
+    </ul>
+}
+
+
+@if (Model.BookOutputDto.Books.Length > 0)
+{
+
+    <div class="box-header">
+        @*<h3 class="box-title">Books in database</h3>*@
+    </div>
+    <div class="box-body">
+        <table id="example" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Author</th>
+                    <th>Publisher</th>
+                    <th>Series</th>
+                    <th>Genre</th>
+                    <th>No</th>
+                    <th>Date</th>
+                    <th>Skin</th>
+                    <th>Shelf</th>
+                    <th>Rack</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var book in Model.BookOutputDto.Books)
+                {
+                    <tr>
+                        <td>
+                            @Html.Label(book.Name)
+                        </td>
+
+                        <td>
+                            @Html.Label(book.Author)
+                        </td>
+                        <td>
+                            @Html.Label(book.Publisher)
+                        </td>
+                        <td>
+                            @Html.Label(book.Serie)
+                        </td>
+                        <td>
+                            @Html.Label(book.Genre)
+                        </td>
+                        <td>
+                            @if (!string.IsNullOrEmpty(book.No))
+                            {
+                                @Html.Label(book.No)
+                            }
+                        </td>
+
+                        <td>
+                            @Html.Label(book.PublishDate.ToString())
+                        </td>
+                        <td>
+                            @Html.Label(book.SkinType)
+                        </td>
+                        <td>
+                            @Html.Label(book.Shelf)
+                        </td>
+                        <td>
+                            @Html.Label(book.Rack.ToString())
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+}

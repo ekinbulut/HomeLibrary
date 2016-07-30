@@ -1,0 +1,89 @@
+﻿using System;
+using System.Linq;
+using Library.DataLayer.Entities;
+using Library.DataLayer.Repositories.Genres;
+using Library.DataLayer.Repositories.Migrations;
+using SenseFramework.Data.EntityFramework.Migrations;
+
+namespace Library.DataLayer.Migrations
+{
+    public class GenreMigration : IDataMigration
+    {
+        private readonly IMigrationRepository _migrationrepo;
+        private readonly IGenreRepository _genrerepo;
+
+
+        public GenreMigration(IMigrationRepository migrationrepo, IGenreRepository genrerepo)
+        {
+            _migrationrepo = migrationrepo;
+            this._genrerepo = genrerepo;
+        }
+
+        public void Migrate()
+        {
+
+            //var migrationrepo = IoCManager.Container.Resolve<IMigrationRepository>();
+
+            var entity = _migrationrepo.GetAll().Any(x => x.Name == this.Name);
+
+            if (!entity)
+            {
+                _migrationrepo.CreateEntity(new EMigration()
+                {
+                    Name = this.Name,
+                    CreatedDateTime = DateTime.Now
+                });
+
+                var genres = new string[]
+                {
+                    "Anlatı"
+                    , "Oyun"
+                    , "Şiir"
+                    , "Roman"
+                    , "Felsefe"
+                    , "Günce"
+                    , "Şarkılar"
+                    , "Sözlük"
+                    , "Öykü"
+                    , "Aforizmalar"
+                    , "Destan"
+                    , "Tarih"
+                    , "Tiyatro"
+                    , "Seçme"
+                    , "Deneme"
+                    , "Strateji"
+                    , "Derleme"
+                    , "Araştırma"
+                    , "Biografi"
+                    , "Çizgi Roman"
+                    , "Bilim Kurgu"
+                    , "Mektup"
+                    , "Çocuk"
+                    , "Fantastik"
+                    , "Söyleşi"
+                    , "Lugat"
+                    , "Fotoğraf"
+                };
+
+
+                //var genrerepo = IoCManager.Container.Resolve<IGenreRepository>();
+
+                foreach (var genre in genres)
+                {
+                    _genrerepo.CreateEntity(new EGenre()
+                    {
+                        Genre = genre,
+                        CreatedDateTime = DateTime.Now
+                    });
+                }
+
+            }
+        }
+
+        public string Name
+        {
+            get { return "00002_GenreMigration"; }
+        }
+    }
+}
+
