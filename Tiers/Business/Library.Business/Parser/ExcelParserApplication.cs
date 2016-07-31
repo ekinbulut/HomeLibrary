@@ -8,6 +8,10 @@ namespace Library.Business.Parser
 {
     public class ExcelParserApplication : IParserApplication
     {
+        /// <summary>
+        /// Reads the excel file.
+        /// </summary>
+        /// <returns>DataTable</returns>
         public DataTable ReadExcelFile()
         {
             var filePath = ConfigurationManager.AppSettings["FilePath"];
@@ -36,7 +40,7 @@ namespace Library.Business.Parser
         /// Reads the excel file. Calls by IntegrationServices
         /// </summary>
         /// <param name="filepath">The filepath.</param>
-        /// <returns></returns>
+        /// <returns>DataTable</returns>
         public DataTable ReadExcelFile(string filepath)
         {
 

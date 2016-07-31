@@ -42,6 +42,11 @@ namespace Library.Business.Applications
             _logger = logger;
         }
 
+        /// <summary>
+        /// Imports the specified input.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <returns></returns>
         public bool Import(IntegrationInputDto input)
         {
 
@@ -111,6 +116,11 @@ namespace Library.Business.Applications
             }
         }
 
+        /// <summary>
+        /// Creates the author.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <returns></returns>
         public bool CreateAuthor(AuthorInputDto input)
         {
             if (String.IsNullOrEmpty(input.AuthorDto.Name))
@@ -127,6 +137,11 @@ namespace Library.Business.Applications
             return result != null;
         }
 
+        /// <summary>
+        /// Creates the publisher.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <returns></returns>
         public bool CreatePublisher(PublisherInputDto input)
         {
             if (String.IsNullOrEmpty(input.PublisherName))

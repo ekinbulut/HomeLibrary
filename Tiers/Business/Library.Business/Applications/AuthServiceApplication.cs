@@ -6,7 +6,7 @@ using Library.DataLayer.Repositories.Users;
 
 namespace Library.Business.Applications
 {
-    public class AuthServiceApplication : IAuthanticationService
+    public class AuthServiceApplication : IAuthenticationService
     {
         private readonly IUserRepository _userRepository;
 
@@ -15,7 +15,12 @@ namespace Library.Business.Applications
             _userRepository = userRepository;
         }
 
-        public UserOutputDto Authanticate(UserInputDto input)
+        /// <summary>
+        /// Authenticates the specified input.
+        /// </summary>
+        /// <param name="input">UserInputDto contains user information.</param>
+        /// <returns>UserOutputDto</returns>
+        public UserOutputDto Authenticate(UserInputDto input)
         {
             var user = _userRepository.GetUserByName(input.User.Username);
 

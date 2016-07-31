@@ -29,7 +29,10 @@ namespace Library.Business.Applications
             _rackRepository = rackRepository;
         }
 
-
+        /// <summary>
+        /// Return Authors list.
+        /// </summary>
+        /// <returns></returns>
         public AuthorOutputDto Authors()
         {
             var output = new AuthorOutputDto();
@@ -46,6 +49,10 @@ namespace Library.Business.Applications
             return output;
         }
 
+        /// <summary>
+        /// Returns Publishers list.
+        /// </summary>
+        /// <returns></returns>
         public PublisherOutputDto Publishers()
         {
             var output = new PublisherOutputDto();
@@ -62,6 +69,10 @@ namespace Library.Business.Applications
             return output;
         }
 
+        /// <summary>
+        /// Returns Genre list.
+        /// </summary>
+        /// <returns></returns>
         public GenreOutputDto Genres()
         {
             var output = new GenreOutputDto();
@@ -78,6 +89,10 @@ namespace Library.Business.Applications
             return output;
         }
 
+        /// <summary>
+        /// Return Series list.
+        /// </summary>
+        /// <returns></returns>
         public SeriesOutputDto Series()
         {
             var output = new SeriesOutputDto();
@@ -95,6 +110,10 @@ namespace Library.Business.Applications
             return output;
         }
 
+        /// <summary>
+        /// Returns Shelf list.
+        /// </summary>
+        /// <returns></returns>
         public ShelfOutputDto Shelfs()
         {
             var output = new ShelfOutputDto();
@@ -110,7 +129,11 @@ namespace Library.Business.Applications
 
             return output;
         }
-
+        
+        /// <summary>
+        /// Returns Racks list.
+        /// </summary>
+        /// <returns></returns>
         public RackOutputDto Racks()
         {
             var output = new RackOutputDto();

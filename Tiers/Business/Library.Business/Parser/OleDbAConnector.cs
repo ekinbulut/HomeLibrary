@@ -6,11 +6,25 @@ using Castle.Core.Internal;
 
 namespace Library.Business.Parser
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public static class OleDbAConnector
     {
+        /// <summary>
+        /// The connection string
+        /// </summary>
         public static string ConnectionStr;
+
+        /// <summary>
+        /// The sheet name
+        /// </summary>
         public static string SheetName;
 
+        /// <summary>
+        /// Executes the OLE database connection.
+        /// </summary>
+        /// <returns></returns>
         public static DataTable ExecuteOleDbConnection()
         {
 
@@ -25,6 +39,11 @@ namespace Library.Business.Parser
 
         }
 
+        /// <summary>
+        /// Executes the OLE database connection.
+        /// </summary>
+        /// <param name="parameters">The parameters.</param>
+        /// <returns></returns>
         public static DataTable ExecuteOleDbConnection(string[] parameters)
         {
             var strbuilder = new StringBuilder();

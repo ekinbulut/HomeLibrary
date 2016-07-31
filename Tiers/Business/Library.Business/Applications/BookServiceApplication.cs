@@ -17,6 +17,10 @@ namespace Library.Business.Applications
             _bookRepository = bookRepository;
         }
 
+        /// <summary>
+        /// Gets the book list.
+        /// </summary>
+        /// <returns></returns>
         public BookOutputDto GetBookList()
         {
             BookOutputDto bookoutput = new BookOutputDto();
@@ -47,6 +51,11 @@ namespace Library.Business.Applications
             return bookoutput;
         }
 
+        /// <summary>
+        /// Adds the book.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <returns>boolean</returns>
         public bool AddBook(BookInputDto input)
         {
 
@@ -70,6 +79,11 @@ namespace Library.Business.Applications
             
         }
 
+        /// <summary>
+        /// Updates the book.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <returns>boolean</returns>
         public bool UpdateBook(BookDto input)
         {
             return _bookRepository.UpdateEntity(input.Id, new EBook()

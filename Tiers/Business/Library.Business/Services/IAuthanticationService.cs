@@ -4,9 +4,14 @@ using Library.Business.Dtos;
 namespace Library.Business.Services
 {
     [ServiceContract(Namespace = "com.sense.services.Services", Name = "AuthService")]
-    public interface IAuthanticationService
+    public interface IAuthenticationService
     {
+        /// <summary>
+        /// Authenticates user.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <returns></returns>
         [OperationContract]
-        UserOutputDto Authanticate(UserInputDto input);
+        UserOutputDto Authenticate(UserInputDto input);
     }
 }

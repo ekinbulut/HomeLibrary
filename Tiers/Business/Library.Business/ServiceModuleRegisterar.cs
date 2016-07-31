@@ -16,6 +16,10 @@ namespace Library.Business
     public class ServiceModuleRegisterar : IServiceApplication
 
     {
+        /// <summary>
+        /// Registers the wcf services.
+        /// </summary>
+        /// <param name="container">The container.</param>
         public void RegisterServices(IWindsorContainer container)
         {
             container.Register(
@@ -28,6 +32,7 @@ namespace Library.Business
 
             string baseAddress = ConfigurationManager.AppSettings["Host"];
 
+            //Adding service behavior for faults.
             ServiceDebugBehavior returnFaults = new ServiceDebugBehavior
             {
                 IncludeExceptionDetailInFaults = true,
@@ -54,9 +59,9 @@ namespace Library.Business
                         })).LifestylePerWcfOperation());
 
             container.Register(
-                Component.For<IAuthanticationService>().ImplementedBy<AuthServiceApplication>()
+                Component.For<IAuthenticationService>().ImplementedBy<AuthServiceApplication>()
                     .AsWcfService(new DefaultServiceModel()
-                        .AddEndpoints(WcfEndpoint.ForContract(typeof(IAuthanticationService)).BoundTo(new NetTcpBinding()
+                        .AddEndpoints(WcfEndpoint.ForContract(typeof(IAuthenticationService)).BoundTo(new NetTcpBinding()
                         {
                             PortSharingEnabled = true,
                             MaxReceivedMessageSize = int.MaxValue,
