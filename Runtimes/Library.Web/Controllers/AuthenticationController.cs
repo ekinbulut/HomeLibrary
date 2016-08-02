@@ -18,9 +18,8 @@ namespace Library.Web.Controllers
         [HttpPost]
         public ActionResult Login(UserLoginModel model)
         {
-            
 
-            var output = Services.AuthServiceClient.Authanticate(new UserInputDto()
+            var output = Services.AuthServiceClient.Authenticate(new UserInputDto()
             {
                 User = new UserDto()
                 {

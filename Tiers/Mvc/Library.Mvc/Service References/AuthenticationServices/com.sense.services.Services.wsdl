@@ -7,16 +7,16 @@
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/Library.Business.Dtos" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="AuthService_Authanticate_InputMessage">
-    <wsdl:part name="parameters" element="tns:Authanticate" />
+  <wsdl:message name="AuthService_Authenticate_InputMessage">
+    <wsdl:part name="parameters" element="tns:Authenticate" />
   </wsdl:message>
-  <wsdl:message name="AuthService_Authanticate_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AuthanticateResponse" />
+  <wsdl:message name="AuthService_Authenticate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AuthenticateResponse" />
   </wsdl:message>
   <wsdl:portType name="AuthService">
-    <wsdl:operation name="Authanticate">
-      <wsdl:input wsaw:Action="com.sense.services.Services/AuthService/Authanticate" message="tns:AuthService_Authanticate_InputMessage" />
-      <wsdl:output wsaw:Action="com.sense.services.Services/AuthService/AuthanticateResponse" message="tns:AuthService_Authanticate_OutputMessage" />
+    <wsdl:operation name="Authenticate">
+      <wsdl:input wsaw:Action="com.sense.services.Services/AuthService/Authenticate" message="tns:AuthService_Authenticate_InputMessage" />
+      <wsdl:output wsaw:Action="com.sense.services.Services/AuthService/AuthenticateResponse" message="tns:AuthService_Authenticate_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
 </wsdl:definitions>

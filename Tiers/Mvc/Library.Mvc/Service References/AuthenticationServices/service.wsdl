@@ -39,8 +39,8 @@
     <wsp:PolicyReference URI="#NetTcpBinding_AuthService_policy">
     </wsp:PolicyReference>
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
-    <wsdl:operation name="Authanticate">
-      <soap12:operation soapAction="com.sense.services.Services/AuthService/Authanticate" style="document" />
+    <wsdl:operation name="Authenticate">
+      <soap12:operation soapAction="com.sense.services.Services/AuthService/Authenticate" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

@@ -216,11 +216,11 @@ namespace Library.Mvc.AuthenticationServices {
     [System.ServiceModel.ServiceContractAttribute(Namespace="com.sense.services.Services", ConfigurationName="AuthenticationServices.AuthService")]
     public interface AuthService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="com.sense.services.Services/AuthService/Authanticate", ReplyAction="com.sense.services.Services/AuthService/AuthanticateResponse")]
-        Library.Mvc.AuthenticationServices.UserOutputDto Authanticate(Library.Mvc.AuthenticationServices.UserInputDto input);
+        [System.ServiceModel.OperationContractAttribute(Action="com.sense.services.Services/AuthService/Authenticate", ReplyAction="com.sense.services.Services/AuthService/AuthenticateResponse")]
+        Library.Mvc.AuthenticationServices.UserOutputDto Authenticate(Library.Mvc.AuthenticationServices.UserInputDto input);
         
-        [System.ServiceModel.OperationContractAttribute(Action="com.sense.services.Services/AuthService/Authanticate", ReplyAction="com.sense.services.Services/AuthService/AuthanticateResponse")]
-        System.Threading.Tasks.Task<Library.Mvc.AuthenticationServices.UserOutputDto> AuthanticateAsync(Library.Mvc.AuthenticationServices.UserInputDto input);
+        [System.ServiceModel.OperationContractAttribute(Action="com.sense.services.Services/AuthService/Authenticate", ReplyAction="com.sense.services.Services/AuthService/AuthenticateResponse")]
+        System.Threading.Tasks.Task<Library.Mvc.AuthenticationServices.UserOutputDto> AuthenticateAsync(Library.Mvc.AuthenticationServices.UserInputDto input);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -250,12 +250,12 @@ namespace Library.Mvc.AuthenticationServices {
                 base(binding, remoteAddress) {
         }
         
-        public Library.Mvc.AuthenticationServices.UserOutputDto Authanticate(Library.Mvc.AuthenticationServices.UserInputDto input) {
-            return base.Channel.Authanticate(input);
+        public Library.Mvc.AuthenticationServices.UserOutputDto Authenticate(Library.Mvc.AuthenticationServices.UserInputDto input) {
+            return base.Channel.Authenticate(input);
         }
         
-        public System.Threading.Tasks.Task<Library.Mvc.AuthenticationServices.UserOutputDto> AuthanticateAsync(Library.Mvc.AuthenticationServices.UserInputDto input) {
-            return base.Channel.AuthanticateAsync(input);
+        public System.Threading.Tasks.Task<Library.Mvc.AuthenticationServices.UserOutputDto> AuthenticateAsync(Library.Mvc.AuthenticationServices.UserInputDto input) {
+            return base.Channel.AuthenticateAsync(input);
         }
     }
 }
