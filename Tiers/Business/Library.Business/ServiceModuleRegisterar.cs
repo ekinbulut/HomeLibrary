@@ -50,7 +50,9 @@ namespace Library.Business
                         PortSharingEnabled = true,
                         MaxReceivedMessageSize = int.MaxValue,
                         ReceiveTimeout = new TimeSpan(0, 0, 2, 0, 0),
-                        CloseTimeout = new TimeSpan(0, 0, 0, 60, 0)
+                        CloseTimeout = new TimeSpan(0, 0, 0, 60, 0),
+                        Security = new NetTcpSecurity() { Mode = SecurityMode.None }
+                        
                     }))
                     .PublishMetadata(c => c.EnableHttpGet())
                         .AddBaseAddresses(new Uri[]
@@ -66,7 +68,9 @@ namespace Library.Business
                             PortSharingEnabled = true,
                             MaxReceivedMessageSize = int.MaxValue,
                             ReceiveTimeout = new TimeSpan(0, 0, 2, 0, 0),
-                            CloseTimeout = new TimeSpan(0, 0, 0, 60, 0)
+                            CloseTimeout = new TimeSpan(0, 0, 0, 60, 0),
+                            Security = new NetTcpSecurity() { Mode = SecurityMode.None }
+
                         }))
                         .PublishMetadata(c => c.EnableHttpGet())
                         .AddBaseAddresses(new Uri[]
@@ -83,7 +87,9 @@ namespace Library.Business
                                 PortSharingEnabled = true,
                                 MaxReceivedMessageSize = int.MaxValue,
                                 ReceiveTimeout = new TimeSpan(0, 0, 2, 0, 0),
-                                CloseTimeout = new TimeSpan(0, 0, 0, 60, 0)
+                                CloseTimeout = new TimeSpan(0, 0, 0, 60, 0),
+                                Security = new NetTcpSecurity() { Mode = SecurityMode.None }
+
                             }))
                         .PublishMetadata(c => c.EnableHttpGet())
                         .AddBaseAddresses(new Uri[]
@@ -100,7 +106,9 @@ namespace Library.Business
                                 PortSharingEnabled = true,
                                 MaxReceivedMessageSize = int.MaxValue,
                                 ReceiveTimeout = new TimeSpan(0, 0, 2, 0, 0),
-                                CloseTimeout = new TimeSpan(0, 0, 0, 60, 0)
+                                CloseTimeout = new TimeSpan(0, 0, 0, 60, 0),
+                                Security = new NetTcpSecurity() { Mode = SecurityMode.None }
+
                             }))
                         .PublishMetadata(c => c.EnableHttpGet())
                         .AddBaseAddresses(new Uri[]

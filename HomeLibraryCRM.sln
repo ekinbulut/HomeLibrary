@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Mvc", "Tiers\Mvc\Li
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Web", "Runtimes\Library.Web\Library.Web.csproj", "{1BAF700F-00A7-4201-928F-BFC1A2F6086F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Service", "Runtimes\Library.Service\Library.Service.csproj", "{8F260057-D17D-4D91-BF0F-FD283EB23F68}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +67,14 @@ Global
 		{1BAF700F-00A7-4201-928F-BFC1A2F6086F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1BAF700F-00A7-4201-928F-BFC1A2F6086F}.Release|x64.ActiveCfg = Release|x64
 		{1BAF700F-00A7-4201-928F-BFC1A2F6086F}.Release|x64.Build.0 = Release|x64
+		{8F260057-D17D-4D91-BF0F-FD283EB23F68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F260057-D17D-4D91-BF0F-FD283EB23F68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F260057-D17D-4D91-BF0F-FD283EB23F68}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8F260057-D17D-4D91-BF0F-FD283EB23F68}.Debug|x64.Build.0 = Debug|Any CPU
+		{8F260057-D17D-4D91-BF0F-FD283EB23F68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F260057-D17D-4D91-BF0F-FD283EB23F68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F260057-D17D-4D91-BF0F-FD283EB23F68}.Release|x64.ActiveCfg = Release|Any CPU
+		{8F260057-D17D-4D91-BF0F-FD283EB23F68}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -75,5 +85,6 @@ Global
 		{EDF2C421-3FA8-4842-AE10-A540D4D9DEA1} = {259B38F3-F460-4298-BCDB-C39CADF0CAED}
 		{26AB804C-5FAB-40AA-A00B-6119D7F176C3} = {68DDA41A-C93F-4BA2-B1AB-9C983FD4FDB3}
 		{1BAF700F-00A7-4201-928F-BFC1A2F6086F} = {259B38F3-F460-4298-BCDB-C39CADF0CAED}
+		{8F260057-D17D-4D91-BF0F-FD283EB23F68} = {259B38F3-F460-4298-BCDB-C39CADF0CAED}
 	EndGlobalSection
 EndGlobal

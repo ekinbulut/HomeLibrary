@@ -954,6 +954,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="UploadFiles\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Tiers\Mvc\Library.Mvc\Library.Mvc.csproj">
