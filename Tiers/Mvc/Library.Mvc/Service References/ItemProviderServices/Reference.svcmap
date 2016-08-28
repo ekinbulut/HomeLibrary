@@ -19,14 +19,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="net.tcp://192.168.0.22:8095/services/provider/mex" Protocol="mex" SourceId="1" />
+    <MetadataSource Address="net.tcp://46.196.147.6:8095/services/provider/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="com.sense.business.Services.wsdl" MetadataType="Wsdl" ID="5edcccc8-47e0-46f2-bd5a-0168add6d431" SourceId="1" SourceUrl="net.tcp://192.168.0.22:8095/services/provider/mex" />
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="eca10fae-5b5a-4233-8906-10ef23e9367b" SourceId="1" SourceUrl="net.tcp://192.168.0.22:8095/services/provider/mex" />
-    <MetadataFile FileName="com.sense.business.Services.xsd" MetadataType="Schema" ID="97c6af0d-6148-47e9-b952-9da88e6c017f" SourceId="1" SourceUrl="net.tcp://192.168.0.22:8095/services/provider/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="ef7609d7-cc95-4a06-87c8-7eedd24fc168" SourceId="1" SourceUrl="net.tcp://192.168.0.22:8095/services/provider/mex" />
-    <MetadataFile FileName="Library.Business.Dtos.xsd" MetadataType="Schema" ID="0cbbcba5-5be9-41f2-bc95-987611ceb46f" SourceId="1" SourceUrl="net.tcp://192.168.0.22:8095/services/provider/mex" />
+    <MetadataFile FileName="com.sense.business.Services1.wsdl" MetadataType="Wsdl" ID="af80de32-653f-442c-9d24-c0d0c99aa6b1" SourceId="1" SourceUrl="net.tcp://46.196.147.6:8095/services/provider/mex" />
+    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="8c107f15-b334-4453-9ec3-cee54d9f2b53" SourceId="1" SourceUrl="net.tcp://46.196.147.6:8095/services/provider/mex" />
+    <MetadataFile FileName="com.sense.business.Services1.xsd" MetadataType="Schema" ID="2b8535fe-9741-40e3-aa8b-d8be129065c4" SourceId="1" SourceUrl="net.tcp://46.196.147.6:8095/services/provider/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="a7615d46-bc31-4ea0-a16c-377d4979e026" SourceId="1" SourceUrl="net.tcp://46.196.147.6:8095/services/provider/mex" />
+    <MetadataFile FileName="Library.Business.Dtos1.xsd" MetadataType="Schema" ID="03ee4a47-0bec-4010-aee3-6bdc7982f26b" SourceId="1" SourceUrl="net.tcp://46.196.147.6:8095/services/provider/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
