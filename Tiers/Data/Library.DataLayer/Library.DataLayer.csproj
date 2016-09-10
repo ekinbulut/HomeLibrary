@@ -52,13 +52,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Castle.Core">
-      <HintPath>..\..\..\..\..\SenseFrameworkV2\SenseFramework\Data\EntityFramework\SenseFramework.Data.EntityFramework\bin\Debug\Castle.Core.dll</HintPath>
+      <HintPath>..\..\..\..\SenseFramework\SenseFramework\Data\EntityFramework\SenseFramework.Data.EntityFramework\bin\Debug\Castle.Core.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework">
-      <HintPath>..\..\..\..\..\SenseFrameworkV2\SenseFramework\Data\EntityFramework\SenseFramework.Data.EntityFramework\bin\Debug\EntityFramework.dll</HintPath>
+      <HintPath>..\..\..\..\SenseFramework\SenseFramework\Data\EntityFramework\SenseFramework.Data.EntityFramework\bin\Debug\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="SenseFramework.Data.EntityFramework">
-      <HintPath>..\..\..\..\..\SenseFrameworkV2\SenseFramework\Data\EntityFramework\SenseFramework.Data.EntityFramework\bin\Debug\SenseFramework.Data.EntityFramework.dll</HintPath>
+      <HintPath>..\..\..\..\SenseFramework\SenseFramework\Data\EntityFramework\SenseFramework.Data.EntityFramework\bin\Debug\SenseFramework.Data.EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
