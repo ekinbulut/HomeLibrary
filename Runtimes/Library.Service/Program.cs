@@ -22,7 +22,7 @@ namespace Library.Service
             ServiceBase.Run(ServicesToRun);
 
             //var svc = new LibraryService();
-            //svc.StartHostingServices();
+            //svc.Start();
         }
     }
 }

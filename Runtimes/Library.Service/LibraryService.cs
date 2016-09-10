@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Linq;
-using System.ServiceProcess;
-using System.Text;
+﻿using System.ServiceProcess;
+using System.Threading;
 using System.Threading.Tasks;
+using SenseFramework;
 
 namespace Library.Service
 {
@@ -19,7 +14,16 @@ namespace Library.Service
 
         protected override void OnStart(string[] args)
         {
-            new Task(Start).Start();
+            var task = new Task(() =>
+            {
+                var fm = new SenseFrameworkModule();
+                fm.StartUp();
+
+            });
+
+            task.Start();
+
+            //new Task(Start).Start();
         }
 
         protected override void OnStop()
@@ -28,13 +32,25 @@ namespace Library.Service
 
         public void Start()
         {
-            var task = new Task(StartHostingServices, TaskCreationOptions.LongRunning);
-            task.Start();
+            //var task = new Task(() =>
+            //{
+            //    var fm = new SenseFrameworkModule();
+            //    fm.StartUp();
+
+            //});
+
+            //task.Start();
+
+            var thread = new Thread(StartHostingServices);
+            thread.Start();
+
+            //var task = new Task(StartHostingServices, TaskCreationOptions.LongRunning);
+            //task.Start();
         }
 
         private void StartHostingServices()
         {
-            var sensefm = new SenseFramework.SenseFrameworkModule();
+            var sensefm = new SenseFrameworkModule();
 
             sensefm.StartUp();
 
