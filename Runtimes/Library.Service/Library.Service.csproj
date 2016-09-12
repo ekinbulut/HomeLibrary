@@ -80,18 +80,30 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Tiers\Business\Library.Business\Library.Business.csproj">
-      <Project>{fb1c5061-90d2-4965-9526-89adea29864e}</Project>
-      <Name>Library.Business</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="LibraryService.resx">
       <DependentUpon>LibraryService.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProjectInstaller.resx">
       <DependentUpon>ProjectInstaller.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Tiers\Business\Authentication\Library.Business.Services.Authentication\Library.Business.Services.Authentication.csproj">
+      <Project>{9f86c2c2-41f6-45ef-b2a3-515bfe9daebf}</Project>
+      <Name>Library.Business.Services.Authentication</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Tiers\Business\Book\Library.Business.Services.Book\Library.Business.Services.Book.csproj">
+      <Project>{764f1f3c-dd4b-47b7-9099-8adb18209740}</Project>
+      <Name>Library.Business.Services.Book</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Tiers\Business\Integration\Library.Business.Services.Integration\Library.Business.Services.Integration.csproj">
+      <Project>{33aa1eb8-0602-473b-a4be-a080eed71c71}</Project>
+      <Name>Library.Business.Services.Integration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Tiers\Business\ItemProvider\Library.Business.Services.Provider\Library.Business.Services.Provider.csproj">
+      <Project>{20a72ec4-8438-4020-a629-6a46b47e56a4}</Project>
+      <Name>Library.Business.Services.Provider</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

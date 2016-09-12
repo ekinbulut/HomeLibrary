@@ -15,7 +15,8 @@ namespace Library.Mvc.IntegrationServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="IntegrationInputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Dtos")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="IntegrationInputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Integration.Dto" +
+        "s")]
     [System.SerializableAttribute()]
     public partial class IntegrationInputDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -60,7 +61,8 @@ namespace Library.Mvc.IntegrationServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="IntegrationDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Dtos")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="IntegrationDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Integration.Dto" +
+        "s")]
     [System.SerializableAttribute()]
     public partial class IntegrationDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -105,7 +107,8 @@ namespace Library.Mvc.IntegrationServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AuthorInputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Dtos")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AuthorInputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Integration.Dto" +
+        "s")]
     [System.SerializableAttribute()]
     public partial class AuthorInputDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -150,7 +153,8 @@ namespace Library.Mvc.IntegrationServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AuthorDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Dtos")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AuthorDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Integration.Dto" +
+        "s")]
     [System.SerializableAttribute()]
     public partial class AuthorDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -211,7 +215,8 @@ namespace Library.Mvc.IntegrationServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="PublisherInputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Dtos")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PublisherInputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Integration.Dto" +
+        "s")]
     [System.SerializableAttribute()]
     public partial class PublisherInputDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         

@@ -15,7 +15,7 @@ namespace Library.Mvc.ItemProviderServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AuthorOutputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Dtos")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AuthorOutputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Provider.Dtos")]
     [System.SerializableAttribute()]
     public partial class AuthorOutputDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -60,7 +60,7 @@ namespace Library.Mvc.ItemProviderServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AuthorDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Dtos")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AuthorDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Provider.Dtos")]
     [System.SerializableAttribute()]
     public partial class AuthorDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -121,7 +121,7 @@ namespace Library.Mvc.ItemProviderServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="PublisherOutputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Dtos")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PublisherOutputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Provider.Dtos")]
     [System.SerializableAttribute()]
     public partial class PublisherOutputDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -166,7 +166,7 @@ namespace Library.Mvc.ItemProviderServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="PublisherDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Dtos")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PublisherDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Provider.Dtos")]
     [System.SerializableAttribute()]
     public partial class PublisherDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -227,7 +227,7 @@ namespace Library.Mvc.ItemProviderServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="GenreOutputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Dtos")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GenreOutputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Provider.Dtos")]
     [System.SerializableAttribute()]
     public partial class GenreOutputDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -272,7 +272,7 @@ namespace Library.Mvc.ItemProviderServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="GenreDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Dtos")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GenreDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Provider.Dtos")]
     [System.SerializableAttribute()]
     public partial class GenreDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -333,7 +333,7 @@ namespace Library.Mvc.ItemProviderServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="SeriesOutputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Dtos")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SeriesOutputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Provider.Dtos")]
     [System.SerializableAttribute()]
     public partial class SeriesOutputDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -378,7 +378,7 @@ namespace Library.Mvc.ItemProviderServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="SeriesDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Dtos")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SeriesDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Provider.Dtos")]
     [System.SerializableAttribute()]
     public partial class SeriesDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -439,7 +439,7 @@ namespace Library.Mvc.ItemProviderServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ShelfOutputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Dtos")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ShelfOutputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Provider.Dtos")]
     [System.SerializableAttribute()]
     public partial class ShelfOutputDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -484,7 +484,7 @@ namespace Library.Mvc.ItemProviderServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ShelfDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Dtos")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ShelfDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Provider.Dtos")]
     [System.SerializableAttribute()]
     public partial class ShelfDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -545,7 +545,7 @@ namespace Library.Mvc.ItemProviderServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="RackOutputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Dtos")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RackOutputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Provider.Dtos")]
     [System.SerializableAttribute()]
     public partial class RackOutputDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -590,7 +590,7 @@ namespace Library.Mvc.ItemProviderServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="RackDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Dtos")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RackDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Provider.Dtos")]
     [System.SerializableAttribute()]
     public partial class RackDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         

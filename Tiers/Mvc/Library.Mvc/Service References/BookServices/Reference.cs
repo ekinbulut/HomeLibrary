@@ -15,7 +15,7 @@ namespace Library.Mvc.BookServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="BookOutputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Dtos")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BookOutputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Book.Dtos")]
     [System.SerializableAttribute()]
     public partial class BookOutputDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -60,7 +60,7 @@ namespace Library.Mvc.BookServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="BookDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Dtos")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BookDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Book.Dtos")]
     [System.SerializableAttribute()]
     public partial class BookDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -265,7 +265,7 @@ namespace Library.Mvc.BookServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="BookInputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Dtos")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BookInputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Book.Dtos")]
     [System.SerializableAttribute()]
     public partial class BookInputDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
