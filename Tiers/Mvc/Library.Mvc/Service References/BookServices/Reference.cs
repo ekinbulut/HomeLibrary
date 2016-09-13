@@ -8,22 +8,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Library.Mvc.BookServices {
-    using System.Runtime.Serialization;
-    using System;
-    
-    
+using System;
+using System.Runtime.Serialization;
+
+namespace Library.Mvc.Service_References.BookServices {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="BookOutputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Book.Dtos")]
-    [System.SerializableAttribute()]
+    [DataContract(Name="BookOutputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Book.Dtos")]
+    [Serializable()]
     public partial class BookOutputDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.NonSerializedAttribute()]
+        [NonSerialized()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Library.Mvc.BookServices.BookDto[] BooksField;
+        [OptionalField()]
+        private BookDto[] BooksField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -35,8 +34,8 @@ namespace Library.Mvc.BookServices {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Library.Mvc.BookServices.BookDto[] Books {
+        [DataMember()]
+        public BookDto[] Books {
             get {
                 return this.BooksField;
             }
@@ -60,44 +59,44 @@ namespace Library.Mvc.BookServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="BookDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Book.Dtos")]
-    [System.SerializableAttribute()]
+    [DataContract(Name="BookDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Book.Dtos")]
+    [Serializable()]
     public partial class BookDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.NonSerializedAttribute()]
+        [NonSerialized()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private string AuthorField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private string GenreField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private int IdField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private string NameField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private string NoField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private int PublishDateField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private string PublisherField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private int RackField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private string SerieField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private string ShelfField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private string SkinTypeField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -110,7 +109,7 @@ namespace Library.Mvc.BookServices {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public string Author {
             get {
                 return this.AuthorField;
@@ -123,7 +122,7 @@ namespace Library.Mvc.BookServices {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public string Genre {
             get {
                 return this.GenreField;
@@ -136,7 +135,7 @@ namespace Library.Mvc.BookServices {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public int Id {
             get {
                 return this.IdField;
@@ -149,7 +148,7 @@ namespace Library.Mvc.BookServices {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public string Name {
             get {
                 return this.NameField;
@@ -162,7 +161,7 @@ namespace Library.Mvc.BookServices {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public string No {
             get {
                 return this.NoField;
@@ -175,7 +174,7 @@ namespace Library.Mvc.BookServices {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public int PublishDate {
             get {
                 return this.PublishDateField;
@@ -188,7 +187,7 @@ namespace Library.Mvc.BookServices {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public string Publisher {
             get {
                 return this.PublisherField;
@@ -201,7 +200,7 @@ namespace Library.Mvc.BookServices {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public int Rack {
             get {
                 return this.RackField;
@@ -214,7 +213,7 @@ namespace Library.Mvc.BookServices {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public string Serie {
             get {
                 return this.SerieField;
@@ -227,7 +226,7 @@ namespace Library.Mvc.BookServices {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public string Shelf {
             get {
                 return this.ShelfField;
@@ -240,7 +239,7 @@ namespace Library.Mvc.BookServices {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public string SkinType {
             get {
                 return this.SkinTypeField;
@@ -265,41 +264,41 @@ namespace Library.Mvc.BookServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="BookInputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Book.Dtos")]
-    [System.SerializableAttribute()]
+    [DataContract(Name="BookInputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Book.Dtos")]
+    [Serializable()]
     public partial class BookInputDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.NonSerializedAttribute()]
+        [NonSerialized()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private int AuthorField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private int GenreField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private string NameField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private string NoField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private int PublishDateField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private int PublisherField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private int RackField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private int SerieField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private int ShelfField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private int SkinTypeField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -312,7 +311,7 @@ namespace Library.Mvc.BookServices {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public int Author {
             get {
                 return this.AuthorField;
@@ -325,7 +324,7 @@ namespace Library.Mvc.BookServices {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public int Genre {
             get {
                 return this.GenreField;
@@ -338,7 +337,7 @@ namespace Library.Mvc.BookServices {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public string Name {
             get {
                 return this.NameField;
@@ -351,7 +350,7 @@ namespace Library.Mvc.BookServices {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public string No {
             get {
                 return this.NoField;
@@ -364,7 +363,7 @@ namespace Library.Mvc.BookServices {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public int PublishDate {
             get {
                 return this.PublishDateField;
@@ -377,7 +376,7 @@ namespace Library.Mvc.BookServices {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public int Publisher {
             get {
                 return this.PublisherField;
@@ -390,7 +389,7 @@ namespace Library.Mvc.BookServices {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public int Rack {
             get {
                 return this.RackField;
@@ -403,7 +402,7 @@ namespace Library.Mvc.BookServices {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public int Serie {
             get {
                 return this.SerieField;
@@ -416,7 +415,7 @@ namespace Library.Mvc.BookServices {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public int Shelf {
             get {
                 return this.ShelfField;
@@ -429,7 +428,7 @@ namespace Library.Mvc.BookServices {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public int SkinType {
             get {
                 return this.SkinTypeField;
@@ -457,31 +456,31 @@ namespace Library.Mvc.BookServices {
     public interface BookService {
         
         [System.ServiceModel.OperationContractAttribute(Action="com.sense.services.Services/BookService/GetBookList", ReplyAction="com.sense.services.Services/BookService/GetBookListResponse")]
-        Library.Mvc.BookServices.BookOutputDto GetBookList();
+        BookOutputDto GetBookList();
         
         [System.ServiceModel.OperationContractAttribute(Action="com.sense.services.Services/BookService/GetBookList", ReplyAction="com.sense.services.Services/BookService/GetBookListResponse")]
-        System.Threading.Tasks.Task<Library.Mvc.BookServices.BookOutputDto> GetBookListAsync();
+        System.Threading.Tasks.Task<BookOutputDto> GetBookListAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="com.sense.services.Services/BookService/AddBook", ReplyAction="com.sense.services.Services/BookService/AddBookResponse")]
-        bool AddBook(Library.Mvc.BookServices.BookInputDto input);
+        bool AddBook(BookInputDto input);
         
         [System.ServiceModel.OperationContractAttribute(Action="com.sense.services.Services/BookService/AddBook", ReplyAction="com.sense.services.Services/BookService/AddBookResponse")]
-        System.Threading.Tasks.Task<bool> AddBookAsync(Library.Mvc.BookServices.BookInputDto input);
+        System.Threading.Tasks.Task<bool> AddBookAsync(BookInputDto input);
         
         [System.ServiceModel.OperationContractAttribute(Action="com.sense.services.Services/BookService/UpdateBook", ReplyAction="com.sense.services.Services/BookService/UpdateBookResponse")]
-        bool UpdateBook(Library.Mvc.BookServices.BookDto input);
+        bool UpdateBook(BookDto input);
         
         [System.ServiceModel.OperationContractAttribute(Action="com.sense.services.Services/BookService/UpdateBook", ReplyAction="com.sense.services.Services/BookService/UpdateBookResponse")]
-        System.Threading.Tasks.Task<bool> UpdateBookAsync(Library.Mvc.BookServices.BookDto input);
+        System.Threading.Tasks.Task<bool> UpdateBookAsync(BookDto input);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface BookServiceChannel : Library.Mvc.BookServices.BookService, System.ServiceModel.IClientChannel {
+    public interface BookServiceChannel : BookService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class BookServiceClient : System.ServiceModel.ClientBase<Library.Mvc.BookServices.BookService>, Library.Mvc.BookServices.BookService {
+    public partial class BookServiceClient : System.ServiceModel.ClientBase<BookService>, BookService {
         
         public BookServiceClient() {
         }
@@ -502,27 +501,27 @@ namespace Library.Mvc.BookServices {
                 base(binding, remoteAddress) {
         }
         
-        public Library.Mvc.BookServices.BookOutputDto GetBookList() {
+        public BookOutputDto GetBookList() {
             return base.Channel.GetBookList();
         }
         
-        public System.Threading.Tasks.Task<Library.Mvc.BookServices.BookOutputDto> GetBookListAsync() {
+        public System.Threading.Tasks.Task<BookOutputDto> GetBookListAsync() {
             return base.Channel.GetBookListAsync();
         }
         
-        public bool AddBook(Library.Mvc.BookServices.BookInputDto input) {
+        public bool AddBook(BookInputDto input) {
             return base.Channel.AddBook(input);
         }
         
-        public System.Threading.Tasks.Task<bool> AddBookAsync(Library.Mvc.BookServices.BookInputDto input) {
+        public System.Threading.Tasks.Task<bool> AddBookAsync(BookInputDto input) {
             return base.Channel.AddBookAsync(input);
         }
         
-        public bool UpdateBook(Library.Mvc.BookServices.BookDto input) {
+        public bool UpdateBook(BookDto input) {
             return base.Channel.UpdateBook(input);
         }
         
-        public System.Threading.Tasks.Task<bool> UpdateBookAsync(Library.Mvc.BookServices.BookDto input) {
+        public System.Threading.Tasks.Task<bool> UpdateBookAsync(BookDto input) {
             return base.Channel.UpdateBookAsync(input);
         }
     }

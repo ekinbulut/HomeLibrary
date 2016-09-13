@@ -1,9 +1,9 @@
-using Library.DataLayer.Entities;
+using Library.Data.Entities;
 using SenseFramework.Data.EntityFramework.TypeConfigurationBase;
 
-namespace Library.DataLayer.Mappings
+namespace Library.Data.Mappings
 {
-    class EShelfConfiguration : EntityTypeConfigurationBase<EShelf,int>
+    public class EShelfConfiguration : EntityTypeConfigurationBase<EShelf,int>
     {
         public EShelfConfiguration():base("shelf")
         {

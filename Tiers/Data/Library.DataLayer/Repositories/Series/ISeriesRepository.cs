@@ -1,7 +1,7 @@
-﻿using Library.DataLayer.Entities;
+﻿using Library.Data.Entities;
 using SenseFramework.Data.EntityFramework.Repositories;
 
-namespace Library.DataLayer.Repositories.Series
+namespace Library.Data.Repositories.Series
 {
     public interface ISeriesRepository : IRepository<ESeries,int>
     {

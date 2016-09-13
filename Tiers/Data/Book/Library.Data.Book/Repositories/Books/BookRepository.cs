@@ -1,10 +1,10 @@
 ﻿using System.Data.Entity;
 using System.Linq;
 using Castle.Core.Logging;
-using Library.DataLayer.Entities;
+using Library.Data.Entities;
 using SenseFramework.Data.EntityFramework.Repositories;
 
-namespace Library.DataLayer.Repositories.Books
+namespace Library.Data.Book.Repositories.Books
 {
     public class BookRepository : EfRepositoryBase<EBook,int>, IBookRepository
     {

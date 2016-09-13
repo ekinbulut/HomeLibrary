@@ -1,7 +1,7 @@
-﻿using Library.DataLayer.Entities;
+﻿using Library.Data.Entities;
 using SenseFramework.Data.EntityFramework.Repositories;
 
-namespace Library.DataLayer.Repositories.Shelfs
+namespace Library.Data.Repositories.Shelfs
 {
     public interface IShelfRepository :IRepository<EShelf,int>
     {

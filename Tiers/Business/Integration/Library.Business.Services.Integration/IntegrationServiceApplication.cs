@@ -4,15 +4,15 @@ using Castle.Core.Internal;
 using Castle.Core.Logging;
 using Library.Business.Services.Integration.Dtos;
 using Library.Business.Services.Integration.Parser;
-using Library.DataLayer.Entities;
-using Library.DataLayer.Enums;
-using Library.DataLayer.Repositories.Authors;
-using Library.DataLayer.Repositories.Books;
-using Library.DataLayer.Repositories.Genres;
-using Library.DataLayer.Repositories.Publishers;
-using Library.DataLayer.Repositories.Racks;
-using Library.DataLayer.Repositories.Series;
-using Library.DataLayer.Repositories.Shelfs;
+using Library.Data.Book.Repositories.Books;
+using Library.Data.Entities;
+using Library.Data.Enums;
+using Library.Data.Repositories.Authors;
+using Library.Data.Repositories.Genres;
+using Library.Data.Repositories.Publishers;
+using Library.Data.Repositories.Racks;
+using Library.Data.Repositories.Series;
+using Library.Data.Repositories.Shelfs;
 
 namespace Library.Business.Services.Integration
 {

@@ -8,23 +8,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Library.Mvc.IntegrationServices {
-    using System.Runtime.Serialization;
-    using System;
-    
-    
+using System;
+using System.Runtime.Serialization;
+
+namespace Library.Mvc.Service_References.IntegrationServices {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="IntegrationInputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Integration.Dto" +
+    [DataContract(Name="IntegrationInputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Integration.Dto" +
         "s")]
-    [System.SerializableAttribute()]
+    [Serializable()]
     public partial class IntegrationInputDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.NonSerializedAttribute()]
+        [NonSerialized()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Library.Mvc.IntegrationServices.IntegrationDto IntegrationDtoField;
+        [OptionalField()]
+        private IntegrationDto IntegrationDtoField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -36,8 +35,8 @@ namespace Library.Mvc.IntegrationServices {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Library.Mvc.IntegrationServices.IntegrationDto IntegrationDto {
+        [DataMember()]
+        public IntegrationDto IntegrationDto {
             get {
                 return this.IntegrationDtoField;
             }
@@ -61,15 +60,15 @@ namespace Library.Mvc.IntegrationServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="IntegrationDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Integration.Dto" +
+    [DataContract(Name="IntegrationDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Integration.Dto" +
         "s")]
-    [System.SerializableAttribute()]
+    [Serializable()]
     public partial class IntegrationDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.NonSerializedAttribute()]
+        [NonSerialized()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private string FilePathField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -82,7 +81,7 @@ namespace Library.Mvc.IntegrationServices {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public string FilePath {
             get {
                 return this.FilePathField;
@@ -107,16 +106,16 @@ namespace Library.Mvc.IntegrationServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AuthorInputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Integration.Dto" +
+    [DataContract(Name="AuthorInputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Integration.Dto" +
         "s")]
-    [System.SerializableAttribute()]
+    [Serializable()]
     public partial class AuthorInputDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.NonSerializedAttribute()]
+        [NonSerialized()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Library.Mvc.IntegrationServices.AuthorDto AuthorDtoField;
+        [OptionalField()]
+        private AuthorDto AuthorDtoField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -128,8 +127,8 @@ namespace Library.Mvc.IntegrationServices {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Library.Mvc.IntegrationServices.AuthorDto AuthorDto {
+        [DataMember()]
+        public AuthorDto AuthorDto {
             get {
                 return this.AuthorDtoField;
             }
@@ -153,18 +152,18 @@ namespace Library.Mvc.IntegrationServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AuthorDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Integration.Dto" +
+    [DataContract(Name="AuthorDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Integration.Dto" +
         "s")]
-    [System.SerializableAttribute()]
+    [Serializable()]
     public partial class AuthorDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.NonSerializedAttribute()]
+        [NonSerialized()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private string NameField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private int ValueField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -177,7 +176,7 @@ namespace Library.Mvc.IntegrationServices {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public string Name {
             get {
                 return this.NameField;
@@ -190,7 +189,7 @@ namespace Library.Mvc.IntegrationServices {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public int Value {
             get {
                 return this.ValueField;
@@ -215,18 +214,18 @@ namespace Library.Mvc.IntegrationServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="PublisherInputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Integration.Dto" +
+    [DataContract(Name="PublisherInputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Integration.Dto" +
         "s")]
-    [System.SerializableAttribute()]
+    [Serializable()]
     public partial class PublisherInputDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.NonSerializedAttribute()]
+        [NonSerialized()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private string PublisherNameField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private string SeriesNameField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -239,7 +238,7 @@ namespace Library.Mvc.IntegrationServices {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public string PublisherName {
             get {
                 return this.PublisherNameField;
@@ -252,7 +251,7 @@ namespace Library.Mvc.IntegrationServices {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public string SeriesName {
             get {
                 return this.SeriesNameField;
@@ -280,31 +279,31 @@ namespace Library.Mvc.IntegrationServices {
     public interface IntegrationService {
         
         [System.ServiceModel.OperationContractAttribute(Action="com.sense.business.Services/IntegrationService/Import", ReplyAction="com.sense.business.Services/IntegrationService/ImportResponse")]
-        bool Import(Library.Mvc.IntegrationServices.IntegrationInputDto input);
+        bool Import(IntegrationInputDto input);
         
         [System.ServiceModel.OperationContractAttribute(Action="com.sense.business.Services/IntegrationService/Import", ReplyAction="com.sense.business.Services/IntegrationService/ImportResponse")]
-        System.Threading.Tasks.Task<bool> ImportAsync(Library.Mvc.IntegrationServices.IntegrationInputDto input);
+        System.Threading.Tasks.Task<bool> ImportAsync(IntegrationInputDto input);
         
         [System.ServiceModel.OperationContractAttribute(Action="com.sense.business.Services/IntegrationService/CreateAuthor", ReplyAction="com.sense.business.Services/IntegrationService/CreateAuthorResponse")]
-        bool CreateAuthor(Library.Mvc.IntegrationServices.AuthorInputDto input);
+        bool CreateAuthor(AuthorInputDto input);
         
         [System.ServiceModel.OperationContractAttribute(Action="com.sense.business.Services/IntegrationService/CreateAuthor", ReplyAction="com.sense.business.Services/IntegrationService/CreateAuthorResponse")]
-        System.Threading.Tasks.Task<bool> CreateAuthorAsync(Library.Mvc.IntegrationServices.AuthorInputDto input);
+        System.Threading.Tasks.Task<bool> CreateAuthorAsync(AuthorInputDto input);
         
         [System.ServiceModel.OperationContractAttribute(Action="com.sense.business.Services/IntegrationService/CreatePublisher", ReplyAction="com.sense.business.Services/IntegrationService/CreatePublisherResponse")]
-        bool CreatePublisher(Library.Mvc.IntegrationServices.PublisherInputDto input);
+        bool CreatePublisher(PublisherInputDto input);
         
         [System.ServiceModel.OperationContractAttribute(Action="com.sense.business.Services/IntegrationService/CreatePublisher", ReplyAction="com.sense.business.Services/IntegrationService/CreatePublisherResponse")]
-        System.Threading.Tasks.Task<bool> CreatePublisherAsync(Library.Mvc.IntegrationServices.PublisherInputDto input);
+        System.Threading.Tasks.Task<bool> CreatePublisherAsync(PublisherInputDto input);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IntegrationServiceChannel : Library.Mvc.IntegrationServices.IntegrationService, System.ServiceModel.IClientChannel {
+    public interface IntegrationServiceChannel : IntegrationService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class IntegrationServiceClient : System.ServiceModel.ClientBase<Library.Mvc.IntegrationServices.IntegrationService>, Library.Mvc.IntegrationServices.IntegrationService {
+    public partial class IntegrationServiceClient : System.ServiceModel.ClientBase<IntegrationService>, IntegrationService {
         
         public IntegrationServiceClient() {
         }
@@ -325,27 +324,27 @@ namespace Library.Mvc.IntegrationServices {
                 base(binding, remoteAddress) {
         }
         
-        public bool Import(Library.Mvc.IntegrationServices.IntegrationInputDto input) {
+        public bool Import(IntegrationInputDto input) {
             return base.Channel.Import(input);
         }
         
-        public System.Threading.Tasks.Task<bool> ImportAsync(Library.Mvc.IntegrationServices.IntegrationInputDto input) {
+        public System.Threading.Tasks.Task<bool> ImportAsync(IntegrationInputDto input) {
             return base.Channel.ImportAsync(input);
         }
         
-        public bool CreateAuthor(Library.Mvc.IntegrationServices.AuthorInputDto input) {
+        public bool CreateAuthor(AuthorInputDto input) {
             return base.Channel.CreateAuthor(input);
         }
         
-        public System.Threading.Tasks.Task<bool> CreateAuthorAsync(Library.Mvc.IntegrationServices.AuthorInputDto input) {
+        public System.Threading.Tasks.Task<bool> CreateAuthorAsync(AuthorInputDto input) {
             return base.Channel.CreateAuthorAsync(input);
         }
         
-        public bool CreatePublisher(Library.Mvc.IntegrationServices.PublisherInputDto input) {
+        public bool CreatePublisher(PublisherInputDto input) {
             return base.Channel.CreatePublisher(input);
         }
         
-        public System.Threading.Tasks.Task<bool> CreatePublisherAsync(Library.Mvc.IntegrationServices.PublisherInputDto input) {
+        public System.Threading.Tasks.Task<bool> CreatePublisherAsync(PublisherInputDto input) {
             return base.Channel.CreatePublisherAsync(input);
         }
     }

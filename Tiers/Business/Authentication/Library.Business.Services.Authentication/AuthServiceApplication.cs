@@ -1,7 +1,7 @@
 ﻿using System;
 using Library.Business.Services.Authentication.Dtos;
-using Library.DataLayer.Entities;
-using Library.DataLayer.Repositories.Users;
+using Library.Data.Athentication.Entities;
+using Library.Data.Athentication.Repositories.Users;
 
 namespace Library.Business.Services.Authentication
 {

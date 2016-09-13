@@ -1,10 +1,10 @@
 ﻿using System.Data.Entity;
 using System.Linq;
 using Castle.Core.Logging;
-using Library.DataLayer.Entities;
+using Library.Data.Entities;
 using SenseFramework.Data.EntityFramework.Repositories;
 
-namespace Library.DataLayer.Repositories.Series
+namespace Library.Data.Repositories.Series
 {
     public class SeriesRepository : EfRepositoryBase<ESeries,int> , ISeriesRepository
     {

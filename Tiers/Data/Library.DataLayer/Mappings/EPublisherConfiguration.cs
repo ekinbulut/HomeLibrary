@@ -1,9 +1,9 @@
-using Library.DataLayer.Entities;
+using Library.Data.Entities;
 using SenseFramework.Data.EntityFramework.TypeConfigurationBase;
 
-namespace Library.DataLayer.Mappings
+namespace Library.Data.Mappings
 {
-    class EPublisherConfiguration : EntityTypeConfigurationBase<EPublisher,int>
+    public class EPublisherConfiguration : EntityTypeConfigurationBase<EPublisher,int>
     {
         public EPublisherConfiguration():base("Publisher")
         {

@@ -42,8 +42,9 @@
       <HintPath>..\..\..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SenseFramework.Data.EntityFramework">
-      <HintPath>..\..\..\..\SenseFramework\SenseFramework\Data\EntityFramework\SenseFramework.Data.EntityFramework\bin\Debug\SenseFramework.Data.EntityFramework.dll</HintPath>
+    <Reference Include="SenseFramework.Data.EntityFramework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\SenseFramework\SenseFramework\Data\EntityFramework\SenseFramework.Data.EntityFramework\bin\Debug\SenseFramework.Data.EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="SenseFramework.Services">
       <HintPath>..\..\..\..\SenseFramework\SenseFramework\Business\SenseFramework.Services\bin\Debug\SenseFramework.Services.dll</HintPath>
@@ -78,6 +79,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Data\Book\Library.Data.Book\Library.Data.Book.csproj">
+      <Project>{5351d25e-ac4e-466e-b65e-1506b1432f10}</Project>
+      <Name>Library.Data.Book</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Data\Library.DataLayer\Library.DataLayer.csproj">
       <Project>{75742107-3652-4B3F-93D3-E1DF7064D58F}</Project>
       <Name>Library.DataLayer</Name>

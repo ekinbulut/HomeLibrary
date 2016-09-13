@@ -4,10 +4,10 @@
 */
 
 using System.ServiceModel;
-using Library.Mvc.AuthenticationServices;
-using Library.Mvc.BookServices;
-using Library.Mvc.IntegrationServices;
-using Library.Mvc.ItemProviderServices;
+using Library.Mvc.Service_References.AuthenticationServices;
+using Library.Mvc.Service_References.BookServices;
+using Library.Mvc.Service_References.IntegrationServices;
+using Library.Mvc.Service_References.ItemProviderServices;
 
 
 namespace Library.Mvc.Providers

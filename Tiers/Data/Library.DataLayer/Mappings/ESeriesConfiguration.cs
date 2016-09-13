@@ -1,9 +1,9 @@
-﻿using Library.DataLayer.Entities;
+﻿using Library.Data.Entities;
 using SenseFramework.Data.EntityFramework.TypeConfigurationBase;
 
-namespace Library.DataLayer.Mappings
+namespace Library.Data.Mappings
 {
-    class ESeriesConfiguration : EntityTypeConfigurationBase<ESeries,int>
+    public class ESeriesConfiguration : EntityTypeConfigurationBase<ESeries,int>
     {
         public ESeriesConfiguration():base("Series")
         {

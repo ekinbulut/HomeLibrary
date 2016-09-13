@@ -1,4 +1,4 @@
-namespace Library.DataLayer.Enums
+namespace Library.Data.Enums
 {
     public enum SkinType
     {

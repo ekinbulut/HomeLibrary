@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
 using Library.Business.Services.Book.Dtos;
-using Library.DataLayer.Entities;
-using Library.DataLayer.Enums;
-using Library.DataLayer.Repositories.Books;
+using Library.Data.Book.Repositories.Books;
+using Library.Data.Entities;
+using Library.Data.Enums;
 
 namespace Library.Business.Services.Book
 {

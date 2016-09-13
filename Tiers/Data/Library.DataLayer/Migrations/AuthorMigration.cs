@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Linq;
-using Library.DataLayer.Entities;
-using Library.DataLayer.Repositories.Authors;
-using Library.DataLayer.Repositories.Migrations;
-using SenseFramework.Data.EntityFramework.Migrations;
+using Library.Data.Entities;
+using Library.Data.Repositories.Authors;
+using SenseFramework.Data.EntityFramework.DataMigrations;
+using SenseFramework.Data.EntityFramework.Entities;
+using SenseFramework.Data.EntityFramework.Repositories.Migration;
 
-namespace Library.DataLayer.Migrations
+namespace Library.Data.Migrations
 {
     public class AuthorMigration : IDataMigration
     {

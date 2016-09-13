@@ -1,7 +1,7 @@
-﻿using Library.DataLayer.Entities;
+﻿using Library.Data.Entities;
 using SenseFramework.Data.EntityFramework.Repositories;
 
-namespace Library.DataLayer.Repositories.Genres
+namespace Library.Data.Repositories.Genres
 {
     public interface IGenreRepository  : IRepository<EGenre,int>
     {

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Configuration;
 using System.ServiceModel;
-using System.ServiceModel.Activation;
-using System.ServiceModel.Description;
 using Castle.Facilities.WcfIntegration;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;

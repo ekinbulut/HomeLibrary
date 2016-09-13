@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using SenseFramework.Data.EntityFramework.EntityBases;
 
-namespace Library.DataLayer.Entities
+namespace Library.Data.Entities
 {
     public class ERack : Entity<int>
     {

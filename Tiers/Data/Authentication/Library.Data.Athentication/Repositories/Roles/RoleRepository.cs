@@ -1,9 +1,9 @@
 ﻿using System.Data.Entity;
 using Castle.Core.Logging;
-using Library.DataLayer.Entities;
+using Library.Data.Athentication.Entities;
 using SenseFramework.Data.EntityFramework.Repositories;
 
-namespace Library.DataLayer.Repositories.Roles
+namespace Library.Data.Athentication.Repositories.Roles
 {
     public class RoleRepository : EfRepositoryBase<ERole,int> , IRoleRepository
     {

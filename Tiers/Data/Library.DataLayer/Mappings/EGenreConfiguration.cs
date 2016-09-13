@@ -1,9 +1,9 @@
-﻿using Library.DataLayer.Entities;
+﻿using Library.Data.Entities;
 using SenseFramework.Data.EntityFramework.TypeConfigurationBase;
 
-namespace Library.DataLayer.Mappings
+namespace Library.Data.Mappings
 {
-    class EGenreConfiguration : EntityTypeConfigurationBase<EGenre,int>
+    public class EGenreConfiguration : EntityTypeConfigurationBase<EGenre,int>
     {
         public EGenreConfiguration(): base("Genre")
         {

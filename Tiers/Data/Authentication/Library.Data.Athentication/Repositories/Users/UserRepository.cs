@@ -1,10 +1,10 @@
 ﻿using System.Data.Entity;
 using System.Linq;
 using Castle.Core.Logging;
-using Library.DataLayer.Entities;
+using Library.Data.Athentication.Entities;
 using SenseFramework.Data.EntityFramework.Repositories;
 
-namespace Library.DataLayer.Repositories.Users
+namespace Library.Data.Athentication.Repositories.Users
 {
     public class UserRepository : EfRepositoryBase<EUser,int> , IUserRepository
     {

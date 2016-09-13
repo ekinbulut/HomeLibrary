@@ -42,8 +42,9 @@
       <HintPath>..\..\..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SenseFramework.Data.EntityFramework">
-      <HintPath>..\..\..\..\SenseFramework\SenseFramework\Data\EntityFramework\SenseFramework.Data.EntityFramework\bin\Debug\SenseFramework.Data.EntityFramework.dll</HintPath>
+    <Reference Include="SenseFramework.Data.EntityFramework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\SenseFramework\SenseFramework\Data\EntityFramework\SenseFramework.Data.EntityFramework\bin\Debug\SenseFramework.Data.EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="SenseFramework.Services">
       <HintPath>..\..\..\..\SenseFramework\SenseFramework\Business\SenseFramework.Services\bin\Debug\SenseFramework.Services.dll</HintPath>

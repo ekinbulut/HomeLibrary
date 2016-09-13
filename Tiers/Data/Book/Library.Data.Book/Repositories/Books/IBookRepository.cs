@@ -1,7 +1,7 @@
-﻿using Library.DataLayer.Entities;
+﻿using Library.Data.Entities;
 using SenseFramework.Data.EntityFramework.Repositories;
 
-namespace Library.DataLayer.Repositories.Books
+namespace Library.Data.Book.Repositories.Books
 {
     public interface IBookRepository : IRepository<EBook,int>
     {

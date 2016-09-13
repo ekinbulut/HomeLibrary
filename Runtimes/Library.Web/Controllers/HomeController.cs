@@ -1,9 +1,9 @@
 ﻿using System.Web.Mvc;
-using Library.Mvc.BookServices;
 using Library.Mvc.Cache;
 using Library.Mvc.Controllers;
-using Library.Mvc.IntegrationServices;
 using Library.Mvc.Models;
+using Library.Mvc.Service_References.BookServices;
+using Library.Mvc.Service_References.IntegrationServices;
 
 
 namespace Library.Web.Controllers

@@ -1,7 +1,7 @@
-﻿using Library.DataLayer.Enums;
+﻿using Library.Data.Enums;
 using SenseFramework.Data.EntityFramework.EntityBases;
 
-namespace Library.DataLayer.Entities
+namespace Library.Data.Entities
 {
     public class EBook : Entity<int>
     {

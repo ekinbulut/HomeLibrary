@@ -1,7 +1,7 @@
-﻿using Library.DataLayer.Entities;
+﻿using Library.Data.Entities;
 using SenseFramework.Data.EntityFramework.Repositories;
 
-namespace Library.DataLayer.Repositories.Publishers
+namespace Library.Data.Repositories.Publishers
 {
     public interface IPublisherRepository : IRepository<EPublisher,int>
     {

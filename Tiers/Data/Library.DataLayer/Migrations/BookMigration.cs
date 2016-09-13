@@ -6,12 +6,13 @@ using Library.DataLayer.Enums;
 using Library.DataLayer.Repositories.Authors;
 using Library.DataLayer.Repositories.Books;
 using Library.DataLayer.Repositories.Genres;
-using Library.DataLayer.Repositories.Migrations;
 using Library.DataLayer.Repositories.Publishers;
 using Library.DataLayer.Repositories.Racks;
 using Library.DataLayer.Repositories.Series;
 using Library.DataLayer.Repositories.Shelfs;
-using SenseFramework.Data.EntityFramework.Migrations;
+using SenseFramework.Data.EntityFramework.DataMigrations;
+using SenseFramework.Data.EntityFramework.Entities;
+using SenseFramework.Data.EntityFramework.Repositories.Migration;
 
 namespace Library.DataLayer.Migrations
 {

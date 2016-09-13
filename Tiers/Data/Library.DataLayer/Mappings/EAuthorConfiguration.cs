@@ -1,9 +1,9 @@
-﻿using Library.DataLayer.Entities;
+﻿using Library.Data.Entities;
 using SenseFramework.Data.EntityFramework.TypeConfigurationBase;
 
-namespace Library.DataLayer.Mappings
+namespace Library.Data.Mappings
 {
-    class EAuthorConfiguration : EntityTypeConfigurationBase<EAuthor,int>
+    public class EAuthorConfiguration : EntityTypeConfigurationBase<EAuthor,int>
     {
         public EAuthorConfiguration():base("Author")
         {

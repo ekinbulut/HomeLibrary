@@ -8,23 +8,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Library.Mvc.AuthenticationServices {
-    using System.Runtime.Serialization;
-    using System;
-    
-    
+using System;
+using System.Runtime.Serialization;
+
+namespace Library.Mvc.Service_References.AuthenticationServices {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="UserInputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Authentication." +
+    [DataContract(Name="UserInputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Authentication." +
         "Dtos")]
-    [System.SerializableAttribute()]
+    [Serializable()]
     public partial class UserInputDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.NonSerializedAttribute()]
+        [NonSerialized()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Library.Mvc.AuthenticationServices.UserDto UserField;
+        [OptionalField()]
+        private UserDto UserField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -36,8 +35,8 @@ namespace Library.Mvc.AuthenticationServices {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Library.Mvc.AuthenticationServices.UserDto User {
+        [DataMember()]
+        public UserDto User {
             get {
                 return this.UserField;
             }
@@ -61,18 +60,18 @@ namespace Library.Mvc.AuthenticationServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="UserDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Authentication." +
+    [DataContract(Name="UserDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Authentication." +
         "Dtos")]
-    [System.SerializableAttribute()]
+    [Serializable()]
     public partial class UserDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.NonSerializedAttribute()]
+        [NonSerialized()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private string PasswordField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private string UsernameField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -85,7 +84,7 @@ namespace Library.Mvc.AuthenticationServices {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public string Password {
             get {
                 return this.PasswordField;
@@ -98,7 +97,7 @@ namespace Library.Mvc.AuthenticationServices {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public string Username {
             get {
                 return this.UsernameField;
@@ -123,24 +122,24 @@ namespace Library.Mvc.AuthenticationServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="UserOutputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Authentication." +
+    [DataContract(Name="UserOutputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Authentication." +
         "Dtos")]
-    [System.SerializableAttribute()]
+    [Serializable()]
     public partial class UserOutputDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.NonSerializedAttribute()]
+        [NonSerialized()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private string GenderField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private System.Nullable<System.DateTime> LastLoginDateField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private string NameField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private string OccupationField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -153,7 +152,7 @@ namespace Library.Mvc.AuthenticationServices {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public string Gender {
             get {
                 return this.GenderField;
@@ -166,7 +165,7 @@ namespace Library.Mvc.AuthenticationServices {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public System.Nullable<System.DateTime> LastLoginDate {
             get {
                 return this.LastLoginDateField;
@@ -179,7 +178,7 @@ namespace Library.Mvc.AuthenticationServices {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public string Name {
             get {
                 return this.NameField;
@@ -192,7 +191,7 @@ namespace Library.Mvc.AuthenticationServices {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public string Occupation {
             get {
                 return this.OccupationField;
@@ -220,19 +219,19 @@ namespace Library.Mvc.AuthenticationServices {
     public interface AuthService {
         
         [System.ServiceModel.OperationContractAttribute(Action="com.sense.services.Services/AuthService/Authenticate", ReplyAction="com.sense.services.Services/AuthService/AuthenticateResponse")]
-        Library.Mvc.AuthenticationServices.UserOutputDto Authenticate(Library.Mvc.AuthenticationServices.UserInputDto input);
+        UserOutputDto Authenticate(UserInputDto input);
         
         [System.ServiceModel.OperationContractAttribute(Action="com.sense.services.Services/AuthService/Authenticate", ReplyAction="com.sense.services.Services/AuthService/AuthenticateResponse")]
-        System.Threading.Tasks.Task<Library.Mvc.AuthenticationServices.UserOutputDto> AuthenticateAsync(Library.Mvc.AuthenticationServices.UserInputDto input);
+        System.Threading.Tasks.Task<UserOutputDto> AuthenticateAsync(UserInputDto input);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface AuthServiceChannel : Library.Mvc.AuthenticationServices.AuthService, System.ServiceModel.IClientChannel {
+    public interface AuthServiceChannel : AuthService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class AuthServiceClient : System.ServiceModel.ClientBase<Library.Mvc.AuthenticationServices.AuthService>, Library.Mvc.AuthenticationServices.AuthService {
+    public partial class AuthServiceClient : System.ServiceModel.ClientBase<AuthService>, AuthService {
         
         public AuthServiceClient() {
         }
@@ -253,11 +252,11 @@ namespace Library.Mvc.AuthenticationServices {
                 base(binding, remoteAddress) {
         }
         
-        public Library.Mvc.AuthenticationServices.UserOutputDto Authenticate(Library.Mvc.AuthenticationServices.UserInputDto input) {
+        public UserOutputDto Authenticate(UserInputDto input) {
             return base.Channel.Authenticate(input);
         }
         
-        public System.Threading.Tasks.Task<Library.Mvc.AuthenticationServices.UserOutputDto> AuthenticateAsync(Library.Mvc.AuthenticationServices.UserInputDto input) {
+        public System.Threading.Tasks.Task<UserOutputDto> AuthenticateAsync(UserInputDto input) {
             return base.Channel.AuthenticateAsync(input);
         }
     }

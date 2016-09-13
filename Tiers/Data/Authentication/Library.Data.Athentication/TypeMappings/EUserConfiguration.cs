@@ -1,9 +1,9 @@
-﻿using Library.DataLayer.Entities;
+﻿using Library.Data.Athentication.Entities;
 using SenseFramework.Data.EntityFramework.TypeConfigurationBase;
 
-namespace Library.DataLayer.Mappings
+namespace Library.Data.Athentication.TypeMappings
 {
-    internal class EUserConfiguration : EntityTypeConfigurationBase<EUser,int>
+    public class EUserConfiguration : EntityTypeConfigurationBase<EUser,int>
     {
         public EUserConfiguration():base("USERS")
         {

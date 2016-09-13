@@ -1,7 +1,7 @@
 ﻿using System;
 using SenseFramework.Data.EntityFramework.EntityBases;
 
-namespace Library.DataLayer.Entities
+namespace Library.Data.Athentication.Entities
 {
     public class EUser : Entity<int>
     {

@@ -1,9 +1,9 @@
-﻿using Library.DataLayer.Entities;
+﻿using Library.Data.Entities;
 using SenseFramework.Data.EntityFramework.TypeConfigurationBase;
 
-namespace Library.DataLayer.Mappings
+namespace Library.Data.Book.TypeMappings
 {
-    class EBookConfiguration : EntityTypeConfigurationBase<EBook,int>
+    public class EBookConfiguration : EntityTypeConfigurationBase<EBook,int>
     {
         public EBookConfiguration():base("book")
         {

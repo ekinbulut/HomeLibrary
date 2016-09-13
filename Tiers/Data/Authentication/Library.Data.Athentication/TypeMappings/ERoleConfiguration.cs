@@ -1,9 +1,9 @@
-﻿using Library.DataLayer.Entities;
+﻿using Library.Data.Athentication.Entities;
 using SenseFramework.Data.EntityFramework.TypeConfigurationBase;
 
-namespace Library.DataLayer.Mappings
+namespace Library.Data.Athentication.TypeMappings
 {
-    internal class ERoleConfiguration : EntityTypeConfigurationBase<ERole,int>
+    public class ERoleConfiguration : EntityTypeConfigurationBase<ERole,int>
     {
         public ERoleConfiguration():base("Roles")
         {

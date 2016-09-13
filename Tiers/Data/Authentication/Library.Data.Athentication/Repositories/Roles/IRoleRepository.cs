@@ -1,7 +1,7 @@
-using Library.DataLayer.Entities;
+using Library.Data.Athentication.Entities;
 using SenseFramework.Data.EntityFramework.Repositories;
 
-namespace Library.DataLayer.Repositories.Roles
+namespace Library.Data.Athentication.Repositories.Roles
 {
     public interface IRoleRepository : IRepository<ERole,int>
     {

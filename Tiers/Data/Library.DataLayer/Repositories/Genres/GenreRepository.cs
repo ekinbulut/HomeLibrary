@@ -1,10 +1,10 @@
 ﻿using System.Data.Entity;
 using System.Linq;
 using Castle.Core.Logging;
-using Library.DataLayer.Entities;
+using Library.Data.Entities;
 using SenseFramework.Data.EntityFramework.Repositories;
 
-namespace Library.DataLayer.Repositories.Genres
+namespace Library.Data.Repositories.Genres
 {
     public class GenreRepository : EfRepositoryBase<EGenre,int> , IGenreRepository
     {
