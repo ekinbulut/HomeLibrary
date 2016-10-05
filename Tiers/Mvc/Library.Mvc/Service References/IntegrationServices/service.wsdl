@@ -46,9 +46,9 @@
   </wsdl:binding>
   <wsdl:service name="IntegrationServiceApplication">
     <wsdl:port name="NetTcpBinding_IntegrationService" binding="tns:NetTcpBinding_IntegrationService">
-      <soap12:address location="net.tcp://192.168.0.31:8096/services/integration" />
+      <soap12:address location="net.tcp://192.168.0.22:8096/services/integration" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://192.168.0.31:8096/services/integration</wsa10:Address>
+        <wsa10:Address>net.tcp://192.168.0.22:8096/services/integration</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
   </wsdl:service>

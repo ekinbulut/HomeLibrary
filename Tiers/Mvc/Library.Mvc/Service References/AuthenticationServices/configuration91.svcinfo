@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="0Ehzemd+TKQvybBBTHzejllNXYg=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="EREBJPOZY73YNge7s7nbnxeunjI=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="netTcpBinding" name="NetTcpBinding_AuthService">
       <properties>
@@ -121,10 +121,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="NetTcpBinding_AuthService" contract="AuthenticationServices.AuthService" bindingType="netTcpBinding" address="net.tcp://192.168.0.31:8095/services/authentication" bindingConfiguration="NetTcpBinding_AuthService">
+    <endpoint name="NetTcpBinding_AuthService" contract="AuthenticationServices.AuthService" bindingType="netTcpBinding" address="net.tcp://192.168.0.22:8095/services/authentication" bindingConfiguration="NetTcpBinding_AuthService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>net.tcp://192.168.0.31:8095/services/authentication</serializedValue>
+          <serializedValue>net.tcp://192.168.0.22:8095/services/authentication</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

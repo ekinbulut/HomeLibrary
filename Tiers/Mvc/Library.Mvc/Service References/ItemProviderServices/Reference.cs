@@ -8,21 +8,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-using System.Runtime.Serialization;
-
-namespace Library.Mvc.Service_References.ItemProviderServices {
+namespace Library.Mvc.ItemProviderServices {
+    using System.Runtime.Serialization;
+    using System;
+    
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [DataContract(Name="AuthorOutputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Provider.Dtos")]
-    [Serializable()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AuthorOutputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Provider.Dtos")]
+    [System.SerializableAttribute()]
     public partial class AuthorOutputDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [NonSerialized()]
+        [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [OptionalField()]
-        private AuthorDto[] AuthorDtosField;
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Library.Mvc.ItemProviderServices.AuthorDto[] AuthorDtosField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -34,8 +35,8 @@ namespace Library.Mvc.Service_References.ItemProviderServices {
             }
         }
         
-        [DataMember()]
-        public AuthorDto[] AuthorDtos {
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Library.Mvc.ItemProviderServices.AuthorDto[] AuthorDtos {
             get {
                 return this.AuthorDtosField;
             }
@@ -59,17 +60,17 @@ namespace Library.Mvc.Service_References.ItemProviderServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [DataContract(Name="AuthorDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Provider.Dtos")]
-    [Serializable()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AuthorDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Provider.Dtos")]
+    [System.SerializableAttribute()]
     public partial class AuthorDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [NonSerialized()]
+        [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [OptionalField()]
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
         
-        [OptionalField()]
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ValueField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -82,7 +83,7 @@ namespace Library.Mvc.Service_References.ItemProviderServices {
             }
         }
         
-        [DataMember()]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Name {
             get {
                 return this.NameField;
@@ -95,7 +96,7 @@ namespace Library.Mvc.Service_References.ItemProviderServices {
             }
         }
         
-        [DataMember()]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int Value {
             get {
                 return this.ValueField;
@@ -120,15 +121,15 @@ namespace Library.Mvc.Service_References.ItemProviderServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [DataContract(Name="PublisherOutputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Provider.Dtos")]
-    [Serializable()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PublisherOutputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Provider.Dtos")]
+    [System.SerializableAttribute()]
     public partial class PublisherOutputDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [NonSerialized()]
+        [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [OptionalField()]
-        private PublisherDto[] PublisherDtosField;
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Library.Mvc.ItemProviderServices.PublisherDto[] PublisherDtosField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -140,8 +141,8 @@ namespace Library.Mvc.Service_References.ItemProviderServices {
             }
         }
         
-        [DataMember()]
-        public PublisherDto[] PublisherDtos {
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Library.Mvc.ItemProviderServices.PublisherDto[] PublisherDtos {
             get {
                 return this.PublisherDtosField;
             }
@@ -165,17 +166,17 @@ namespace Library.Mvc.Service_References.ItemProviderServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [DataContract(Name="PublisherDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Provider.Dtos")]
-    [Serializable()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PublisherDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Provider.Dtos")]
+    [System.SerializableAttribute()]
     public partial class PublisherDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [NonSerialized()]
+        [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [OptionalField()]
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
         
-        [OptionalField()]
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ValueField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -188,7 +189,7 @@ namespace Library.Mvc.Service_References.ItemProviderServices {
             }
         }
         
-        [DataMember()]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Name {
             get {
                 return this.NameField;
@@ -201,7 +202,7 @@ namespace Library.Mvc.Service_References.ItemProviderServices {
             }
         }
         
-        [DataMember()]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int Value {
             get {
                 return this.ValueField;
@@ -226,15 +227,15 @@ namespace Library.Mvc.Service_References.ItemProviderServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [DataContract(Name="GenreOutputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Provider.Dtos")]
-    [Serializable()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GenreOutputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Provider.Dtos")]
+    [System.SerializableAttribute()]
     public partial class GenreOutputDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [NonSerialized()]
+        [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [OptionalField()]
-        private GenreDto[] GenreDtosField;
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Library.Mvc.ItemProviderServices.GenreDto[] GenreDtosField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -246,8 +247,8 @@ namespace Library.Mvc.Service_References.ItemProviderServices {
             }
         }
         
-        [DataMember()]
-        public GenreDto[] GenreDtos {
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Library.Mvc.ItemProviderServices.GenreDto[] GenreDtos {
             get {
                 return this.GenreDtosField;
             }
@@ -271,17 +272,17 @@ namespace Library.Mvc.Service_References.ItemProviderServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [DataContract(Name="GenreDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Provider.Dtos")]
-    [Serializable()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GenreDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Provider.Dtos")]
+    [System.SerializableAttribute()]
     public partial class GenreDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [NonSerialized()]
+        [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [OptionalField()]
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
         
-        [OptionalField()]
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ValueField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -294,7 +295,7 @@ namespace Library.Mvc.Service_References.ItemProviderServices {
             }
         }
         
-        [DataMember()]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Name {
             get {
                 return this.NameField;
@@ -307,7 +308,7 @@ namespace Library.Mvc.Service_References.ItemProviderServices {
             }
         }
         
-        [DataMember()]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int Value {
             get {
                 return this.ValueField;
@@ -332,15 +333,15 @@ namespace Library.Mvc.Service_References.ItemProviderServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [DataContract(Name="SeriesOutputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Provider.Dtos")]
-    [Serializable()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SeriesOutputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Provider.Dtos")]
+    [System.SerializableAttribute()]
     public partial class SeriesOutputDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [NonSerialized()]
+        [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [OptionalField()]
-        private SeriesDto[] SeriesDtosField;
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Library.Mvc.ItemProviderServices.SeriesDto[] SeriesDtosField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -352,8 +353,8 @@ namespace Library.Mvc.Service_References.ItemProviderServices {
             }
         }
         
-        [DataMember()]
-        public SeriesDto[] SeriesDtos {
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Library.Mvc.ItemProviderServices.SeriesDto[] SeriesDtos {
             get {
                 return this.SeriesDtosField;
             }
@@ -377,17 +378,17 @@ namespace Library.Mvc.Service_References.ItemProviderServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [DataContract(Name="SeriesDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Provider.Dtos")]
-    [Serializable()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SeriesDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Provider.Dtos")]
+    [System.SerializableAttribute()]
     public partial class SeriesDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [NonSerialized()]
+        [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [OptionalField()]
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
         
-        [OptionalField()]
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ValueField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -400,7 +401,7 @@ namespace Library.Mvc.Service_References.ItemProviderServices {
             }
         }
         
-        [DataMember()]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Name {
             get {
                 return this.NameField;
@@ -413,7 +414,7 @@ namespace Library.Mvc.Service_References.ItemProviderServices {
             }
         }
         
-        [DataMember()]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int Value {
             get {
                 return this.ValueField;
@@ -438,15 +439,15 @@ namespace Library.Mvc.Service_References.ItemProviderServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [DataContract(Name="ShelfOutputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Provider.Dtos")]
-    [Serializable()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ShelfOutputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Provider.Dtos")]
+    [System.SerializableAttribute()]
     public partial class ShelfOutputDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [NonSerialized()]
+        [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [OptionalField()]
-        private ShelfDto[] ShelfDtosField;
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Library.Mvc.ItemProviderServices.ShelfDto[] ShelfDtosField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -458,8 +459,8 @@ namespace Library.Mvc.Service_References.ItemProviderServices {
             }
         }
         
-        [DataMember()]
-        public ShelfDto[] ShelfDtos {
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Library.Mvc.ItemProviderServices.ShelfDto[] ShelfDtos {
             get {
                 return this.ShelfDtosField;
             }
@@ -483,17 +484,17 @@ namespace Library.Mvc.Service_References.ItemProviderServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [DataContract(Name="ShelfDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Provider.Dtos")]
-    [Serializable()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ShelfDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Provider.Dtos")]
+    [System.SerializableAttribute()]
     public partial class ShelfDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [NonSerialized()]
+        [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [OptionalField()]
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
         
-        [OptionalField()]
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ValueField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -506,7 +507,7 @@ namespace Library.Mvc.Service_References.ItemProviderServices {
             }
         }
         
-        [DataMember()]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Name {
             get {
                 return this.NameField;
@@ -519,7 +520,7 @@ namespace Library.Mvc.Service_References.ItemProviderServices {
             }
         }
         
-        [DataMember()]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int Value {
             get {
                 return this.ValueField;
@@ -544,15 +545,15 @@ namespace Library.Mvc.Service_References.ItemProviderServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [DataContract(Name="RackOutputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Provider.Dtos")]
-    [Serializable()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RackOutputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Provider.Dtos")]
+    [System.SerializableAttribute()]
     public partial class RackOutputDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [NonSerialized()]
+        [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [OptionalField()]
-        private RackDto[] RackDtosField;
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Library.Mvc.ItemProviderServices.RackDto[] RackDtosField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -564,8 +565,8 @@ namespace Library.Mvc.Service_References.ItemProviderServices {
             }
         }
         
-        [DataMember()]
-        public RackDto[] RackDtos {
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Library.Mvc.ItemProviderServices.RackDto[] RackDtos {
             get {
                 return this.RackDtosField;
             }
@@ -589,17 +590,17 @@ namespace Library.Mvc.Service_References.ItemProviderServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [DataContract(Name="RackDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Provider.Dtos")]
-    [Serializable()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RackDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Provider.Dtos")]
+    [System.SerializableAttribute()]
     public partial class RackDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [NonSerialized()]
+        [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [OptionalField()]
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
         
-        [OptionalField()]
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ValueField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -612,7 +613,7 @@ namespace Library.Mvc.Service_References.ItemProviderServices {
             }
         }
         
-        [DataMember()]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Name {
             get {
                 return this.NameField;
@@ -625,7 +626,7 @@ namespace Library.Mvc.Service_References.ItemProviderServices {
             }
         }
         
-        [DataMember()]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int Value {
             get {
                 return this.ValueField;
@@ -653,49 +654,49 @@ namespace Library.Mvc.Service_References.ItemProviderServices {
     public interface ItemProviderService {
         
         [System.ServiceModel.OperationContractAttribute(Action="com.sense.business.Services/ItemProviderService/Authors", ReplyAction="com.sense.business.Services/ItemProviderService/AuthorsResponse")]
-        AuthorOutputDto Authors();
+        Library.Mvc.ItemProviderServices.AuthorOutputDto Authors();
         
         [System.ServiceModel.OperationContractAttribute(Action="com.sense.business.Services/ItemProviderService/Authors", ReplyAction="com.sense.business.Services/ItemProviderService/AuthorsResponse")]
-        System.Threading.Tasks.Task<AuthorOutputDto> AuthorsAsync();
+        System.Threading.Tasks.Task<Library.Mvc.ItemProviderServices.AuthorOutputDto> AuthorsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="com.sense.business.Services/ItemProviderService/Publishers", ReplyAction="com.sense.business.Services/ItemProviderService/PublishersResponse")]
-        PublisherOutputDto Publishers();
+        Library.Mvc.ItemProviderServices.PublisherOutputDto Publishers();
         
         [System.ServiceModel.OperationContractAttribute(Action="com.sense.business.Services/ItemProviderService/Publishers", ReplyAction="com.sense.business.Services/ItemProviderService/PublishersResponse")]
-        System.Threading.Tasks.Task<PublisherOutputDto> PublishersAsync();
+        System.Threading.Tasks.Task<Library.Mvc.ItemProviderServices.PublisherOutputDto> PublishersAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="com.sense.business.Services/ItemProviderService/Genres", ReplyAction="com.sense.business.Services/ItemProviderService/GenresResponse")]
-        GenreOutputDto Genres();
+        Library.Mvc.ItemProviderServices.GenreOutputDto Genres();
         
         [System.ServiceModel.OperationContractAttribute(Action="com.sense.business.Services/ItemProviderService/Genres", ReplyAction="com.sense.business.Services/ItemProviderService/GenresResponse")]
-        System.Threading.Tasks.Task<GenreOutputDto> GenresAsync();
+        System.Threading.Tasks.Task<Library.Mvc.ItemProviderServices.GenreOutputDto> GenresAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="com.sense.business.Services/ItemProviderService/Series", ReplyAction="com.sense.business.Services/ItemProviderService/SeriesResponse")]
-        SeriesOutputDto Series();
+        Library.Mvc.ItemProviderServices.SeriesOutputDto Series();
         
         [System.ServiceModel.OperationContractAttribute(Action="com.sense.business.Services/ItemProviderService/Series", ReplyAction="com.sense.business.Services/ItemProviderService/SeriesResponse")]
-        System.Threading.Tasks.Task<SeriesOutputDto> SeriesAsync();
+        System.Threading.Tasks.Task<Library.Mvc.ItemProviderServices.SeriesOutputDto> SeriesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="com.sense.business.Services/ItemProviderService/Shelfs", ReplyAction="com.sense.business.Services/ItemProviderService/ShelfsResponse")]
-        ShelfOutputDto Shelfs();
+        Library.Mvc.ItemProviderServices.ShelfOutputDto Shelfs();
         
         [System.ServiceModel.OperationContractAttribute(Action="com.sense.business.Services/ItemProviderService/Shelfs", ReplyAction="com.sense.business.Services/ItemProviderService/ShelfsResponse")]
-        System.Threading.Tasks.Task<ShelfOutputDto> ShelfsAsync();
+        System.Threading.Tasks.Task<Library.Mvc.ItemProviderServices.ShelfOutputDto> ShelfsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="com.sense.business.Services/ItemProviderService/Racks", ReplyAction="com.sense.business.Services/ItemProviderService/RacksResponse")]
-        RackOutputDto Racks();
+        Library.Mvc.ItemProviderServices.RackOutputDto Racks();
         
         [System.ServiceModel.OperationContractAttribute(Action="com.sense.business.Services/ItemProviderService/Racks", ReplyAction="com.sense.business.Services/ItemProviderService/RacksResponse")]
-        System.Threading.Tasks.Task<RackOutputDto> RacksAsync();
+        System.Threading.Tasks.Task<Library.Mvc.ItemProviderServices.RackOutputDto> RacksAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface ItemProviderServiceChannel : ItemProviderService, System.ServiceModel.IClientChannel {
+    public interface ItemProviderServiceChannel : Library.Mvc.ItemProviderServices.ItemProviderService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ItemProviderServiceClient : System.ServiceModel.ClientBase<ItemProviderService>, ItemProviderService {
+    public partial class ItemProviderServiceClient : System.ServiceModel.ClientBase<Library.Mvc.ItemProviderServices.ItemProviderService>, Library.Mvc.ItemProviderServices.ItemProviderService {
         
         public ItemProviderServiceClient() {
         }
@@ -716,51 +717,51 @@ namespace Library.Mvc.Service_References.ItemProviderServices {
                 base(binding, remoteAddress) {
         }
         
-        public AuthorOutputDto Authors() {
+        public Library.Mvc.ItemProviderServices.AuthorOutputDto Authors() {
             return base.Channel.Authors();
         }
         
-        public System.Threading.Tasks.Task<AuthorOutputDto> AuthorsAsync() {
+        public System.Threading.Tasks.Task<Library.Mvc.ItemProviderServices.AuthorOutputDto> AuthorsAsync() {
             return base.Channel.AuthorsAsync();
         }
         
-        public PublisherOutputDto Publishers() {
+        public Library.Mvc.ItemProviderServices.PublisherOutputDto Publishers() {
             return base.Channel.Publishers();
         }
         
-        public System.Threading.Tasks.Task<PublisherOutputDto> PublishersAsync() {
+        public System.Threading.Tasks.Task<Library.Mvc.ItemProviderServices.PublisherOutputDto> PublishersAsync() {
             return base.Channel.PublishersAsync();
         }
         
-        public GenreOutputDto Genres() {
+        public Library.Mvc.ItemProviderServices.GenreOutputDto Genres() {
             return base.Channel.Genres();
         }
         
-        public System.Threading.Tasks.Task<GenreOutputDto> GenresAsync() {
+        public System.Threading.Tasks.Task<Library.Mvc.ItemProviderServices.GenreOutputDto> GenresAsync() {
             return base.Channel.GenresAsync();
         }
         
-        public SeriesOutputDto Series() {
+        public Library.Mvc.ItemProviderServices.SeriesOutputDto Series() {
             return base.Channel.Series();
         }
         
-        public System.Threading.Tasks.Task<SeriesOutputDto> SeriesAsync() {
+        public System.Threading.Tasks.Task<Library.Mvc.ItemProviderServices.SeriesOutputDto> SeriesAsync() {
             return base.Channel.SeriesAsync();
         }
         
-        public ShelfOutputDto Shelfs() {
+        public Library.Mvc.ItemProviderServices.ShelfOutputDto Shelfs() {
             return base.Channel.Shelfs();
         }
         
-        public System.Threading.Tasks.Task<ShelfOutputDto> ShelfsAsync() {
+        public System.Threading.Tasks.Task<Library.Mvc.ItemProviderServices.ShelfOutputDto> ShelfsAsync() {
             return base.Channel.ShelfsAsync();
         }
         
-        public RackOutputDto Racks() {
+        public Library.Mvc.ItemProviderServices.RackOutputDto Racks() {
             return base.Channel.Racks();
         }
         
-        public System.Threading.Tasks.Task<RackOutputDto> RacksAsync() {
+        public System.Threading.Tasks.Task<Library.Mvc.ItemProviderServices.RackOutputDto> RacksAsync() {
             return base.Channel.RacksAsync();
         }
     }

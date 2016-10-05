@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Web.Mvc;
+using Library.Mvc.AuthenticationServices;
 using Library.Mvc.Controllers;
 using Library.Mvc.Models;
-using Library.Mvc.Providers;
-using Library.Mvc.Service_References.AuthenticationServices;
 
 namespace Library.Web.Controllers
 {

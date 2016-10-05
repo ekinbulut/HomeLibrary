@@ -12,7 +12,7 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
-    <AssemblyVersion>1.0.0.1</AssemblyVersion>
+    <AssemblyVersion>1.0.0.11</AssemblyVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -131,50 +131,50 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
-    <None Include="Service References\AuthenticationServices\com.sense.services.Services.wsdl" />
-    <None Include="Service References\AuthenticationServices\com.sense.services.Services.xsd">
+    <None Include="Service References\AuthenticationServices\com.sense.services.Services1.wsdl" />
+    <None Include="Service References\AuthenticationServices\com.sense.services.Services1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\AuthenticationServices\Library.Business.Services.Authentication.Dtos.xsd">
+    <None Include="Service References\AuthenticationServices\Library.Business.Services.Authentication.Dtos1.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\AuthenticationServices\Library.Mvc.AuthenticationServices.UserOutputDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\AuthenticationServices\service.wsdl" />
-    <None Include="Service References\AuthenticationServices\service.xsd">
+    <None Include="Service References\AuthenticationServices\service1.wsdl" />
+    <None Include="Service References\AuthenticationServices\service1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\BookServices\com.sense.services.Services1.wsdl" />
-    <None Include="Service References\BookServices\com.sense.services.Services1.xsd">
+    <None Include="Service References\BookServices\com.sense.services.Services.wsdl" />
+    <None Include="Service References\BookServices\com.sense.services.Services.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\BookServices\Library.Business.Services.Book.Dtos1.xsd">
+    <None Include="Service References\BookServices\Library.Business.Services.Book.Dtos.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\BookServices\Library.Mvc.BookServices.BookOutputDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\BookServices\service1.wsdl" />
-    <None Include="Service References\BookServices\service1.xsd">
+    <None Include="Service References\BookServices\service.wsdl" />
+    <None Include="Service References\BookServices\service.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\IntegrationServices\com.sense.business.Services1.wsdl" />
-    <None Include="Service References\IntegrationServices\com.sense.business.Services1.xsd">
+    <None Include="Service References\IntegrationServices\com.sense.business.Services.wsdl" />
+    <None Include="Service References\IntegrationServices\com.sense.business.Services.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\IntegrationServices\Library.Business.Services.Integration.Dtos1.xsd">
+    <None Include="Service References\IntegrationServices\Library.Business.Services.Integration.Dtos.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\IntegrationServices\service1.wsdl" />
-    <None Include="Service References\IntegrationServices\service1.xsd">
+    <None Include="Service References\IntegrationServices\service.wsdl" />
+    <None Include="Service References\IntegrationServices\service.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ItemProviderServices\com.sense.business.Services.wsdl" />
-    <None Include="Service References\ItemProviderServices\com.sense.business.Services.xsd">
+    <None Include="Service References\ItemProviderServices\com.sense.business.Services1.wsdl" />
+    <None Include="Service References\ItemProviderServices\com.sense.business.Services1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ItemProviderServices\Library.Business.Services.Provider.Dtos.xsd">
+    <None Include="Service References\ItemProviderServices\Library.Business.Services.Provider.Dtos1.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ItemProviderServices\Library.Mvc.ItemProviderServices.AuthorOutputDto.datasource">
@@ -195,8 +195,8 @@
     <None Include="Service References\ItemProviderServices\Library.Mvc.ItemProviderServices.ShelfOutputDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ItemProviderServices\service.wsdl" />
-    <None Include="Service References\ItemProviderServices\service.xsd">
+    <None Include="Service References\ItemProviderServices\service1.wsdl" />
+    <None Include="Service References\ItemProviderServices\service1.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

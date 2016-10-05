@@ -73,9 +73,9 @@
   </wsdl:binding>
   <wsdl:service name="ItemProviderServiceApplication">
     <wsdl:port name="NetTcpBinding_ItemProviderService" binding="tns:NetTcpBinding_ItemProviderService">
-      <soap12:address location="net.tcp://192.168.0.31:8098/services/provider" />
+      <soap12:address location="net.tcp://192.168.0.22:8098/services/provider" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://192.168.0.31:8098/services/provider</wsa10:Address>
+        <wsa10:Address>net.tcp://192.168.0.22:8098/services/provider</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
   </wsdl:service>

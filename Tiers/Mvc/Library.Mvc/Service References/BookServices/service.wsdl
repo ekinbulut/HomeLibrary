@@ -46,9 +46,9 @@
   </wsdl:binding>
   <wsdl:service name="BookServiceApplication">
     <wsdl:port name="NetTcpBinding_BookService" binding="tns:NetTcpBinding_BookService">
-      <soap12:address location="net.tcp://192.168.0.31:8097/services/books" />
+      <soap12:address location="net.tcp://192.168.0.22:8097/services/books" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://192.168.0.31:8097/services/books</wsa10:Address>
+        <wsa10:Address>net.tcp://192.168.0.22:8097/services/books</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
   </wsdl:service>

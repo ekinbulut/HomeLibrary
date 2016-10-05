@@ -9,24 +9,30 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.CodeDom.Compiler;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Runtime.Serialization;
+using System.ServiceModel;
+using System.ServiceModel.Channels;
+using System.Threading.Tasks;
 
-namespace Library.Mvc.Service_References.AuthenticationServices {
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+namespace Library.Mvc.AuthenticationServices {
+    [DebuggerStepThrough()]
+    [GeneratedCode("System.Runtime.Serialization", "4.0.0.0")]
     [DataContract(Name="UserInputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Authentication." +
         "Dtos")]
     [Serializable()]
-    public partial class UserInputDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class UserInputDto : object, IExtensibleDataObject, INotifyPropertyChanged {
         
         [NonSerialized()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        private ExtensionDataObject extensionDataField;
         
         [OptionalField()]
         private UserDto UserField;
         
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+        [Browsable(false)]
+        public ExtensionDataObject ExtensionData {
             get {
                 return this.extensionDataField;
             }
@@ -41,32 +47,32 @@ namespace Library.Mvc.Service_References.AuthenticationServices {
                 return this.UserField;
             }
             set {
-                if ((object.ReferenceEquals(this.UserField, value) != true)) {
+                if ((ReferenceEquals(this.UserField, value) != true)) {
                     this.UserField = value;
                     this.RaisePropertyChanged("User");
                 }
             }
         }
         
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
             if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+                propertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [DebuggerStepThrough()]
+    [GeneratedCode("System.Runtime.Serialization", "4.0.0.0")]
     [DataContract(Name="UserDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Authentication." +
         "Dtos")]
     [Serializable()]
-    public partial class UserDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class UserDto : object, IExtensibleDataObject, INotifyPropertyChanged {
         
         [NonSerialized()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        private ExtensionDataObject extensionDataField;
         
         [OptionalField()]
         private string PasswordField;
@@ -74,8 +80,8 @@ namespace Library.Mvc.Service_References.AuthenticationServices {
         [OptionalField()]
         private string UsernameField;
         
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+        [Browsable(false)]
+        public ExtensionDataObject ExtensionData {
             get {
                 return this.extensionDataField;
             }
@@ -90,7 +96,7 @@ namespace Library.Mvc.Service_References.AuthenticationServices {
                 return this.PasswordField;
             }
             set {
-                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
+                if ((ReferenceEquals(this.PasswordField, value) != true)) {
                     this.PasswordField = value;
                     this.RaisePropertyChanged("Password");
                 }
@@ -103,38 +109,38 @@ namespace Library.Mvc.Service_References.AuthenticationServices {
                 return this.UsernameField;
             }
             set {
-                if ((object.ReferenceEquals(this.UsernameField, value) != true)) {
+                if ((ReferenceEquals(this.UsernameField, value) != true)) {
                     this.UsernameField = value;
                     this.RaisePropertyChanged("Username");
                 }
             }
         }
         
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
             if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+                propertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [DebuggerStepThrough()]
+    [GeneratedCode("System.Runtime.Serialization", "4.0.0.0")]
     [DataContract(Name="UserOutputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Authentication." +
         "Dtos")]
     [Serializable()]
-    public partial class UserOutputDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class UserOutputDto : object, IExtensibleDataObject, INotifyPropertyChanged {
         
         [NonSerialized()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        private ExtensionDataObject extensionDataField;
         
         [OptionalField()]
         private string GenderField;
         
         [OptionalField()]
-        private System.Nullable<System.DateTime> LastLoginDateField;
+        private Nullable<DateTime> LastLoginDateField;
         
         [OptionalField()]
         private string NameField;
@@ -142,8 +148,8 @@ namespace Library.Mvc.Service_References.AuthenticationServices {
         [OptionalField()]
         private string OccupationField;
         
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+        [Browsable(false)]
+        public ExtensionDataObject ExtensionData {
             get {
                 return this.extensionDataField;
             }
@@ -158,7 +164,7 @@ namespace Library.Mvc.Service_References.AuthenticationServices {
                 return this.GenderField;
             }
             set {
-                if ((object.ReferenceEquals(this.GenderField, value) != true)) {
+                if ((ReferenceEquals(this.GenderField, value) != true)) {
                     this.GenderField = value;
                     this.RaisePropertyChanged("Gender");
                 }
@@ -166,7 +172,7 @@ namespace Library.Mvc.Service_References.AuthenticationServices {
         }
         
         [DataMember()]
-        public System.Nullable<System.DateTime> LastLoginDate {
+        public Nullable<DateTime> LastLoginDate {
             get {
                 return this.LastLoginDateField;
             }
@@ -184,7 +190,7 @@ namespace Library.Mvc.Service_References.AuthenticationServices {
                 return this.NameField;
             }
             set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                if ((ReferenceEquals(this.NameField, value) != true)) {
                     this.NameField = value;
                     this.RaisePropertyChanged("Name");
                 }
@@ -197,41 +203,41 @@ namespace Library.Mvc.Service_References.AuthenticationServices {
                 return this.OccupationField;
             }
             set {
-                if ((object.ReferenceEquals(this.OccupationField, value) != true)) {
+                if ((ReferenceEquals(this.OccupationField, value) != true)) {
                     this.OccupationField = value;
                     this.RaisePropertyChanged("Occupation");
                 }
             }
         }
         
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
             if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+                propertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="com.sense.services.Services", ConfigurationName="AuthenticationServices.AuthService")]
+    [GeneratedCode("System.ServiceModel", "4.0.0.0")]
+    [ServiceContract(Namespace="com.sense.services.Services", ConfigurationName="AuthenticationServices.AuthService")]
     public interface AuthService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="com.sense.services.Services/AuthService/Authenticate", ReplyAction="com.sense.services.Services/AuthService/AuthenticateResponse")]
+        [OperationContract(Action="com.sense.services.Services/AuthService/Authenticate", ReplyAction="com.sense.services.Services/AuthService/AuthenticateResponse")]
         UserOutputDto Authenticate(UserInputDto input);
         
-        [System.ServiceModel.OperationContractAttribute(Action="com.sense.services.Services/AuthService/Authenticate", ReplyAction="com.sense.services.Services/AuthService/AuthenticateResponse")]
-        System.Threading.Tasks.Task<UserOutputDto> AuthenticateAsync(UserInputDto input);
+        [OperationContract(Action="com.sense.services.Services/AuthService/Authenticate", ReplyAction="com.sense.services.Services/AuthService/AuthenticateResponse")]
+        Task<UserOutputDto> AuthenticateAsync(UserInputDto input);
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface AuthServiceChannel : AuthService, System.ServiceModel.IClientChannel {
+    [GeneratedCode("System.ServiceModel", "4.0.0.0")]
+    public interface AuthServiceChannel : AuthService, IClientChannel {
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class AuthServiceClient : System.ServiceModel.ClientBase<AuthService>, AuthService {
+    [DebuggerStepThrough()]
+    [GeneratedCode("System.ServiceModel", "4.0.0.0")]
+    public partial class AuthServiceClient : ClientBase<AuthService>, AuthService {
         
         public AuthServiceClient() {
         }
@@ -244,11 +250,11 @@ namespace Library.Mvc.Service_References.AuthenticationServices {
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public AuthServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public AuthServiceClient(string endpointConfigurationName, EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public AuthServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public AuthServiceClient(Binding binding, EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
@@ -256,7 +262,7 @@ namespace Library.Mvc.Service_References.AuthenticationServices {
             return base.Channel.Authenticate(input);
         }
         
-        public System.Threading.Tasks.Task<UserOutputDto> AuthenticateAsync(UserInputDto input) {
+        public Task<UserOutputDto> AuthenticateAsync(UserInputDto input) {
             return base.Channel.AuthenticateAsync(input);
         }
     }

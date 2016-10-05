@@ -4,30 +4,40 @@ using Library.Business.Services.Integration.Dtos;
 namespace Library.Business.Services.Integration
 {
     [ServiceContract(Name = "IntegrationService",Namespace = "com.sense.business.Services")]
-    public interface IIntegrationService
+    public interface IIntegrationService : IImport , ICreationMethods
+    {
+
+    }
+
+    [ServiceContract(Name = "IntegrationService", Namespace = "com.sense.business.Services")]
+    public interface ICreationMethods
     {
         /// <summary>
-        /// Imports the specified input.
+        /// 
         /// </summary>
-        /// <param name="input">The input.</param>
-        /// <returns></returns>
-        [OperationContract]
-        bool Import(IntegrationInputDto input);
-
-        /// <summary>
-        /// Creates the author.
-        /// </summary>
-        /// <param name="input">The input.</param>
+        /// <param name="input"></param>
         /// <returns></returns>
         [OperationContract]
         bool CreateAuthor(AuthorInputDto input);
-
         /// <summary>
-        /// Creates the publisher.
+        /// 
         /// </summary>
-        /// <param name="input">The input.</param>
+        /// <param name="input"></param>
         /// <returns></returns>
         [OperationContract]
         bool CreatePublisher(PublisherInputDto input);
+
+    }
+
+    [ServiceContract(Name = "IntegrationService", Namespace = "com.sense.business.Services")]
+    public interface IImport
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        [OperationContract]
+        bool Import(IntegrationInputDto input);
     }
 }

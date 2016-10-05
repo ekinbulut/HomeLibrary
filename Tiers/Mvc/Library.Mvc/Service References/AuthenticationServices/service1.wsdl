@@ -28,9 +28,9 @@
   </wsdl:binding>
   <wsdl:service name="AuthServiceApplication">
     <wsdl:port name="NetTcpBinding_AuthService" binding="tns:NetTcpBinding_AuthService">
-      <soap12:address location="net.tcp://192.168.0.31:8095/services/authentication" />
+      <soap12:address location="net.tcp://192.168.0.22:8095/services/authentication" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://192.168.0.31:8095/services/authentication</wsa10:Address>
+        <wsa10:Address>net.tcp://192.168.0.22:8095/services/authentication</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
   </wsdl:service>

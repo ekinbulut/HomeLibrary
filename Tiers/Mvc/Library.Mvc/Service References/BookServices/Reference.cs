@@ -9,23 +9,29 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.CodeDom.Compiler;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Runtime.Serialization;
+using System.ServiceModel;
+using System.ServiceModel.Channels;
+using System.Threading.Tasks;
 
-namespace Library.Mvc.Service_References.BookServices {
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+namespace Library.Mvc.BookServices {
+    [DebuggerStepThrough()]
+    [GeneratedCode("System.Runtime.Serialization", "4.0.0.0")]
     [DataContract(Name="BookOutputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Book.Dtos")]
     [Serializable()]
-    public partial class BookOutputDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class BookOutputDto : object, IExtensibleDataObject, INotifyPropertyChanged {
         
         [NonSerialized()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        private ExtensionDataObject extensionDataField;
         
         [OptionalField()]
         private BookDto[] BooksField;
         
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+        [Browsable(false)]
+        public ExtensionDataObject ExtensionData {
             get {
                 return this.extensionDataField;
             }
@@ -40,31 +46,31 @@ namespace Library.Mvc.Service_References.BookServices {
                 return this.BooksField;
             }
             set {
-                if ((object.ReferenceEquals(this.BooksField, value) != true)) {
+                if ((ReferenceEquals(this.BooksField, value) != true)) {
                     this.BooksField = value;
                     this.RaisePropertyChanged("Books");
                 }
             }
         }
         
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
             if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+                propertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [DebuggerStepThrough()]
+    [GeneratedCode("System.Runtime.Serialization", "4.0.0.0")]
     [DataContract(Name="BookDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Book.Dtos")]
     [Serializable()]
-    public partial class BookDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class BookDto : object, IExtensibleDataObject, INotifyPropertyChanged {
         
         [NonSerialized()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        private ExtensionDataObject extensionDataField;
         
         [OptionalField()]
         private string AuthorField;
@@ -99,8 +105,8 @@ namespace Library.Mvc.Service_References.BookServices {
         [OptionalField()]
         private string SkinTypeField;
         
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+        [Browsable(false)]
+        public ExtensionDataObject ExtensionData {
             get {
                 return this.extensionDataField;
             }
@@ -115,7 +121,7 @@ namespace Library.Mvc.Service_References.BookServices {
                 return this.AuthorField;
             }
             set {
-                if ((object.ReferenceEquals(this.AuthorField, value) != true)) {
+                if ((ReferenceEquals(this.AuthorField, value) != true)) {
                     this.AuthorField = value;
                     this.RaisePropertyChanged("Author");
                 }
@@ -128,7 +134,7 @@ namespace Library.Mvc.Service_References.BookServices {
                 return this.GenreField;
             }
             set {
-                if ((object.ReferenceEquals(this.GenreField, value) != true)) {
+                if ((ReferenceEquals(this.GenreField, value) != true)) {
                     this.GenreField = value;
                     this.RaisePropertyChanged("Genre");
                 }
@@ -154,7 +160,7 @@ namespace Library.Mvc.Service_References.BookServices {
                 return this.NameField;
             }
             set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                if ((ReferenceEquals(this.NameField, value) != true)) {
                     this.NameField = value;
                     this.RaisePropertyChanged("Name");
                 }
@@ -167,7 +173,7 @@ namespace Library.Mvc.Service_References.BookServices {
                 return this.NoField;
             }
             set {
-                if ((object.ReferenceEquals(this.NoField, value) != true)) {
+                if ((ReferenceEquals(this.NoField, value) != true)) {
                     this.NoField = value;
                     this.RaisePropertyChanged("No");
                 }
@@ -193,7 +199,7 @@ namespace Library.Mvc.Service_References.BookServices {
                 return this.PublisherField;
             }
             set {
-                if ((object.ReferenceEquals(this.PublisherField, value) != true)) {
+                if ((ReferenceEquals(this.PublisherField, value) != true)) {
                     this.PublisherField = value;
                     this.RaisePropertyChanged("Publisher");
                 }
@@ -219,7 +225,7 @@ namespace Library.Mvc.Service_References.BookServices {
                 return this.SerieField;
             }
             set {
-                if ((object.ReferenceEquals(this.SerieField, value) != true)) {
+                if ((ReferenceEquals(this.SerieField, value) != true)) {
                     this.SerieField = value;
                     this.RaisePropertyChanged("Serie");
                 }
@@ -232,7 +238,7 @@ namespace Library.Mvc.Service_References.BookServices {
                 return this.ShelfField;
             }
             set {
-                if ((object.ReferenceEquals(this.ShelfField, value) != true)) {
+                if ((ReferenceEquals(this.ShelfField, value) != true)) {
                     this.ShelfField = value;
                     this.RaisePropertyChanged("Shelf");
                 }
@@ -245,31 +251,31 @@ namespace Library.Mvc.Service_References.BookServices {
                 return this.SkinTypeField;
             }
             set {
-                if ((object.ReferenceEquals(this.SkinTypeField, value) != true)) {
+                if ((ReferenceEquals(this.SkinTypeField, value) != true)) {
                     this.SkinTypeField = value;
                     this.RaisePropertyChanged("SkinType");
                 }
             }
         }
         
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
             if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+                propertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [DebuggerStepThrough()]
+    [GeneratedCode("System.Runtime.Serialization", "4.0.0.0")]
     [DataContract(Name="BookInputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Book.Dtos")]
     [Serializable()]
-    public partial class BookInputDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class BookInputDto : object, IExtensibleDataObject, INotifyPropertyChanged {
         
         [NonSerialized()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        private ExtensionDataObject extensionDataField;
         
         [OptionalField()]
         private int AuthorField;
@@ -301,8 +307,8 @@ namespace Library.Mvc.Service_References.BookServices {
         [OptionalField()]
         private int SkinTypeField;
         
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+        [Browsable(false)]
+        public ExtensionDataObject ExtensionData {
             get {
                 return this.extensionDataField;
             }
@@ -343,7 +349,7 @@ namespace Library.Mvc.Service_References.BookServices {
                 return this.NameField;
             }
             set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                if ((ReferenceEquals(this.NameField, value) != true)) {
                     this.NameField = value;
                     this.RaisePropertyChanged("Name");
                 }
@@ -356,7 +362,7 @@ namespace Library.Mvc.Service_References.BookServices {
                 return this.NoField;
             }
             set {
-                if ((object.ReferenceEquals(this.NoField, value) != true)) {
+                if ((ReferenceEquals(this.NoField, value) != true)) {
                     this.NoField = value;
                     this.RaisePropertyChanged("No");
                 }
@@ -441,46 +447,46 @@ namespace Library.Mvc.Service_References.BookServices {
             }
         }
         
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
             if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+                propertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="com.sense.services.Services", ConfigurationName="BookServices.BookService")]
+    [GeneratedCode("System.ServiceModel", "4.0.0.0")]
+    [ServiceContract(Namespace="com.sense.services.Services", ConfigurationName="BookServices.BookService")]
     public interface BookService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="com.sense.services.Services/BookService/GetBookList", ReplyAction="com.sense.services.Services/BookService/GetBookListResponse")]
+        [OperationContract(Action="com.sense.services.Services/BookService/GetBookList", ReplyAction="com.sense.services.Services/BookService/GetBookListResponse")]
         BookOutputDto GetBookList();
         
-        [System.ServiceModel.OperationContractAttribute(Action="com.sense.services.Services/BookService/GetBookList", ReplyAction="com.sense.services.Services/BookService/GetBookListResponse")]
-        System.Threading.Tasks.Task<BookOutputDto> GetBookListAsync();
+        [OperationContract(Action="com.sense.services.Services/BookService/GetBookList", ReplyAction="com.sense.services.Services/BookService/GetBookListResponse")]
+        Task<BookOutputDto> GetBookListAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="com.sense.services.Services/BookService/AddBook", ReplyAction="com.sense.services.Services/BookService/AddBookResponse")]
+        [OperationContract(Action="com.sense.services.Services/BookService/AddBook", ReplyAction="com.sense.services.Services/BookService/AddBookResponse")]
         bool AddBook(BookInputDto input);
         
-        [System.ServiceModel.OperationContractAttribute(Action="com.sense.services.Services/BookService/AddBook", ReplyAction="com.sense.services.Services/BookService/AddBookResponse")]
-        System.Threading.Tasks.Task<bool> AddBookAsync(BookInputDto input);
+        [OperationContract(Action="com.sense.services.Services/BookService/AddBook", ReplyAction="com.sense.services.Services/BookService/AddBookResponse")]
+        Task<bool> AddBookAsync(BookInputDto input);
         
-        [System.ServiceModel.OperationContractAttribute(Action="com.sense.services.Services/BookService/UpdateBook", ReplyAction="com.sense.services.Services/BookService/UpdateBookResponse")]
+        [OperationContract(Action="com.sense.services.Services/BookService/UpdateBook", ReplyAction="com.sense.services.Services/BookService/UpdateBookResponse")]
         bool UpdateBook(BookDto input);
         
-        [System.ServiceModel.OperationContractAttribute(Action="com.sense.services.Services/BookService/UpdateBook", ReplyAction="com.sense.services.Services/BookService/UpdateBookResponse")]
-        System.Threading.Tasks.Task<bool> UpdateBookAsync(BookDto input);
+        [OperationContract(Action="com.sense.services.Services/BookService/UpdateBook", ReplyAction="com.sense.services.Services/BookService/UpdateBookResponse")]
+        Task<bool> UpdateBookAsync(BookDto input);
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface BookServiceChannel : BookService, System.ServiceModel.IClientChannel {
+    [GeneratedCode("System.ServiceModel", "4.0.0.0")]
+    public interface BookServiceChannel : BookService, IClientChannel {
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class BookServiceClient : System.ServiceModel.ClientBase<BookService>, BookService {
+    [DebuggerStepThrough()]
+    [GeneratedCode("System.ServiceModel", "4.0.0.0")]
+    public partial class BookServiceClient : ClientBase<BookService>, BookService {
         
         public BookServiceClient() {
         }
@@ -493,11 +499,11 @@ namespace Library.Mvc.Service_References.BookServices {
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public BookServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public BookServiceClient(string endpointConfigurationName, EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public BookServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public BookServiceClient(Binding binding, EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
@@ -505,7 +511,7 @@ namespace Library.Mvc.Service_References.BookServices {
             return base.Channel.GetBookList();
         }
         
-        public System.Threading.Tasks.Task<BookOutputDto> GetBookListAsync() {
+        public Task<BookOutputDto> GetBookListAsync() {
             return base.Channel.GetBookListAsync();
         }
         
@@ -513,7 +519,7 @@ namespace Library.Mvc.Service_References.BookServices {
             return base.Channel.AddBook(input);
         }
         
-        public System.Threading.Tasks.Task<bool> AddBookAsync(BookInputDto input) {
+        public Task<bool> AddBookAsync(BookInputDto input) {
             return base.Channel.AddBookAsync(input);
         }
         
@@ -521,7 +527,7 @@ namespace Library.Mvc.Service_References.BookServices {
             return base.Channel.UpdateBook(input);
         }
         
-        public System.Threading.Tasks.Task<bool> UpdateBookAsync(BookDto input) {
+        public Task<bool> UpdateBookAsync(BookDto input) {
             return base.Channel.UpdateBookAsync(input);
         }
     }
