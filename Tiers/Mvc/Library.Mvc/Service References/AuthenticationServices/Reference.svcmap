@@ -19,14 +19,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="net.tcp://192.168.0.22:8095/services/authentication/mex" Protocol="mex" SourceId="1" />
+    <MetadataSource Address="http://192.168.0.22:8095/services/authentication/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="com.sense.services.Services1.wsdl" MetadataType="Wsdl" ID="343c8a31-8b5b-43bd-9c7c-e7298df73a44" SourceId="1" SourceUrl="net.tcp://192.168.0.22:8095/services/authentication/mex" />
-    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="8204517d-542f-4c02-9a95-794867ed1584" SourceId="1" SourceUrl="net.tcp://192.168.0.22:8095/services/authentication/mex" />
-    <MetadataFile FileName="com.sense.services.Services1.xsd" MetadataType="Schema" ID="5f43429f-aedb-454f-ad49-79600b7307c1" SourceId="1" SourceUrl="net.tcp://192.168.0.22:8095/services/authentication/mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="b1add4aa-b8b9-4c77-bad9-c83c170b80f5" SourceId="1" SourceUrl="net.tcp://192.168.0.22:8095/services/authentication/mex" />
-    <MetadataFile FileName="Library.Business.Services.Authentication.Dtos1.xsd" MetadataType="Schema" ID="82c88486-651b-4bd7-ba6d-864ad0f31d0c" SourceId="1" SourceUrl="net.tcp://192.168.0.22:8095/services/authentication/mex" />
+    <MetadataFile FileName="com.sense.services.Services.wsdl" MetadataType="Wsdl" ID="df197700-41fb-4833-8eea-28304e370086" SourceId="1" SourceUrl="http://192.168.0.22:8095/services/authentication/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="7e6dbf9f-7bea-4e45-bdfb-e6806faeaf97" SourceId="1" SourceUrl="http://192.168.0.22:8095/services/authentication/mex" />
+    <MetadataFile FileName="com.sense.services.Services.xsd" MetadataType="Schema" ID="497098a4-8f53-43b0-8949-2cb6d5347c2e" SourceId="1" SourceUrl="http://192.168.0.22:8095/services/authentication/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="37583ca5-7b51-4d1c-8a6c-3be6bdb17668" SourceId="1" SourceUrl="http://192.168.0.22:8095/services/authentication/mex" />
+    <MetadataFile FileName="Library.Business.Services.Authentication.Dtos.xsd" MetadataType="Schema" ID="f89e2d88-6f43-4a4b-bb6a-5bdb1111c667" SourceId="1" SourceUrl="http://192.168.0.22:8095/services/authentication/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="com.sense.services.Services" elementFormDefault="qualified" targetNamespace="com.sense.services.Services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Authentication.Dtos" />
+  <xs:import schemaLocation="" namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Authentication.Dtos" />
   <xs:element name="Authenticate">
     <xs:complexType>
       <xs:sequence>

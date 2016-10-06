@@ -8,7 +8,7 @@ namespace Library.Data.Repositories.Series
 {
     public class SeriesRepository : EfRepositoryBase<ESeries,int> , ISeriesRepository
     {
-        public SeriesRepository(DbContext dbContext, ILogger logger) : base(dbContext, logger)
+        public SeriesRepository(DbContext dbContext) : base(dbContext)
         {
         }
 

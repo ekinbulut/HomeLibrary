@@ -8,7 +8,7 @@ namespace Library.Data.Repositories.Publishers
 {
     public class PublisherRepository : EfRepositoryBase<EPublisher,int>, IPublisherRepository
     {
-        public PublisherRepository(DbContext dbContext, ILogger logger) : base(dbContext, logger)
+        public PublisherRepository(DbContext dbContext) : base(dbContext)
         {
         }
 

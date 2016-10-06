@@ -12,7 +12,7 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
-    <AssemblyVersion>1.0.0.12</AssemblyVersion>
+    <AssemblyVersion>1.0.0.13</AssemblyVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -131,18 +131,18 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
-    <None Include="Service References\AuthenticationServices\com.sense.services.Services1.wsdl" />
-    <None Include="Service References\AuthenticationServices\com.sense.services.Services1.xsd">
+    <None Include="Service References\AuthenticationServices\com.sense.services.Services.wsdl" />
+    <None Include="Service References\AuthenticationServices\com.sense.services.Services.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\AuthenticationServices\Library.Business.Services.Authentication.Dtos1.xsd">
+    <None Include="Service References\AuthenticationServices\Library.Business.Services.Authentication.Dtos.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\AuthenticationServices\Library.Mvc.AuthenticationServices.UserOutputDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\AuthenticationServices\service1.wsdl" />
-    <None Include="Service References\AuthenticationServices\service1.xsd">
+    <None Include="Service References\AuthenticationServices\service.wsdl" />
+    <None Include="Service References\AuthenticationServices\service.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\BookServices\com.sense.services.Services.wsdl" />

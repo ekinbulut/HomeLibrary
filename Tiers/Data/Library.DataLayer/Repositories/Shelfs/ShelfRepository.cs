@@ -8,7 +8,7 @@ namespace Library.Data.Repositories.Shelfs
 {
     public class ShelfRepository : EfRepositoryBase<EShelf,int> , IShelfRepository
     {
-        public ShelfRepository(DbContext dbContext, ILogger logger) : base(dbContext, logger)
+        public ShelfRepository(DbContext dbContext) : base(dbContext)
         {
         }
 

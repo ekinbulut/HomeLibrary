@@ -8,7 +8,7 @@ namespace Library.Data.Repositories.Racks
 {
     public class RackRepository : EfRepositoryBase<ERack,int> , IRackRepository
     {
-        public RackRepository(DbContext dbContext, ILogger logger) : base(dbContext, logger)
+        public RackRepository(DbContext dbContext) : base(dbContext)
         {
         }
 

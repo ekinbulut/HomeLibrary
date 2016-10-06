@@ -8,7 +8,7 @@ namespace Library.Data.Repositories.Genres
 {
     public class GenreRepository : EfRepositoryBase<EGenre,int> , IGenreRepository
     {
-        public GenreRepository(DbContext dbContext, ILogger logger) : base(dbContext, logger)
+        public GenreRepository(DbContext dbContext) : base(dbContext)
         {
         }
 

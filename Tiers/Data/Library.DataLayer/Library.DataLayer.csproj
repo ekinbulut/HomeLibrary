@@ -12,7 +12,7 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
-    <AssemblyVersion>1.0.0.5</AssemblyVersion>
+    <AssemblyVersion>1.0.0.9</AssemblyVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -58,9 +58,9 @@
     <Reference Include="EntityFramework">
       <HintPath>..\..\..\..\SenseFramework\SenseFramework\Data\EntityFramework\SenseFramework.Data.EntityFramework\bin\Debug\EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="SenseFramework.Data.EntityFramework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="SenseFramework.Data.EntityFramework, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\SenseFramework\SenseFramework.Data.EntityFramework.dll</HintPath>
+      <HintPath>..\..\..\SenseFramework\SenseFramework.Data.EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
