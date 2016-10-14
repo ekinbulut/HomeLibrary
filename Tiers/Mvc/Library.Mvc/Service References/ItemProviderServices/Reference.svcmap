@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0fe5f74d-c04b-437b-b671-f8b050af952f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e37da12e-4fb3-4baa-9eaa-e0cb885dd623" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,14 +19,15 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="net.tcp://192.168.0.22:8098/services/provider/mex" Protocol="mex" SourceId="1" />
+    <MetadataSource Address="http://192.168.0.22:8098/services/provider" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="com.sense.business.Services1.wsdl" MetadataType="Wsdl" ID="2998c103-6a73-4749-8514-cda7a124f7d8" SourceId="1" SourceUrl="net.tcp://192.168.0.22:8098/services/provider/mex" />
-    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="e0c66c04-13a9-4a24-a8e1-13cfff7072b9" SourceId="1" SourceUrl="net.tcp://192.168.0.22:8098/services/provider/mex" />
-    <MetadataFile FileName="com.sense.business.Services1.xsd" MetadataType="Schema" ID="4ad5af48-5c15-4013-8ec9-ab8e9ef1b405" SourceId="1" SourceUrl="net.tcp://192.168.0.22:8098/services/provider/mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="df59f8cd-42d9-4c85-ab4b-8a6f1e85aeae" SourceId="1" SourceUrl="net.tcp://192.168.0.22:8098/services/provider/mex" />
-    <MetadataFile FileName="Library.Business.Services.Provider.Dtos1.xsd" MetadataType="Schema" ID="6dd8ed61-8f29-4bac-af91-003930e3e0a3" SourceId="1" SourceUrl="net.tcp://192.168.0.22:8098/services/provider/mex" />
+    <MetadataFile FileName="ItemProviderServiceApplication.wsdl" MetadataType="Wsdl" ID="d55c2d93-7146-418a-bcdd-70377663b4e4" SourceId="1" SourceUrl="http://192.168.0.22:8098/services/provider?wsdl" />
+    <MetadataFile FileName="provider.xsd" MetadataType="Schema" ID="35bc0493-75a4-4a20-b3ee-9190098e4c92" SourceId="1" SourceUrl="http://192.168.0.22:8098/services/provider?xsd=xsd0" />
+    <MetadataFile FileName="provider.wsdl" MetadataType="Wsdl" ID="5f7e8345-71a0-4f08-bffc-29532ae12b71" SourceId="1" SourceUrl="http://192.168.0.22:8098/services/provider?wsdl=wsdl0" />
+    <MetadataFile FileName="provider1.xsd" MetadataType="Schema" ID="1787a1d3-90b0-4360-b8b9-c6d057f1f5de" SourceId="1" SourceUrl="http://192.168.0.22:8098/services/provider?xsd=xsd2" />
+    <MetadataFile FileName="provider2.xsd" MetadataType="Schema" ID="4686e6c9-00b1-4a94-a723-a8ae5c8d2a69" SourceId="1" SourceUrl="http://192.168.0.22:8098/services/provider?xsd=xsd1" />
+    <MetadataFile FileName="provider.disco" MetadataType="Disco" ID="5cce2564-e602-492b-92c6-f8c2a3b141b1" SourceId="1" SourceUrl="http://192.168.0.22:8098/services/provider?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

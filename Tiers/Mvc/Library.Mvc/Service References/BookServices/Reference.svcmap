@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b852c7b2-34c2-4db7-94b8-d7ca821bef65" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="99956b00-9501-408c-8400-3567275a00d8" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,14 +19,15 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="net.tcp://192.168.0.22:8097/services/books/mex" Protocol="mex" SourceId="1" />
+    <MetadataSource Address="http://192.168.0.22:8097/services/books" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="com.sense.services.Services.wsdl" MetadataType="Wsdl" ID="42f1acb1-1f86-4b3c-84c8-6f27c3bb0e91" SourceId="1" SourceUrl="net.tcp://192.168.0.22:8097/services/books/mex" />
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="e4b58080-69ec-4556-b475-a3ae2e119f41" SourceId="1" SourceUrl="net.tcp://192.168.0.22:8097/services/books/mex" />
-    <MetadataFile FileName="com.sense.services.Services.xsd" MetadataType="Schema" ID="165cf4db-913a-4c9a-9308-3939b05f9604" SourceId="1" SourceUrl="net.tcp://192.168.0.22:8097/services/books/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="71269952-e9b2-4dc0-8956-c0201d5b955a" SourceId="1" SourceUrl="net.tcp://192.168.0.22:8097/services/books/mex" />
-    <MetadataFile FileName="Library.Business.Services.Book.Dtos.xsd" MetadataType="Schema" ID="2dd99e14-8457-403c-8ca6-d3a06c57774c" SourceId="1" SourceUrl="net.tcp://192.168.0.22:8097/services/books/mex" />
+    <MetadataFile FileName="books.xsd" MetadataType="Schema" ID="7120fa74-4d17-4619-a4d5-30740fc806a5" SourceId="1" SourceUrl="http://192.168.0.22:8097/services/books?xsd=xsd1" />
+    <MetadataFile FileName="books.wsdl" MetadataType="Wsdl" ID="be9e7eb9-1918-4105-9ac9-2546cb072978" SourceId="1" SourceUrl="http://192.168.0.22:8097/services/books?wsdl=wsdl0" />
+    <MetadataFile FileName="books1.xsd" MetadataType="Schema" ID="b8752f53-ec77-437c-aded-ae558ccd757c" SourceId="1" SourceUrl="http://192.168.0.22:8097/services/books?xsd=xsd0" />
+    <MetadataFile FileName="books2.xsd" MetadataType="Schema" ID="727b30dd-fc33-4733-a70d-72ad7eafb410" SourceId="1" SourceUrl="http://192.168.0.22:8097/services/books?xsd=xsd2" />
+    <MetadataFile FileName="books.disco" MetadataType="Disco" ID="18f37251-7685-493e-af16-a5ea167b451f" SourceId="1" SourceUrl="http://192.168.0.22:8097/services/books?disco" />
+    <MetadataFile FileName="BookServiceApplication.wsdl" MetadataType="Wsdl" ID="3e04194a-ae66-4fdc-856f-0670680bd616" SourceId="1" SourceUrl="http://192.168.0.22:8097/services/books?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

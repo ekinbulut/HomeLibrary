@@ -12,7 +12,7 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
-    <AssemblyVersion>1.0.0.13</AssemblyVersion>
+    <AssemblyVersion>1.0.0.15</AssemblyVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -145,38 +145,32 @@
     <None Include="Service References\AuthenticationServices\service.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\BookServices\com.sense.services.Services.wsdl" />
-    <None Include="Service References\BookServices\com.sense.services.Services.xsd">
+    <None Include="Service References\BookServices\books.wsdl" />
+    <None Include="Service References\BookServices\books.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\BookServices\Library.Business.Services.Book.Dtos.xsd">
+    <None Include="Service References\BookServices\books1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\BookServices\books2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BookServices\BookServiceApplication.wsdl" />
     <None Include="Service References\BookServices\Library.Mvc.BookServices.BookOutputDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\BookServices\service.wsdl" />
-    <None Include="Service References\BookServices\service.xsd">
+    <None Include="Service References\IntegrationServices\integration.wsdl" />
+    <None Include="Service References\IntegrationServices\integration.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\IntegrationServices\com.sense.business.Services.wsdl" />
-    <None Include="Service References\IntegrationServices\com.sense.business.Services.xsd">
+    <None Include="Service References\IntegrationServices\integration1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\IntegrationServices\Library.Business.Services.Integration.Dtos.xsd">
+    <None Include="Service References\IntegrationServices\integration2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\IntegrationServices\service.wsdl" />
-    <None Include="Service References\IntegrationServices\service.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ItemProviderServices\com.sense.business.Services1.wsdl" />
-    <None Include="Service References\ItemProviderServices\com.sense.business.Services1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ItemProviderServices\Library.Business.Services.Provider.Dtos1.xsd">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="Service References\IntegrationServices\IntegrationServiceApplication.wsdl" />
+    <None Include="Service References\ItemProviderServices\ItemProviderServiceApplication.wsdl" />
     <None Include="Service References\ItemProviderServices\Library.Mvc.ItemProviderServices.AuthorOutputDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -195,8 +189,14 @@
     <None Include="Service References\ItemProviderServices\Library.Mvc.ItemProviderServices.ShelfOutputDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ItemProviderServices\service1.wsdl" />
-    <None Include="Service References\ItemProviderServices\service1.xsd">
+    <None Include="Service References\ItemProviderServices\provider.wsdl" />
+    <None Include="Service References\ItemProviderServices\provider.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ItemProviderServices\provider1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ItemProviderServices\provider2.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
@@ -205,30 +205,6 @@
     <WCFMetadataStorage Include="Service References\BookServices\" />
     <WCFMetadataStorage Include="Service References\IntegrationServices\" />
     <WCFMetadataStorage Include="Service References\ItemProviderServices\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\BookServices\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\BookServices\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\BookServices\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ItemProviderServices\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ItemProviderServices\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ItemProviderServices\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\AuthenticationServices\configuration91.svcinfo" />
@@ -243,6 +219,24 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\BookServices\books.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BookServices\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BookServices\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BookServices\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\IntegrationServices\integration.disco" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Service References\IntegrationServices\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
@@ -254,7 +248,21 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Service References\ItemProviderServices\provider.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ItemProviderServices\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ItemProviderServices\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ItemProviderServices\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

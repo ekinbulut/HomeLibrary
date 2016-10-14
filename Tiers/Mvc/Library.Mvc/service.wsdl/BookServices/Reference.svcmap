@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b852c7b2-34c2-4db7-94b8-d7ca821bef65" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="net.tcp://192.168.0.22:8097/services/books/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="com.sense.services.Services.wsdl" MetadataType="Wsdl" ID="42f1acb1-1f86-4b3c-84c8-6f27c3bb0e91" SourceId="1" SourceUrl="net.tcp://192.168.0.22:8097/services/books/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="e4b58080-69ec-4556-b475-a3ae2e119f41" SourceId="1" SourceUrl="net.tcp://192.168.0.22:8097/services/books/mex" />
+    <MetadataFile FileName="com.sense.services.Services.xsd" MetadataType="Schema" ID="165cf4db-913a-4c9a-9308-3939b05f9604" SourceId="1" SourceUrl="net.tcp://192.168.0.22:8097/services/books/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="71269952-e9b2-4dc0-8956-c0201d5b955a" SourceId="1" SourceUrl="net.tcp://192.168.0.22:8097/services/books/mex" />
+    <MetadataFile FileName="Library.Business.Services.Book.Dtos.xsd" MetadataType="Schema" ID="2dd99e14-8457-403c-8ca6-d3a06c57774c" SourceId="1" SourceUrl="net.tcp://192.168.0.22:8097/services/books/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
