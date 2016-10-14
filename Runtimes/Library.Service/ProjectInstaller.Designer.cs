@@ -33,7 +33,7 @@
             // 
             // LibraryServiceProcessInstaller
             // 
-            this.LibraryServiceProcessInstaller.Account = System.ServiceProcess.ServiceAccount.LocalService;
+            this.LibraryServiceProcessInstaller.Account = System.ServiceProcess.ServiceAccount.LocalSystem;
             this.LibraryServiceProcessInstaller.Password = null;
             this.LibraryServiceProcessInstaller.Username = null;
             // 
