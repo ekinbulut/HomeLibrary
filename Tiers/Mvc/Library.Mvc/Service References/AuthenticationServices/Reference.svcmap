@@ -26,7 +26,7 @@
     <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="7e6dbf9f-7bea-4e45-bdfb-e6806faeaf97" SourceId="1" SourceUrl="http://192.168.0.22:8095/services/authentication/mex" />
     <MetadataFile FileName="com.sense.services.Services.xsd" MetadataType="Schema" ID="497098a4-8f53-43b0-8949-2cb6d5347c2e" SourceId="1" SourceUrl="http://192.168.0.22:8095/services/authentication/mex" />
     <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="37583ca5-7b51-4d1c-8a6c-3be6bdb17668" SourceId="1" SourceUrl="http://192.168.0.22:8095/services/authentication/mex" />
-    <MetadataFile FileName="Library.Business.Services.Authentication.Dtos.xsd" MetadataType="Schema" ID="f89e2d88-6f43-4a4b-bb6a-5bdb1111c667" SourceId="1" SourceUrl="http://192.168.0.22:8095/services/authentication/mex" />
+    <MetadataFile FileName="Library.Business.Services.Authantication.Dtos.xsd" MetadataType="Schema" ID="d16e592a-2be1-455a-a410-8b3fd87e9711" SourceId="1" SourceUrl="http://192.168.0.22:8095/services/authentication/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

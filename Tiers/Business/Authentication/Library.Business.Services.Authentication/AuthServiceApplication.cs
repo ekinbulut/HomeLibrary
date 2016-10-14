@@ -1,5 +1,6 @@
 ﻿using System;
-using Library.Business.Services.Authentication.Dtos;
+using Library.Business.Services.Authantication;
+using Library.Business.Services.Authantication.Dtos;
 using Library.Data.Athentication.Entities;
 using Library.Data.Athentication.Repositories.Users;
 

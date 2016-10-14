@@ -15,7 +15,7 @@ namespace Library.Mvc.AuthenticationServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="UserInputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Authentication." +
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserInputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Authantication." +
         "Dtos")]
     [System.SerializableAttribute()]
     public partial class UserInputDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -61,7 +61,7 @@ namespace Library.Mvc.AuthenticationServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="UserDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Authentication." +
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Authantication." +
         "Dtos")]
     [System.SerializableAttribute()]
     public partial class UserDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -123,7 +123,7 @@ namespace Library.Mvc.AuthenticationServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="UserOutputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Authentication." +
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserOutputDto", Namespace="http://schemas.datacontract.org/2004/07/Library.Business.Services.Authantication." +
         "Dtos")]
     [System.SerializableAttribute()]
     public partial class UserOutputDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {

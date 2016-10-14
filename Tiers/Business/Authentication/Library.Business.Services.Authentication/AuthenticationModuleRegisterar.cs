@@ -4,6 +4,7 @@ using System.ServiceModel;
 using Castle.Facilities.WcfIntegration;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
+using Library.Business.Services.Authantication;
 using SenseFramework.Services.Integrations;
 
 namespace Library.Business.Services.Authentication

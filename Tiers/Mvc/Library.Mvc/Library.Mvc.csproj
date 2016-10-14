@@ -12,7 +12,7 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
-    <AssemblyVersion>1.0.0.15</AssemblyVersion>
+    <AssemblyVersion>1.0.0.17</AssemblyVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -135,7 +135,7 @@
     <None Include="Service References\AuthenticationServices\com.sense.services.Services.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\AuthenticationServices\Library.Business.Services.Authentication.Dtos.xsd">
+    <None Include="Service References\AuthenticationServices\Library.Business.Services.Authantication.Dtos.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\AuthenticationServices\Library.Mvc.AuthenticationServices.UserOutputDto.datasource">

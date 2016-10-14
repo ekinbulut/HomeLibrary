@@ -11,7 +11,7 @@
     <AssemblyName>Library.Business.Services.Provider</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AssemblyVersion>1.0.0.8</AssemblyVersion>
+    <AssemblyVersion>1.0.0.9</AssemblyVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -68,22 +68,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dtos\AuthorDto.cs" />
-    <Compile Include="Dtos\AuthorInputDto.cs" />
-    <Compile Include="Dtos\AuthorOutputDto.cs" />
-    <Compile Include="Dtos\GenreDto.cs" />
-    <Compile Include="Dtos\GenreOutputDto.cs" />
-    <Compile Include="Dtos\IDto.cs" />
-    <Compile Include="Dtos\PublisherDto.cs" />
-    <Compile Include="Dtos\PublisherInputDto.cs" />
-    <Compile Include="Dtos\PublisherOutputDto.cs" />
-    <Compile Include="Dtos\RackDto.cs" />
-    <Compile Include="Dtos\RackOutputDto.cs" />
-    <Compile Include="Dtos\SeriesDto.cs" />
-    <Compile Include="Dtos\SeriesOutputDto.cs" />
-    <Compile Include="Dtos\ShelfDto.cs" />
-    <Compile Include="Dtos\ShelfOutputDto.cs" />
-    <Compile Include="IItemProvider.cs" />
     <Compile Include="ItemProviderServiceApplication.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProviderModuleRegisterar.cs" />
@@ -92,6 +76,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Library.Business.Services\Library.Business.Services.csproj">
+      <Project>{7ccb141c-2b96-45e7-96bf-52eb1690ff52}</Project>
+      <Name>Library.Business.Services</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Data\Library.DataLayer\Library.DataLayer.csproj">
       <Project>{75742107-3652-4B3F-93D3-E1DF7064D58F}</Project>
       <Name>Library.DataLayer</Name>
