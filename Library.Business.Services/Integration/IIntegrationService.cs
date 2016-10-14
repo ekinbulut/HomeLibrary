@@ -4,9 +4,16 @@ using Library.Business.Services.Integration.Dtos;
 namespace Library.Business.Services.Integration
 {
     [ServiceContract(Name = "IntegrationService",Namespace = "com.sense.business.Services")]
-    public interface IIntegrationService : IImport , ICreationMethods
+    public interface IIntegrationService : IImport , ICreationMethods, IStreamServices
     {
 
+    }
+
+    [ServiceContract(Name = "IntegrationService", Namespace = "com.sense.business.Services")]
+    public interface IStreamServices
+    {
+        [OperationContract]
+        bool SendFile(byte[] byteArray, string docName);
     }
 
     [ServiceContract(Name = "IntegrationService", Namespace = "com.sense.business.Services")]

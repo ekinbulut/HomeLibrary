@@ -1,10 +1,11 @@
-﻿using System.Configuration;
+﻿using System;
+using System.Configuration;
 using System.IO;
 using System.Web;
 using System.Web.Mvc;
-using Library.Business.Services.Integration.Dtos;
 using Library.Mvc.Cache;
 using Library.Mvc.Controllers;
+using Library.Mvc.Helpers;
 using Library.Mvc.Models;
 
 namespace Library.Web.Controllers
@@ -32,17 +33,14 @@ namespace Library.Web.Controllers
 
                 string file = Path.GetFileName(filetoupload.FileName);
                 var path = Path.Combine(Server.MapPath("~/" + configpath), file);
+
                 filetoupload.SaveAs(path);
 
                 var fullpath = Path.GetFullPath(path);
 
-                var result = Services.IntegrationServiceClient.Import(new IntegrationInputDto()
-                {
-                    IntegrationDto = new IntegrationDto()
-                    {
-                        FilePath = fullpath
-                    }
-                });
+                var mybytearray = StreamOperator.GetBytes(fullpath);
+
+                var result = Services.IntegrationServiceClient.SendFile(mybytearray,file);
 
                 if (result)
                 {

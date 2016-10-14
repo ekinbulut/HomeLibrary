@@ -104,6 +104,7 @@
     <Compile Include="Cache\ICacheManager.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Helpers\HtmlHelper.cs" />
+    <Compile Include="Helpers\StreamOperator.cs" />
     <Compile Include="Models\AuthorModel.cs" />
     <Compile Include="Models\BookModel.cs" />
     <Compile Include="Models\PublisherModel.cs" />
@@ -113,9 +114,6 @@
     <Compile Include="Providers\ItemProvider.cs" />
     <Compile Include="Providers\ServiceProvider.cs" />
     <Compile Include="Registeration.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

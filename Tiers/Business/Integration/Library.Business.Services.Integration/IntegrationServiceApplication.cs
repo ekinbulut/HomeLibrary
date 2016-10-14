@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Configuration;
 using System.Data;
+using System.IO;
 using Castle.Core.Internal;
 using Castle.Core.Logging;
 using Library.Business.Services.Integration.Dtos;
@@ -174,6 +176,28 @@ namespace Library.Business.Services.Integration
             }
 
             return publisher != null;
+        }
+
+
+        public bool SendFile(byte[] byteArray, string docName)
+        {
+            var path = ConfigurationManager.AppSettings["UploadFile"];
+            var strdocPath = Path.Combine(path, docName);
+            
+
+            using (FileStream objfilestream = new FileStream(strdocPath, FileMode.Create, FileAccess.ReadWrite))
+            {
+                objfilestream.Write(byteArray, 0, byteArray.Length);
+                objfilestream.Close();
+            }
+
+            return Import(new IntegrationInputDto()
+            {
+                IntegrationDto = new IntegrationDto()
+                {
+                    FilePath = strdocPath
+                }
+            });
         }
     }
 }
