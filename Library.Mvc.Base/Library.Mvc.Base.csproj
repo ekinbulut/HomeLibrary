@@ -4,14 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{33AA1EB8-0602-473B-A4BE-A080EED71C71}</ProjectGuid>
+    <ProjectGuid>{E865E09D-F196-454A-8F33-5722CD66C760}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Library.Business.Services.Integration</RootNamespace>
-    <AssemblyName>Library.Business.Services.Integration</AssemblyName>
+    <RootNamespace>Library.Mvc.Base</RootNamespace>
+    <AssemblyName>Library.Mvc.Base</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AssemblyVersion>1.0.0.13</AssemblyVersion>
+    <AssemblyVersion>1.0.0.8</AssemblyVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,23 +32,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\Castle.Core.3.3.0\lib\net45\Castle.Core.dll</HintPath>
+      <HintPath>..\packages\Castle.Core.3.3.0\lib\net45\Castle.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Castle.Facilities.WcfIntegration, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\Castle.WcfIntegrationFacility.3.3.0\lib\net45\Castle.Facilities.WcfIntegration.dll</HintPath>
+      <HintPath>..\packages\Castle.WcfIntegrationFacility.3.3.0\lib\net45\Castle.Facilities.WcfIntegration.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Castle.Windsor, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
+      <HintPath>..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
       <Private>True</Private>
-    </Reference>
-    <Reference Include="SenseFramework.Data.EntityFramework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\SenseFramework\SenseFramework.Data.EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="SenseFramework.Services">
-      <HintPath>..\..\..\..\SenseFramework\SenseFramework.Services.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -68,28 +61,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IntegrationModuleRegisterar.cs" />
-    <Compile Include="IntegrationServiceApplication.cs" />
-    <Compile Include="Parser\ExcelParserApplication.cs" />
-    <Compile Include="Parser\OleDbAConnector.cs" />
+    <Compile Include="IoCManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Library.Business.Services\Library.Business.Services.csproj">
-      <Project>{7ccb141c-2b96-45e7-96bf-52eb1690ff52}</Project>
-      <Name>Library.Business.Services</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Data\Book\Library.Data.Book\Library.Data.Book.csproj">
-      <Project>{5351D25E-AC4E-466E-B65E-1506B1432F10}</Project>
-      <Name>Library.Data.Book</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Data\Library.DataLayer\Library.DataLayer.csproj">
-      <Project>{75742107-3652-4B3F-93D3-E1DF7064D58F}</Project>
-      <Name>Library.DataLayer</Name>
-    </ProjectReference>
+    <Compile Include="ServiceRegisterar.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Library.Business.Services\Library.Business.Services.csproj">
+      <Project>{7ccb141c-2b96-45e7-96bf-52eb1690ff52}</Project>
+      <Name>Library.Business.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

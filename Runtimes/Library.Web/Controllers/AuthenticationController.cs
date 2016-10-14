@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Web.Mvc;
-using Library.Mvc.AuthenticationServices;
+using Library.Business.Services.Authantication.Dtos;
 using Library.Mvc.Controllers;
 using Library.Mvc.Models;
 
@@ -17,8 +17,8 @@ namespace Library.Web.Controllers
         [HttpPost]
         public ActionResult Login(UserLoginModel model)
         {
-
-            var output = Services.AuthServiceClient.Authenticate(new UserInputDto()
+            
+            var output = Services.AuthService.Authenticate(new UserInputDto()
             {
                 User = new UserDto()
                 {

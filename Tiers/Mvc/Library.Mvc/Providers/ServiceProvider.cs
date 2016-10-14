@@ -3,11 +3,12 @@
  * ServiceProvider is for providing related services to related Controllers.
 */
 
-using System.ServiceModel;
-using Library.Mvc.AuthenticationServices;
-using Library.Mvc.BookServices;
-using Library.Mvc.IntegrationServices;
-using Library.Mvc.ItemProviderServices;
+
+using Library.Business.Services.Authantication;
+using Library.Business.Services.Book;
+using Library.Business.Services.Integration;
+using Library.Business.Services.Provider;
+using Library.Mvc.Base;
 
 namespace Library.Mvc.Providers
 {
@@ -19,15 +20,15 @@ namespace Library.Mvc.Providers
         /// <summary>
         /// The _book service client
         /// </summary>
-        private BookServiceClient _bookServiceClient;
+        private IBookService _bookServiceClient;
         /// <summary>
         /// The _integration service client
         /// </summary>
-        private IntegrationServiceClient _integrationServiceClient;
+        private IIntegrationService _integrationServiceClient;
         /// <summary>
         /// The _item provider service client
         /// </summary>
-        private ItemProviderServiceClient _itemProviderServiceClient;
+        private IItemProvider _itemProviderServiceClient;
 
         /// <summary>
         /// Gets the book service client.
@@ -35,21 +36,11 @@ namespace Library.Mvc.Providers
         /// <value>
         /// The book service client.
         /// </value>
-        public BookServiceClient BookServiceClient
+        public IBookService BookServiceClient
         {
             get
             {
-                if (_bookServiceClient != null)
-                {
-                    if (_bookServiceClient.State == CommunicationState.Faulted)
-                    {
-                        return _bookServiceClient = new BookServiceClient();
-                    }
-
-                    return _bookServiceClient;
-                }
-
-               return _bookServiceClient = new BookServiceClient();  
+                return _bookServiceClient = IoCManager.Container.Resolve<IBookService>();  
             }
         }
 
@@ -59,12 +50,17 @@ namespace Library.Mvc.Providers
         /// <value>
         /// The authentication service client.
         /// </value>
-        public AuthServiceClient AuthServiceClient
+        //public AuthServiceClient AuthServiceClient
+        //{
+        //    get
+        //    {
+        //        return new AuthServiceClient();
+        //    }
+        //}
+
+        public IAuthenticationService AuthService
         {
-            get
-            {
-                return new AuthServiceClient();
-            }
+            get { return IoCManager.Container.Resolve<IAuthenticationService>(); }
         }
 
         /// <summary>
@@ -73,19 +69,12 @@ namespace Library.Mvc.Providers
         /// <value>
         /// The item provider service client.
         /// </value>
-        public ItemProviderServiceClient ItemProviderServiceClient
+        public IItemProvider ItemProviderServiceClient
         {
             get
             {
-                if (_itemProviderServiceClient != null)
-                {
-                    if (_itemProviderServiceClient.State == CommunicationState.Faulted)
-                    {
-                        return _itemProviderServiceClient = new ItemProviderServiceClient();
-                    }
-                    return _itemProviderServiceClient;
-                }
-                return _itemProviderServiceClient = new ItemProviderServiceClient();
+                
+                return _itemProviderServiceClient = IoCManager.Container.Resolve<IItemProvider>();
             }
         }
 
@@ -95,21 +84,11 @@ namespace Library.Mvc.Providers
         /// <value>
         /// The integration service client.
         /// </value>
-        public IntegrationServiceClient IntegrationServiceClient
+        public IIntegrationService IntegrationServiceClient
         {
             get
             {
-                if (_integrationServiceClient != null)
-                {
-                    if (_integrationServiceClient.State == CommunicationState.Faulted)
-                    {
-                        return _integrationServiceClient = new IntegrationServiceClient();
-                    }
-
-                    return _integrationServiceClient;
-                }
-
-                _integrationServiceClient = new IntegrationServiceClient();
+                _integrationServiceClient = IoCManager.Container.Resolve<IIntegrationService>();
                 
                 return _integrationServiceClient;
             }

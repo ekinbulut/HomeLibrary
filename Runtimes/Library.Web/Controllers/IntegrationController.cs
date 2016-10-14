@@ -2,9 +2,9 @@
 using System.IO;
 using System.Web;
 using System.Web.Mvc;
+using Library.Business.Services.Integration.Dtos;
 using Library.Mvc.Cache;
 using Library.Mvc.Controllers;
-using Library.Mvc.IntegrationServices;
 using Library.Mvc.Models;
 
 namespace Library.Web.Controllers

@@ -1,8 +1,8 @@
 ﻿using System.Web.Mvc;
-using Library.Mvc.BookServices;
+using Library.Business.Services.Book.Dtos;
+using Library.Business.Services.Integration.Dtos;
 using Library.Mvc.Cache;
 using Library.Mvc.Controllers;
-using Library.Mvc.IntegrationServices;
 using Library.Mvc.Models;
 
 namespace Library.Web.Controllers

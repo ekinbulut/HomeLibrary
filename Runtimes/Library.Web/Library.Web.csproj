@@ -25,7 +25,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TargetFrameworkProfile />
-    <AssemblyVersion>1.0.0.14</AssemblyVersion>
+    <AssemblyVersion>1.0.0.24</AssemblyVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -959,6 +959,10 @@
     <Folder Include="UploadFiles\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Library.Business.Services\Library.Business.Services.csproj">
+      <Project>{7CCB141C-2B96-45E7-96BF-52EB1690FF52}</Project>
+      <Name>Library.Business.Services</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Tiers\Mvc\Library.Mvc\Library.Mvc.csproj">
       <Project>{26ab804c-5fab-40aa-a00b-6119d7f176c3}</Project>
       <Name>Library.Mvc</Name>

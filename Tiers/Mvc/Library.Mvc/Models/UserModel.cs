@@ -1,5 +1,5 @@
 ﻿using System;
-using Library.Mvc.BookServices;
+using Library.Business.Services.Book.Dtos;
 
 namespace Library.Mvc.Models
 {

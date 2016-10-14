@@ -1,6 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Library.Mvc;
 
 namespace Library.Web
 {
@@ -10,6 +11,8 @@ namespace Library.Web
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            Registeration.RegisterBase();
         }
     }
 }
