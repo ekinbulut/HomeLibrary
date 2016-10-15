@@ -1,4 +1,5 @@
 ﻿using Library.Data.Entities;
+using SenseFramework.Data.EntityFramework;
 using SenseFramework.Data.EntityFramework.TypeConfigurationBase;
 
 namespace Library.Data.Book.TypeMappings
@@ -17,7 +18,14 @@ namespace Library.Data.Book.TypeMappings
             HasRequired(x => x.Shelf).WithMany(x=>x.Books).HasForeignKey(x=>x.ShelfId);
             HasRequired(x => x.Rack).WithMany(x=>x.Books).HasForeignKey(x=>x.RackId);
             HasOptional(x=>x.Serie).WithMany(x=>x.Books).HasForeignKey(x=>x.SeriesId);
-            HasRequired(x=>x.User).WithMany(x=>x.Books).HasForeignKey(x=>x.UserId);
+            //HasRequired(x=>x.User).WithMany(x=>x.Books).HasForeignKey(x=>x.UserId);
+
+            HasMany(x => x.Users).WithMany(x => x.Books).Map(tbl =>
+            {
+                tbl.MapLeftKey("BookIdFk");
+                tbl.MapRightKey("UserIdFk");
+                tbl.ToTable(Schema.Prefix + "_BOOKS_USERS");
+            });
 
         }
     }

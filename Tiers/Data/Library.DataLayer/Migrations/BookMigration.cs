@@ -18,7 +18,7 @@ namespace Library.Data.Migrations
     using Data.Repositories.Series;
     using Data.Repositories.Shelfs;
 
-    public class BookMigration : IDataMigration
+    public class BookMigration
     {
         private readonly IMigrationRepository _migrationrepo;
 
@@ -5794,8 +5794,10 @@ namespace Library.Data.Migrations
                         PublishDate = int.Parse(book.Publish_Date),
                         Rack = rack,
                         SkinType = book.Skin == "Ciltsiz" ? SkinType.Ciltli : SkinType.Ciltsiz,
-                        User = user
+                        
                     };
+
+                    ebook.Users.Add(user);
 
                     _bookrepos.CreateEntity(ebook);
                 }
@@ -5805,7 +5807,7 @@ namespace Library.Data.Migrations
             }
         }
 
-        public string Name { get { return "00008_BookMigration"; } }
+        public string Name { get { return "00009_BookMigration"; } }
     }
 
     internal class Book

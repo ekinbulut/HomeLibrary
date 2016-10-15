@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Library.Business.Services.Book.Dtos;
+using Library.Data.Athentication.Repositories.Users;
 using Library.Data.Entities;
 using Library.Data.Enums;
 using Library.Data.Repositories.Books;
@@ -10,10 +11,12 @@ namespace Library.Business.Services.Book
     public class BookServiceApplication : IBookService
     {
         private readonly IBookRepository _bookRepository;
+        private readonly IUserRepository _userRepository;
 
-        public BookServiceApplication(IBookRepository bookRepository)
+        public BookServiceApplication(IBookRepository bookRepository, IUserRepository userRepository)
         {
             _bookRepository = bookRepository;
+            _userRepository = userRepository;
         }
 
         /// <summary>
@@ -87,8 +90,9 @@ namespace Library.Business.Services.Book
         /// <returns>boolean</returns>
         public bool AddBook(BookInputDto input)
         {
+            var user = _userRepository.GetOne(input.UserId);
 
-            var newRecord = _bookRepository.CreateEntity(new EBook()
+            var book = new EBook()
             {
                 SkinType = input.SkinType == 0 ? SkinType.Ciltli : SkinType.Ciltsiz,
                 Name = input.Name,
@@ -101,8 +105,11 @@ namespace Library.Business.Services.Book
                 ShelfId = input.Shelf,
                 RackId = input.Rack,
                 No = input.No,
-                UserId = input.UserId
-            });
+            };
+
+            book.Users.Add(user);
+
+            var newRecord = _bookRepository.CreateEntity(book);
 
 
             return newRecord != null;

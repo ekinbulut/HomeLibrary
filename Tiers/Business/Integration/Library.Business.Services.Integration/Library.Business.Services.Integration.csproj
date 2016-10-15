@@ -70,6 +70,9 @@
   <ItemGroup>
     <Compile Include="IntegrationModuleRegisterar.cs" />
     <Compile Include="IntegrationServiceApplication.cs" />
+    <Compile Include="Model\IImporter.cs" />
+    <Compile Include="Model\Importer.cs" />
+    <Compile Include="Model\ImportObject.cs" />
     <Compile Include="Parser\ExcelParserApplication.cs" />
     <Compile Include="Parser\OleDbAConnector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

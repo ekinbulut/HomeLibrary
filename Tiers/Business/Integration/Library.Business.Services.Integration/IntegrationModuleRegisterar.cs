@@ -4,6 +4,7 @@ using System.ServiceModel;
 using Castle.Facilities.WcfIntegration;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
+using Library.Business.Services.Integration.Model;
 using Library.Business.Services.Integration.Parser;
 using SenseFramework.Services.Integrations;
 
@@ -15,6 +16,9 @@ namespace Library.Business.Services.Integration
         {
             container.Register(
                 Component.For<IParserApplication>().ImplementedBy<ExcelParserApplication>().LifestyleSingleton());
+
+            container.Register(
+                Component.For<IImporter>().ImplementedBy<Importer>().LifestyleSingleton());
 
             string baseAddress = ConfigurationManager.AppSettings["IntegrationServiceHost"];
 

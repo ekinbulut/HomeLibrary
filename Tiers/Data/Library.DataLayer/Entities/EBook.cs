@@ -1,4 +1,5 @@
-﻿using Library.Data.Enums;
+﻿using System.Collections.Generic;
+using Library.Data.Enums;
 using SenseFramework.Data.EntityFramework.EntityBases;
 
 namespace Library.Data.Entities
@@ -15,7 +16,7 @@ namespace Library.Data.Entities
         public virtual SkinType SkinType { get; set; }
         public virtual EShelf Shelf { get; set; }
         public virtual ERack Rack { get; set; }
-        public virtual EUser User { get; set; }
+        public virtual ICollection<EUser> Users { get; set; }
 
         public virtual int AuthorId { get; set; }
         public virtual int PublisherId { get; set; }
@@ -23,6 +24,11 @@ namespace Library.Data.Entities
         public virtual int GenreId { get; set; }
         public virtual int ShelfId { get; set; }
         public virtual int RackId { get; set; }
-        public virtual int UserId { get; set; }
+        //public virtual int UserId { get; set; }
+
+        public EBook()
+        {
+            Users = new List<EUser>();
+        }
     }
 }

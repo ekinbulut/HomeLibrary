@@ -51,12 +51,25 @@ namespace Library.Data.Migrations
                     Occupation = "Developer",
                     Gender = Gender.Male
                 });
+
+                _userrepo.CreateEntity(new EUser()
+                {
+                    Name = "Ekin Bulut",
+                    Userame = "ekinbulut@gmail.com",
+                    Password = "181985",
+                    CreatedDateTime = DateTime.Now,
+                    ERole = _roleepo.GetOne(1),
+                    IsActive = true,
+                    LastLoginDate = DateTime.Now,
+                    Occupation = "Engineer",
+                    Gender = Gender.Male
+                });
             }
         }
 
         public string Name
         {
-            get { return "00009_UserMigration"; }
+            get { return "00008_UserMigration"; }
         }
     }
     

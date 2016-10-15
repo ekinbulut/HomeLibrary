@@ -2,9 +2,11 @@
 using System.Configuration;
 using System.Data;
 using System.IO;
+using System.Linq;
 using Castle.Core.Internal;
 using Castle.Core.Logging;
 using Library.Business.Services.Integration.Dtos;
+using Library.Business.Services.Integration.Model;
 using Library.Business.Services.Integration.Parser;
 using Library.Data.Athentication.Repositories.Users;
 using Library.Data.Entities;
@@ -29,9 +31,11 @@ namespace Library.Business.Services.Integration
         private readonly ISeriesRepository _seriesRepository;
         private readonly IShelfRepository _shelfRepository;
         private readonly IRackRepository _rackRepository;
+        private readonly IUserRepository _userRepository;
         private readonly ILogger _logger;
+        private readonly IImporter _importer;
 
-        public IntegrationServiceApplication(IParserApplication parserApplication, IBookRepository bookRepository, IAuthorRepository authorRepository, IPublisherRepository publisherRepository, IGenreRepository genreRepository, ISeriesRepository seriesRepository, IShelfRepository shelfRepository, IRackRepository rackRepository, ILogger logger)
+        public IntegrationServiceApplication(IParserApplication parserApplication, IBookRepository bookRepository, IAuthorRepository authorRepository, IPublisherRepository publisherRepository, IGenreRepository genreRepository, ISeriesRepository seriesRepository, IShelfRepository shelfRepository, IRackRepository rackRepository, ILogger logger, IUserRepository userRepository, IImporter importer)
         {
             _parserApplication = parserApplication;
             _bookRepository = bookRepository;
@@ -42,7 +46,8 @@ namespace Library.Business.Services.Integration
             _shelfRepository = shelfRepository;
             _rackRepository = rackRepository;
             _logger = logger;
-
+            _userRepository = userRepository;
+            _importer = importer;
         }
 
         /// <summary>
@@ -50,62 +55,72 @@ namespace Library.Business.Services.Integration
         /// </summary>
         /// <param name="input">The input.</param>
         /// <returns></returns>
-        public bool Import(string input,int userId)
+        public bool Import(string input, int userId)
         {
 
             try
             {
                 var datatable = _parserApplication.ReadExcelFile(input);
 
+                var user = _userRepository.GetOne(userId);
+
+               
+
                 foreach (DataRow row in datatable.Rows)
                 {
-                    var bookName = row.ItemArray[0].ToString();
-                    var authorName = row.ItemArray[1].ToString();
-                    var publisherName = row.ItemArray[2].ToString();
-                    var publishdate = row.ItemArray[3].ToString();
-                    var genreName = row.ItemArray[4].ToString();
-                    var serieName = row.ItemArray[5].ToString();
-                    var no = row.ItemArray[6].ToString();
-                    var skintype = row.ItemArray[7].ToString();
-                    var rackId = row.ItemArray[9].ToString();
-                    var shelfId = row.ItemArray[10].ToString();
 
-                    if (!_bookRepository.FindBook(bookName)) //if not exist
+                    var importerObject = _importer.ConvertRowIntoImportObject(row);
+
+                    var exists = _bookRepository.CheckIfBookExistsByNameWriterAndByPublisher(importerObject.BookName, importerObject.AuthorName, importerObject.PublisherName);
+
+                    if (!exists)
                     {
-                        var author = _authorRepository.GetAuthorByName(authorName) ?? _authorRepository.CreateEntity(new EAuthor() { Name = authorName, CreatedDateTime = DateTime.Now });
-                        var publisher = _publisherRepository.GetPublisherByName(publisherName) ?? _publisherRepository.CreateEntity(new EPublisher() { Name = publisherName, CreatedDateTime = DateTime.Now });
-                        var genre = _genreRepository.GetGenreByName(genreName) ?? _genreRepository.CreateEntity(new EGenre() { Genre = genreName, CreatedDateTime = DateTime.Now });
+                        var author = _authorRepository.GetAuthorByName(importerObject.AuthorName) ?? _authorRepository.CreateEntity(new EAuthor() { Name = importerObject.AuthorName, CreatedDateTime = DateTime.Now });
+                        var publisher = _publisherRepository.GetPublisherByName(importerObject.PublisherName) ?? _publisherRepository.CreateEntity(new EPublisher() { Name = importerObject.PublisherName, CreatedDateTime = DateTime.Now });
+                        var genre = _genreRepository.GetGenreByName(importerObject.GenreName) ?? _genreRepository.CreateEntity(new EGenre() { Genre = importerObject.GenreName, CreatedDateTime = DateTime.Now });
 
                         ESeries serie;
-                        if (!serieName.IsNullOrEmpty())
+                        if (!importerObject.SerieName.IsNullOrEmpty())
                         {
-                            serie = _seriesRepository.GetSeriesbyName(serieName) ?? _seriesRepository.CreateEntity(new ESeries() { Name = serieName, Publisher = publisher, CreatedDateTime = DateTime.Now });
+                            serie = _seriesRepository.GetSeriesbyName(importerObject.SerieName) ?? _seriesRepository.CreateEntity(new ESeries() { Name = importerObject.SerieName, Publisher = publisher, CreatedDateTime = DateTime.Now });
                         }
                         else
                         {
                             serie = null;
                         }
-                        var skin = skintype.ToLowerInvariant().Equals("ciltli") ? SkinType.Ciltli : SkinType.Ciltsiz;
-                        var rack = _rackRepository.GetRackByRackNumber(int.Parse(rackId));
-                        var shelf = _shelfRepository.GetShelfById(int.Parse(shelfId));
+                        var skin = importerObject.Skintype.ToLowerInvariant().Equals("ciltli") ? SkinType.Ciltli : SkinType.Ciltsiz;
+                        var rack = _rackRepository.GetRackByRackNumber(int.Parse(importerObject.RackId));
+                        var shelf = _shelfRepository.GetShelfById(int.Parse(importerObject.ShelfId));
 
                         var entity = new EBook();
-                        entity.Name = bookName;
+                        entity.Name = importerObject.BookName;
                         entity.Author = author;
                         entity.Publisher = publisher;
-                        entity.PublishDate = int.Parse(publishdate);
+                        entity.PublishDate = int.Parse(importerObject.Publishdate);
                         entity.Genre = genre;
                         entity.Serie = serie;
-                        entity.No = String.IsNullOrEmpty(no) ? null : no;
+                        entity.No = String.IsNullOrEmpty(importerObject.No) ? null : importerObject.No;
                         entity.SkinType = skin;
                         entity.Rack = rack;
                         entity.Shelf = shelf;
                         entity.CreatedDateTime = DateTime.Now;
-                        entity.UserId = userId;
+
+                        entity.Users.Add(user);
 
                         _bookRepository.CreateEntity(entity);
                     }
+                    else
+                    {
+                        var book = _bookRepository.GetBookByNameAndByPublisher(importerObject.BookName, importerObject.AuthorName, importerObject.PublisherName);
 
+                        if (!book.Users.Contains(user))
+                        {
+                            book.Users.Add(user);
+                            _bookRepository.UpdateEntity(book.Id, book);
+
+                        }
+                    }
+                    
                 }
 
                 return true;
@@ -185,7 +200,7 @@ namespace Library.Business.Services.Integration
             var docname = input.IntegrationDto.DocName;
             var path = ConfigurationManager.AppSettings["UploadFile"];
             var strdocPath = Path.Combine(path, docname);
-            
+
 
             using (FileStream objfilestream = new FileStream(strdocPath, FileMode.Create, FileAccess.ReadWrite))
             {
