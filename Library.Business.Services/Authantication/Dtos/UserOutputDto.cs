@@ -8,6 +8,8 @@ namespace Library.Business.Services.Authantication.Dtos
     public class UserOutputDto
     {
         [DataMember]
+        public int UserId { get; set; }
+        [DataMember]
         public string Name { get; set; }
         [DataMember]
         public string Gender { get; set; }

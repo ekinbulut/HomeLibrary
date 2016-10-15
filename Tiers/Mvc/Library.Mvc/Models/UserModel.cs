@@ -11,6 +11,7 @@ namespace Library.Mvc.Models
         public string Occupation { get; set; }
         public DateTime? LastLoginDate { get; set; }
         public int RoleId { get; set; }
+        public int UserId { get; set; }
 
         public BookOutputDto BookOutputDto { get; set; }
         public BookModel BookModel { get; set; }

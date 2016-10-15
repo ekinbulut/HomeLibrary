@@ -36,6 +36,7 @@ namespace Library.Web.Controllers
                 Usermodel.LastLoginDate = output.LastLoginDate;
                 Usermodel.Gender = output.Gender;
                 Usermodel.Occupation = output.Occupation;
+                Usermodel.UserId = output.UserId;
 
                 Session.Add("Information",Usermodel);
                 Session.Timeout = 5;

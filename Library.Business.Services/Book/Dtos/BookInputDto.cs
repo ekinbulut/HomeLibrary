@@ -27,5 +27,7 @@ namespace Library.Business.Services.Book.Dtos
         public int Shelf { get; set; }
         [DataMember]
         public int Rack { get; set; }
+        [DataMember]
+        public int UserId { get; set; }
     }
 }

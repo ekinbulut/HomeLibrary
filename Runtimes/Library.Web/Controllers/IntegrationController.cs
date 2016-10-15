@@ -3,6 +3,7 @@ using System.Configuration;
 using System.IO;
 using System.Web;
 using System.Web.Mvc;
+using Library.Business.Services.Integration.Dtos;
 using Library.Mvc.Cache;
 using Library.Mvc.Controllers;
 using Library.Mvc.Helpers;
@@ -27,6 +28,8 @@ namespace Library.Web.Controllers
         [HttpPost]
         public ActionResult Index(HttpPostedFileBase filetoupload)
         {
+            Usermodel = Session["Information"] as UserModel;
+
             if (filetoupload != null)
             {
                 var configpath = ConfigurationManager.AppSettings["UploadFolderName"];
@@ -40,7 +43,15 @@ namespace Library.Web.Controllers
 
                 var mybytearray = StreamOperator.GetBytes(fullpath);
 
-                var result = Services.IntegrationServiceClient.SendFile(mybytearray,file);
+                var result = Services.IntegrationServiceClient.SendFile(new IntegrationInputDto()
+                {
+                    IntegrationDto = new IntegrationDto()
+                    {
+                        ByteArray = mybytearray,
+                        DocName = file,
+                        UserId = Usermodel.UserId
+                    }
+                });
 
                 if (result)
                 {

@@ -22,7 +22,7 @@ namespace Library.Web.Controllers
 
             if (Usermodel.BookOutputDto == null)
             {
-                var books = Services.BookServiceClient.GetBookList();
+                var books = Services.BookServiceClient.GetBookListByUserId(Usermodel.UserId);
                 Usermodel.BookOutputDto = books;
 
 
@@ -66,7 +66,8 @@ namespace Library.Web.Controllers
                 Author = model.BookModel.Author,
                 Rack = model.BookModel.Rack,
                 Publisher = model.BookModel.Publisher,
-                Shelf = model.BookModel.Shelf
+                Shelf = model.BookModel.Shelf,
+                UserId = model.UserId
             });
 
             if (isCreated)

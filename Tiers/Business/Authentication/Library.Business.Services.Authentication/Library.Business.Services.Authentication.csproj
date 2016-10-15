@@ -79,9 +79,9 @@
       <Project>{7ccb141c-2b96-45e7-96bf-52eb1690ff52}</Project>
       <Name>Library.Business.Services</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Data\Authentication\Library.Data.Athentication\Library.Data.Athentication.csproj">
-      <Project>{bc5afa28-de1e-47cd-a0bd-11e68ba47ca8}</Project>
-      <Name>Library.Data.Athentication</Name>
+    <ProjectReference Include="..\..\..\Data\Library.DataLayer\Library.DataLayer.csproj">
+      <Project>{75742107-3652-4B3F-93D3-E1DF7064D58F}</Project>
+      <Name>Library.DataLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

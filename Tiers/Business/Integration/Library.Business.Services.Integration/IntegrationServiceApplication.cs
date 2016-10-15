@@ -6,10 +6,11 @@ using Castle.Core.Internal;
 using Castle.Core.Logging;
 using Library.Business.Services.Integration.Dtos;
 using Library.Business.Services.Integration.Parser;
-using Library.Data.Book.Repositories.Books;
+using Library.Data.Athentication.Repositories.Users;
 using Library.Data.Entities;
 using Library.Data.Enums;
 using Library.Data.Repositories.Authors;
+using Library.Data.Repositories.Books;
 using Library.Data.Repositories.Genres;
 using Library.Data.Repositories.Publishers;
 using Library.Data.Repositories.Racks;
@@ -41,6 +42,7 @@ namespace Library.Business.Services.Integration
             _shelfRepository = shelfRepository;
             _rackRepository = rackRepository;
             _logger = logger;
+
         }
 
         /// <summary>
@@ -48,12 +50,12 @@ namespace Library.Business.Services.Integration
         /// </summary>
         /// <param name="input">The input.</param>
         /// <returns></returns>
-        public bool Import(IntegrationInputDto input)
+        public bool Import(string input,int userId)
         {
 
             try
             {
-                var datatable = _parserApplication.ReadExcelFile(input.IntegrationDto.FilePath);
+                var datatable = _parserApplication.ReadExcelFile(input);
 
                 foreach (DataRow row in datatable.Rows)
                 {
@@ -87,8 +89,6 @@ namespace Library.Business.Services.Integration
                         var rack = _rackRepository.GetRackByRackNumber(int.Parse(rackId));
                         var shelf = _shelfRepository.GetShelfById(int.Parse(shelfId));
 
-
-
                         var entity = new EBook();
                         entity.Name = bookName;
                         entity.Author = author;
@@ -101,6 +101,7 @@ namespace Library.Business.Services.Integration
                         entity.Rack = rack;
                         entity.Shelf = shelf;
                         entity.CreatedDateTime = DateTime.Now;
+                        entity.UserId = userId;
 
                         _bookRepository.CreateEntity(entity);
                     }
@@ -179,25 +180,21 @@ namespace Library.Business.Services.Integration
         }
 
 
-        public bool SendFile(byte[] byteArray, string docName)
+        public bool SendFile(IntegrationInputDto input)
         {
+            var docname = input.IntegrationDto.DocName;
             var path = ConfigurationManager.AppSettings["UploadFile"];
-            var strdocPath = Path.Combine(path, docName);
+            var strdocPath = Path.Combine(path, docname);
             
 
             using (FileStream objfilestream = new FileStream(strdocPath, FileMode.Create, FileAccess.ReadWrite))
             {
+                var byteArray = input.IntegrationDto.ByteArray;
                 objfilestream.Write(byteArray, 0, byteArray.Length);
                 objfilestream.Close();
             }
 
-            return Import(new IntegrationInputDto()
-            {
-                IntegrationDto = new IntegrationDto()
-                {
-                    FilePath = strdocPath
-                }
-            });
+            return Import(strdocPath, input.IntegrationDto.UserId);
         }
     }
 }

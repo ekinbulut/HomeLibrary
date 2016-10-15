@@ -13,7 +13,7 @@ namespace Library.Business.Services.Integration
     public interface IStreamServices
     {
         [OperationContract]
-        bool SendFile(byte[] byteArray, string docName);
+        bool SendFile(IntegrationInputDto input);
     }
 
     [ServiceContract(Name = "IntegrationService", Namespace = "com.sense.business.Services")]
@@ -36,15 +36,8 @@ namespace Library.Business.Services.Integration
 
     }
 
-    [ServiceContract(Name = "IntegrationService", Namespace = "com.sense.business.Services")]
     public interface IImport
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="input"></param>
-        /// <returns></returns>
-        [OperationContract]
-        bool Import(IntegrationInputDto input);
+        bool Import(string input, int userId);
     }
 }

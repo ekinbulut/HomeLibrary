@@ -14,6 +14,14 @@ namespace Library.Business.Services.Book
         BookOutputDto GetBookList();
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        [OperationContract]
+        BookOutputDto GetBookListByUserId(int userId);
+
+        /// <summary>
         /// Adds the book.
         /// </summary>
         /// <param name="input">The input.</param>

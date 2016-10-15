@@ -80,10 +80,6 @@
       <Project>{7ccb141c-2b96-45e7-96bf-52eb1690ff52}</Project>
       <Name>Library.Business.Services</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Data\Book\Library.Data.Book\Library.Data.Book.csproj">
-      <Project>{5351d25e-ac4e-466e-b65e-1506b1432f10}</Project>
-      <Name>Library.Data.Book</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\Data\Library.DataLayer\Library.DataLayer.csproj">
       <Project>{75742107-3652-4B3F-93D3-E1DF7064D58F}</Project>
       <Name>Library.DataLayer</Name>

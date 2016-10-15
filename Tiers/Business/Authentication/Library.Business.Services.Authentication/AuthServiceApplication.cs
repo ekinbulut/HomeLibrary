@@ -1,8 +1,8 @@
 ﻿using System;
 using Library.Business.Services.Authantication;
 using Library.Business.Services.Authantication.Dtos;
-using Library.Data.Athentication.Entities;
 using Library.Data.Athentication.Repositories.Users;
+using Library.Data.Entities;
 
 namespace Library.Business.Services.Authentication
 {
@@ -35,6 +35,7 @@ namespace Library.Business.Services.Authentication
                     
                     return new UserOutputDto()
                     {
+                        UserId = user.Id,
                         Name = user.Name,
                         Gender =  Enum.GetName(typeof(Gender),user.Gender),
                         Occupation = user.Occupation,

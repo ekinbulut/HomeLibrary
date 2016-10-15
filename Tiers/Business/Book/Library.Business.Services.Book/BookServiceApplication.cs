@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
 using Library.Business.Services.Book.Dtos;
-using Library.Data.Book.Repositories.Books;
 using Library.Data.Entities;
 using Library.Data.Enums;
+using Library.Data.Repositories.Books;
 
 namespace Library.Business.Services.Book
 {
@@ -50,6 +50,36 @@ namespace Library.Business.Services.Book
             return bookoutput;
         }
 
+        public BookOutputDto GetBookListByUserId(int userId)
+        {
+            BookOutputDto bookoutput = new BookOutputDto();
+
+            var books = _bookRepository.GetBooksWithUserId(userId).ToList();
+
+            if (books.Any())
+            {
+                foreach (var eBook in books)
+                {
+                    var book = new BookDto();
+                    book.Id = eBook.Id;
+                    book.Name = eBook.Name;
+                    book.Author = eBook.Author.Name;
+                    book.Publisher = eBook.Publisher.Name;
+                    book.Genre = eBook.Genre.Genre;
+                    book.No = eBook.No;
+                    book.Rack = eBook.Rack.RackNumber;
+                    book.Shelf = eBook.Shelf.Name;
+                    book.SkinType = Enum.GetName(typeof(SkinType), eBook.SkinType);
+                    book.Serie = eBook.Serie != null ? eBook.Serie.Name : string.Empty;
+                    book.PublishDate = eBook.PublishDate;
+
+                    bookoutput.Books.Add(book);
+                }
+
+            }
+            return bookoutput;
+        }
+
         /// <summary>
         /// Adds the book.
         /// </summary>
@@ -70,7 +100,8 @@ namespace Library.Business.Services.Book
                 GenreId = input.Genre,
                 ShelfId = input.Shelf,
                 RackId = input.Rack,
-                No = input.No
+                No = input.No,
+                UserId = input.UserId
             });
 
 

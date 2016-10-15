@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Linq;
-using Library.DataLayer.Entities;
-using Library.DataLayer.Repositories.Migrations;
-using Library.DataLayer.Repositories.Roles;
-using SenseFramework.Data.EntityFramework.Migrations;
+using Library.Data.Athentication.Repositories.Roles;
+using Library.Data.Entities;
+using SenseFramework.Data.EntityFramework.DataMigrations;
+using SenseFramework.Data.EntityFramework.Entities;
+using SenseFramework.Data.EntityFramework.Repositories.Migration;
 
-namespace Library.DataLayer.Migrations
+namespace Library.Data.Migrations
 {
     public class RoleMigration : IDataMigration
     {

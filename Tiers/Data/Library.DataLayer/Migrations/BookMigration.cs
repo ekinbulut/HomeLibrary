@@ -1,43 +1,47 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Library.DataLayer.Entities;
-using Library.DataLayer.Enums;
-using Library.DataLayer.Repositories.Authors;
-using Library.DataLayer.Repositories.Books;
-using Library.DataLayer.Repositories.Genres;
-using Library.DataLayer.Repositories.Publishers;
-using Library.DataLayer.Repositories.Racks;
-using Library.DataLayer.Repositories.Series;
-using Library.DataLayer.Repositories.Shelfs;
+using Library.Data.Repositories.Books;
 using SenseFramework.Data.EntityFramework.DataMigrations;
 using SenseFramework.Data.EntityFramework.Entities;
 using SenseFramework.Data.EntityFramework.Repositories.Migration;
 
-namespace Library.DataLayer.Migrations
+namespace Library.Data.Migrations
 {
+    using Athentication.Repositories.Users;
+    using Entities;
+    using Enums;
+    using Data.Repositories.Authors;
+    using Data.Repositories.Genres;
+    using Data.Repositories.Publishers;
+    using Data.Repositories.Racks;
+    using Data.Repositories.Series;
+    using Data.Repositories.Shelfs;
+
     public class BookMigration : IDataMigration
     {
         private readonly IMigrationRepository _migrationrepo;
 
-        private IShelfRepository shelfrepos;
-        private IAuthorRepository authorrepos;
-        private IGenreRepository genrerepos;
-        private IPublisherRepository publisherrepos;
-        private IRackRepository rackrepos;
-        private ISeriesRepository seriesrepo;
-        private IBookRepository bookrepos;
+        private readonly IShelfRepository _shelfrepos;
+        private readonly IAuthorRepository _authorrepos;
+        private readonly IGenreRepository _genrerepos;
+        private readonly IPublisherRepository _publisherrepos;
+        private readonly IRackRepository _rackrepos;
+        private readonly ISeriesRepository _seriesrepo;
+        private readonly IBookRepository _bookrepos;
+        private readonly IUserRepository _userRepository;
 
-        public BookMigration(IMigrationRepository migrationrepo, IShelfRepository shelfrepos, IAuthorRepository authorrepos, IGenreRepository genrerepos, IPublisherRepository publisherrepos, IRackRepository rackrepos, ISeriesRepository seriesrepo, IBookRepository bookrepos)
+        public BookMigration(IMigrationRepository migrationrepo, IShelfRepository shelfrepos, IAuthorRepository authorrepos, IGenreRepository genrerepos, IPublisherRepository publisherrepos, IRackRepository rackrepos, ISeriesRepository seriesrepo, IBookRepository bookrepos, IUserRepository userRepository)
         {
             this._migrationrepo = migrationrepo;
-            this.shelfrepos = shelfrepos;
-            this.authorrepos = authorrepos;
-            this.genrerepos = genrerepos;
-            this.publisherrepos = publisherrepos;
-            this.rackrepos = rackrepos;
-            this.seriesrepo = seriesrepo;
-            this.bookrepos = bookrepos;
+            this._shelfrepos = shelfrepos;
+            this._authorrepos = authorrepos;
+            this._genrerepos = genrerepos;
+            this._publisherrepos = publisherrepos;
+            this._rackrepos = rackrepos;
+            this._seriesrepo = seriesrepo;
+            this._bookrepos = bookrepos;
+            this._userRepository = userRepository;
         }
 
 
@@ -5766,30 +5770,16 @@ namespace Library.DataLayer.Migrations
                     },
                 };
 
-                //var shelfrepos = IoCManager.Container.Resolve<IShelfRepository>();
-                //var authorrepos = IoCManager.Container.Resolve<IAuthorRepository>();
-                //var genrerepos = IoCManager.Container.Resolve<IGenreRepository>();
-                //var publisherrepos = IoCManager.Container.Resolve<IPublisherRepository>();
-                //var rackrepos = IoCManager.Container.Resolve<IRackRepository>();
-                //var seriesrepo = IoCManager.Container.Resolve<ISeriesRepository>();
-
-                //var bookrepos = IoCManager.Container.Resolve<IBookRepository>();
+                var user = _userRepository.GetUserByName("admin@admin.com");
 
                 foreach (Book book in list)
                 {
-                    //var author = authorrepos.GetAll().FirstOrDefault(x => x.Name.Equals(book.Author));
-                    var author = authorrepos.GetAuthorByName(book.Author);
-                    //var genre = genrerepos.GetAll().FirstOrDefault(x => x.Genre.Equals(book.Genre));
-                    var genre = genrerepos.GetGenreByName(book.Genre);
-                    //var publisher = publisherrepos.GetAll().FirstOrDefault(x => x.Name.Contains(book.Publisher));
-                    var publisher = publisherrepos.GetPublisherByName(book.Publisher);
-                    //var series = seriesrepo.GetAll().FirstOrDefault(x => x.Name.Equals(book.Description));
-                    var series = seriesrepo.GetSeriesbyName(book.Description);
-                    //var rack = rackrepos.GetAll().FirstOrDefault(x => x.RackNumber == int.Parse(book.RackNo));
-                    var rack = rackrepos.GetRackByRackNumber(int.Parse(book.RackNo));
-                    //var shelf = shelfrepos.GetAll().FirstOrDefault(x => x.Name.Contains(book.Shelf));
-                    var shelf = shelfrepos.GetShelfByName(book.Shelf);
-                    
+                    var author = _authorrepos.GetAuthorByName(book.Author);
+                    var genre = _genrerepos.GetGenreByName(book.Genre);
+                    var publisher = _publisherrepos.GetPublisherByName(book.Publisher);
+                    var series = _seriesrepo.GetSeriesbyName(book.Description);
+                    var rack = _rackrepos.GetRackByRackNumber(int.Parse(book.RackNo));
+                    var shelf = _shelfrepos.GetShelfByName(book.Shelf);
 
                     var ebook = new EBook()
                     {
@@ -5803,10 +5793,11 @@ namespace Library.DataLayer.Migrations
                         No = book.No == "" ? null : book.No,
                         PublishDate = int.Parse(book.Publish_Date),
                         Rack = rack,
-                        SkinType = book.Skin == "Ciltsiz" ? SkinType.Ciltli : SkinType.Ciltsiz
+                        SkinType = book.Skin == "Ciltsiz" ? SkinType.Ciltli : SkinType.Ciltsiz,
+                        User = user
                     };
 
-                    bookrepos.CreateEntity(ebook);
+                    _bookrepos.CreateEntity(ebook);
                 }
 
 
