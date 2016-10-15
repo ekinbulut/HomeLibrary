@@ -54,6 +54,8 @@ namespace Library.Web.Controllers
         [HttpPost]
         public ActionResult AddBook(UserModel model)
         {
+            Usermodel = Session["Information"] as UserModel;
+
             var isCreated = Services.BookServiceClient.AddBook(new BookInputDto()
             {
                 
@@ -67,14 +69,13 @@ namespace Library.Web.Controllers
                 Rack = model.BookModel.Rack,
                 Publisher = model.BookModel.Publisher,
                 Shelf = model.BookModel.Shelf,
-                UserId = model.UserId
+                UserId = Usermodel.UserId
             });
 
             if (isCreated)
             {
                 BookCache.Cache.Dictionary.Clear();
 
-                Usermodel = Session["Information"] as UserModel;
                 Usermodel.BookOutputDto = null;
 
                 return RedirectToAction("Index", "Home");
