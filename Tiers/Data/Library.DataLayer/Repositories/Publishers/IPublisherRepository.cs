@@ -6,5 +6,6 @@ namespace Library.Data.Repositories.Publishers
     public interface IPublisherRepository : IRepository<EPublisher,int>
     {
         EPublisher GetPublisherByName(string name);
+        EPublisher CreatePublisherIfNotExists(string name);
     }
 }

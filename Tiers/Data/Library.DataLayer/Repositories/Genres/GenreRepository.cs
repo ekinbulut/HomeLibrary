@@ -1,6 +1,6 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Linq;
-using Castle.Core.Logging;
 using Library.Data.Entities;
 using SenseFramework.Data.EntityFramework.Repositories;
 
@@ -15,6 +15,12 @@ namespace Library.Data.Repositories.Genres
         public EGenre GetGenreByName(string name)
         {
             return DbContext.Set<EGenre>().FirstOrDefault(x => x.Genre == name);
+        }
+
+        public EGenre CreateGenreIfNotExists(string name)
+        {
+            return DbContext.Set<EGenre>().FirstOrDefault(x => x.Genre == name) ?? this.CreateEntity(new EGenre() {Genre = name,CreatedDateTime = DateTime.Now});
+
         }
     }
 }

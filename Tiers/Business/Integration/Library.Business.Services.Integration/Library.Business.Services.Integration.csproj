@@ -70,6 +70,7 @@
   <ItemGroup>
     <Compile Include="IntegrationModuleRegisterar.cs" />
     <Compile Include="IntegrationServiceApplication.cs" />
+    <Compile Include="IValidation.cs" />
     <Compile Include="Model\IImporter.cs" />
     <Compile Include="Model\Importer.cs" />
     <Compile Include="Model\ImportObject.cs" />

@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Linq;
 using Castle.Core.Logging;
 using Library.Data.Entities;
@@ -15,6 +16,12 @@ namespace Library.Data.Repositories.Publishers
         public EPublisher GetPublisherByName(string name)
         {
             return DbContext.Set<EPublisher>().FirstOrDefault(x => x.Name == name);
+        }
+
+        public EPublisher CreatePublisherIfNotExists(string name)
+        {
+            return DbContext.Set<EPublisher>().FirstOrDefault(x => x.Name == name) ??
+                   this.CreateEntity(new EPublisher() {Name = name,CreatedDateTime = DateTime.Now});
         }
     }
 }

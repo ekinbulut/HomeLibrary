@@ -6,5 +6,6 @@ namespace Library.Data.Repositories.Genres
     public interface IGenreRepository  : IRepository<EGenre,int>
     {
         EGenre GetGenreByName(string name);
+        EGenre CreateGenreIfNotExists(string name);
     }
 }

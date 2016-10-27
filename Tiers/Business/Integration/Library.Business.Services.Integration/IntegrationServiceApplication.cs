@@ -21,7 +21,7 @@ using Library.Data.Repositories.Shelfs;
 
 namespace Library.Business.Services.Integration
 {
-    public class IntegrationServiceApplication : IIntegrationService
+    public class IntegrationServiceApplication : IIntegrationService , IValidation
     {
         private readonly IParserApplication _parserApplication;
         private readonly IBookRepository _bookRepository;
@@ -64,20 +64,22 @@ namespace Library.Business.Services.Integration
 
                 var user = _userRepository.GetOne(userId);
 
-               
-
                 foreach (DataRow row in datatable.Rows)
                 {
-
                     var importerObject = _importer.ConvertRowIntoImportObject(row);
+
+                    if (IsEmpty(importerObject))
+                    {
+                        continue;
+                    }
 
                     var exists = _bookRepository.CheckIfBookExistsByNameWriterAndByPublisher(importerObject.BookName, importerObject.AuthorName, importerObject.PublisherName);
 
                     if (!exists)
                     {
-                        var author = _authorRepository.GetAuthorByName(importerObject.AuthorName) ?? _authorRepository.CreateEntity(new EAuthor() { Name = importerObject.AuthorName, CreatedDateTime = DateTime.Now });
-                        var publisher = _publisherRepository.GetPublisherByName(importerObject.PublisherName) ?? _publisherRepository.CreateEntity(new EPublisher() { Name = importerObject.PublisherName, CreatedDateTime = DateTime.Now });
-                        var genre = _genreRepository.GetGenreByName(importerObject.GenreName) ?? _genreRepository.CreateEntity(new EGenre() { Genre = importerObject.GenreName, CreatedDateTime = DateTime.Now });
+                        var author = _authorRepository.CreateIfAuthorIsNotExists(importerObject.AuthorName);
+                        var publisher = _publisherRepository.CreatePublisherIfNotExists(importerObject.PublisherName);
+                        var genre = _genreRepository.CreateGenreIfNotExists(importerObject.GenreName);
 
                         ESeries serie;
                         if (!importerObject.SerieName.IsNullOrEmpty())
@@ -120,7 +122,7 @@ namespace Library.Business.Services.Integration
 
                         }
                     }
-                    
+
                 }
 
                 return true;
@@ -210,6 +212,12 @@ namespace Library.Business.Services.Integration
             }
 
             return Import(strdocPath, input.IntegrationDto.UserId);
+        }
+
+        public bool IsEmpty(ImportObject data)
+        {
+            return String.IsNullOrEmpty(data.BookName) || String.IsNullOrEmpty(data.Publishdate) ||
+                   String.IsNullOrEmpty(data.GenreName);
         }
     }
 }
