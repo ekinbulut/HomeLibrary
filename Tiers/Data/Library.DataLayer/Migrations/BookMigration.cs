@@ -1,23 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Library.Data.Athentication.Repositories.Users;
+using Library.Data.Entities;
+using Library.Data.Enums;
+using Library.Data.Repositories.Authors;
 using Library.Data.Repositories.Books;
-using SenseFramework.Data.EntityFramework.DataMigrations;
+using Library.Data.Repositories.Genres;
+using Library.Data.Repositories.Publishers;
+using Library.Data.Repositories.Racks;
+using Library.Data.Repositories.Series;
+using Library.Data.Repositories.Shelfs;
 using SenseFramework.Data.EntityFramework.Entities;
 using SenseFramework.Data.EntityFramework.Repositories.Migration;
 
 namespace Library.Data.Migrations
 {
-    using Athentication.Repositories.Users;
-    using Entities;
-    using Enums;
-    using Data.Repositories.Authors;
-    using Data.Repositories.Genres;
-    using Data.Repositories.Publishers;
-    using Data.Repositories.Racks;
-    using Data.Repositories.Series;
-    using Data.Repositories.Shelfs;
-
     public class BookMigration
     {
         private readonly IMigrationRepository _migrationrepo;

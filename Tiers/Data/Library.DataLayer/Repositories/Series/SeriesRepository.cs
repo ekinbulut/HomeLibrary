@@ -1,6 +1,5 @@
 ﻿using System.Data.Entity;
 using System.Linq;
-using Castle.Core.Logging;
 using Library.Data.Entities;
 using SenseFramework.Data.EntityFramework.Repositories;
 
