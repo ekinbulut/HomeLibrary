@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Library.Business.Services.Book.Dtos;
+using Library.Business.Services.Helper;
 using Library.Data.Athentication.Repositories.Users;
 using Library.Data.Entities;
 using Library.Data.Enums;
@@ -39,7 +40,7 @@ namespace Library.Business.Services.Book
                     book.Author = eBook.Author.Name;
                     book.Publisher = eBook.Publisher.Name;
                     book.Genre = eBook.Genre.Genre;
-                    book.No = eBook.No;
+                    book.No = eBook.No.ToString();
                     book.Rack = eBook.Rack.RackNumber;
                     book.Shelf = eBook.Shelf.Name;
                     book.SkinType = Enum.GetName(typeof(SkinType), eBook.SkinType);
@@ -69,7 +70,7 @@ namespace Library.Business.Services.Book
                     book.Author = eBook.Author.Name;
                     book.Publisher = eBook.Publisher.Name;
                     book.Genre = eBook.Genre.Genre;
-                    book.No = eBook.No;
+                    book.No = eBook.No.ToString();
                     book.Rack = eBook.Rack.RackNumber;
                     book.Shelf = eBook.Shelf.Name;
                     book.SkinType = Enum.GetName(typeof(SkinType), eBook.SkinType);
@@ -104,8 +105,22 @@ namespace Library.Business.Services.Book
                 GenreId = input.Genre,
                 ShelfId = input.Shelf,
                 RackId = input.Rack,
-                No = input.No,
+                //No = int.TryParse(input.No, out number) ? number : (int?) null
             };
+
+
+            if (!String.IsNullOrEmpty(input.No))
+            {
+                int no = 0;
+
+                book.No = int.TryParse(input.No, out no) ? no : input.No.RomanToInteger();
+            }
+            else
+            {
+                book.No = null;
+            }
+
+
 
             book.Users.Add(user);
 

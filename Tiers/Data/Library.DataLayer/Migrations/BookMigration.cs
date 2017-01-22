@@ -5791,7 +5791,7 @@ namespace Library.Data.Migrations
                         Serie = series ?? null,
                         Shelf = shelf,
                         CreatedDateTime = DateTime.Now,
-                        No = book.No == "" ? null : book.No,
+                        //No = book.No == "" ? null : book.No,
                         PublishDate = int.Parse(book.Publish_Date),
                         Rack = rack,
                         SkinType = book.Skin == "Ciltsiz" ? SkinType.Ciltli : SkinType.Ciltsiz,

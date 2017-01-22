@@ -12,7 +12,7 @@ namespace Library.Data.Entities
         public virtual ESeries Serie { get; set; }
         public virtual int PublishDate { get; set; }
         public virtual EGenre Genre { get; set; }
-        public virtual string No { get; set; }
+        public virtual int? No { get; set; }
         public virtual SkinType SkinType { get; set; }
         public virtual EShelf Shelf { get; set; }
         public virtual ERack Rack { get; set; }

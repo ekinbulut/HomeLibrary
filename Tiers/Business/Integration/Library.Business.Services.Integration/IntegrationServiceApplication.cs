@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using Castle.Core.Internal;
 using Castle.Core.Logging;
+using Library.Business.Services.Helper;
 using Library.Business.Services.Integration.Dtos;
 using Library.Business.Services.Integration.Model;
 using Library.Business.Services.Integration.Parser;
@@ -101,7 +102,27 @@ namespace Library.Business.Services.Integration
                         entity.PublishDate = int.Parse(importerObject.Publishdate);
                         entity.Genre = genre;
                         entity.Serie = serie;
-                        entity.No = String.IsNullOrEmpty(importerObject.No) ? null : importerObject.No;
+
+                        if (!String.IsNullOrEmpty(importerObject.No))
+                        {
+                            int no = 0;
+
+                            if (int.TryParse(importerObject.No,out no))
+                            {
+                                entity.No = no;
+                            }
+                            else
+                            {
+                                entity.No = importerObject.No.RomanToInteger();
+                            }
+                        }
+                        else
+                        {
+                            entity.No = null;
+                        }
+
+
+                        //entity.No = String.IsNullOrEmpty(importerObject.No) ? null : importerObject.No.RomanToInteger();
                         entity.SkinType = skin;
                         entity.Rack = rack;
                         entity.Shelf = shelf;
