@@ -39,9 +39,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{4706905B-A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{4B8508BA-C184-4CE8-9C07-89719493C4C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Business.Services", "Library.Business.Services\Library.Business.Services.csproj", "{7CCB141C-2B96-45E7-96BF-52EB1690FF52}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Business.Services", "Tiers\Business\Library.Business.Services\Library.Business.Services.csproj", "{7CCB141C-2B96-45E7-96BF-52EB1690FF52}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Mvc.Base", "Library.Mvc.Base\Library.Mvc.Base.csproj", "{E865E09D-F196-454A-8F33-5722CD66C760}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Mvc.Base", "Tiers\Mvc\Library.Mvc.Base\Library.Mvc.Base.csproj", "{E865E09D-F196-454A-8F33-5722CD66C760}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Installers", "Installers", "{4D4C5DD4-9E92-4165-9B97-D0BEB4DA1DA7}"
 EndProject

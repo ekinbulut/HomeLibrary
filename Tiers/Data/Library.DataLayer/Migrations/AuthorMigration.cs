@@ -8,7 +8,7 @@ using SenseFramework.Data.EntityFramework.Repositories.Migration;
 
 namespace Library.Data.Migrations
 {
-    public class AuthorMigration : IDataMigration
+    public class AuthorMigration 
     {
         private readonly IMigrationRepository _migrationrepo;
         private readonly IAuthorRepository _authorrepos;

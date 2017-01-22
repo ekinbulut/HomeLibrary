@@ -69,7 +69,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Library.Business.Services\Library.Business.Services.csproj">
+    <ProjectReference Include="..\..\Business\Library.Business.Services\Library.Business.Services.csproj">
       <Project>{7ccb141c-2b96-45e7-96bf-52eb1690ff52}</Project>
       <Name>Library.Business.Services</Name>
     </ProjectReference>

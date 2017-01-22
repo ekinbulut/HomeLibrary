@@ -959,7 +959,7 @@
     <Folder Include="UploadFiles\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Library.Business.Services\Library.Business.Services.csproj">
+    <ProjectReference Include="..\..\Tiers\Business\Library.Business.Services\Library.Business.Services.csproj">
       <Project>{7CCB141C-2B96-45E7-96BF-52EB1690FF52}</Project>
       <Name>Library.Business.Services</Name>
     </ProjectReference>

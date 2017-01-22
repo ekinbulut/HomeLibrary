@@ -41,6 +41,7 @@ namespace Library.Data.Migrations
                 _rackRepository.CreateEntity(new ERack() {RackNumber = 4, CreatedDateTime = DateTime.Now});
                 _rackRepository.CreateEntity(new ERack() {RackNumber = 5, CreatedDateTime = DateTime.Now});
                 _rackRepository.CreateEntity(new ERack() {RackNumber = 6, CreatedDateTime = DateTime.Now});
+                _rackRepository.CreateEntity(new ERack() {RackNumber = 7, CreatedDateTime = DateTime.Now});
             }
         }
 

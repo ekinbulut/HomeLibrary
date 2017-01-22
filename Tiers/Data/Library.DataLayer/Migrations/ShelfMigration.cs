@@ -41,21 +41,28 @@ namespace Library.Data.Migrations
 
                 var racks = _rackrepository.GetAll();
 
-                var shelfone = new EShelf()
+                var firstShelf = new EShelf()
                 {
                     Name = "Kitaplık 1",
                     CreatedDateTime = DateTime.Now,
                     Racks = racks.ToList()
                 };
-                var shelftwo = new EShelf()
+                var secondShelf = new EShelf()
                 {
                     Name = "Kitaplık 2",
                     CreatedDateTime = DateTime.Now,
                     Racks = racks.ToList()
                 };
+                var thirdShelf = new EShelf()
+                {
+                    Name = "Kitaplık 3",
+                    CreatedDateTime = DateTime.Now,
+                    Racks = racks.ToList()
+                };
 
-                _shelfrepository.CreateEntity(shelfone);
-                _shelfrepository.CreateEntity(shelftwo);
+                _shelfrepository.CreateEntity(firstShelf);
+                _shelfrepository.CreateEntity(secondShelf);
+                _shelfrepository.CreateEntity(thirdShelf);
                // shelfrepository.CreateEntity(new EShelf() {Name = "Kütüphane 2",CreatedDateTime = DateTime.Now});
             }
         }

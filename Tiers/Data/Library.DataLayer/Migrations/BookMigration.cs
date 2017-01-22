@@ -16,6 +16,9 @@ using SenseFramework.Data.EntityFramework.Repositories.Migration;
 
 namespace Library.Data.Migrations
 {
+    /// <summary>
+    /// This migration is not enabled. If you want to enable it; implement IDataMigrtion Interface
+    /// </summary>
     public class BookMigration
     {
         private readonly IMigrationRepository _migrationrepo;

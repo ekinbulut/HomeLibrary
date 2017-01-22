@@ -120,11 +120,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Library.Business.Services\Library.Business.Services.csproj">
+    <ProjectReference Include="..\..\Business\Library.Business.Services\Library.Business.Services.csproj">
       <Project>{7ccb141c-2b96-45e7-96bf-52eb1690ff52}</Project>
       <Name>Library.Business.Services</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Library.Mvc.Base\Library.Mvc.Base.csproj">
+    <ProjectReference Include="..\Library.Mvc.Base\Library.Mvc.Base.csproj">
       <Project>{e865e09d-f196-454a-8f33-5722cd66c760}</Project>
       <Name>Library.Mvc.Base</Name>
     </ProjectReference>
