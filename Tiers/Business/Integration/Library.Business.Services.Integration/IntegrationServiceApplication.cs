@@ -103,24 +103,22 @@ namespace Library.Business.Services.Integration
                         entity.Genre = genre;
                         entity.Serie = serie;
 
-                        if (!String.IsNullOrEmpty(importerObject.No))
-                        {
-                            int no = 0;
+                        //if (!String.IsNullOrEmpty(importerObject.No))
+                        //{
+                        //    int no = 0;
 
-                            if (int.TryParse(importerObject.No,out no))
-                            {
-                                entity.No = no;
-                            }
-                            else
-                            {
-                                entity.No = importerObject.No.RomanToInteger();
-                            }
-                        }
-                        else
-                        {
-                            entity.No = null;
-                        }
+                        //    entity.No = int.TryParse(importerObject.No,out no) ? no : importerObject.No.RomanToInteger();
+                        //}
+                        //else
+                        //{
+                        //    entity.No = null;
+                        //}
 
+                        int no = 0;
+                        entity.No = !String.IsNullOrEmpty(importerObject.No)
+                            ? (entity.No =
+                                int.TryParse(importerObject.No, out no) ? no : importerObject.No.RomanToInteger())
+                            : entity.No = null;
 
                         //entity.No = String.IsNullOrEmpty(importerObject.No) ? null : importerObject.No.RomanToInteger();
                         entity.SkinType = skin;
