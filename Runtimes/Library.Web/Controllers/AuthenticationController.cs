@@ -1,15 +1,21 @@
 ﻿using System;
 using System.Web.Mvc;
 using Library.Business.Services.Authantication.Dtos;
-using Library.Mvc.Controllers;
 using Library.Mvc.Models;
+using Library.Mvc.Providers;
 
 namespace Library.Web.Controllers
 {
-    public class AuthenticationController : BaseController
+    public class AuthenticationController : Controller
     {
+        protected ServiceProvider Services;
+
+        public AuthenticationController()
+        {
+            Services = new ServiceProvider();
+        }
         //LOGIN PAGE
-        public override ActionResult Index()
+        public ActionResult Index()
         {
             return View();
         }
@@ -30,7 +36,7 @@ namespace Library.Web.Controllers
             if (output != null)
             {
 
-                Usermodel = new UserModel();
+                var Usermodel = new UserModel();
                 Usermodel.Identity = Guid.NewGuid();
                 Usermodel.Name = output.Name;
                 Usermodel.LastLoginDate = output.LastLoginDate;
@@ -49,8 +55,10 @@ namespace Library.Web.Controllers
 
         public ActionResult Logout()
         {
-            if (Session["Information"] != null)
+            if (!Session.IsNewSession || Session["Information"] != null)
             {
+                Session.Remove("Information");
+                
                 Session.Clear();
             }
 

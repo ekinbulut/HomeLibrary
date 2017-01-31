@@ -14,10 +14,10 @@ namespace Library.Web.Controllers
     {
         public override ActionResult Index()
         {
-            if (Session["Information"] == null)
-            {
-                return RedirectToAction("Index", "Authentication");
-            }
+            //if (Session["Information"] == null)
+            //{
+            //    return RedirectToAction("Index", "Authentication");
+            //}
 
             Usermodel = Session["Information"] as UserModel;
 
