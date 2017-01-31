@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using Castle.Core.Internal;
 using Library.Mvc.Models;
 using Library.Mvc.Providers;
 
@@ -12,6 +13,19 @@ namespace Library.Mvc.Controllers
         protected BaseController()
         {
             Services = new ServiceProvider();
+        }
+
+        protected override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            var session = filterContext.HttpContext.Session;
+
+            if (session.IsNewSession || session["Information"] == null)
+            {
+                filterContext.Result = RedirectToAction("Index", "Authentication");
+
+            }
+
+            base.OnActionExecuting(filterContext);
         }
 
         public abstract ActionResult Index();

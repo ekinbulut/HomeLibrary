@@ -14,6 +14,7 @@ namespace Library.Web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
+            //calls : windsor castle registration and wcf services
             Registeration.RegisterBase();
         }
     }

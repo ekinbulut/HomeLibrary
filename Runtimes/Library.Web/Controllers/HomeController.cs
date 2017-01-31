@@ -13,11 +13,6 @@ namespace Library.Web.Controllers
         public override ActionResult Index()
         {
             
-            if (Session["Information"] == null)
-            {
-                return RedirectToAction("Index", "Authentication");
-            }
-
             Usermodel = Session["Information"] as UserModel;
 
             if (Usermodel.BookOutputDto == null)
@@ -40,10 +35,6 @@ namespace Library.Web.Controllers
 
         public ActionResult AddBook()
         {
-            if (Session["Information"] == null)
-            {
-                return RedirectToAction("Index", "Authentication");
-            }
 
             Usermodel = Session["Information"] as UserModel;
             
@@ -86,10 +77,6 @@ namespace Library.Web.Controllers
 
         public ActionResult CreateWriter()
         {
-            if (Session["Information"] == null)
-            {
-                return RedirectToAction("Index", "Authentication");
-            }
 
             Usermodel = Session["Information"] as UserModel;
 
@@ -98,10 +85,6 @@ namespace Library.Web.Controllers
 
         public ActionResult CreatePublisher()
         {
-            if (Session["Information"] == null)
-            {
-                return RedirectToAction("Index", "Authentication");
-            }
 
             Usermodel = Session["Information"] as UserModel;
 
