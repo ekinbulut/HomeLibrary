@@ -84,7 +84,21 @@
 
 <script>
         $(function () {
-            $("#example").DataTable();
+            $("#example").DataTable({
+                columnDefs: [{
+                    targets: [2],
+                    orderData: [0, 1]
+                }, {
+                    targets: [3],
+                    orderData: [1, 0]
+                }, {
+                    targets: [4],
+                    orderData: [4, 0]
+                }],
+                "pagingType": "simple",
+                stateSave: true
+
+            });
         });
     </script>
 </body>
