@@ -96,7 +96,7 @@ namespace Library.Business.Services.Book
             var book = new EBook()
             {
                 SkinType = input.SkinType == 0 ? SkinType.Ciltli : SkinType.Ciltsiz,
-                Name = input.Name,
+                Name = input.Name.Trim(),
                 SeriesId = input.Serie == 0 ? (int?) null : input.Serie,
                 AuthorId = input.Author,
                 CreatedDateTime = DateTime.Now,
