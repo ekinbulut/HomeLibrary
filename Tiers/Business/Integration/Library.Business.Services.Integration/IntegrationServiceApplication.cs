@@ -74,18 +74,18 @@ namespace Library.Business.Services.Integration
                         continue;
                     }
 
-                    var exists = _bookRepository.CheckIfBookExistsByNameWriterAndByPublisher(importerObject.BookName, importerObject.AuthorName, importerObject.PublisherName);
+                    var exists = _bookRepository.CheckIfBookExistsByNameWriterAndByPublisher(importerObject.BookName.Trim(), importerObject.AuthorName.Trim(), importerObject.PublisherName.Trim());
 
                     if (!exists)
                     {
-                        var author = _authorRepository.CreateIfAuthorIsNotExists(importerObject.AuthorName);
-                        var publisher = _publisherRepository.CreatePublisherIfNotExists(importerObject.PublisherName);
-                        var genre = _genreRepository.CreateGenreIfNotExists(importerObject.GenreName);
+                        var author = _authorRepository.CreateIfAuthorIsNotExists(importerObject.AuthorName.Trim());
+                        var publisher = _publisherRepository.CreatePublisherIfNotExists(importerObject.PublisherName.Trim());
+                        var genre = _genreRepository.CreateGenreIfNotExists(importerObject.GenreName.Trim());
 
                         ESeries serie;
                         if (!importerObject.SerieName.IsNullOrEmpty())
                         {
-                            serie = _seriesRepository.GetSeriesbyName(importerObject.SerieName) ?? _seriesRepository.CreateEntity(new ESeries() { Name = importerObject.SerieName, Publisher = publisher, CreatedDateTime = DateTime.Now });
+                            serie = _seriesRepository.GetSeriesbyName(importerObject.SerieName.Trim()) ?? _seriesRepository.CreateEntity(new ESeries() { Name = importerObject.SerieName.Trim(), Publisher = publisher, CreatedDateTime = DateTime.Now });
                         }
                         else
                         {
@@ -96,23 +96,13 @@ namespace Library.Business.Services.Integration
                         var shelf = _shelfRepository.GetShelfById(int.Parse(importerObject.ShelfId));
 
                         var entity = new EBook();
-                        entity.Name = importerObject.BookName;
+                        entity.Name = importerObject.BookName.Trim();
                         entity.Author = author;
                         entity.Publisher = publisher;
                         entity.PublishDate = int.Parse(importerObject.Publishdate);
                         entity.Genre = genre;
                         entity.Serie = serie;
 
-                        //if (!String.IsNullOrEmpty(importerObject.No))
-                        //{
-                        //    int no = 0;
-
-                        //    entity.No = int.TryParse(importerObject.No,out no) ? no : importerObject.No.RomanToInteger();
-                        //}
-                        //else
-                        //{
-                        //    entity.No = null;
-                        //}
 
                         int no = 0;
                         entity.No = !String.IsNullOrEmpty(importerObject.No)
@@ -120,7 +110,6 @@ namespace Library.Business.Services.Integration
                                 int.TryParse(importerObject.No, out no) ? no : importerObject.No.RomanToInteger())
                             : entity.No = null;
 
-                        //entity.No = String.IsNullOrEmpty(importerObject.No) ? null : importerObject.No.RomanToInteger();
                         entity.SkinType = skin;
                         entity.Rack = rack;
                         entity.Shelf = shelf;
@@ -132,7 +121,7 @@ namespace Library.Business.Services.Integration
                     }
                     else
                     {
-                        var book = _bookRepository.GetBookByNameAndByPublisher(importerObject.BookName, importerObject.AuthorName, importerObject.PublisherName);
+                        var book = _bookRepository.GetBookByNameAndByPublisher(importerObject.BookName.Trim(), importerObject.AuthorName.Trim(), importerObject.PublisherName.Trim());
 
                         if (!book.Users.Contains(user))
                         {
@@ -168,7 +157,7 @@ namespace Library.Business.Services.Integration
 
             var result = _authorRepository.CreateEntity(new EAuthor()
             {
-                Name = input.AuthorDto.Name,
+                Name = input.AuthorDto.Name.Trim(),
                 CreatedDateTime = DateTime.Now
             });
 
@@ -187,13 +176,13 @@ namespace Library.Business.Services.Integration
                 return false;
             }
 
-            var publisher = _publisherRepository.GetPublisherByName(input.PublisherName);
+            var publisher = _publisherRepository.GetPublisherByName(input.PublisherName.Trim());
 
             if (publisher == null)
             {
                 var new_publisher = _publisherRepository.CreateEntity(new EPublisher()
                 {
-                    Name = input.PublisherName,
+                    Name = input.PublisherName.Trim(),
                     CreatedDateTime = DateTime.Now
                 });
 
@@ -201,7 +190,7 @@ namespace Library.Business.Services.Integration
                 {
                     _seriesRepository.CreateEntity(new ESeries()
                     {
-                        Name = input.SeriesName,
+                        Name = input.SeriesName.Trim(),
                         Publisher = publisher,
                         CreatedDateTime = DateTime.Now
 
