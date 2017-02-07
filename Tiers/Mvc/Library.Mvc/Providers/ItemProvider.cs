@@ -60,7 +60,7 @@ namespace Library.Mvc.Providers
                 Value = pdto.Value.ToString(),
                 Text = pdto.Name
 
-            }).ToList();
+            }).ToList().OrderBy(x => x.Text);
         }
 
         /// <summary>
@@ -76,7 +76,7 @@ namespace Library.Mvc.Providers
                 Value = t.Value.ToString(),
                 Text = t.Name
 
-            }).ToList();
+            }).ToList().OrderBy(x => x.Text);
 
         }
 
@@ -97,7 +97,7 @@ namespace Library.Mvc.Providers
 
             list.Add(new SelectListItem() {Selected = true,Value = String.Empty,Text = ""});
 
-            return list;
+            return list.OrderBy(x => x.Text);
         }
 
         /// <summary>
@@ -113,7 +113,7 @@ namespace Library.Mvc.Providers
                 Value = t.Value.ToString(),
                 Text = t.Name
 
-            }).ToList();
+            }).ToList().OrderBy(x => x.Text);
         }
 
         /// <summary>
@@ -129,7 +129,7 @@ namespace Library.Mvc.Providers
                 Value = t.Value.ToString(),
                 Text = t.Name
 
-            }).ToList();
+            }).ToList().OrderBy(x => x.Text);
         }
 
         /// <summary>
