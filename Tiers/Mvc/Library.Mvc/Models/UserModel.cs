@@ -17,5 +17,6 @@ namespace Library.Mvc.Models
         public BookModel BookModel { get; set; }
         public AuthorModel AuthorModel { get; set; }
         public PublisherModel PublisherModel { get; set; }
+        public BookDto BookDto { get; set; }
     }
 }

@@ -14,20 +14,12 @@ namespace Library.Web.Controllers
     {
         public override ActionResult Index()
         {
-            //if (Session["Information"] == null)
-            //{
-            //    return RedirectToAction("Index", "Authentication");
-            //}
-
-            Usermodel = Session["Information"] as UserModel;
-
             return View(Usermodel);
         }
 
         [HttpPost]
         public ActionResult Index(HttpPostedFileBase filetoupload)
         {
-            Usermodel = Session["Information"] as UserModel;
 
             if (filetoupload != null)
             {

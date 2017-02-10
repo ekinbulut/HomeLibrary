@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using Library.Business.Services.Book.Dtos;
 using Library.Business.Services.Integration.Dtos;
 using Library.Mvc.Cache;
@@ -12,8 +13,6 @@ namespace Library.Web.Controllers
         // GET: Home
         public override ActionResult Index()
         {
-            
-            Usermodel = Session["Information"] as UserModel;
 
             if (Usermodel.BookOutputDto == null)
             {
@@ -36,20 +35,38 @@ namespace Library.Web.Controllers
         public ActionResult AddBook()
         {
 
-            Usermodel = Session["Information"] as UserModel;
-            
             return View(Usermodel);
         }
 
+        public ActionResult CreateWriter()
+        {
+
+            return View(Usermodel);
+        }
+
+        public ActionResult CreatePublisher()
+        {
+
+            return View(Usermodel);
+        }
+
+        public ActionResult EditBookRecord(int bookId)
+        {
+            var bookdto = BookCache.Cache.Dictionary[Usermodel.Identity].Books.FirstOrDefault(x => x.Id == bookId);
+            Usermodel.BookDto = bookdto;
+
+            return View(Usermodel);
+        }
+
+#region POST 
 
         [HttpPost]
         public ActionResult AddBook(UserModel model)
         {
-            Usermodel = Session["Information"] as UserModel;
 
             var isCreated = Services.BookServiceClient.AddBook(new BookInputDto()
             {
-                
+
                 Name = model.BookModel.Name,
                 SkinType = model.BookModel.SkinType,
                 Serie = model.BookModel.Serie,
@@ -71,24 +88,8 @@ namespace Library.Web.Controllers
 
                 return RedirectToAction("Index", "Home");
             }
-                
+
             return RedirectToAction("AddBook", "Home");
-        }
-
-        public ActionResult CreateWriter()
-        {
-
-            Usermodel = Session["Information"] as UserModel;
-
-            return View(Usermodel);
-        }
-
-        public ActionResult CreatePublisher()
-        {
-
-            Usermodel = Session["Information"] as UserModel;
-
-            return View(Usermodel);
         }
 
         [HttpPost]
@@ -132,5 +133,24 @@ namespace Library.Web.Controllers
             return View(Usermodel);
         }
 
+        [HttpPost]
+        public ActionResult EditBookRecord(UserModel model)
+        {
+            var isUpdated = Services.BookServiceClient.UpdateBook(model.BookDto);
+
+            if (isUpdated)
+            {
+                BookCache.Cache.Dictionary.Clear();
+
+                Usermodel.BookOutputDto = null;
+
+                return RedirectToAction("Index", "Home");
+
+            }
+
+            return RedirectToAction("EditBookRecord", "Home");
+        }
+
+#endregion
     }
 }

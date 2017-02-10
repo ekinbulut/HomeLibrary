@@ -92,6 +92,7 @@
                     <th>Skin</th>
                     <th>Shelf</th>
                     <th>Rack</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -132,6 +133,9 @@
                         </td>
                         <td>
                             @Html.Label(book.Rack.ToString())
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit","EditBookRecord",new {bookId = book.Id})
                         </td>
                     </tr>
                 }

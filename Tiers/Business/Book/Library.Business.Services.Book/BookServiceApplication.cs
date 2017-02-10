@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Linq;
+using System.ServiceModel.Security.Tokens;
+using Castle.Core.Internal;
 using Library.Business.Services.Book.Dtos;
 using Library.Business.Services.Helper;
 using Library.Data.Athentication.Repositories.Users;
@@ -97,7 +99,7 @@ namespace Library.Business.Services.Book
             {
                 SkinType = input.SkinType == 0 ? SkinType.Ciltli : SkinType.Ciltsiz,
                 Name = input.Name.Trim(),
-                SeriesId = input.Serie == 0 ? (int?) null : input.Serie,
+                SeriesId = input.Serie == 0 ? (int?)null : input.Serie,
                 AuthorId = input.Author,
                 CreatedDateTime = DateTime.Now,
                 PublishDate = input.PublishDate,
@@ -128,7 +130,7 @@ namespace Library.Business.Services.Book
 
 
             return newRecord != null;
-            
+
         }
 
         /// <summary>
@@ -138,11 +140,60 @@ namespace Library.Business.Services.Book
         /// <returns>boolean</returns>
         public bool UpdateBook(BookDto input)
         {
-            return _bookRepository.UpdateEntity(input.Id, new EBook()
+            var entity = _bookRepository.GetOne(input.Id);
+
+            //todo: change entity
+
+            entity.Name = input.Name;
+
+            if (!input.Author.IsNullOrEmpty())
             {
-                Name = input.Name
-                
-            });
+                entity.AuthorId = int.Parse(input.Author);
+            }
+            if (!input.Publisher.IsNullOrEmpty())
+            {
+                entity.PublisherId = Int32.Parse(input.Publisher);
+            }
+
+            int outValue = 0;
+            entity.SeriesId = Int32.TryParse(input.Serie, out outValue) ? outValue : (int?)null;
+
+
+            entity.PublishDate = input.PublishDate;
+
+            if (!input.Genre.IsNullOrEmpty())
+            {
+                entity.GenreId = Int32.Parse(input.Genre);
+
+            }
+            if (!input.SkinType.IsNullOrEmpty())
+            {
+                entity.SkinType = int.Parse(input.SkinType) == 0 ? SkinType.Ciltli : SkinType.Ciltsiz;
+
+            }
+            if (!input.Shelf.IsNullOrEmpty())
+            {
+                entity.ShelfId = Int32.Parse(input.Shelf);
+
+            }
+            if (input.Rack != 0)
+            {
+                entity.RackId = input.Rack;
+
+            }
+
+            if (!String.IsNullOrEmpty(input.No))
+            {
+                int no = 0;
+
+                entity.No = int.TryParse(input.No, out no) ? no : input.No.RomanToInteger();
+            }
+            else
+            {
+                entity.No = null;
+            }
+
+            return _bookRepository.UpdateEntity(entity);
         }
     }
 }

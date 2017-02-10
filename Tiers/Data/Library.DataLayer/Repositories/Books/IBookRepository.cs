@@ -11,5 +11,6 @@ namespace Library.Data.Repositories.Books
         EBook GetBookByName(string bookName);
         bool CheckIfBookExistsByNameWriterAndByPublisher(string bookName,string authorName, string publisherName);
         EBook GetBookByNameAndByPublisher(string bookName, string authorName, string publisherName);
+
     }
 }

@@ -2,17 +2,13 @@
 @using Library.Mvc.Providers
 @model Library.Mvc.Models.UserModel
 
-@{
-    ViewBag.Title = "AddBook";
-}
-
 
 @section breadcrumb{
 
     <ol class="breadcrumb">
         <li><a href="@Url.Action("Index","Home")"><i class="fa fa-dashboard"></i>Home</a></li>
         <li><a href="#">Layout</a></li>
-        <li class="active">Add Record</li>
+        <li class="active">Edit Record</li>
     </ol>
 }
 
@@ -25,12 +21,12 @@
                 <!-- The user image in the navbar-->
                 @if (Model.Gender.Equals("Male"))
                 {
-                <img src="~/dist/img/avatar04.png" class="user-image" alt="User Image">
+                    <img src="~/dist/img/avatar04.png" class="user-image" alt="User Image">
 
                 }
                 else
                 {
-                <img src="~/dist/img/avatar03.png" class="user-image" alt="User Image">
+                    <img src="~/dist/img/avatar03.png" class="user-image" alt="User Image">
                 }
                 <!-- hidden-xs hides the username on small devices so only the image appears. -->
                 @*<span class="hidden-xs">Test User</span>*@
@@ -76,61 +72,57 @@
     @*<h3 class="box-title">Add Book</h3>*@
 </div>
 <div class="box-body">
-    @using (Html.BeginForm("AddBook", "Home", FormMethod.Post, htmlAttributes: new { role = "form" }))
+    @using (Html.BeginForm("EditBookRecord", "Home", FormMethod.Post, htmlAttributes: new { role = "form" }))
     {
+        @Html.HiddenFor(x=>x.BookDto.Id);
+
         <div class="form-group">
-            @Html.LabelFor(x => x.BookModel.Name)
-            @Html.EditorFor(x => x.BookModel.Name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.LabelFor(x => x.BookDto.Name)
+            @Html.EditorFor(x => x.BookDto.Name, Model.BookDto.Name, new { htmlAttributes = new { @class = "form-control" } })
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(x => x.BookModel.Author)
-            @Html.DropDownListFor(x => x.BookModel.Author, ItemProvider.Authors(), htmlAttributes: new { @class = "form-control" })
-        </div>
-        <div>
-            @Html.ActionLink("Create Writer","CreateWriter","Home")
-            @*<input type="button" value="Create Author" class="btn btn-primary" onclick="@Url.Action("CreateWriter", "Home")"/>*@
+            @Html.LabelFor(x => x.BookDto.Author)
+            @Html.DropDownListFor(x => x.BookDto.Author, ItemProvider.Authors(), Model.BookDto.Author, htmlAttributes: new { @class = "form-control" })
         </div>
         <div class="form-group">
-            @Html.LabelFor(x => x.BookModel.Publisher)
-            @Html.DropDownListFor(x => x.BookModel.Publisher, ItemProvider.Publishers(), htmlAttributes: new {@class = "form-control"})
-        </div>
-        <div>
-            @Html.ActionLink("Create Publisher", "CreatePublisher", "Home")
+            @Html.LabelFor(x => x.BookDto.Publisher)
+            @Html.DropDownListFor(x => x.BookDto.Publisher, ItemProvider.Publishers(), Model.BookDto.Publisher,htmlAttributes: new { @class = "form-control" })
         </div>
         <div class="form-group">
-            @Html.LabelFor(x => x.BookModel.Serie)
-            @Html.DropDownListFor(x => x.BookModel.Serie, ItemProvider.Series(), htmlAttributes: new {@class = "form-control"})
+            @Html.LabelFor(x => x.BookDto.Serie)
+            @Html.DropDownListFor(x => x.BookDto.Serie, ItemProvider.Series(), Model.BookDto.Serie, htmlAttributes: new { @class = "form-control" })
         </div>
         <div class="form-group">
-            @Html.LabelFor(x => x.BookModel.PublishDate)
-            @Html.EditorFor(x => x.BookModel.PublishDate, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.LabelFor(x => x.BookDto.PublishDate)
+            @Html.EditorFor(x => x.BookDto.PublishDate, Model.BookDto.PublishDate.ToString(), new { htmlAttributes = new { @class = "form-control" } })
         </div>
         <div class="form-group">
-            @Html.LabelFor(x => x.BookModel.Genre)
-            @Html.DropDownListFor(x => x.BookModel.Genre, ItemProvider.Genres(), htmlAttributes: new { @class = "form-control" })
+            @Html.LabelFor(x => x.BookDto.Genre)
+            @Html.DropDownListFor(x => x.BookDto.Genre, ItemProvider.Genres(), Model.BookDto.Genre, htmlAttributes: new { @class = "form-control" })
         </div>
         <div class="form-group">
-            @Html.LabelFor(x => x.BookModel.No)
-            @Html.EditorFor(x => x.BookModel.No, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.LabelFor(x => x.BookDto.No)
+            @Html.EditorFor(x => x.BookDto.No, Model.BookDto.No, new { htmlAttributes = new { @class = "form-control" } })
         </div>
         <div class="form-group">
-            @Html.LabelFor(x => x.BookModel.SkinType)
-            @Html.DropDownListFor(x => x.BookModel.SkinType, ItemProvider.SkinTypes(), htmlAttributes: new { @class = "form-control" })
+            @Html.LabelFor(x => x.BookDto.SkinType)
+            @Html.DropDownListFor(x => x.BookDto.SkinType, ItemProvider.SkinTypes(), Model.BookDto.SkinType,htmlAttributes: new { @class = "form-control" })
         </div>
         <div class="form-group">
-            @Html.LabelFor(x => x.BookModel.Shelf)
-            @Html.DropDownListFor(x => x.BookModel.Shelf, ItemProvider.Shelfs(), htmlAttributes: new { @class = "form-control" })
+            @Html.LabelFor(x => x.BookDto.Shelf)
+            @Html.DropDownListFor(x => x.BookDto.Shelf, ItemProvider.Shelfs(), Model.BookDto.Shelf,htmlAttributes: new { @class = "form-control" })
         </div>
         <div class="form-group">
-            @Html.LabelFor(x => x.BookModel.Rack)
-            @Html.DropDownListFor(x => x.BookModel.Rack, ItemProvider.Racks(), htmlAttributes: new { @class = "form-control" })
+            @Html.LabelFor(x => x.BookDto.Rack)
+            @Html.DropDownListFor(x => x.BookDto.Rack, ItemProvider.Racks(), Model.BookDto.Rack.ToString(),htmlAttributes: new { @class = "form-control" })
         </div>
 
         <div class="form-group">
-            <input type="submit" value="Create" class="btn btn-primary" />
+            <input type="submit" value="Update" class="btn btn-primary" />
         </div>
 
     }
 </div>
+
 
