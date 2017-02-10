@@ -195,5 +195,15 @@ namespace Library.Business.Services.Book
 
             return _bookRepository.UpdateEntity(entity);
         }
+
+        /// <summary>
+        /// Calls repository for deletetion
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        public bool DeleteBook(BookDto input)
+        {
+            return _bookRepository.DeleteEntity(input.Id);
+        }
     }
 }

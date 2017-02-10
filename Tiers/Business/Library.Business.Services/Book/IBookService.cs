@@ -36,5 +36,13 @@ namespace Library.Business.Services.Book
         /// <returns></returns>
         [OperationContract]
         bool UpdateBook(BookDto input);
+
+        /// <summary>
+        /// Deletes book record with Id
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        [OperationContract]
+        bool DeleteBook(BookDto input);
     }
 }

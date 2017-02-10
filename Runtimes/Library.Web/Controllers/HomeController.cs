@@ -58,6 +58,22 @@ namespace Library.Web.Controllers
             return View(Usermodel);
         }
 
+        public ActionResult DeleteBookRecord(int bookId)
+        {
+            var bookdto = BookCache.Cache.Dictionary[Usermodel.Identity].Books.FirstOrDefault(x => x.Id == bookId);
+
+            if (Services.BookServiceClient.DeleteBook(bookdto))
+            {
+                BookCache.Cache.Dictionary.Clear();
+
+                Usermodel.BookOutputDto = null;
+
+                return RedirectToAction("Index", "Home");
+            }
+
+            return RedirectToAction("Index", "Home");
+        }
+
 #region POST 
 
         [HttpPost]
