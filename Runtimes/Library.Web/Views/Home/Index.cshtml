@@ -93,6 +93,7 @@
                     <th>Shelf</th>
                     <th>Rack</th>
                     <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -135,7 +136,10 @@
                             @Html.Label(book.Rack.ToString())
                         </td>
                         <td>
-                            @Html.ActionLink("Edit","EditBookRecord",new {bookId = book.Id})
+                            @Html.ActionLink("Edit", "EditBookRecord", new {bookId = book.Id})
+                        </td>
+                        <td>
+                            @Html.ActionLink("Delete", "DeleteBookRecord", new { bookId = book.Id })
                         </td>
                     </tr>
                 }
