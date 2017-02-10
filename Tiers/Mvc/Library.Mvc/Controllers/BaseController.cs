@@ -1,5 +1,4 @@
 ﻿using System.Web.Mvc;
-using Castle.Core.Internal;
 using Library.Mvc.Models;
 using Library.Mvc.Providers;
 
@@ -24,6 +23,8 @@ namespace Library.Mvc.Controllers
                 filterContext.Result = RedirectToAction("Index", "Authentication");
 
             }
+
+            Usermodel = Session["Information"] as UserModel;
 
             base.OnActionExecuting(filterContext);
         }

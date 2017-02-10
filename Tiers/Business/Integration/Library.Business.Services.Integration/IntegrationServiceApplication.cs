@@ -126,7 +126,7 @@ namespace Library.Business.Services.Integration
                         if (!book.Users.Contains(user))
                         {
                             book.Users.Add(user);
-                            _bookRepository.UpdateEntity(book.Id, book);
+                            _bookRepository.UpdateEntity(book);
 
                         }
                     }

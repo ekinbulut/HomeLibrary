@@ -29,7 +29,7 @@ namespace Library.Business.Services.Authentication
                 if (user.Password.Equals(input.User.Password))
                 {
                     user.LastLoginDate = DateTime.Now;
-                    var result = _userRepository.UpdateEntity(user.Id, user);
+                    var result = _userRepository.UpdateEntity(user);
 
                     if (!result) return null;
                     
