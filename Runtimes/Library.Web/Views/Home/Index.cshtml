@@ -5,72 +5,6 @@
     ViewBag.Title = "Books";
 }
 
-@section breadcrumb{
-
-    <ol class="breadcrumb">
-        <li><a href="@Url.Action("Index","Home")"><i class="fa fa-dashboard"></i>Home</a></li>
-        <li><a href="#">Layout</a></li>
-        <li class="active">Books</li>
-    </ol>
-}
-
-@section userpanel{
-    <ul class="nav navbar-nav">
-        <!-- User Account Menu -->
-        <li class="dropdown user user-menu">
-            <!-- Menu Toggle Button -->
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <!-- The user image in the navbar-->
-                @if (Model.Gender.Equals("Male"))
-                {
-                    <img src="~/dist/img/avatar04.png" class="user-image" alt="User Image">
-
-                }
-                else
-                {
-                    <img src="~/dist/img/avatar03.png" class="user-image" alt="User Image">
-                }
-                <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                @*<span class="hidden-xs">Test User</span>*@
-                @Html.SpanFor(x => x.Name, new { @class = "hidden-xs" })
-            </a>
-            <ul class="dropdown-menu">
-                <!-- The user image in the menu -->
-                <li class="user-header">
-                    <img src="~/dist/img/avatar04.png" class="img-circle" alt="User Image">
-                    <p>
-                        @Model.Name - @Model.Occupation
-                        <small>Member since @Model.LastLoginDate.Value.ToString("M")</small>
-                    </p>
-                </li>
-                <!-- Menu Body -->
-                @*<li class="user-body">
-                        <div class="row">
-                            <div class="col-xs-4 text-center">
-                                <a href="#">Followers</a>
-                            </div>
-                            <div class="col-xs-4 text-center">
-                                <a href="#">Sales</a>
-                            </div>
-                            <div class="col-xs-4 text-center">
-                                <a href="#">Friends</a>
-                            </div>
-                        </div>
-                    </li>*@
-                <!-- Menu Footer-->
-                <li class="user-footer">
-                    @*<div class="pull-left">
-                            <a href="#" class="btn btn-default btn-flat">Profile</a>
-                        </div>*@
-                    <div class="pull-right">
-                        <a href="@Url.Action("Logout","Authentication")" class="btn btn-default btn-flat">Sign out</a>
-                    </div>
-                </li>
-            </ul>
-        </li>
-    </ul>
-}
-
 
 @if (Model.BookOutputDto.Books.Count > 0)
 {
@@ -92,7 +26,6 @@
                 <th>Skin</th>
                 <th>Shelf</th>
                 <th>Rack</th>
-                <th></th>
                 <th></th>
             </tr>
             </thead>
@@ -137,9 +70,8 @@
                     </td>
                     <td>
                         @Html.ActionLink("Edit", "EditBookRecord", new {bookId = book.Id})
-                    </td>
-                    <td>
-                        @Html.ActionLink("Delete", "DeleteBookRecord", new {bookId = book.Id})
+                        <br/>
+                        @Html.ActionLink("Delete", "DeleteBookRecord", new { bookId = book.Id })
                     </td>
                 </tr>
             }
@@ -154,11 +86,11 @@ else
         @*<h3 class="box-title">Books in database</h3>*@
     </div>
     <div class="box-body">
-        <div>
+        <div style="padding-left: 300px; padding-right: 300px;">
             <h4>There is no record for this user. Add book to see your library</h4>
         </div>        
-        <div>
-            <input type="button" value="Add Book" class="btn btn-primary" onclick="location.href='@Url.Action("AddBook", "Home")'" />
+        <div style="padding-left: 500px; padding-right: 500px;">
+            <input type="button" value="Add Book" class="btn btn-primary btn-flat" onclick="location.href='@Url.Action("AddBook", "Home")'" />
         </div>
     </div>
 }

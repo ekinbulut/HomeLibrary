@@ -1,62 +1,9 @@
-﻿@using Library.Mvc.Helpers
-@model Library.Mvc.Models.UserModel
-
+﻿
 @{
     ViewBag.Title = "Import File";
 }
 
 
-@section breadcrumb{
-
-    <ol class="breadcrumb">
-        <li><a href="@Url.Action("Index","Home")"><i class="fa fa-dashboard"></i>Home</a></li>
-        <li><a href="#">Layout</a></li>
-        <li class="active">Import</li>
-    </ol>
-}
-
-@section userpanel{
-    <ul class="nav navbar-nav">
-        <!-- User Account Menu -->
-        <li class="dropdown user user-menu">
-            <!-- Menu Toggle Button -->
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <!-- The user image in the navbar-->
-                @if (Model.Gender.Equals("Male"))
-                {
-                    <img src="../../dist/img/avatar04.png" class="user-image" alt="User Image">
-
-                }
-                else
-                {
-                    <img src="../../dist/img/avatar03.png" class="user-image" alt="User Image">
-                }
-                <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                @*<span class="hidden-xs">Test User</span>*@
-                @Html.SpanFor(x => x.Name, new { @class = "hidden-xs" })
-            </a>
-            <ul class="dropdown-menu">
-                <!-- The user image in the menu -->
-                <li class="user-header">
-                    <img src="../../dist/img/avatar04.png" class="img-circle" alt="User Image">
-                    <p>
-                        @Model.Name - @Model.Occupation
-                        <small>Member since @Model.LastLoginDate.Value.ToString("M")</small>
-                    </p>
-                </li>
-                <!-- Menu Footer-->
-                <li class="user-footer">
-                    @*<div class="pull-left">
-                            <a href="#" class="btn btn-default btn-flat">Profile</a>
-                        </div>*@
-                    <div class="pull-right">
-                        <a href="@Url.Action("Logout","Authentication")" class="btn btn-default btn-flat">Sign out</a>
-                    </div>
-                </li>
-            </ul>
-        </li>
-    </ul>
-}
 
 <div class="box-header with-border">
     <h3 class="box-title">Import Excel File</h3>
@@ -66,11 +13,10 @@
 <div class="box-body">
     <form method="POST" enctype="multipart/form-data">
         <div class="form-group">
-            <label for="exampleInputFile">File input</label>
-            <input type="file" name="filetoupload" id="exampleInputFile">
+            @*<label for="exampleInputFile">File input</label>*@
+            <input type="file" class="btn btn-default btn-flat" name="filetoupload" id="exampleInputFile">
             @*<p class="help-block">Example block-level help text here.</p>*@
-        </div>
-        <div class="box-footer">
+            <br/>
             <button type="submit" class="btn btn-primary btn-flat">Submit</button>
         </div>
     </form>

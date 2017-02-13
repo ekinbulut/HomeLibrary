@@ -1,4 +1,11 @@
 ﻿@using System.Web.Optimization
+@using Library.Mvc.Helpers
+@model Library.Mvc.Models.UserModel
+
+@{
+    ViewBag.Version = "3.1";
+}
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +16,7 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
 
-    @Styles.Render("~/bundles/css","~/bundles/bootstrap", "~/bundles/ionic")
+    @Styles.Render("~/bundles/css", "~/bundles/bootstrap", "~/bundles/ionic")
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -20,7 +27,7 @@
 
 </head>
 
-<body class="hold-transition skin-blue layout-top-nav">
+<body class="hold-transition skin-blue-light layout-top-nav">
     <div class="wrapper">
         <header class="main-header">
             <nav class="navbar navbar-static-top">
@@ -41,7 +48,62 @@
                     <!-- /.navbar-collapse -->
                     <!-- Navbar Right Menu -->
                     <div class="navbar-custom-menu">
-                        @RenderSection("userpanel", true)
+                        @*@RenderSection("userpanel", true)*@
+
+                        <ul class="nav navbar-nav">
+                            <!-- User Account Menu -->
+                            <li class="dropdown user user-menu">
+                                <!-- Menu Toggle Button -->
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <!-- The user image in the navbar-->
+                                    @if (Model.Gender.Equals("Male"))
+                                    {
+                                        <img src="~/dist/img/avatar04.png" class="user-image" alt="User Image">
+
+                                    }
+                                    else
+                                    {
+                                        <img src="~/dist/img/avatar03.png" class="user-image" alt="User Image">
+                                    }
+                                    <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                                    @*<span class="hidden-xs">Test User</span>*@
+                                    @Html.SpanFor(x => x.Name, new { @class = "hidden-xs" })
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <!-- The user image in the menu -->
+                                    <li class="user-header">
+                                        <img src="~/dist/img/avatar04.png" class="img-circle" alt="User Image">
+                                        <p>
+                                            @Model.Name - @Model.Occupation
+                                            <small>Member since @Model.LastLoginDate.Value.ToString("M")</small>
+                                        </p>
+                                    </li>
+                                    <!-- Menu Body -->
+                                    @*<li class="user-body">
+                                            <div class="row">
+                                                <div class="col-xs-4 text-center">
+                                                    <a href="#">Followers</a>
+                                                </div>
+                                                <div class="col-xs-4 text-center">
+                                                    <a href="#">Sales</a>
+                                                </div>
+                                                <div class="col-xs-4 text-center">
+                                                    <a href="#">Friends</a>
+                                                </div>
+                                            </div>
+                                        </li>*@
+                                    <!-- Menu Footer-->
+                                    <li class="user-footer">
+                                        @*<div class="pull-left">
+                                                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                            </div>*@
+                                        <div class="pull-right">
+                                            <a href="@Url.Action("Logout","Authentication")" class="btn btn-default btn-flat">Sign out</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
                     </div>
                     <!-- /.navbar-custom-menu -->
                 </div>
@@ -51,7 +113,10 @@
         <div class="content-wrapper">
             <div class="container">
                 <div class="content-header">
-                    @RenderSection("breadcrumb", false)
+                    <ol class="breadcrumb">
+                        <li><a href="@Url.Action("Index", "Home")"><i class="fa fa-dashboard"></i>Home</a></li>
+                        <li class="active">@ViewBag.Title</li>
+                    </ol>
                 </div>
                 <div class="content">
                     <div class="row">
@@ -68,10 +133,9 @@
     <footer class="main-footer">
         <div class="container">
             <div class="pull-right hidden-xs">
-                <b>Version</b> 3.0
+                <b>Version</b> @ViewBag.Version
             </div>
-            <strong>Copyright &copy; 2017 <a href="http://ekinbulut.com">SenseFramework</a>.</strong> All rights
-            reserved.
+            <strong>Copyright &copy; 2017 <a href="http://ekinbulut.com">SenseFramework</a>.</strong> All rights reserved.
         </div>
         <!-- /.container -->
     </footer>
@@ -82,20 +146,10 @@
     @Scripts.Render("~/bundles/scripts")
 
 
-<script>
+    <script>
         $(function () {
             $("#example").DataTable({
-                columnDefs: [{
-                    targets: [2],
-                    orderData: [0, 1]
-                }, {
-                    targets: [3],
-                    orderData: [1, 0]
-                }, {
-                    targets: [4],
-                    orderData: [4, 0]
-                }],
-                "pagingType": "simple",
+                "pagingType": "full",
                 stateSave: true
 
             });
