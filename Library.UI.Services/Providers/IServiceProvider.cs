@@ -7,9 +7,9 @@ namespace Library.UI.Services.Providers
 {
     public interface IServiceProvider
     {
-        IBookService BookService { get; };
-        IAuthenticationService AuthenticationService { get; };
-        IIntegrationService IntegrationService { get; };
-        IItemProvider ItemsProvider { get; };
+        IBookService BookService { get; }
+        IAuthenticationService AuthenticationService { get; }
+        IIntegrationService IntegrationService { get; }
+        IItemProvider ItemsProvider { get; }
     }
 }

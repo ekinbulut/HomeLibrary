@@ -1,4 +1,7 @@
-﻿using Library.UI.Services.IoC;
+﻿using System.Configuration;
+using Library.Business.Services.Authantication;
+using Library.UI.Services.Controller;
+using Library.UI.Services.IoC;
 using Library.UI.Services.Providers;
 
 namespace Library.UI.Services.Applications
@@ -18,9 +21,19 @@ namespace Library.UI.Services.Applications
             _services.RegisterComponents(IocManager.Container);
         }
 
-        public static IServiceProvider Services()
+        internal static IServiceProvider Services
         {
-            return IocManager.Container.Resolve<IServiceProvider>();
+            get { return IocManager.Container.Resolve<IServiceProvider>(); }
+        }
+
+        public static IAuthenticatonController AuthenticationController
+        {
+            get { return IocManager.Container.Resolve<IAuthenticatonController>(); }
+        }
+
+        public static ILibraryController LibraryController
+        {
+            get { return IocManager.Container.Resolve<ILibraryController>(); }
         }
     }
 }
