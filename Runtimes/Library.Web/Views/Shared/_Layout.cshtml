@@ -24,7 +24,10 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+    <!-- ./wrapper -->
+    <!-- jQuery 2.1.4 -->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/scripts")
 </head>
 
 <body class="hold-transition skin-blue-light layout-top-nav">
@@ -140,21 +143,6 @@
         <!-- /.container -->
     </footer>
     @*<script src="~/Scripts/jquery-1.10.2.min.js"></script>*@
-    <!-- ./wrapper -->
-    <!-- jQuery 2.1.4 -->
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/scripts")
-
-
-    <script>
-        $(function () {
-            $("#example").DataTable({
-                "pagingType": "full",
-                stateSave: true
-
-            });
-        });
-    </script>
 </body>
 
 </html>
