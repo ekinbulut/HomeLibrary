@@ -6,6 +6,9 @@ namespace Library.UI.Services.Controller
 {
     public interface ILibraryController
     {
-        ICollection<BookDto> GetBooks(UserModel user);
+        ICollection<BookDto> GetBooks(UserModelView user);
+        IEnumerable<BookView> ConvertBooks(ICollection<BookDto> books);
+
+        bool AddBook(BookView bookInput);
     }
 }

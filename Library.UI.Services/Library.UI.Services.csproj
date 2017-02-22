@@ -71,7 +71,8 @@
     <Compile Include="Controller\ILibraryController.cs" />
     <Compile Include="Controller\LibraryController.cs" />
     <Compile Include="IoC\IocManager.cs" />
-    <Compile Include="Model\UserModel.cs" />
+    <Compile Include="Model\BookView.cs" />
+    <Compile Include="Model\UserModelView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\IServiceProvider.cs" />
     <Compile Include="Providers\ServiceProvider.cs" />

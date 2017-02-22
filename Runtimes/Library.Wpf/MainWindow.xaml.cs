@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using Library.UI.Services.Applications;
@@ -12,9 +13,10 @@ namespace Library.Wpf
     /// </summary>
     public partial class MainWindow : Window
     {
-        private UserModel _user;
+        private UserModelView _user;
         private readonly IAuthenticatonController _authenticaton;
         private readonly ILibraryController _libraryController;
+        private IEnumerable<BookView> _books; 
 
         public MainWindow()
         {
@@ -25,7 +27,7 @@ namespace Library.Wpf
             _libraryController = UIApplication.LibraryController;
         }
 
-        public UserModel User
+        public UserModelView User
         {
             get { return _user; }
             set { _user = value; }
@@ -33,9 +35,13 @@ namespace Library.Wpf
 
         private void Window_Initialized(object sender, EventArgs e)
         {
-            dataGrid.Visibility = Visibility.Hidden;
         }
 
+        /// <summary>
+        /// Login mechanism
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void login_btn_Click(object sender, RoutedEventArgs e)
         {
             var response = _authenticaton.Login(userNametextBox.Text, passwordBox.Password);
@@ -46,16 +52,38 @@ namespace Library.Wpf
 
                 story.Begin(this);
 
-                //TODO : get the books
                 FillBooks();
             }
         }
 
+        /// <summary>
+        /// Connectes to service and retrieve books
+        /// </summary>
         private void FillBooks()
         {
             var books = _libraryController.GetBooks(User);
-            dataGrid.Visibility = Visibility.Visible;
-            dataGrid.ItemsSource = books;
-        } 
+            _books = _libraryController.ConvertBooks(books);
+
+            datagrid.ItemsSource = _books;
+        }
+
+        //TODO: update entity
+        private void datagrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// Searches Itemsources and updates the datagrid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">Chenged Text</param>
+        private void searchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var result = e.Source as TextBox;
+
+            datagrid.FilteredResults(_books,result.Text);
+
+        }
     }
 }

@@ -7,7 +7,7 @@ namespace Library.UI.Services.Controller
 {
     public class AuthenticatonController : BaseController, IAuthenticatonController
     {
-        public UserModel Login(string username, string password)
+        public UserModelView Login(string username, string password)
         {
             UserOutputDto model = null;
             
@@ -25,7 +25,7 @@ namespace Library.UI.Services.Controller
 
             task.Wait();
 
-            return model != null ? new UserModel()
+            return model != null ? new UserModelView()
             {
                 Name = model.Name,
                 Gender = model.Gender,

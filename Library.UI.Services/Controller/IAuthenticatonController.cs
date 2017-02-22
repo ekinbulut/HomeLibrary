@@ -4,6 +4,6 @@ namespace Library.UI.Services.Controller
 {
     public interface IAuthenticatonController
     {
-        UserModel Login(string username, string password);
+        UserModelView Login(string username, string password);
     }
 }

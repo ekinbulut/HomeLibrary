@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Library.Wpf"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" x:Class="Library.Wpf.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="716" Width="1024" Initialized="Window_Initialized">
+        Title="MainWindow" Height="716" Width="1024" Initialized="Window_Initialized" ResizeMode="CanMinimize">
     <Grid>
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="VisualStateGroup">
@@ -19,6 +19,20 @@
                             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="viewbox">
                                 <DiscreteObjectKeyFrame KeyTime="0:0:0.6" Value="{x:Static Visibility.Collapsed}"/>
                             </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="tabControl">
+                                <DiscreteObjectKeyFrame KeyTime="0:0:0.7" Value="{x:Static Visibility.Visible}"/>
+                            </ObjectAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="tabControl">
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="0"/>
+                                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+                            </DoubleAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="searchTextBox">
+                                <DiscreteObjectKeyFrame KeyTime="0:0:0.6" Value="{x:Static Visibility.Visible}"/>
+                            </ObjectAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="searchTextBox">
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
+                                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+                            </DoubleAnimationUsingKeyFrames>
                         </Storyboard>
                     </VisualTransition>
                 </VisualStateGroup.Transitions>
@@ -39,14 +53,15 @@
                 <TextBox x:Name="userNametextBox" Height="18" TextWrapping="Wrap" Width="170" Canvas.Left="77.607" Canvas.Top="53.402"/>
             </Canvas>
         </Viewbox>
-        <DataGrid x:Name="dataGrid" Height="602" Width="996" d:IsLocked="True" d:IsHidden="True">
-            <DataGrid.VerticalGridLinesBrush>
-                <SolidColorBrush Color="Black" Opacity="0.6"/>
-            </DataGrid.VerticalGridLinesBrush>
-            <DataGrid.HorizontalGridLinesBrush>
-                <SolidColorBrush Color="Black" Opacity="0.6"/>
-            </DataGrid.HorizontalGridLinesBrush>
-        </DataGrid>
+        <TabControl x:Name="tabControl" Margin="10,50,10,10" Visibility="Collapsed" Opacity="0">
+            <TabItem Header="Library" FontSize="16">
+                <DataGrid x:Name="datagrid" CellEditEnding="datagrid_CellEditEnding"/>
+            </TabItem>
+            <TabItem Header="Add Book" FontSize="16">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
+        <TextBox x:Name="searchTextBox" HorizontalAlignment="Right" Height="38.333" Margin="0,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="289.333" FontSize="16" Grid.IsSharedSizeScope="True" TextAlignment="Justify" VerticalContentAlignment="Center" HorizontalContentAlignment="Stretch" Visibility="Collapsed" Opacity="0" TextChanged="searchTextBox_TextChanged"/>
 
     </Grid>
 </Window>

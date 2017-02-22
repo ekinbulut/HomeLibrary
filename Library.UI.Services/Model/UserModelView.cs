@@ -2,7 +2,7 @@
 
 namespace Library.UI.Services.Model
 {
-    public class UserModel
+    public class UserModelView
     {
         public int UserId { get; set; }
         public string Name { get; set; }
