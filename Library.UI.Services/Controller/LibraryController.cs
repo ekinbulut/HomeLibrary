@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Library.Business.Services.Book.Dtos;
+using Library.Business.Services.Provider.Dtos;
 using Library.UI.Services.Model;
 using IServiceProvider = Library.UI.Services.Providers.IServiceProvider;
 
@@ -35,6 +36,12 @@ namespace Library.UI.Services.Controller
                     });
         }
 
+        public ICollection<SeriesDto> BindSeries()
+        {
+            var seriesOutputDto = ServiceProvider.ItemsProvider.Series();
+            return seriesOutputDto.SeriesDtos;
+        }
+
         public bool AddBook(BookView book)
         {
             var bookInput = new BookInputDto()
@@ -43,6 +50,49 @@ namespace Library.UI.Services.Controller
             };
             return ServiceProvider.BookService.AddBook(bookInput);
         }
+
+        public ICollection<AuthorDto> BindAuthors()
+        {
+            return ServiceProvider.ItemsProvider.Authors().AuthorDtos;
+        }
+
+        public ICollection<GenreDto> BindGenres()
+        {
+            return ServiceProvider.ItemsProvider.Genres().GenreDtos;
+        }
+
+        public ICollection<PublisherDto> BindPublishers()
+        {
+            return ServiceProvider.ItemsProvider.Publishers().PublisherDtos;
+        }
+
+        public ICollection<ShelfDto> BindShelfs()
+        {
+            return ServiceProvider.ItemsProvider.Shelfs().ShelfDtos;
+        }
+
+        public ICollection<RackDto> BindRacks()
+        {
+            return ServiceProvider.ItemsProvider.Racks().RackDtos;
+        }
+
+        public ICollection<SkinType> BindSkins()
+        {
+            return new List<SkinType>()
+            {
+                new SkinType()
+                {
+                    Name = "Ciltli",
+                    Value = "0"
+                },
+                new SkinType()
+                {
+                    Name = "Ciltsiz",
+                    Value = "1"
+                }
+            };
+        }
+
         public LibraryController(IServiceProvider serviceProvider) : base(serviceProvider)
         {
         }

@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel.Design.Serialization;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using Library.Business.Services.Provider.Dtos;
 using Library.UI.Services.Applications;
 using Library.UI.Services.Controller;
 using Library.UI.Services.Model;
@@ -53,6 +57,7 @@ namespace Library.Wpf
                 story.Begin(this);
 
                 FillBooks();
+                BuildAddBooksTab();
             }
         }
 
@@ -83,6 +88,22 @@ namespace Library.Wpf
             var result = e.Source as TextBox;
 
             datagrid.FilteredResults(_books,result.Text);
+
+        }
+
+        private void BuildAddBooksTab()
+        {
+            author_comboBox.FillComboBox(_libraryController.BindAuthors());
+            publisher_comboBox.FillComboBox(_libraryController.BindPublishers());
+            series_comboBox.FillComboBox(_libraryController.BindSeries());
+            genre_comboBox.FillComboBox(_libraryController.BindGenres());
+            skin_comboBox.FillComboBox(_libraryController.BindSkins());
+            shelf_comboBox.FillComboBox(_libraryController.BindShelfs());
+            rack_comboBox.FillComboBox(_libraryController.BindRacks());
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }

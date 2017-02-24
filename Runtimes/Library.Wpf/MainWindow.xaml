@@ -58,10 +58,34 @@
                 <DataGrid x:Name="datagrid" CellEditEnding="datagrid_CellEditEnding"/>
             </TabItem>
             <TabItem Header="Add Book" FontSize="16">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="#FFE5E5E5">
+                    <Canvas Margin="10">
+                        <Label x:Name="label2" Content="Name :" Canvas.Left="94" Canvas.Top="44.72"/>
+                        <Label x:Name="label3" Content="Author :" Canvas.Left="94" Canvas.Top="81"/>
+                        <TextBox x:Name="bookName_textbox" Height="23" TextWrapping="Wrap" Width="237" Canvas.Left="216.64" Canvas.Top="53"/>
+                        <ComboBox x:Name="author_comboBox" Width="237" Canvas.Left="216.64" Canvas.Top="85"/>
+                        <Label x:Name="label4" Content="Publisher :" Canvas.Left="94" Canvas.Top="117.28"/>
+                        <Label x:Name="label5" Content="Series :" Canvas.Left="94" Canvas.Top="153.56"/>
+                        <Label x:Name="label6" Content="Publish Date :" Canvas.Left="94" Canvas.Top="189.84"/>
+                        <Label x:Name="label7" Content="Genre :" Canvas.Left="94" Canvas.Top="226.12"/>
+                        <Label x:Name="label8" Content="No :" Canvas.Left="94" Canvas.Top="262.4"/>
+                        <Label x:Name="label9" Content="Skin Type :" Canvas.Left="94" Canvas.Top="298.68"/>
+                        <Label x:Name="label10" Content="Shelf :" Canvas.Left="94" Canvas.Top="334.96"/>
+                        <Label x:Name="label11" Content="Rack :" Canvas.Left="94" Canvas.Top="371.24"/>
+                        <ComboBox x:Name="publisher_comboBox" Width="237" Canvas.Left="216.64" Canvas.Top="121.28"/>
+                        <ComboBox x:Name="series_comboBox" Width="237" Canvas.Left="216.64" Canvas.Top="157.56"/>
+                        <TextBox x:Name="date_textBox" Height="23" TextWrapping="Wrap" Width="237" Canvas.Left="216.64" Canvas.Top="198.12"/>
+                        <ComboBox x:Name="genre_comboBox" Width="237" Canvas.Left="216.64" Canvas.Top="230.12"/>
+                        <TextBox x:Name="no_textBox" Height="23" TextWrapping="Wrap" Width="237" Canvas.Left="216.64" Canvas.Top="270.68"/>
+                        <ComboBox x:Name="skin_comboBox" Width="237" Canvas.Left="216.64" Canvas.Top="302.68"/>
+                        <ComboBox x:Name="shelf_comboBox" Width="237" Canvas.Left="216.64" Canvas.Top="338.96"/>
+                        <ComboBox x:Name="rack_comboBox" Width="237" Canvas.Left="216.64" Canvas.Top="375.24"/>
+                        <Button x:Name="button" Content="Add Record" Width="237" Canvas.Left="216.64" Canvas.Top="425.52" Height="40.28" Click="button_Click"/>
+                    </Canvas>
+                </Grid>
             </TabItem>
         </TabControl>
-        <TextBox x:Name="searchTextBox" HorizontalAlignment="Right" Height="38.333" Margin="0,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="289.333" FontSize="16" Grid.IsSharedSizeScope="True" TextAlignment="Justify" VerticalContentAlignment="Center" HorizontalContentAlignment="Stretch" Visibility="Collapsed" Opacity="0" TextChanged="searchTextBox_TextChanged"/>
+        <TextBox x:Name="searchTextBox" HorizontalAlignment="Right" Height="38.333" Margin="0,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="289.333" FontSize="16" Grid.IsSharedSizeScope="True" TextAlignment="Justify" VerticalContentAlignment="Center" HorizontalContentAlignment="Stretch" Visibility="Collapsed" Opacity="0" TextChanged="searchTextBox_TextChanged" d:IsLocked="True"/>
 
     </Grid>
 </Window>
