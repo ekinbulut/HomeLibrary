@@ -20,7 +20,7 @@ namespace Library.UI.Services.Controller
         public IEnumerable<BookView> ConvertBooks(ICollection<BookDto> books)
         {
             return (from b in books
-                    select new BookView()
+                    select new BookView
                     {
                         Id = b.Id,
                         Author = b.Author,
@@ -44,7 +44,7 @@ namespace Library.UI.Services.Controller
 
         public bool AddBook(BookView book)
         {
-            var newRecord = new BookInputDto()
+            var newRecord = new BookInputDto
             {
                 Author = int.Parse(book.Author),
                 Name = book.Name,
@@ -89,14 +89,14 @@ namespace Library.UI.Services.Controller
 
         public ICollection<SkinType> BindSkins()
         {
-            return new List<SkinType>()
+            return new List<SkinType>
             {
-                new SkinType()
+                new SkinType
                 {
                     Name = "Ciltli",
                     Value = "0"
                 },
-                new SkinType()
+                new SkinType
                 {
                     Name = "Ciltsiz",
                     Value = "1"

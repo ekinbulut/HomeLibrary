@@ -20,7 +20,7 @@ namespace Library.Data.Repositories.Publishers
         public EPublisher CreatePublisherIfNotExists(string name)
         {
             return DbContext.Set<EPublisher>().FirstOrDefault(x => x.Name == name) ??
-                   this.CreateEntity(new EPublisher() {Name = name,CreatedDateTime = DateTime.Now});
+                   CreateEntity(new EPublisher {Name = name,CreatedDateTime = DateTime.Now});
         }
     }
 }

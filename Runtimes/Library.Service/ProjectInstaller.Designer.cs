@@ -1,11 +1,14 @@
-﻿namespace Library.Service
+﻿using System.ComponentModel;
+using System.ServiceProcess;
+
+namespace Library.Service
 {
     partial class ProjectInstaller
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary> 
         /// Clean up any resources being used.
@@ -53,7 +56,7 @@
 
         #endregion
 
-        private System.ServiceProcess.ServiceProcessInstaller LibraryServiceProcessInstaller;
-        private System.ServiceProcess.ServiceInstaller LibraryServiceInstaller;
+        private ServiceProcessInstaller LibraryServiceProcessInstaller;
+        private ServiceInstaller LibraryServiceInstaller;
     }
 }

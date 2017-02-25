@@ -80,7 +80,7 @@ namespace Library.Web.Controllers
         public ActionResult AddBook(UserModel model)
         {
 
-            var isCreated = Services.BookServiceClient.AddBook(new BookInputDto()
+            var isCreated = Services.BookServiceClient.AddBook(new BookInputDto
             {
 
                 Name = model.BookModel.Name,
@@ -111,9 +111,9 @@ namespace Library.Web.Controllers
         [HttpPost]
         public ActionResult CreateWriter(UserModel model)
         {
-            var result = Services.IntegrationServiceClient.CreateAuthor(new AuthorInputDto()
+            var result = Services.IntegrationServiceClient.CreateAuthor(new AuthorInputDto
             {
-                AuthorDto = new AuthorDto()
+                AuthorDto = new AuthorDto
                 {
                     Name = model.AuthorModel.Name
                 }
@@ -132,7 +132,7 @@ namespace Library.Web.Controllers
         [HttpPost]
         public ActionResult CreatePublisher(UserModel model)
         {
-            var result = Services.IntegrationServiceClient.CreatePublisher(new PublisherInputDto()
+            var result = Services.IntegrationServiceClient.CreatePublisher(new PublisherInputDto
             {
                 PublisherName = model.PublisherModel.PublisherName,
                 SeriesName = model.PublisherModel.SeriesName

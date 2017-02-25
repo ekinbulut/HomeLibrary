@@ -19,7 +19,7 @@ namespace Library.Data.Repositories.Genres
 
         public EGenre CreateGenreIfNotExists(string name)
         {
-            return DbContext.Set<EGenre>().FirstOrDefault(x => x.Genre == name) ?? this.CreateEntity(new EGenre() {Genre = name,CreatedDateTime = DateTime.Now});
+            return DbContext.Set<EGenre>().FirstOrDefault(x => x.Genre == name) ?? CreateEntity(new EGenre {Genre = name,CreatedDateTime = DateTime.Now});
 
         }
     }

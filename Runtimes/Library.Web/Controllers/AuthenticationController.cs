@@ -24,9 +24,9 @@ namespace Library.Web.Controllers
         public ActionResult Login(UserLoginModel model)
         {
             
-            var output = Services.AuthService.Authenticate(new UserInputDto()
+            var output = Services.AuthService.Authenticate(new UserInputDto
             {
-                User = new UserDto()
+                User = new UserDto
                 {
                     Username = model.Username,
                     Password = model.Password

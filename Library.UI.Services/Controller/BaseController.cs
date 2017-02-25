@@ -1,5 +1,4 @@
-﻿using Library.UI.Services.Applications;
-using Library.UI.Services.Providers;
+﻿using Library.UI.Services.Providers;
 
 namespace Library.UI.Services.Controller
 {

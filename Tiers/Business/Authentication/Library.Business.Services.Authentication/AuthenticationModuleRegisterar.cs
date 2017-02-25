@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Configuration;
 using System.ServiceModel;
 using Castle.Facilities.WcfIntegration;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using Library.Business.Services.Authantication;
+using Library.Business.Services.Helper;
 using SenseFramework.Services.Integrations;
 
 namespace Library.Business.Services.Authentication
@@ -13,26 +13,26 @@ namespace Library.Business.Services.Authentication
     {
         public void RegisterServices(IWindsorContainer container)
         {
-            string baseAddress = ConfigurationManager.AppSettings["AuthHost"];
+            //string baseAddress = ConfigurationManager.AppSettings["AuthHost"];
+            var ipaddress = IpFinder.GetLocalIpAddress();
+
+            string baseAddress = $"http://{ipaddress}:8095/services/";
 
             container.Register(
                 Component.For<IAuthenticationService>().ImplementedBy<AuthServiceApplication>()
                     .AsWcfService(new DefaultServiceModel()
                         .AddEndpoints(
-                            WcfEndpoint.ForContract(typeof(IAuthenticationService)).BoundTo(new WSHttpBinding()
+                            WcfEndpoint.ForContract(typeof(IAuthenticationService)).BoundTo(new WSHttpBinding
                             {
                                 //PortSharingEnabled = true,
                                 MaxReceivedMessageSize = int.MaxValue,
                                 ReceiveTimeout = new TimeSpan(0, 0, 2, 0, 0),
                                 CloseTimeout = new TimeSpan(0, 0, 0, 60, 0),
-                                Security = new WSHttpSecurity() { Mode = SecurityMode.None}
+                                Security = new WSHttpSecurity { Mode = SecurityMode.None}
 
                             }))
                         .PublishMetadata(c => c.EnableHttpGet())
-                        .AddBaseAddresses(new Uri[]
-                        {
-                            new Uri(baseAddress + "authentication"),
-                        })).LifestylePerWcfOperation());
+                        .AddBaseAddresses(new Uri(baseAddress + "authentication"))).LifestylePerWcfOperation());
         }
     }
 }

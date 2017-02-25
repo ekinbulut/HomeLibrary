@@ -10,7 +10,7 @@ namespace Library.UI.Services.Applications
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-            container.Register(Component.For<Providers.IServiceProvider > ().ImplementedBy<ServiceProvider>());
+            container.Register(Component.For<IServiceProvider > ().ImplementedBy<ServiceProvider>());
 
             container.Register(
                 Classes.FromThisAssembly()

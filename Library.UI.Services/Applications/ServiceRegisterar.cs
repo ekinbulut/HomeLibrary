@@ -8,7 +8,6 @@ using Library.Business.Services.Book;
 using Library.Business.Services.Integration;
 using Library.Business.Services.Provider;
 
-
 namespace Library.UI.Services.Applications
 {
     internal class ServiceRegisterar : IServiceRegisterar
@@ -24,11 +23,11 @@ namespace Library.UI.Services.Applications
 
             container.Register(
                 Component.For<IAuthenticationService>()
-                .AsWcfClient(new DefaultClientModel()
+                .AsWcfClient(new DefaultClientModel
                 {
-                    Endpoint = WcfEndpoint.BoundTo(new WSHttpBinding()
+                    Endpoint = WcfEndpoint.BoundTo(new WSHttpBinding
                     {
-                        Security = new WSHttpSecurity() { Mode = SecurityMode.None }
+                        Security = new WSHttpSecurity { Mode = SecurityMode.None }
 
                     }).At(authHost + "authentication")
                 })
@@ -36,12 +35,12 @@ namespace Library.UI.Services.Applications
 
             container.Register(
                 Component.For<IBookService>()
-                .AsWcfClient(new DefaultClientModel()
+                .AsWcfClient(new DefaultClientModel
                 {
-                    Endpoint = WcfEndpoint.BoundTo(new WSHttpBinding()
+                    Endpoint = WcfEndpoint.BoundTo(new WSHttpBinding
                     {
                         MaxReceivedMessageSize = maxRecievedSize,
-                        Security = new WSHttpSecurity() { Mode = SecurityMode.None }
+                        Security = new WSHttpSecurity { Mode = SecurityMode.None }
 
                     }).At(bookServiceHost + "books")
                 })
@@ -49,12 +48,12 @@ namespace Library.UI.Services.Applications
 
             container.Register(
                 Component.For<IIntegrationService>()
-                .AsWcfClient(new DefaultClientModel()
+                .AsWcfClient(new DefaultClientModel
                 {
-                    Endpoint = WcfEndpoint.BoundTo(new WSHttpBinding()
+                    Endpoint = WcfEndpoint.BoundTo(new WSHttpBinding
                     {
                         MaxReceivedMessageSize = maxRecievedSize,
-                        Security = new WSHttpSecurity() { Mode = SecurityMode.None }
+                        Security = new WSHttpSecurity { Mode = SecurityMode.None }
 
                     }).At(integrationServiceHost + "integration")
                 })
@@ -62,12 +61,12 @@ namespace Library.UI.Services.Applications
 
             container.Register(
                 Component.For<IItemProvider>()
-                .AsWcfClient(new DefaultClientModel()
+                .AsWcfClient(new DefaultClientModel
                 {
-                    Endpoint = WcfEndpoint.BoundTo(new WSHttpBinding()
+                    Endpoint = WcfEndpoint.BoundTo(new WSHttpBinding
                     {
                         MaxReceivedMessageSize = maxRecievedSize,
-                        Security = new WSHttpSecurity() { Mode = SecurityMode.None }
+                        Security = new WSHttpSecurity { Mode = SecurityMode.None }
 
                     }).At(providerServiceHost + "provider")
                 })

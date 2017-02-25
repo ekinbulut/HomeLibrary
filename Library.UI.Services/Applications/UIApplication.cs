@@ -1,6 +1,4 @@
-﻿using System.Configuration;
-using Library.Business.Services.Authantication;
-using Library.UI.Services.Controller;
+﻿using Library.UI.Services.Controller;
 using Library.UI.Services.IoC;
 using Library.UI.Services.Providers;
 

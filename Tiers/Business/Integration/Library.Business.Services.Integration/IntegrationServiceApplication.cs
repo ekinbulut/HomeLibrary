@@ -2,7 +2,6 @@
 using System.Configuration;
 using System.Data;
 using System.IO;
-using System.Linq;
 using Castle.Core.Internal;
 using Castle.Core.Logging;
 using Library.Business.Services.Helper;
@@ -35,8 +34,9 @@ namespace Library.Business.Services.Integration
         private readonly IUserRepository _userRepository;
         private readonly ILogger _logger;
         private readonly IImporter _importer;
+        private readonly IFileReciever _fileReciever;
 
-        public IntegrationServiceApplication(IParserApplication parserApplication, IBookRepository bookRepository, IAuthorRepository authorRepository, IPublisherRepository publisherRepository, IGenreRepository genreRepository, ISeriesRepository seriesRepository, IShelfRepository shelfRepository, IRackRepository rackRepository, ILogger logger, IUserRepository userRepository, IImporter importer)
+        public IntegrationServiceApplication(IParserApplication parserApplication, IBookRepository bookRepository, IAuthorRepository authorRepository, IPublisherRepository publisherRepository, IGenreRepository genreRepository, ISeriesRepository seriesRepository, IShelfRepository shelfRepository, IRackRepository rackRepository, ILogger logger, IUserRepository userRepository, IImporter importer, IFileReciever fileReciever)
         {
             _parserApplication = parserApplication;
             _bookRepository = bookRepository;
@@ -49,6 +49,7 @@ namespace Library.Business.Services.Integration
             _logger = logger;
             _userRepository = userRepository;
             _importer = importer;
+            _fileReciever = fileReciever;
         }
 
         /// <summary>
@@ -56,14 +57,14 @@ namespace Library.Business.Services.Integration
         /// </summary>
         /// <param name="input">The input.</param>
         /// <returns></returns>
-        public bool Import(string input, int userId)
+        public bool Import(ImportInputDto input)
         {
 
             try
             {
-                var datatable = _parserApplication.ReadExcelFile(input);
+                var datatable = _parserApplication.ReadExcelFile(input.ImportDto.Input);
 
-                var user = _userRepository.GetOne(userId);
+                var user = _userRepository.GetOne(input.ImportDto.UserId);
 
                 foreach (DataRow row in datatable.Rows)
                 {
@@ -85,7 +86,7 @@ namespace Library.Business.Services.Integration
                         ESeries serie;
                         if (!importerObject.SerieName.IsNullOrEmpty())
                         {
-                            serie = _seriesRepository.GetSeriesbyName(importerObject.SerieName.Trim()) ?? _seriesRepository.CreateEntity(new ESeries() { Name = importerObject.SerieName.Trim(), Publisher = publisher, CreatedDateTime = DateTime.Now });
+                            serie = _seriesRepository.GetSeriesbyName(importerObject.SerieName.Trim()) ?? _seriesRepository.CreateEntity(new ESeries { Name = importerObject.SerieName.Trim(), Publisher = publisher, CreatedDateTime = DateTime.Now });
                         }
                         else
                         {
@@ -155,7 +156,7 @@ namespace Library.Business.Services.Integration
                 return false;
             }
 
-            var result = _authorRepository.CreateEntity(new EAuthor()
+            var result = _authorRepository.CreateEntity(new EAuthor
             {
                 Name = input.AuthorDto.Name.Trim(),
                 CreatedDateTime = DateTime.Now
@@ -178,50 +179,64 @@ namespace Library.Business.Services.Integration
 
             var publisher = _publisherRepository.GetPublisherByName(input.PublisherName.Trim());
 
-            if (publisher == null)
+            if (publisher != null) return true;
+
+            var newPublisher = _publisherRepository.CreateEntity(new EPublisher
             {
-                var new_publisher = _publisherRepository.CreateEntity(new EPublisher()
+                Name = input.PublisherName.Trim(),
+                CreatedDateTime = DateTime.Now
+            });
+
+            if (!String.IsNullOrEmpty(input.SeriesName))
+            {
+                _seriesRepository.CreateEntity(new ESeries
                 {
-                    Name = input.PublisherName.Trim(),
+                    Name = input.SeriesName.Trim(),
+                    Publisher = publisher,
                     CreatedDateTime = DateTime.Now
+
                 });
-
-                if (!String.IsNullOrEmpty(input.SeriesName))
-                {
-                    _seriesRepository.CreateEntity(new ESeries()
-                    {
-                        Name = input.SeriesName.Trim(),
-                        Publisher = publisher,
-                        CreatedDateTime = DateTime.Now
-
-                    });
-                }
-
-                return new_publisher != null;
-
             }
 
-            return publisher != null;
+            return newPublisher != null;
         }
 
-
+        /// <summary>
+        /// Recieves the bytearray of the document and creates it on the server side.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns>True or false</returns>
         public bool SendFile(IntegrationInputDto input)
         {
             var docname = input.IntegrationDto.DocName;
             var path = ConfigurationManager.AppSettings["UploadFile"];
-            var strdocPath = Path.Combine(path, docname);
 
+            if (!_fileReciever.ValidatePath(path)) return false;
 
-            using (FileStream objfilestream = new FileStream(strdocPath, FileMode.Create, FileAccess.ReadWrite))
+            if (string.IsNullOrEmpty(path))
             {
-                var byteArray = input.IntegrationDto.ByteArray;
-                objfilestream.Write(byteArray, 0, byteArray.Length);
-                objfilestream.Close();
+                _fileReciever.CreateFolder(path);
             }
 
-            return Import(strdocPath, input.IntegrationDto.UserId);
-        }
+            var strdocPath = Path.Combine(path, docname);
 
+            bool isFileRecieved = _fileReciever.RecieveFile(strdocPath, input.IntegrationDto.ByteArray);
+
+            return isFileRecieved && Import(new ImportInputDto()
+            {
+                ImportDto = new ImportDto()
+                {
+                    UserId = input.IntegrationDto.UserId,
+                    Input = strdocPath
+                }
+            });
+        }
+        
+        /// <summary>
+        /// Validation of the record
+        /// </summary>
+        /// <param name="data">Row element of the document</param>
+        /// <returns></returns>
         public bool IsEmpty(ImportObject data)
         {
             return String.IsNullOrEmpty(data.BookName) || String.IsNullOrEmpty(data.Publishdate) ||

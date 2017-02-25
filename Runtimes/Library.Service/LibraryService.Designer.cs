@@ -1,11 +1,13 @@
-﻿namespace Library.Service
+﻿using System.ComponentModel;
+
+namespace Library.Service
 {
     partial class LibraryService
     {
         /// <summary> 
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.

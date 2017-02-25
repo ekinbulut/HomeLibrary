@@ -75,6 +75,8 @@
     <Compile Include="Model\Importer.cs" />
     <Compile Include="Model\ImportObject.cs" />
     <Compile Include="Parser\ExcelParserApplication.cs" />
+    <Compile Include="Parser\FileReciever.cs" />
+    <Compile Include="Parser\IFileReciever.cs" />
     <Compile Include="Parser\OleDbAConnector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

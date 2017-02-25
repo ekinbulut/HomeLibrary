@@ -22,11 +22,11 @@ namespace Library.Mvc.Base
 
             IoCManager.Container.Register(
                 Component.For<IAuthenticationService>()
-                .AsWcfClient(new DefaultClientModel()
+                .AsWcfClient(new DefaultClientModel
                 {
-                    Endpoint = WcfEndpoint.BoundTo(new WSHttpBinding()
+                    Endpoint = WcfEndpoint.BoundTo(new WSHttpBinding
                     {
-                        Security = new WSHttpSecurity() {  Mode = SecurityMode.None }
+                        Security = new WSHttpSecurity {  Mode = SecurityMode.None }
 
                     }).At(authHost+"authentication")
                 })
@@ -34,12 +34,12 @@ namespace Library.Mvc.Base
 
             IoCManager.Container.Register(
                 Component.For<IBookService>()
-                .AsWcfClient(new DefaultClientModel()
+                .AsWcfClient(new DefaultClientModel
                 {
-                    Endpoint = WcfEndpoint.BoundTo(new WSHttpBinding()
+                    Endpoint = WcfEndpoint.BoundTo(new WSHttpBinding
                     {
                         MaxReceivedMessageSize = maxRecievedSize,
-                        Security = new WSHttpSecurity() { Mode = SecurityMode.None }
+                        Security = new WSHttpSecurity { Mode = SecurityMode.None }
 
                     }).At(bookServiceHost + "books")
                 })
@@ -47,12 +47,12 @@ namespace Library.Mvc.Base
 
             IoCManager.Container.Register(
                 Component.For<IIntegrationService>()
-                .AsWcfClient(new DefaultClientModel()
+                .AsWcfClient(new DefaultClientModel
                 {
-                    Endpoint = WcfEndpoint.BoundTo(new WSHttpBinding()
+                    Endpoint = WcfEndpoint.BoundTo(new WSHttpBinding
                     {
                         MaxReceivedMessageSize = maxRecievedSize,
-                        Security = new WSHttpSecurity() { Mode = SecurityMode.None }
+                        Security = new WSHttpSecurity { Mode = SecurityMode.None }
 
                     }).At(integrationServiceHost + "integration")
                 })
@@ -60,12 +60,12 @@ namespace Library.Mvc.Base
 
             IoCManager.Container.Register(
                 Component.For<IItemProvider>()
-                .AsWcfClient(new DefaultClientModel()
+                .AsWcfClient(new DefaultClientModel
                 {
-                    Endpoint = WcfEndpoint.BoundTo(new WSHttpBinding()
+                    Endpoint = WcfEndpoint.BoundTo(new WSHttpBinding
                     {
                         MaxReceivedMessageSize = maxRecievedSize,
-                        Security = new WSHttpSecurity() { Mode = SecurityMode.None }
+                        Security = new WSHttpSecurity { Mode = SecurityMode.None }
 
                     }).At(providerServiceHost + "provider")
                 })

@@ -39,7 +39,7 @@ namespace Library.Mvc.Providers
         {
             var authors = Provider.ItemProviderServiceClient.Authors();
 
-            return authors.AuthorDtos.Select(authorDto => new SelectListItem()
+            return authors.AuthorDtos.Select(authorDto => new SelectListItem
             {
                 Value = authorDto.Value.ToString(),
                 Text = authorDto.Name
@@ -55,7 +55,7 @@ namespace Library.Mvc.Providers
         {
             var publishers = Provider.ItemProviderServiceClient.Publishers();
 
-            return publishers.PublisherDtos.Select(pdto => new SelectListItem()
+            return publishers.PublisherDtos.Select(pdto => new SelectListItem
             {
                 Value = pdto.Value.ToString(),
                 Text = pdto.Name
@@ -71,7 +71,7 @@ namespace Library.Mvc.Providers
         {
             var genres = Provider.ItemProviderServiceClient.Genres();
 
-            return genres.GenreDtos.Select(t => new SelectListItem()
+            return genres.GenreDtos.Select(t => new SelectListItem
             {
                 Value = t.Value.ToString(),
                 Text = t.Name
@@ -88,14 +88,14 @@ namespace Library.Mvc.Providers
         {
             var series = Provider.ItemProviderServiceClient.Series();
 
-            var list = series.SeriesDtos.Select(t => new SelectListItem()
+            var list = series.SeriesDtos.Select(t => new SelectListItem
             {
                 Value = t.Value.ToString(),
                 Text = t.Name
 
             }).ToList();
 
-            list.Add(new SelectListItem() {Selected = true,Value = String.Empty,Text = ""});
+            list.Add(new SelectListItem {Selected = true,Value = String.Empty,Text = ""});
 
             return list.OrderBy(x => x.Text);
         }
@@ -108,7 +108,7 @@ namespace Library.Mvc.Providers
         {
             var shelfs = Provider.ItemProviderServiceClient.Shelfs();
 
-            return shelfs.ShelfDtos.Select(t => new SelectListItem()
+            return shelfs.ShelfDtos.Select(t => new SelectListItem
             {
                 Value = t.Value.ToString(),
                 Text = t.Name
@@ -124,7 +124,7 @@ namespace Library.Mvc.Providers
         {
             var racks = Provider.ItemProviderServiceClient.Racks();
 
-            return racks.RackDtos.Select(t => new SelectListItem()
+            return racks.RackDtos.Select(t => new SelectListItem
             {
                 Value = t.Value.ToString(),
                 Text = t.Name
@@ -138,14 +138,14 @@ namespace Library.Mvc.Providers
         /// <returns></returns>
         public static IEnumerable<SelectListItem> SkinTypes()
         {
-            return new List<SelectListItem>()
+            return new List<SelectListItem>
             {
-                new SelectListItem()
+                new SelectListItem
                 {
                     Text = "Ciltli",
                     Value = "0"
                 },
-                new SelectListItem()
+                new SelectListItem
                 {
                     Text = "Ciltsiz",
                     Value = "1"

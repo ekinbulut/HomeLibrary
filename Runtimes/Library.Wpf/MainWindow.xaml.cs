@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-
+using Library.UI.Services.Applications;
+using Library.UI.Services.Controller;
+using Library.UI.Services.Model;
 
 namespace Library.Wpf
 {
-    using UI.Services.Applications;
-    using UI.Services.Controller;
-    using UI.Services.Model;
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -104,7 +103,7 @@ namespace Library.Wpf
         {
             int bookno = 0;
 
-            var input = new BookView()
+            var input = new BookView
             {
                 Author = author_comboBox.SelectedValue.ToString(),
                 Genre = genre_comboBox.SelectedValue.ToString(),

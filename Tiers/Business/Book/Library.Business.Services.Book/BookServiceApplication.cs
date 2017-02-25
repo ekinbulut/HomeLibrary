@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.ServiceModel.Security.Tokens;
 using Castle.Core.Internal;
 using Library.Business.Services.Book.Dtos;
 using Library.Business.Services.Helper;
@@ -95,7 +94,7 @@ namespace Library.Business.Services.Book
         {
             var user = _userRepository.GetOne(input.UserId);
 
-            var book = new EBook()
+            var book = new EBook
             {
                 SkinType = input.SkinType == 0 ? SkinType.Ciltli : SkinType.Ciltsiz,
                 Name = input.Name.Trim(),
@@ -106,7 +105,7 @@ namespace Library.Business.Services.Book
                 PublisherId = input.Publisher,
                 GenreId = input.Genre,
                 ShelfId = input.Shelf,
-                RackId = input.Rack,
+                RackId = input.Rack
                 //No = int.TryParse(input.No, out number) ? number : (int?) null
             };
 

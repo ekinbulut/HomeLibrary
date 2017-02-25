@@ -30,7 +30,7 @@ namespace Library.Data.Migrations
 
             if (!entity)
             {
-                _migrationrepo.CreateEntity(new EMigration()
+                _migrationrepo.CreateEntity(new EMigration
                 {
                     Name = Name,
                     CreatedDateTime = DateTime.Now
@@ -41,19 +41,19 @@ namespace Library.Data.Migrations
 
                 var racks = _rackrepository.GetAll();
 
-                var firstShelf = new EShelf()
+                var firstShelf = new EShelf
                 {
                     Name = "Kitaplık 1",
                     CreatedDateTime = DateTime.Now,
                     Racks = racks.ToList()
                 };
-                var secondShelf = new EShelf()
+                var secondShelf = new EShelf
                 {
                     Name = "Kitaplık 2",
                     CreatedDateTime = DateTime.Now,
                     Racks = racks.ToList()
                 };
-                var thirdShelf = new EShelf()
+                var thirdShelf = new EShelf
                 {
                     Name = "Kitaplık 3",
                     CreatedDateTime = DateTime.Now,

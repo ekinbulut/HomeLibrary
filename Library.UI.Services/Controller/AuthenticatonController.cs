@@ -13,9 +13,9 @@ namespace Library.UI.Services.Controller
             
             var task = Task.Run(() =>
             {
-                model = ServiceProvider.AuthenticationService.Authenticate(new UserInputDto()
+                model = ServiceProvider.AuthenticationService.Authenticate(new UserInputDto
                 {
-                    User = new UserDto()
+                    User = new UserDto
                     {
                         Username = username,
                         Password = password
@@ -25,7 +25,7 @@ namespace Library.UI.Services.Controller
 
             task.Wait();
 
-            return model != null ? new UserModelView()
+            return model != null ? new UserModelView
             {
                 Name = model.Name,
                 Gender = model.Gender,
