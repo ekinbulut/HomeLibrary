@@ -7,7 +7,7 @@
     <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
     <ROW Property="AI_PREDEF_LCONDS_PROPS" Value="AI_DETECTED_DOTNET_VERSION"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_Castle.Core.dll" Value="..\..\packages\Castle.Core.3.3.0\lib\net45"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Castle.Core.dll_1" Value="..\..\packages\Castle.Core.3.3.0\lib\net45"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Castle.Core.dll_1" Value="..\..\Tiers\Data\Library.DataLayer\bin\Debug"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_Castle.Facilities.WcfIntegration.dll" Value="..\..\packages\Castle.WcfIntegrationFacility.3.3.0\lib\net45"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_Castle.Facilities.WcfIntegration.dll_1" Value="..\..\packages\Castle.WcfIntegrationFacility.3.3.0\lib\net45"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_Castle.Services.Logging.Log4netIntegration.dll" Value="..\..\..\SenseFramework\SenseFramework\Core\SenseFramework.Core\bin\Debug"/>
@@ -20,8 +20,8 @@
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_Library.Business.Services.Book.dll" Value="..\..\Tiers\Business\Book\Library.Business.Services.Book\bin\Debug"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_Library.Business.Services.Integration.dll" Value="..\..\Tiers\Business\Integration\Library.Business.Services.Integration\bin\Debug"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_Library.Business.Services.Provider.dll" Value="..\..\Tiers\Business\ItemProvider\Library.Business.Services.Provider\bin\Debug"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Library.Business.Services.dll" Value="..\..\Library.Business.Services\bin\Debug"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Library.Business.Services.dll_1" Value="..\..\Library.Business.Services\bin\Debug"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Library.Business.Services.dll" Value="..\..\Tiers\Business\Library.Business.Services\bin\Debug"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Library.Business.Services.dll_1" Value="..\..\Tiers\Business\Library.Business.Services\bin\Debug"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_Library.Console.exe" Value="..\..\Runtimes\Library.Console\bin\Debug"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_Library.Console.exe.config" Value="..\..\Runtimes\Library.Console\bin\Debug"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_Library.Data.dll" Value="..\..\Tiers\Data\Library.DataLayer\bin\Debug"/>

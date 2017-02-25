@@ -16,7 +16,6 @@ namespace Library.UI.Services.Controller
         ICollection<PublisherDto> BindPublishers();
         ICollection<ShelfDto> BindShelfs();
         ICollection<RackDto> BindRacks();
-
         ICollection<SkinType> BindSkins();
     }
 }

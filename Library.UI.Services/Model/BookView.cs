@@ -19,5 +19,6 @@ namespace Library.UI.Services.Model
         public string SkinType { get; set; }
         public string Shelf { get; set; }
         public int Rack { get; set; }
+        public int UserId { get; set; }
     }
 }

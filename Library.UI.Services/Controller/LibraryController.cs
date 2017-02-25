@@ -44,11 +44,22 @@ namespace Library.UI.Services.Controller
 
         public bool AddBook(BookView book)
         {
-            var bookInput = new BookInputDto()
+            var newRecord = new BookInputDto()
             {
-                
+                Author = int.Parse(book.Author),
+                Name = book.Name,
+                Genre = int.Parse(book.Genre),
+                PublishDate = book.PublishDate,
+                Publisher = int.Parse(book.Publisher),
+                Rack = book.Rack,
+                Shelf = int.Parse(book.Shelf),
+                Serie = !String.IsNullOrEmpty(book.Serie) ? int.Parse(book.Serie) : 0,
+                SkinType = int.Parse(book.SkinType),
+                No = book.No?.ToString() ?? String.Empty,
+                UserId = book.UserId
             };
-            return ServiceProvider.BookService.AddBook(bookInput);
+
+            return ServiceProvider.BookService.AddBook(newRecord);
         }
 
         public ICollection<AuthorDto> BindAuthors()

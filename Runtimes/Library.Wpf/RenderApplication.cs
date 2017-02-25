@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Controls;
 
 namespace Library.Wpf
@@ -15,7 +16,7 @@ namespace Library.Wpf
 
         }
 
-        public static void FillComboBox<T>(this ComboBox comboBox, ICollection<T> itemCollection)
+        public static void FillComboBox<T>(this ComboBox comboBox, IOrderedEnumerable<T> itemCollection)
         {
             comboBox.ItemsSource = itemCollection;
             comboBox.DisplayMemberPath = "Name";
