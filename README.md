@@ -1,7 +1,6 @@
-# LibraryOS
+# LibraryOS Service-Oriented Application
 
 This project is a service oriented application which has no dependicies on UI. 
-
 Project consist of several layers.
 
 ## 1. Runtimes
