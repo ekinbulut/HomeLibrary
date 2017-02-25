@@ -100,7 +100,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Library.UI.Services\Library.UI.Services.csproj">
+    <ProjectReference Include="..\..\Tiers\Business\Library.UI.Services\Library.UI.Services.csproj">
       <Project>{104e5630-4157-4b1b-8a55-bfee9b8661f0}</Project>
       <Name>Library.UI.Services</Name>
     </ProjectReference>

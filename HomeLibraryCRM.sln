@@ -51,7 +51,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Wpf", "Runtimes\Lib
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bussiness", "Bussiness", "{5BECE7AA-D570-4318-8B96-1774F508ADAB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.UI.Services", "Library.UI.Services\Library.UI.Services.csproj", "{104E5630-4157-4B1B-8A55-BFEE9B8661F0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.UI.Services", "Tiers\Business\Library.UI.Services\Library.UI.Services.csproj", "{104E5630-4157-4B1B-8A55-BFEE9B8661F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
