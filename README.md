@@ -1,6 +1,6 @@
 # LibraryOS
 
-This project is service oriented application which has no dependicies on UI. 
+This project is a service oriented application which has no dependicies on UI. 
 
 Project consist of several layers.
 
@@ -16,3 +16,8 @@ Project consist of several layers.
     * Library.UI.Services (This layers is a middleware for WPF application. It provides Models and controllers for the interface interactions)
   * Data (DataLayer uses entity framework with code first) Includes all repositories and entities.
   * MVC (This layers has two layers which provides support for Library.Web application.)
+
+## 3.SenseFramework
+SenseFramework is a tool to develop n-tier applications easily. It provides several ORM tools and NOSQL library with repository patterns, unitofworks, typeconfigurations etc. The framework works with Castle.Windsor and WCF facilitites. It provides base libraries for tier modules. 
+
+In this project you will only see the library files.
