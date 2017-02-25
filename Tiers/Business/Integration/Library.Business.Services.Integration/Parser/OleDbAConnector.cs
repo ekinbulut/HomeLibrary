@@ -49,7 +49,7 @@ namespace Library.Business.Services.Integration.Parser
             var strbuilder = new StringBuilder();
             parameters.ForEach(t =>
             {
-                strbuilder.Append((string)t);
+                strbuilder.Append(t);
                 strbuilder.Append(',');
             });
 

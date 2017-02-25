@@ -15,33 +15,33 @@ namespace Library.Data.Migrations
 
         public RackMigration(IMigrationRepository migrationrepo, IRackRepository rackRepository)
         {
-            this._migrationrepo = migrationrepo;
-            this._rackRepository = rackRepository;
+            _migrationrepo = migrationrepo;
+            _rackRepository = rackRepository;
         }
 
         public void Migrate()
         {
             //var migrationrepo = IoCManager.Container.Resolve<IMigrationRepository>();
 
-            var entity = _migrationrepo.GetAll().Any(x => x.Name == this.Name);
+            var entity = _migrationrepo.GetAll().Any(x => x.Name == Name);
 
             if (!entity)
             {
-                _migrationrepo.CreateEntity(new EMigration()
+                _migrationrepo.CreateEntity(new EMigration
                 {
-                    Name = this.Name,
+                    Name = Name,
                     CreatedDateTime = DateTime.Now
                 });
 
                 //var rackrepository = IoCManager.Container.Resolve<IRackRepository>();
 
-                _rackRepository.CreateEntity(new ERack() {RackNumber = 1, CreatedDateTime = DateTime.Now});
-                _rackRepository.CreateEntity(new ERack() {RackNumber = 2, CreatedDateTime = DateTime.Now});
-                _rackRepository.CreateEntity(new ERack() {RackNumber = 3, CreatedDateTime = DateTime.Now});
-                _rackRepository.CreateEntity(new ERack() {RackNumber = 4, CreatedDateTime = DateTime.Now});
-                _rackRepository.CreateEntity(new ERack() {RackNumber = 5, CreatedDateTime = DateTime.Now});
-                _rackRepository.CreateEntity(new ERack() {RackNumber = 6, CreatedDateTime = DateTime.Now});
-                _rackRepository.CreateEntity(new ERack() {RackNumber = 7, CreatedDateTime = DateTime.Now});
+                _rackRepository.CreateEntity(new ERack {RackNumber = 1, CreatedDateTime = DateTime.Now});
+                _rackRepository.CreateEntity(new ERack {RackNumber = 2, CreatedDateTime = DateTime.Now});
+                _rackRepository.CreateEntity(new ERack {RackNumber = 3, CreatedDateTime = DateTime.Now});
+                _rackRepository.CreateEntity(new ERack {RackNumber = 4, CreatedDateTime = DateTime.Now});
+                _rackRepository.CreateEntity(new ERack {RackNumber = 5, CreatedDateTime = DateTime.Now});
+                _rackRepository.CreateEntity(new ERack {RackNumber = 6, CreatedDateTime = DateTime.Now});
+                _rackRepository.CreateEntity(new ERack {RackNumber = 7, CreatedDateTime = DateTime.Now});
             }
         }
 

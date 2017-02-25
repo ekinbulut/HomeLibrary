@@ -38,7 +38,7 @@ namespace Library.Business.Services.Provider
 
             _authorRepository.GetAll().ForEach(a =>
             {
-                output.AuthorDtos.Add(new AuthorDto()
+                output.AuthorDtos.Add(new AuthorDto
                 {
                     Name = a.Name,
                     Value = a.Id
@@ -58,7 +58,7 @@ namespace Library.Business.Services.Provider
 
             _publisherRepository.GetAll().ForEach(p =>
             {
-                output.PublisherDtos.Add(new PublisherDto()
+                output.PublisherDtos.Add(new PublisherDto
                 {
                     Value = p.Id,
                     Name = p.Name
@@ -78,7 +78,7 @@ namespace Library.Business.Services.Provider
 
             _genreRepository.GetAll().ForEach(g =>
             {
-                output.GenreDtos.Add(new GenreDto()
+                output.GenreDtos.Add(new GenreDto
                 {
                     Name = g.Genre,
                     Value = g.Id
@@ -98,7 +98,7 @@ namespace Library.Business.Services.Provider
 
             _seriesRepository.GetAll().ForEach(s =>
             {
-                output.SeriesDtos.Add(new SeriesDto()
+                output.SeriesDtos.Add(new SeriesDto
                 {
                     Name = s.Name,
                     Value = s.Id
@@ -119,7 +119,7 @@ namespace Library.Business.Services.Provider
 
             _shelfRepository.GetAll().ForEach(s =>
             {
-                output.ShelfDtos.Add(new ShelfDto()
+                output.ShelfDtos.Add(new ShelfDto
                 {
                     Name = s.Name,
                     Value = s.Id
@@ -139,7 +139,7 @@ namespace Library.Business.Services.Provider
 
             _rackRepository.GetAll().ForEach(r =>
             {
-                output.RackDtos.Add(new RackDto()
+                output.RackDtos.Add(new RackDto
                 {
                     Name = r.RackNumber.ToString(),
                     Value = r.Id

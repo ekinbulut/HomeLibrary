@@ -6,7 +6,7 @@ namespace Library.Business.Services.Integration.Model
     {
         public ImportObject ConvertRowIntoImportObject(DataRow row)
         {
-            return new ImportObject()
+            return new ImportObject
             {
                 BookName = row.ItemArray[0].ToString(),
                 AuthorName = row.ItemArray[1].ToString(),

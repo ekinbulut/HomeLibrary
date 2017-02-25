@@ -26,13 +26,13 @@ namespace Library.Data.Migrations
         {
             //var migrationrepo = IoCManager.Container.Resolve<IMigrationRepository>();
 
-            var entity = _migrationrepo.GetAll().Any(x => x.Name == this.Name);
+            var entity = _migrationrepo.GetAll().Any(x => x.Name == Name);
 
             if (!entity)
             {
-                _migrationrepo.CreateEntity(new EMigration()
+                _migrationrepo.CreateEntity(new EMigration
                 {
-                    Name = this.Name,
+                    Name = Name,
                     CreatedDateTime = DateTime.Now
                 });
 
@@ -44,10 +44,10 @@ namespace Library.Data.Migrations
                 var yky = _publisherrepository.GetAll().FirstOrDefault(x => x.Name == "Yapı Kredi Yayınları");
                 var ilt = _publisherrepository.GetAll().FirstOrDefault(x => x.Name == "İletişim");
 
-                _seriesrepository.CreateEntity(new ESeries() {Name = "Hasan Ali Yücel Klasikleri",CreatedDateTime = DateTime.Now , Publisher = tis});
-                _seriesrepository.CreateEntity(new ESeries() {Name = "Modern Klasikler Dizisi",CreatedDateTime = DateTime.Now , Publisher = tis});
-                _seriesrepository.CreateEntity(new ESeries() {Name = "Kazım Taşkent Klasikleri",CreatedDateTime = DateTime.Now,Publisher = yky});
-                _seriesrepository.CreateEntity(new ESeries() {Name = "Klasikler", CreatedDateTime = DateTime.Now,Publisher = ilt});
+                _seriesrepository.CreateEntity(new ESeries {Name = "Hasan Ali Yücel Klasikleri",CreatedDateTime = DateTime.Now , Publisher = tis});
+                _seriesrepository.CreateEntity(new ESeries {Name = "Modern Klasikler Dizisi",CreatedDateTime = DateTime.Now , Publisher = tis});
+                _seriesrepository.CreateEntity(new ESeries {Name = "Kazım Taşkent Klasikleri",CreatedDateTime = DateTime.Now,Publisher = yky});
+                _seriesrepository.CreateEntity(new ESeries {Name = "Klasikler", CreatedDateTime = DateTime.Now,Publisher = ilt});
 
             }
 

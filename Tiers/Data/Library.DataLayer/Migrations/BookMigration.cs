@@ -34,15 +34,15 @@ namespace Library.Data.Migrations
 
         public BookMigration(IMigrationRepository migrationrepo, IShelfRepository shelfrepos, IAuthorRepository authorrepos, IGenreRepository genrerepos, IPublisherRepository publisherrepos, IRackRepository rackrepos, ISeriesRepository seriesrepo, IBookRepository bookrepos, IUserRepository userRepository)
         {
-            this._migrationrepo = migrationrepo;
-            this._shelfrepos = shelfrepos;
-            this._authorrepos = authorrepos;
-            this._genrerepos = genrerepos;
-            this._publisherrepos = publisherrepos;
-            this._rackrepos = rackrepos;
-            this._seriesrepo = seriesrepo;
-            this._bookrepos = bookrepos;
-            this._userRepository = userRepository;
+            _migrationrepo = migrationrepo;
+            _shelfrepos = shelfrepos;
+            _authorrepos = authorrepos;
+            _genrerepos = genrerepos;
+            _publisherrepos = publisherrepos;
+            _rackrepos = rackrepos;
+            _seriesrepo = seriesrepo;
+            _bookrepos = bookrepos;
+            _userRepository = userRepository;
         }
 
 
@@ -50,19 +50,19 @@ namespace Library.Data.Migrations
         {
             //var migrationrepo = IoCManager.Container.Resolve<IMigrationRepository>();
 
-            var entity = _migrationrepo.GetAll().Any(x => x.Name == this.Name);
+            var entity = _migrationrepo.GetAll().Any(x => x.Name == Name);
 
             if (!entity)
             {
-                _migrationrepo.CreateEntity(new EMigration()
+                _migrationrepo.CreateEntity(new EMigration
                 {
-                    Name = this.Name,
+                    Name = Name,
                     CreatedDateTime = DateTime.Now
                 });
 
-                var list = new List<Book>()
+                var list = new List<Book>
                 {
-                    new Book()
+                    new Book
                     {
                         Author = "Aiskhylos",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -75,7 +75,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Aisopos",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -88,7 +88,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Aleksander Sergeyeviç Puşkin",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -101,7 +101,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Aleksander Sergeyeviç Puşkin",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -114,7 +114,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Aleksander Sergeyeviç Puşkin",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -127,7 +127,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Alexandre Dumas",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -140,7 +140,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Alexandre Dumas",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -153,7 +153,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Alexandre Dumas",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -166,7 +166,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Alfred De Musset",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -179,7 +179,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Alfred De Musset",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -192,7 +192,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Alfred De Musset",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -205,7 +205,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Anton Pavloviç Çehov",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -218,7 +218,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Anton Pavloviç Çehov",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -231,7 +231,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Anton Pavloviç Çehov",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -244,7 +244,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Baki",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -257,7 +257,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Calderon De La Barca",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -270,7 +270,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Carlo Goldini",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -283,7 +283,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Carlo Goldini",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -296,7 +296,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Charles Baudelaire",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -309,7 +309,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Charles Baudelaire",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -322,7 +322,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Cicero",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -335,7 +335,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Daniel Defoe",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -348,7 +348,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Denis Diderot",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -361,7 +361,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Denis Diderot",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -374,7 +374,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Denis Diderot",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -387,7 +387,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Denis Diderot",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -400,7 +400,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Denis Diderot",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -413,7 +413,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "E.T.A. Hoffman",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -426,7 +426,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Edgar Allan Poe",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -439,7 +439,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Edib Ahmed Yükneki",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -452,7 +452,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Emile Zola",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -465,7 +465,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Emile Zola",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -478,7 +478,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Emily Dickinson",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -491,7 +491,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Euripides",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -504,7 +504,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Euripides",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -517,7 +517,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Euripides",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -530,7 +530,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Euripides",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -543,7 +543,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Friedrich Nietzsche",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -556,7 +556,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Friedrich Nietzsche",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -569,7 +569,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Friedrich Nietzsche",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -582,7 +582,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Friedrich Nietzsche",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -595,7 +595,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Friedrich Nietzsche",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -608,7 +608,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Friedrich Nietzsche",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -621,7 +621,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Friedrich Nietzsche",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -634,7 +634,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Friedrich Nietzsche",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -647,7 +647,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Friedrich Nietzsche",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -660,7 +660,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Friedrich Nietzsche",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -673,7 +673,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Friedrich Nietzsche",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -686,7 +686,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Friedrich Nietzsche",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -699,7 +699,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Fyodor M. Dostoyevski",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -712,7 +712,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Fyodor M. Dostoyevski",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -725,7 +725,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Fyodor M. Dostoyevski",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -738,7 +738,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Fyodor M. Dostoyevski",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -751,7 +751,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Fyodor M. Dostoyevski",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -764,7 +764,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Fyodor M. Dostoyevski",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -777,7 +777,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Fyodor M. Dostoyevski",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -790,7 +790,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Fyodor M. Dostoyevski",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -803,7 +803,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Fyodor M. Dostoyevski",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -816,7 +816,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Fyodor M. Dostoyevski",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -829,7 +829,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Fyodor M. Dostoyevski",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -842,7 +842,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Fyodor M. Dostoyevski",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -855,7 +855,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Galileo Galilei",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -868,7 +868,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "George Eliot",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -881,7 +881,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Giacomo Leopardi",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -894,7 +894,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Gustave Flaubert",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -907,7 +907,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Gustave Flaubert",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -920,7 +920,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Guy De Maupassant",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -933,7 +933,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Guy De Maupassant",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -946,7 +946,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Hayyam",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -959,7 +959,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Heinrich Von Kleist",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -972,7 +972,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Henri Bergson",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -985,7 +985,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Henry James",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -998,7 +998,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Henry James",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1011,7 +1011,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Henry James",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1024,7 +1024,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Herodas",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1037,7 +1037,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Hippokrates",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1050,7 +1050,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Homeros",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1063,7 +1063,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Homeros",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1076,7 +1076,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Honore De Balzac",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1089,7 +1089,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Honore De Balzac",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1102,7 +1102,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Honore De Balzac",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1115,7 +1115,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Honore De Balzac",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1128,7 +1128,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Honore De Balzac",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1141,7 +1141,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Honore De Balzac",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1154,7 +1154,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Honore De Balzac",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1167,7 +1167,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Honore De Balzac",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1180,7 +1180,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Honore De Balzac",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1193,7 +1193,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "İbn Kalanisi",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1206,7 +1206,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "İsa Öztürk",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1219,7 +1219,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "İvan A. Gonçarov",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1232,7 +1232,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Ivan Sergeyeviç Turgenyev",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1245,7 +1245,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Ivan Sergeyeviç Turgenyev",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1258,7 +1258,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Ivan Sergeyeviç Turgenyev",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1271,7 +1271,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Ivan Sergeyeviç Turgenyev",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1284,7 +1284,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Ivan Sergeyeviç Turgenyev",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1297,7 +1297,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Jane Austen",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1310,7 +1310,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Jane Austen",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1323,7 +1323,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Jane Austen",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1336,7 +1336,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Johann W. Von Goethe",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1349,7 +1349,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Johann W. Von Goethe",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1362,7 +1362,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Johann W. Von Goethe",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1375,7 +1375,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Jonathan Swift",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1388,7 +1388,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Katherine Mansfield",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1401,7 +1401,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Kolektif",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1414,7 +1414,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Kristof Kolomb",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1427,7 +1427,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Ksenophon",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1440,7 +1440,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "L.N. Tolstoy",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1453,7 +1453,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "L.N. Tolstoy",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1466,7 +1466,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "L.N. Tolstoy",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1479,7 +1479,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "L.N. Tolstoy",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1492,7 +1492,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "L.N. Tolstoy",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1505,7 +1505,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "L.N. Tolstoy",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1518,7 +1518,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "L.N. Tolstoy",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1531,7 +1531,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "L.N. Tolstoy",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1544,7 +1544,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "L.N. Tolstoy",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1557,7 +1557,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "L.N. Tolstoy",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1570,7 +1570,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "L.N. Tolstoy",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1583,7 +1583,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "L.N. Tolstoy",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1596,7 +1596,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "L.N. Tolstoy",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1609,7 +1609,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "M.Y. Lermantov",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1622,7 +1622,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Mark Twain",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1635,7 +1635,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Mevlana",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1648,7 +1648,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Michelangelo",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1661,7 +1661,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Miguel De Cervantes",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1674,7 +1674,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Moliere",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1687,7 +1687,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Moliere",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1700,7 +1700,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Moliere",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1713,7 +1713,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Moliere",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1726,7 +1726,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Montesquieu",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1739,7 +1739,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Nikolay Vasilyeviç Gogol",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1752,7 +1752,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Nikolay Vasilyeviç Gogol",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1765,7 +1765,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Nikolay Vasilyeviç Gogol",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1778,7 +1778,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Nikolay Vasilyeviç Gogol",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1791,7 +1791,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Nikolay Vasilyeviç Gogol",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1804,7 +1804,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Nikolay Vasilyeviç Gogol",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1817,7 +1817,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Novalis",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1830,7 +1830,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Platon",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1843,7 +1843,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Platon",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1856,7 +1856,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Platon",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1869,7 +1869,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Platon",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1882,7 +1882,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Plutarkhos",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1895,7 +1895,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Plutarkhos",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1908,7 +1908,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Plutarkhos",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1921,7 +1921,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Prokopios",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1934,7 +1934,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Sophokles",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1947,7 +1947,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Sophokles",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1960,7 +1960,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Sophokles",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1973,7 +1973,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Sophokles",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1986,7 +1986,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Sophokles",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -1999,7 +1999,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Sophokles",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2012,7 +2012,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Sun Zi",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2025,7 +2025,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Tsunetomo Yamamoto",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2038,7 +2038,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Valenciennes",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2051,7 +2051,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Vicente Blasco Ibanez",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2064,7 +2064,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Victor Hugo",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2077,7 +2077,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Victor Hugo",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2090,7 +2090,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Victor Hugo",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2103,7 +2103,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "William Shakespeare",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2116,7 +2116,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "William Shakespeare",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2129,7 +2129,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "William Shakespeare",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2142,7 +2142,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "William Shakespeare",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2155,7 +2155,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "William Shakespeare",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2168,7 +2168,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "William Shakespeare",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2181,7 +2181,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "William Shakespeare",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2194,7 +2194,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "William Shakespeare",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2207,7 +2207,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "William Shakespeare",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2220,7 +2220,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "William Shakespeare",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2233,7 +2233,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "William Shakespeare",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2246,7 +2246,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "William Shakespeare",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2259,7 +2259,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "William Shakespeare",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2272,7 +2272,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "William Shakespeare",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2285,7 +2285,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "William Shakespeare",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2298,7 +2298,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "William Shakespeare",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2311,7 +2311,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "William Shakespeare",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2324,7 +2324,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "William Shakespeare",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2337,7 +2337,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "William Shakespeare",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2350,7 +2350,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "William Shakespeare",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2363,7 +2363,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "William Shakespeare",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2376,7 +2376,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "William Shakespeare",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2389,7 +2389,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "William Shakespeare",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2402,7 +2402,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "William Shakespeare",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2415,7 +2415,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "William Shakespeare",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2428,7 +2428,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "William Shakespeare",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2441,7 +2441,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "William Shakespeare",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2454,7 +2454,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "William Shakespeare",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2467,7 +2467,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "William Shakespeare",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2480,7 +2480,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "William Shakespeare",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2493,7 +2493,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "William Shakespeare",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2506,7 +2506,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "William Shakespeare",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2519,7 +2519,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "William Shakespeare",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2532,7 +2532,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "William Shakespeare",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2545,7 +2545,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "William Shakespeare",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2558,7 +2558,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "William Shakespeare",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2571,7 +2571,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "William Shakespeare",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2584,7 +2584,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "William Shakespeare",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2597,7 +2597,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "William Shakespeare",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2610,7 +2610,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "William Shakespeare",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2623,7 +2623,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Yusuf Has Hacib",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -2636,7 +2636,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Anthony Burgess",
                         Description = "Modern Klasikler Dizisi",
@@ -2649,7 +2649,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Anthony Burgess",
                         Description = "Modern Klasikler Dizisi",
@@ -2662,7 +2662,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Anthony Burgess",
                         Description = "Modern Klasikler Dizisi",
@@ -2675,7 +2675,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Anton Pavloviç Çehov",
                         Description = "Modern Klasikler Dizisi",
@@ -2688,7 +2688,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Anton Pavloviç Çehov",
                         Description = "Modern Klasikler Dizisi",
@@ -2701,7 +2701,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Bernard Shaw",
                         Description = "Modern Klasikler Dizisi",
@@ -2714,7 +2714,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Carson McCullers",
                         Description = "Modern Klasikler Dizisi",
@@ -2727,7 +2727,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Carson McCullers",
                         Description = "Modern Klasikler Dizisi",
@@ -2740,7 +2740,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "F.Scott Fitzgerald",
                         Description = "Modern Klasikler Dizisi",
@@ -2753,7 +2753,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Franz Kafka",
                         Description = "Modern Klasikler Dizisi",
@@ -2766,7 +2766,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Franz Kafka",
                         Description = "Modern Klasikler Dizisi",
@@ -2779,7 +2779,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Franz Kafka",
                         Description = "Modern Klasikler Dizisi",
@@ -2792,7 +2792,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Franz Kafka",
                         Description = "Modern Klasikler Dizisi",
@@ -2805,7 +2805,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Giovanni Papini",
                         Description = "Modern Klasikler Dizisi",
@@ -2818,7 +2818,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Halil Cibran",
                         Description = "Modern Klasikler Dizisi",
@@ -2831,7 +2831,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Halil Cibran",
                         Description = "Modern Klasikler Dizisi",
@@ -2844,7 +2844,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Halil Cibran",
                         Description = "Modern Klasikler Dizisi",
@@ -2857,7 +2857,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Halil Cibran",
                         Description = "Modern Klasikler Dizisi",
@@ -2870,7 +2870,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Henry James",
                         Description = "Modern Klasikler Dizisi",
@@ -2883,7 +2883,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Jack London",
                         Description = "Modern Klasikler Dizisi",
@@ -2896,7 +2896,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Jack London",
                         Description = "Modern Klasikler Dizisi",
@@ -2909,7 +2909,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Jack London",
                         Description = "Modern Klasikler Dizisi",
@@ -2922,7 +2922,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Jack London",
                         Description = "Modern Klasikler Dizisi",
@@ -2935,7 +2935,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Jack London",
                         Description = "Modern Klasikler Dizisi",
@@ -2948,7 +2948,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Jack London",
                         Description = "Modern Klasikler Dizisi",
@@ -2961,7 +2961,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "James Joyce",
                         Description = "Modern Klasikler Dizisi",
@@ -2974,7 +2974,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "John Dos Passos",
                         Description = "Modern Klasikler Dizisi",
@@ -2987,7 +2987,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "John Dos Passos",
                         Description = "Modern Klasikler Dizisi",
@@ -3000,7 +3000,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Joseph Conrad",
                         Description = "Modern Klasikler Dizisi",
@@ -3013,7 +3013,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Katherine Mansfield",
                         Description = "Modern Klasikler Dizisi",
@@ -3026,7 +3026,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Katherine Mansfield",
                         Description = "Modern Klasikler Dizisi",
@@ -3039,7 +3039,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Maksim Gorki",
                         Description = "Modern Klasikler Dizisi",
@@ -3052,7 +3052,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Maksim Gorki",
                         Description = "Modern Klasikler Dizisi",
@@ -3065,7 +3065,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Maksim Gorki",
                         Description = "Modern Klasikler Dizisi",
@@ -3078,7 +3078,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Maksim Gorki",
                         Description = "Modern Klasikler Dizisi",
@@ -3091,7 +3091,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Maksim Gorki",
                         Description = "Modern Klasikler Dizisi",
@@ -3104,7 +3104,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Mark Twain",
                         Description = "Modern Klasikler Dizisi",
@@ -3117,7 +3117,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Miguel De Unamuno",
                         Description = "Modern Klasikler Dizisi",
@@ -3130,7 +3130,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Mihail Bulgakov",
                         Description = "Modern Klasikler Dizisi",
@@ -3143,7 +3143,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Mihail Bulgakov",
                         Description = "Modern Klasikler Dizisi",
@@ -3156,7 +3156,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Mihail Bulgakov",
                         Description = "Modern Klasikler Dizisi",
@@ -3169,7 +3169,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Pablo Neruda",
                         Description = "Modern Klasikler Dizisi",
@@ -3182,7 +3182,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Paul Celan",
                         Description = "Modern Klasikler Dizisi",
@@ -3195,7 +3195,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Rabindranath Tagore",
                         Description = "Modern Klasikler Dizisi",
@@ -3208,7 +3208,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Rainer Maria Luke",
                         Description = "Modern Klasikler Dizisi",
@@ -3221,7 +3221,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Robert Graves",
                         Description = "Modern Klasikler Dizisi",
@@ -3234,7 +3234,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Robert Louis Stevenson",
                         Description = "Modern Klasikler Dizisi",
@@ -3247,7 +3247,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Sir Arthur Conan Doyle",
                         Description = "Modern Klasikler Dizisi",
@@ -3260,7 +3260,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Sir Athur Conan Doyle",
                         Description = "Modern Klasikler Dizisi",
@@ -3273,7 +3273,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Stefan Zweig",
                         Description = "Modern Klasikler Dizisi",
@@ -3286,7 +3286,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Stefan Zweig",
                         Description = "Modern Klasikler Dizisi",
@@ -3299,7 +3299,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Stefan Zweig",
                         Description = "Modern Klasikler Dizisi",
@@ -3312,7 +3312,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Stefan Zweig",
                         Description = "Modern Klasikler Dizisi",
@@ -3325,7 +3325,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Stefan Zweig",
                         Description = "Modern Klasikler Dizisi",
@@ -3338,7 +3338,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Stefan Zweig",
                         Description = "Modern Klasikler Dizisi",
@@ -3351,7 +3351,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Stefan Zweig",
                         Description = "Modern Klasikler Dizisi",
@@ -3364,7 +3364,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Stefan Zweig",
                         Description = "Modern Klasikler Dizisi",
@@ -3377,7 +3377,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Stefan Zweig",
                         Description = "Modern Klasikler Dizisi",
@@ -3390,7 +3390,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Stefan Zweig",
                         Description = "Modern Klasikler Dizisi",
@@ -3403,7 +3403,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Stefan Zweig",
                         Description = "Modern Klasikler Dizisi",
@@ -3416,7 +3416,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Stefan Zweig",
                         Description = "Modern Klasikler Dizisi",
@@ -3429,7 +3429,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Virginia Woolf",
                         Description = "Modern Klasikler Dizisi",
@@ -3442,7 +3442,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "William Golding",
                         Description = "Modern Klasikler Dizisi",
@@ -3455,7 +3455,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "William Golding",
                         Description = "Modern Klasikler Dizisi",
@@ -3468,7 +3468,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "William Golding",
                         Description = "Modern Klasikler Dizisi",
@@ -3481,7 +3481,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "William Golding",
                         Description = "Modern Klasikler Dizisi",
@@ -3494,7 +3494,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "William Shakespeare",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -3507,7 +3507,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Charles Baudelaire",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -3520,7 +3520,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Emile Zola",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -3533,7 +3533,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Herodotos",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -3546,7 +3546,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Montaigne",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -3559,7 +3559,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Denis Diderot",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -3572,7 +3572,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Moliere",
                         Description = "Hasan Ali Yücel Klasikleri",
@@ -3585,7 +3585,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Aleksander Sergeyeviç Puşkin",
                         Description = "Kazım Taşkent Klasikleri",
@@ -3598,7 +3598,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Dionysios Byzantios",
                         Description = "Kazım Taşkent Klasikleri",
@@ -3611,7 +3611,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Fyodor M. Dostoyevski",
                         Description = "Kazım Taşkent Klasikleri",
@@ -3624,7 +3624,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Herman Melville",
                         Description = "Kazım Taşkent Klasikleri",
@@ -3637,7 +3637,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "James Joyce",
                         Description = "Kazım Taşkent Klasikleri",
@@ -3650,7 +3650,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Karl R. Popper",
                         Description = "Kazım Taşkent Klasikleri",
@@ -3663,7 +3663,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Leonardo Da Vinci",
                         Description = "Kazım Taşkent Klasikleri",
@@ -3676,7 +3676,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Miguel De Cervantes",
                         Description = "Kazım Taşkent Klasikleri",
@@ -3689,7 +3689,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Mihail Yuryeviç Lermontov",
                         Description = "Kazım Taşkent Klasikleri",
@@ -3702,7 +3702,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Fyodor M. Dostoyevski",
                         Description = "Klasikler",
@@ -3715,7 +3715,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Fyodor M. Dostoyevski",
                         Description = "Klasikler",
@@ -3728,7 +3728,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Fyodor M. Dostoyevski",
                         Description = "Klasikler",
@@ -3741,7 +3741,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Fyodor M. Dostoyevski",
                         Description = "Klasikler",
@@ -3754,7 +3754,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Nikolay Vasilyeviç Gogol",
                         Description = "Klasikler",
@@ -3767,7 +3767,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Louis-Ferdinand Celine",
                         Description = "Kazım Taşkent Klasikleri",
@@ -3780,7 +3780,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Robert Graves",
                         Description = "Modern Klasikler Dizisi",
@@ -3793,7 +3793,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 1",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Adrian Furnham",
                         Description = "",
@@ -3806,7 +3806,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Albert Camus",
                         Description = "",
@@ -3819,7 +3819,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Albert Camus",
                         Description = "",
@@ -3832,7 +3832,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Albert Camus",
                         Description = "",
@@ -3845,7 +3845,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Aldous Huxley",
                         Description = "",
@@ -3858,7 +3858,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Aldous Huxley",
                         Description = "",
@@ -3871,7 +3871,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Aleksander Sergeyeviç Puşkin",
                         Description = "",
@@ -3884,7 +3884,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Aleksandros Papadiamantis",
                         Description = "",
@@ -3897,7 +3897,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Alessandro Baricco",
                         Description = "",
@@ -3910,7 +3910,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Antoine de Saint-Exupery",
                         Description = "",
@@ -3923,7 +3923,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Apostolos Doksiadis",
                         Description = "",
@@ -3936,7 +3936,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Arkadi - Boris Strugatski",
                         Description = "",
@@ -3949,7 +3949,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Arthur C. Clarke",
                         Description = "",
@@ -3962,7 +3962,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Barış Bıçakçı",
                         Description = "",
@@ -3975,7 +3975,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Ben Dupre",
                         Description = "",
@@ -3988,7 +3988,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Ben Lerner",
                         Description = "",
@@ -4001,7 +4001,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Brain K. Vaughan",
                         Description = "",
@@ -4014,7 +4014,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Cahit Sıtkı Tarancı",
                         Description = "",
@@ -4027,7 +4027,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Carlos Maria Dominguez",
                         Description = "",
@@ -4040,7 +4040,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Carmine Gallo",
                         Description = "",
@@ -4053,7 +4053,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Cixin Liu",
                         Description = "",
@@ -4066,7 +4066,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Derleme",
                         Description = "",
@@ -4079,7 +4079,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Douglas Adams",
                         Description = "",
@@ -4092,7 +4092,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Edgar Allan Poe",
                         Description = "",
@@ -4105,7 +4105,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Edgar Allan Poe",
                         Description = "",
@@ -4118,7 +4118,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Edgar Allan Poe",
                         Description = "",
@@ -4131,7 +4131,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Emilie Kip Baker",
                         Description = "",
@@ -4144,7 +4144,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Ernest Hemingway",
                         Description = "",
@@ -4157,7 +4157,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Fernando Pessoa",
                         Description = "",
@@ -4170,7 +4170,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Franz Kafka",
                         Description = "",
@@ -4183,7 +4183,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Franz Kafka",
                         Description = "",
@@ -4196,7 +4196,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Franz Kafka",
                         Description = "",
@@ -4209,7 +4209,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Franz Kafka",
                         Description = "",
@@ -4222,7 +4222,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Franz Kafka",
                         Description = "",
@@ -4235,7 +4235,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Freud",
                         Description = "",
@@ -4248,7 +4248,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Friedrich Nietzsche",
                         Description = "",
@@ -4261,7 +4261,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Fyodor M. Dostoyevski",
                         Description = "",
@@ -4274,7 +4274,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Fyodor M. Dostoyevski",
                         Description = "",
@@ -4287,7 +4287,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Fyodor M. Dostoyevski",
                         Description = "",
@@ -4300,7 +4300,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Fyodor M. Dostoyevski",
                         Description = "",
@@ -4313,7 +4313,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "George Frazer",
                         Description = "",
@@ -4326,7 +4326,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "George Owell",
                         Description = "",
@@ -4339,7 +4339,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "George Owell",
                         Description = "",
@@ -4352,7 +4352,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "George Owell",
                         Description = "",
@@ -4365,7 +4365,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "George Owell",
                         Description = "",
@@ -4378,7 +4378,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "George Owell",
                         Description = "",
@@ -4391,7 +4391,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "George Owell",
                         Description = "",
@@ -4404,7 +4404,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Gündüz Vassaf",
                         Description = "",
@@ -4417,7 +4417,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Gündüz Vassaf",
                         Description = "",
@@ -4430,7 +4430,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "H.G. Wells",
                         Description = "",
@@ -4443,7 +4443,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "H.G. Wells",
                         Description = "",
@@ -4456,7 +4456,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "H.G. Wells",
                         Description = "",
@@ -4469,7 +4469,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "H.G. Wells",
                         Description = "",
@@ -4482,7 +4482,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Hagop Baronyan",
                         Description = "",
@@ -4495,7 +4495,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Harper Lee",
                         Description = "",
@@ -4508,7 +4508,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Harper Lee",
                         Description = "",
@@ -4521,7 +4521,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Haruki Murakami",
                         Description = "",
@@ -4534,7 +4534,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Haruki Murakami",
                         Description = "",
@@ -4547,7 +4547,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Irvin D. Yalom",
                         Description = "",
@@ -4560,7 +4560,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Irvin D. Yalom",
                         Description = "",
@@ -4573,7 +4573,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "J. D. Salinger",
                         Description = "",
@@ -4586,7 +4586,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "J.M.Coetzee",
                         Description = "",
@@ -4599,7 +4599,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "J.R.R. Tolkien",
                         Description = "",
@@ -4612,7 +4612,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "J.R.R. Tolkien",
                         Description = "",
@@ -4625,7 +4625,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Jacob Abbott",
                         Description = "",
@@ -4638,7 +4638,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "James Joyce",
                         Description = "",
@@ -4651,7 +4651,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Jean-Pierre Vernant",
                         Description = "",
@@ -4664,7 +4664,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Johan Harstad",
                         Description = "",
@@ -4677,7 +4677,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "John Berger",
                         Description = "",
@@ -4690,7 +4690,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "John Berger",
                         Description = "",
@@ -4703,7 +4703,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "John Berger",
                         Description = "",
@@ -4716,7 +4716,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "John Berger - Yves Berger",
                         Description = "",
@@ -4729,7 +4729,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Jojo Moyes",
                         Description = "",
@@ -4742,7 +4742,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Jorge Luis Borge",
                         Description = "",
@@ -4755,7 +4755,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Jose Mauro De Vasconcelos",
                         Description = "",
@@ -4768,7 +4768,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Jose Mauro De Vasconcelos",
                         Description = "",
@@ -4781,7 +4781,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Jose Mauro De Vasconcelos",
                         Description = "",
@@ -4794,7 +4794,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Jose Mauro De Vasconcelos",
                         Description = "",
@@ -4807,7 +4807,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Jose Mauro De Vasconcelos",
                         Description = "",
@@ -4820,7 +4820,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Jose Mauro De Vasconcelos",
                         Description = "",
@@ -4833,7 +4833,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Jose Mauro De Vasconcelos",
                         Description = "",
@@ -4846,7 +4846,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Jose Mauro De Vasconcelos",
                         Description = "",
@@ -4859,7 +4859,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Jose Mauro De Vasconcelos",
                         Description = "",
@@ -4872,7 +4872,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Jose Mauro De Vasconcelos",
                         Description = "",
@@ -4885,7 +4885,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Karl Marx",
                         Description = "",
@@ -4898,7 +4898,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "L.N. Tolstoy",
                         Description = "",
@@ -4911,7 +4911,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "L.N. Tolstoy",
                         Description = "",
@@ -4924,7 +4924,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Laurent Seksik",
                         Description = "",
@@ -4937,7 +4937,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Lugat 365",
                         Description = "",
@@ -4950,7 +4950,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Margit Schreiner",
                         Description = "",
@@ -4963,7 +4963,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Michael Freeman",
                         Description = "",
@@ -4976,7 +4976,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Michael Freeman",
                         Description = "",
@@ -4989,7 +4989,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Michael Freeman",
                         Description = "",
@@ -5002,7 +5002,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Michael Freeman",
                         Description = "",
@@ -5015,7 +5015,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Milan Kundera",
                         Description = "",
@@ -5028,7 +5028,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "N.H. Kleinbaum",
                         Description = "",
@@ -5041,7 +5041,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Neil Gaiman",
                         Description = "",
@@ -5054,7 +5054,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Neil Gaiman",
                         Description = "",
@@ -5067,7 +5067,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Neil Gaiman",
                         Description = "",
@@ -5080,7 +5080,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Neil Gaiman",
                         Description = "",
@@ -5093,7 +5093,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Neil Gaiman",
                         Description = "",
@@ -5106,7 +5106,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Nihad Siris",
                         Description = "",
@@ -5119,7 +5119,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Orhan Pamuk",
                         Description = "",
@@ -5132,7 +5132,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Orhan Pamuk",
                         Description = "",
@@ -5145,7 +5145,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Orhan Pamuk",
                         Description = "",
@@ -5158,7 +5158,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Orhan Pamuk",
                         Description = "",
@@ -5171,7 +5171,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Orhan Pamuk",
                         Description = "",
@@ -5184,7 +5184,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Orhan Pamuk",
                         Description = "",
@@ -5197,7 +5197,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Orhan Pamuk",
                         Description = "",
@@ -5210,7 +5210,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Orhan Veli",
                         Description = "",
@@ -5223,7 +5223,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Oscar Wilde",
                         Description = "",
@@ -5236,7 +5236,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Paul Auster",
                         Description = "",
@@ -5249,7 +5249,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Pierre Lotti",
                         Description = "",
@@ -5262,7 +5262,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "R.J. Palacio",
                         Description = "",
@@ -5275,7 +5275,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Ray Bradbury",
                         Description = "",
@@ -5288,7 +5288,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Ray Bradbury",
                         Description = "",
@@ -5301,7 +5301,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Ray Bradbury",
                         Description = "",
@@ -5314,7 +5314,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Ray Bradbury",
                         Description = "",
@@ -5327,7 +5327,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Ray Bradbury",
                         Description = "",
@@ -5340,7 +5340,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Ray Bradbury",
                         Description = "",
@@ -5353,7 +5353,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Raymond Carver",
                         Description = "",
@@ -5366,7 +5366,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Richard Bach",
                         Description = "",
@@ -5379,7 +5379,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Roland Barthes",
                         Description = "",
@@ -5392,7 +5392,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Sabahattin Ali",
                         Description = "",
@@ -5405,7 +5405,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Sabahattin Ali",
                         Description = "",
@@ -5418,7 +5418,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Sabahattin Ali",
                         Description = "",
@@ -5431,7 +5431,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Sabahattin Ali",
                         Description = "",
@@ -5444,7 +5444,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Sabit Kalfagil",
                         Description = "",
@@ -5457,7 +5457,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Samuel Buteer",
                         Description = "",
@@ -5470,7 +5470,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Susanna Tamaro",
                         Description = "",
@@ -5483,7 +5483,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Susie Hodge",
                         Description = "",
@@ -5496,7 +5496,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Thomas Mann",
                         Description = "",
@@ -5509,7 +5509,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Thomas Mann",
                         Description = "",
@@ -5522,7 +5522,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Tony Crilly",
                         Description = "",
@@ -5535,7 +5535,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Uğur Yücel",
                         Description = "",
@@ -5548,7 +5548,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltli"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Vicente Blasco Ibanez",
                         Description = "",
@@ -5561,7 +5561,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Virginia Woolf",
                         Description = "",
@@ -5574,7 +5574,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Wilhem Genazino",
                         Description = "",
@@ -5587,7 +5587,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Wilhem Genazino",
                         Description = "",
@@ -5600,7 +5600,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "William Faulkner",
                         Description = "",
@@ -5613,7 +5613,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Yaşar Kemal",
                         Description = "",
@@ -5626,7 +5626,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Yusuf Atılgan",
                         Description = "",
@@ -5639,7 +5639,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Brain K. Vaughan",
                         Description = "",
@@ -5652,7 +5652,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Haruki Murakami",
                         Description = "",
@@ -5665,7 +5665,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Haruki Murakami",
                         Description = "",
@@ -5678,7 +5678,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Haruki Murakami",
                         Description = "",
@@ -5691,7 +5691,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Haruki Murakami",
                         Description = "",
@@ -5704,7 +5704,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Haruki Murakami",
                         Description = "",
@@ -5717,7 +5717,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Haruki Murakami",
                         Description = "",
@@ -5730,7 +5730,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Haruki Murakami",
                         Description = "",
@@ -5743,7 +5743,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "John Berger - Yücel Göktürk",
                         Description = "",
@@ -5756,7 +5756,7 @@ namespace Library.Data.Migrations
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
                     },
-                    new Book()
+                    new Book
                     {
                         Author = "Jose Saramago",
                         Description = "",
@@ -5768,7 +5768,7 @@ namespace Library.Data.Migrations
                         RackNo = "2",
                         Shelf = "Kitaplık 2",
                         Skin = "Ciltsiz"
-                    },
+                    }
                 };
 
                 var user = _userRepository.GetUserByName("admin@admin.com");
@@ -5782,7 +5782,7 @@ namespace Library.Data.Migrations
                     var rack = _rackrepos.GetRackByRackNumber(int.Parse(book.RackNo));
                     var shelf = _shelfrepos.GetShelfByName(book.Shelf);
 
-                    var ebook = new EBook()
+                    var ebook = new EBook
                     {
                         Name = book.Name,
                         Author = author,
@@ -5794,7 +5794,7 @@ namespace Library.Data.Migrations
                         //No = book.No == "" ? null : book.No,
                         PublishDate = int.Parse(book.Publish_Date),
                         Rack = rack,
-                        SkinType = book.Skin == "Ciltsiz" ? SkinType.Ciltli : SkinType.Ciltsiz,
+                        SkinType = book.Skin == "Ciltsiz" ? SkinType.Ciltli : SkinType.Ciltsiz
                         
                     };
 

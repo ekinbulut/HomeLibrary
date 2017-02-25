@@ -33,7 +33,7 @@ namespace Library.Business.Services.Authentication
 
                     if (!result) return null;
                     
-                    return new UserOutputDto()
+                    return new UserOutputDto
                     {
                         UserId = user.Id,
                         Name = user.Name,

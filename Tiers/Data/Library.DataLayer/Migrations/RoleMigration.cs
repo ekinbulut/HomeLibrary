@@ -25,21 +25,21 @@ namespace Library.Data.Migrations
         {
             //var migrationrepo = IoCManager.Container.Resolve<IMigrationRepository>();
 
-            var entity = _migrationrepo.GetAll().Any(x => x.Name == this.Name);
+            var entity = _migrationrepo.GetAll().Any(x => x.Name == Name);
 
             if (!entity)
             {
-                _migrationrepo.CreateEntity(new EMigration()
+                _migrationrepo.CreateEntity(new EMigration
                 {
-                    Name = this.Name,
+                    Name = Name,
                     CreatedDateTime = DateTime.Now
                 });
 
                 //var rolerepo = IoCManager.Container.Resolve<IRoleRepository>();
 
-                _rolerepo.CreateEntity(new ERole() { Name = "Administrator", CreatedDateTime = DateTime.Now });
-                _rolerepo.CreateEntity(new ERole() { Name = "User", CreatedDateTime = DateTime.Now });
-                _rolerepo.CreateEntity(new ERole() { Name = "Preminium", CreatedDateTime = DateTime.Now });
+                _rolerepo.CreateEntity(new ERole { Name = "Administrator", CreatedDateTime = DateTime.Now });
+                _rolerepo.CreateEntity(new ERole { Name = "User", CreatedDateTime = DateTime.Now });
+                _rolerepo.CreateEntity(new ERole { Name = "Preminium", CreatedDateTime = DateTime.Now });
 
             }
 

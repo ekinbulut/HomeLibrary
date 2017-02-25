@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Library.Business.Services.Book.Dtos;
 
-
 namespace Library.Mvc.Cache
 {
     public class BookCache : ICacheManager<BookOutputDto>

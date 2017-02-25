@@ -17,29 +17,29 @@ namespace Library.Data.Migrations
 
         public UserMigration(IMigrationRepository migrationrepo, IUserRepository userrepo, IRoleRepository roleepo)
         {
-            this._migrationrepo = migrationrepo;
-            this._userrepo = userrepo;
-            this._roleepo = roleepo;
+            _migrationrepo = migrationrepo;
+            _userrepo = userrepo;
+            _roleepo = roleepo;
         }
 
         public void Migrate()
         {
             //var migrationrepo = IoCManager.Container.Resolve<IMigrationRepository>();
 
-            var entity = _migrationrepo.GetAll().Any(x => x.Name == this.Name);
+            var entity = _migrationrepo.GetAll().Any(x => x.Name == Name);
 
             if (!entity)
             {
-                _migrationrepo.CreateEntity(new EMigration()
+                _migrationrepo.CreateEntity(new EMigration
                 {
-                    Name = this.Name,
+                    Name = Name,
                     CreatedDateTime = DateTime.Now
                 });
 
                 //var userrepo = IoCManager.Container.Resolve<IUserRepository>();
                 //var roleepo = IoCManager.Container.Resolve<IRoleRepository>();
 
-                _userrepo.CreateEntity(new EUser()
+                _userrepo.CreateEntity(new EUser
                 {
                     Name = "System User",
                     Userame = "admin@admin.com",
@@ -52,7 +52,7 @@ namespace Library.Data.Migrations
                     Gender = Gender.Male
                 });
 
-                _userrepo.CreateEntity(new EUser()
+                _userrepo.CreateEntity(new EUser
                 {
                     Name = "Ekin Bulut",
                     Userame = "ekinbulut@gmail.com",

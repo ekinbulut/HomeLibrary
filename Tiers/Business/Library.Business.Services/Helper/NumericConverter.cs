@@ -8,7 +8,7 @@ namespace Library.Business.Services.Helper
 
         static NumericConverter()
         {
-            RomanMap = new Dictionary<char, int>()
+            RomanMap = new Dictionary<char, int>
             {
                 {'I', 1},
                 {'V', 5},

@@ -17,7 +17,7 @@ namespace Library.Data.Repositories.Authors
         public EAuthor CreateIfAuthorIsNotExists(string name)
         {
             var author = DbContext.Set<EAuthor>().FirstOrDefault(x => x.Name == name) ??
-                         this.CreateEntity(new EAuthor() {Name = name, CreatedDateTime = DateTime.Now});
+                         CreateEntity(new EAuthor {Name = name, CreatedDateTime = DateTime.Now});
 
             return author;
         }

@@ -17,7 +17,7 @@ namespace Library.Data.Migrations
         public GenreMigration(IMigrationRepository migrationrepo, IGenreRepository genrerepo)
         {
             _migrationrepo = migrationrepo;
-            this._genrerepo = genrerepo;
+            _genrerepo = genrerepo;
         }
 
         public void Migrate()
@@ -25,17 +25,17 @@ namespace Library.Data.Migrations
 
             //var migrationrepo = IoCManager.Container.Resolve<IMigrationRepository>();
 
-            var entity = _migrationrepo.GetAll().Any(x => x.Name == this.Name);
+            var entity = _migrationrepo.GetAll().Any(x => x.Name == Name);
 
             if (!entity)
             {
-                _migrationrepo.CreateEntity(new EMigration()
+                _migrationrepo.CreateEntity(new EMigration
                 {
-                    Name = this.Name,
+                    Name = Name,
                     CreatedDateTime = DateTime.Now
                 });
 
-                var genres = new string[]
+                var genres = new[]
                 {
                     "Anlatı"
                     , "Oyun"
@@ -71,7 +71,7 @@ namespace Library.Data.Migrations
 
                 foreach (var genre in genres)
                 {
-                    _genrerepo.CreateEntity(new EGenre()
+                    _genrerepo.CreateEntity(new EGenre
                     {
                         Genre = genre,
                         CreatedDateTime = DateTime.Now

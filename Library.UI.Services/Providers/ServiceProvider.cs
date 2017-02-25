@@ -6,7 +6,7 @@ using Library.UI.Services.IoC;
 
 namespace Library.UI.Services.Providers
 {
-    public class ServiceProvider : IServiceProvider
+    internal class ServiceProvider : IServiceProvider
     {
         public IBookService BookService
         {

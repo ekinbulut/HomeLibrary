@@ -34,9 +34,9 @@ namespace Library.Web.Controllers
 
                 var mybytearray = StreamOperator.GetBytes(fullpath);
 
-                var result = Services.IntegrationServiceClient.SendFile(new IntegrationInputDto()
+                var result = Services.IntegrationServiceClient.SendFile(new IntegrationInputDto
                 {
-                    IntegrationDto = new IntegrationDto()
+                    IntegrationDto = new IntegrationDto
                     {
                         ByteArray = mybytearray,
                         DocName = file,
