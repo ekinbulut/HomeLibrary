@@ -21,3 +21,7 @@ Project consist of several layers.
 SenseFramework is a tool to develop n-tier applications easily. It provides several ORM tools and NOSQL library with repository patterns, unit of work, typeconfigurations etc. The framework works with Castle.Windsor and configures services as WCF apis. It provides base libraries for tier modules. 
 
 In this project you will only see the library files.
+
+## Requirements
+* SQL Server 2015 or higher
+* IIS server for ASP.NET MVC to serve application.
