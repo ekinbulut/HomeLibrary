@@ -1,7 +1,7 @@
 ﻿using Castle.Facilities.WcfIntegration;
 using Castle.Windsor;
 
-namespace Library.Mvc.Base
+namespace Library.Mvc.IoC
 {
     public static class IoCManager
     {

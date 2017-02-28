@@ -1,6 +1,4 @@
-﻿using Library.Mvc.Base;
-
-namespace Library.Mvc
+﻿namespace Library.Mvc
 {
     public static class Registeration
     {

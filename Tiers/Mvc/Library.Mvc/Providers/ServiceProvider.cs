@@ -8,7 +8,7 @@ using Library.Business.Services.Authantication;
 using Library.Business.Services.Book;
 using Library.Business.Services.Integration;
 using Library.Business.Services.Provider;
-using Library.Mvc.Base;
+using Library.Mvc.IoC;
 
 namespace Library.Mvc.Providers
 {
