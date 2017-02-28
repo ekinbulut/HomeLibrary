@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ServiceModel;
+using Castle.Core.Logging;
 using Castle.Facilities.WcfIntegration;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
@@ -10,6 +11,13 @@ namespace Library.Business.Services.Book
 {
     public class BookModuleRegisterar : IServiceApplication
     {
+        private ILogger _logger;
+
+        public BookModuleRegisterar(ILogger logger)
+        {
+            _logger = logger;
+        }
+
         public void RegisterServices(IWindsorContainer container)
         {
            // string baseAddress = ConfigurationManager.AppSettings["BookServiceHost"];
@@ -32,6 +40,9 @@ namespace Library.Business.Services.Book
                     }))
                     .PublishMetadata(c => c.EnableHttpGet())
                         .AddBaseAddresses(new Uri(baseAddress + "books"))).LifestylePerWcfOperation());
+
+            _logger.Info($"Server endpoint on : {baseAddress}books");
+
         }
     }
 }

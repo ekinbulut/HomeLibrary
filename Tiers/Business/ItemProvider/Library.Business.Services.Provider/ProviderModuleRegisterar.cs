@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ServiceModel;
+using Castle.Core.Logging;
 using Castle.Facilities.WcfIntegration;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
@@ -11,6 +12,13 @@ namespace Library.Business.Services.Provider
     public class ProviderModuleRegisterar : IServiceApplication
 
     {
+        private ILogger _logger;
+
+        public ProviderModuleRegisterar(ILogger logger)
+        {
+            _logger = logger;
+        }
+
         /// <summary>
         /// Registers the wcf services.
         /// </summary>
@@ -37,6 +45,8 @@ namespace Library.Business.Services.Provider
                             }))
                         .PublishMetadata(c => c.EnableHttpGet())
                         .AddBaseAddresses(new Uri(baseAddress + "provider"))).LifestylePerWcfOperation());
+
+            _logger.Info($"Server endpoint on : {baseAddress}provider");
 
         }
     }

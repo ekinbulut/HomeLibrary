@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ServiceModel;
+using Castle.Core.Logging;
 using Castle.Facilities.WcfIntegration;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
@@ -12,6 +13,13 @@ namespace Library.Business.Services.Integration
 {
     public class IntegrationModuleRegisterar : IServiceApplication
     {
+        private ILogger _logger;
+
+        public IntegrationModuleRegisterar(ILogger logger)
+        {
+            _logger = logger;
+        }
+
         public void RegisterServices(IWindsorContainer container)
         {
             container.Register(
@@ -44,6 +52,9 @@ namespace Library.Business.Services.Integration
                             }))
                         .PublishMetadata(c => c.EnableHttpGet())
                         .AddBaseAddresses(new Uri(baseAddress + "integration"))).LifestylePerWcfOperation());
+
+            _logger.Info($"Server endpoint on : {baseAddress}integration");
+
 
         }
     }

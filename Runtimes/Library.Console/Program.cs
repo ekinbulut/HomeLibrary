@@ -25,6 +25,8 @@ namespace Library.Console
 
                     fm.StartUp();
 
+                    System.Console.WriteLine($"Press any key to exit...");
+                    
                 }
                 catch (Exception err)
                 {
