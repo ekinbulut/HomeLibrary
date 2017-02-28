@@ -1,6 +1,6 @@
 # LibraryOS Service-Oriented Application
 
-This project is a service oriented application which has no dependicies on UI. 
+This project is a service oriented CRM application which has been built on Senseframework. This project contains both host and client application and their tier developments.
 
 Project consist of several layers.
 
