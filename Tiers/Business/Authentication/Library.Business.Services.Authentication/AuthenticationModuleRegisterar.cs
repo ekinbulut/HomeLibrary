@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ServiceModel;
+using Castle.Core.Logging;
 using Castle.Facilities.WcfIntegration;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
@@ -11,6 +12,13 @@ namespace Library.Business.Services.Authentication
 {
     public class AuthenticationModuleRegisterar : IServiceApplication
     {
+        private ILogger _logger;
+
+        public AuthenticationModuleRegisterar(ILogger logger)
+        {
+            _logger = logger;
+        }
+
         public void RegisterServices(IWindsorContainer container)
         {
             //string baseAddress = ConfigurationManager.AppSettings["AuthHost"];
@@ -33,6 +41,8 @@ namespace Library.Business.Services.Authentication
                             }))
                         .PublishMetadata(c => c.EnableHttpGet())
                         .AddBaseAddresses(new Uri(baseAddress + "authentication"))).LifestylePerWcfOperation());
+
+            _logger.Info($"Server endpoint on : {baseAddress}authentication");
         }
     }
 }
