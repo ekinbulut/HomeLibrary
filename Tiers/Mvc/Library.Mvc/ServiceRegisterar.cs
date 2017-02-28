@@ -6,8 +6,9 @@ using Library.Business.Services.Authantication;
 using Library.Business.Services.Book;
 using Library.Business.Services.Integration;
 using Library.Business.Services.Provider;
+using Library.Mvc.IoC;
 
-namespace Library.Mvc.Base
+namespace Library.Mvc
 {
     public class ServiceRegisterar
     {
