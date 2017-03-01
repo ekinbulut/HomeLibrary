@@ -17,6 +17,11 @@ namespace Library.Web.Controllers
             return View(Usermodel);
         }
 
+        /// <summary>
+        /// File upload to server it sends file to server
+        /// </summary>
+        /// <param name="filetoupload"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult Index(HttpPostedFileBase filetoupload)
         {
@@ -60,6 +65,18 @@ namespace Library.Web.Controllers
 
 
 
+        }
+
+        /// <summary>
+        /// Download template folder
+        /// </summary>
+        /// <returns></returns>
+        public FileResult DownloadTemplateFile()
+        {
+            var templateMap = Server.MapPath("~/Template");
+            byte[] fileBytes = System.IO.File.ReadAllBytes($"{templateMap}/Template.xlsx");
+            string fileName = "book_template.xlsx";
+            return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
         }
     }
 }
