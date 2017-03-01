@@ -8,7 +8,7 @@ Project consist of several layers.
   * Library.Console  (backend console application) which displays all the progress and hosting services.
   * Library.Services (backend windows service application) same as console app but which you will intall it as a window service.
   * Library.Web (ASP.Net MVC client application)
-  * Library.Wpf (WPF client application)
+  * Library.Wpf (WPF client application which is currently in development)
 
 ## 2. Tiers
   * Bussiness
