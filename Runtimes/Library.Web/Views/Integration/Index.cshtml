@@ -13,7 +13,9 @@
 <div class="box-body">
     <form method="POST" enctype="multipart/form-data">
         <div class="form-group">
-            @*<label for="exampleInputFile">File input</label>*@
+            @Html.ActionLink("Download Template","DownloadTemplateFile")
+            <br/>
+            <br/>
             <input type="file" class="btn btn-default btn-flat" name="filetoupload" id="exampleInputFile">
             @*<p class="help-block">Example block-level help text here.</p>*@
             <br/>
