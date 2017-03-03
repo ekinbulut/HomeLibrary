@@ -7,7 +7,7 @@
     <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
     <ROW Property="AI_PREDEF_LCONDS_PROPS" Value="AI_DETECTED_DOTNET_VERSION;AI_DETECTED_SQLEXPRESS_VERSION"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_Castle.Core.dll" Value="..\..\packages\Castle.Core.3.3.0\lib\net45"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Castle.Core.dll_1" Value="..\..\Tiers\Data\Library.DataLayer\bin\Debug"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Castle.Core.dll_1" Value="..\..\packages\Castle.Core.3.3.0\lib\net45"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_Castle.Facilities.WcfIntegration.dll" Value="..\..\packages\Castle.WcfIntegrationFacility.3.3.0\lib\net45"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_Castle.Facilities.WcfIntegration.dll_1" Value="..\..\packages\Castle.WcfIntegrationFacility.3.3.0\lib\net45"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_Castle.Services.Logging.Log4netIntegration.dll" Value="..\..\..\SenseFramework\SenseFramework\Core\SenseFramework.Core\bin\Debug"/>
