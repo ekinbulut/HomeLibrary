@@ -8,7 +8,6 @@ using Library.Business.Services.Helper;
 using Library.Business.Services.Integration.Dtos;
 using Library.Business.Services.Integration.Model;
 using Library.Business.Services.Integration.Parser;
-using Library.Data.Athentication.Repositories.Users;
 using Library.Data.Entities;
 using Library.Data.Enums;
 using Library.Data.Repositories.Authors;
@@ -18,6 +17,7 @@ using Library.Data.Repositories.Publishers;
 using Library.Data.Repositories.Racks;
 using Library.Data.Repositories.Series;
 using Library.Data.Repositories.Shelfs;
+using Library.Data.Repositories.Users;
 
 namespace Library.Business.Services.Integration
 {

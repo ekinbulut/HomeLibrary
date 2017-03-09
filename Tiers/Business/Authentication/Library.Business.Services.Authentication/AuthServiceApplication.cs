@@ -1,8 +1,8 @@
 ﻿using System;
 using Library.Business.Services.Authantication;
 using Library.Business.Services.Authantication.Dtos;
-using Library.Data.Athentication.Repositories.Users;
 using Library.Data.Entities;
+using Library.Data.Repositories.Users;
 
 namespace Library.Business.Services.Authentication
 {

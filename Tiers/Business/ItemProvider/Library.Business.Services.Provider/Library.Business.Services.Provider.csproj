@@ -76,13 +76,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Data\Library.Data\Library.Data.csproj">
+      <Project>{f77b7920-fee8-471f-ad3d-c59a93154279}</Project>
+      <Name>Library.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Library.Business.Services\Library.Business.Services.csproj">
       <Project>{7ccb141c-2b96-45e7-96bf-52eb1690ff52}</Project>
       <Name>Library.Business.Services</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Data\Library.DataLayer\Library.DataLayer.csproj">
-      <Project>{75742107-3652-4B3F-93D3-E1DF7064D58F}</Project>
-      <Name>Library.DataLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
