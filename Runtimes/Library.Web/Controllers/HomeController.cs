@@ -11,6 +11,10 @@ namespace Library.Web.Controllers
     public class HomeController : BaseController
     {
         // GET: Home
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public override ActionResult Index()
         {
 
@@ -32,24 +36,41 @@ namespace Library.Web.Controllers
             return View(Usermodel);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public ActionResult AddBook()
         {
 
             return View(Usermodel);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public ActionResult CreateWriter()
         {
 
             return View(Usermodel);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public ActionResult CreatePublisher()
         {
 
             return View(Usermodel);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="bookId"></param>
+        /// <returns></returns>
         public ActionResult EditBookRecord(int bookId)
         {
             var bookdto = BookCache.Cache.Dictionary[Usermodel.Identity].Books.FirstOrDefault(x => x.Id == bookId);
@@ -58,6 +79,11 @@ namespace Library.Web.Controllers
             return View(Usermodel);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="bookId"></param>
+        /// <returns></returns>
         public ActionResult DeleteBookRecord(int bookId)
         {
             var bookdto = BookCache.Cache.Dictionary[Usermodel.Identity].Books.FirstOrDefault(x => x.Id == bookId);
@@ -74,8 +100,13 @@ namespace Library.Web.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-#region POST 
+        #region [ POST METHODs]
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult AddBook(UserModel model)
         {
@@ -108,6 +139,11 @@ namespace Library.Web.Controllers
             return RedirectToAction("AddBook", "Home");
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult CreateWriter(UserModel model)
         {
@@ -121,7 +157,7 @@ namespace Library.Web.Controllers
 
             if (result)
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("AddBook", "Home");
             }
 
             Usermodel = Session["Information"] as UserModel;
@@ -129,6 +165,11 @@ namespace Library.Web.Controllers
             return View(Usermodel);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult CreatePublisher(UserModel model)
         {
@@ -141,7 +182,7 @@ namespace Library.Web.Controllers
 
             if (result)
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("AddBook", "Home");
             }
 
             Usermodel = Session["Information"] as UserModel;
@@ -149,6 +190,11 @@ namespace Library.Web.Controllers
             return View(Usermodel);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult EditBookRecord(UserModel model)
         {
@@ -167,6 +213,6 @@ namespace Library.Web.Controllers
             return RedirectToAction("EditBookRecord", "Home");
         }
 
-#endregion
+        #endregion
     }
 }
