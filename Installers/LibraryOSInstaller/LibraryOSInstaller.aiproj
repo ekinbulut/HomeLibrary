@@ -15,10 +15,7 @@
     <Name>LibraryOSInstaller</Name>
     <RootNamespace>LibraryOSInstaller</RootNamespace>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'All' ">
-    <DebugSymbols>false</DebugSymbols>
-    <EnableUnmanagedDebugging>true</EnableUnmanagedDebugging>
-  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'DefaultBuild' " />
   <ItemGroup>
     <Compile Include="LibraryOSInstaller.aip">
       <SubType>Code</SubType>
