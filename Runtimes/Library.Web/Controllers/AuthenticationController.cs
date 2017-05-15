@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Security.Claims;
+using System.Web;
 using System.Web.Mvc;
 using Library.Business.Services.Authantication.Dtos;
 using Library.Mvc.Models;
@@ -6,6 +8,7 @@ using Library.Mvc.Providers;
 
 namespace Library.Web.Controllers
 {
+    [AllowAnonymous]
     public class AuthenticationController : Controller
     {
         protected ServiceProvider Services;
@@ -44,8 +47,22 @@ namespace Library.Web.Controllers
                 Usermodel.Occupation = output.Occupation;
                 Usermodel.UserId = output.UserId;
 
-                Session.Add("Information",Usermodel);
+                Session.Add("Information", Usermodel);
                 Session.Timeout = 5;
+
+                // OWIN Auth
+                var identity = new ClaimsIdentity(new[] {
+                        new Claim(ClaimTypes.Name, output.Name),
+                        new Claim(ClaimTypes.Gender, output.Gender),
+                        new Claim(ClaimTypes.Role,"User"), 
+                    },
+                    "ApplicationCookie");
+
+
+                var ctx = Request.GetOwinContext();
+                var authManager = ctx.Authentication;
+
+                authManager.SignIn(identity);
 
                 return RedirectToAction("Index", "Home");
             }
@@ -58,9 +75,14 @@ namespace Library.Web.Controllers
             if (!Session.IsNewSession || Session["Information"] != null)
             {
                 Session.Remove("Information");
-                
+
                 Session.Clear();
             }
+
+            var ctx = Request.GetOwinContext();
+            var authManager = ctx.Authentication;
+
+            authManager.SignOut("ApplicationCookie");
 
             return RedirectToAction("Index", "Authentication");
         }
