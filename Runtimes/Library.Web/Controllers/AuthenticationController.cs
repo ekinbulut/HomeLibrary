@@ -38,23 +38,14 @@ namespace Library.Web.Controllers
 
             if (output != null)
             {
-
-                var Usermodel = new UserModel();
-                Usermodel.Identity = Guid.NewGuid();
-                Usermodel.Name = output.Name;
-                Usermodel.LastLoginDate = output.LastLoginDate;
-                Usermodel.Gender = output.Gender;
-                Usermodel.Occupation = output.Occupation;
-                Usermodel.UserId = output.UserId;
-
-                Session.Add("Information", Usermodel);
-                Session.Timeout = 5;
-
                 // OWIN Auth
                 var identity = new ClaimsIdentity(new[] {
-                        new Claim(ClaimTypes.Name, output.Name),
-                        new Claim(ClaimTypes.Gender, output.Gender),
-                        new Claim(ClaimTypes.Role,"User"), 
+                        new Claim("Name", output.Name),
+                        new Claim("Gender", output.Gender),
+                        new Claim("Identity",Guid.NewGuid().ToString()), 
+                        new Claim("LastLoginDate",output.LastLoginDate.ToString()), 
+                        new Claim("Occupation",output.Occupation), 
+                        new Claim("UserId",output.UserId.ToString()), 
                     },
                     "ApplicationCookie");
 
@@ -72,12 +63,6 @@ namespace Library.Web.Controllers
 
         public ActionResult Logout()
         {
-            if (!Session.IsNewSession || Session["Information"] != null)
-            {
-                Session.Remove("Information");
-
-                Session.Clear();
-            }
 
             var ctx = Request.GetOwinContext();
             var authManager = ctx.Authentication;

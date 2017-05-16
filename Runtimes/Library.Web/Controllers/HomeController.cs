@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 using Library.Business.Services.Book.Dtos;
 using Library.Business.Services.Integration.Dtos;
@@ -8,6 +10,7 @@ using Library.Mvc.Models;
 
 namespace Library.Web.Controllers
 {
+    [Authorize]
     public class HomeController : BaseController
     {
         // GET: Home
@@ -18,22 +21,22 @@ namespace Library.Web.Controllers
         public override ActionResult Index()
         {
 
-            if (Usermodel.BookOutputDto == null)
+            if (CurrentUserModel.BookOutputDto == null)
             {
-                var books = Services.BookServiceClient.GetBookListByUserId(Usermodel.UserId);
-                Usermodel.BookOutputDto = books;
+                var books = Services.BookServiceClient.GetBookListByUserId(CurrentUserModel.UserId);
+                CurrentUserModel.BookOutputDto = books;
 
 
-                BookCache.Cache.Dictionary.Add(Usermodel.Identity,books);
+                BookCache.Cache.Dictionary.Add(CurrentUserModel.Identity,books);
 
             }
             else
             {
-                Usermodel.BookOutputDto = BookCache.Cache.Dictionary[Usermodel.Identity];
+                CurrentUserModel.BookOutputDto = BookCache.Cache.Dictionary[CurrentUserModel.Identity];
             }
 
 
-            return View(Usermodel);
+            return View(CurrentUserModel);
         }
 
         /// <summary>
@@ -43,7 +46,7 @@ namespace Library.Web.Controllers
         public ActionResult AddBook()
         {
 
-            return View(Usermodel);
+            return View(CurrentUserModel);
         }
 
         /// <summary>
@@ -53,7 +56,7 @@ namespace Library.Web.Controllers
         public ActionResult CreateWriter()
         {
 
-            return View(Usermodel);
+            return View(CurrentUserModel);
         }
 
         /// <summary>
@@ -63,7 +66,7 @@ namespace Library.Web.Controllers
         public ActionResult CreatePublisher()
         {
 
-            return View(Usermodel);
+            return View(CurrentUserModel);
         }
 
         /// <summary>
@@ -73,10 +76,10 @@ namespace Library.Web.Controllers
         /// <returns></returns>
         public ActionResult EditBookRecord(int bookId)
         {
-            var bookdto = BookCache.Cache.Dictionary[Usermodel.Identity].Books.FirstOrDefault(x => x.Id == bookId);
-            Usermodel.BookDto = bookdto;
+            var bookdto = BookCache.Cache.Dictionary[CurrentUserModel.Identity].Books.FirstOrDefault(x => x.Id == bookId);
+            CurrentUserModel.BookDto = bookdto;
 
-            return View(Usermodel);
+            return View(CurrentUserModel);
         }
 
         /// <summary>
@@ -86,13 +89,13 @@ namespace Library.Web.Controllers
         /// <returns></returns>
         public ActionResult DeleteBookRecord(int bookId)
         {
-            var bookdto = BookCache.Cache.Dictionary[Usermodel.Identity].Books.FirstOrDefault(x => x.Id == bookId);
+            var bookdto = BookCache.Cache.Dictionary[CurrentUserModel.Identity].Books.FirstOrDefault(x => x.Id == bookId);
 
             if (Services.BookServiceClient.DeleteBook(bookdto))
             {
                 BookCache.Cache.Dictionary.Clear();
 
-                Usermodel.BookOutputDto = null;
+                CurrentUserModel.BookOutputDto = null;
 
                 return RedirectToAction("Index", "Home");
             }
@@ -124,14 +127,14 @@ namespace Library.Web.Controllers
                 Rack = model.BookModel.Rack,
                 Publisher = model.BookModel.Publisher,
                 Shelf = model.BookModel.Shelf,
-                UserId = Usermodel.UserId
+                UserId = CurrentUserModel.UserId
             });
 
             if (isCreated)
             {
                 BookCache.Cache.Dictionary.Clear();
 
-                Usermodel.BookOutputDto = null;
+                CurrentUserModel.BookOutputDto = null;
 
                 return RedirectToAction("Index", "Home");
             }
@@ -160,9 +163,9 @@ namespace Library.Web.Controllers
                 return RedirectToAction("AddBook", "Home");
             }
 
-            Usermodel = Session["Information"] as UserModel;
+            //CurrentUserModel = Session["Information"] as CurrentUserModel;
 
-            return View(Usermodel);
+            return View(CurrentUserModel);
         }
 
         /// <summary>
@@ -185,9 +188,9 @@ namespace Library.Web.Controllers
                 return RedirectToAction("AddBook", "Home");
             }
 
-            Usermodel = Session["Information"] as UserModel;
+            //CurrentUserModel = Session["Information"] as CurrentUserModel;
 
-            return View(Usermodel);
+            return View(CurrentUserModel);
         }
 
         /// <summary>
@@ -204,7 +207,7 @@ namespace Library.Web.Controllers
             {
                 BookCache.Cache.Dictionary.Clear();
 
-                Usermodel.BookOutputDto = null;
+                CurrentUserModel.BookOutputDto = null;
 
                 return RedirectToAction("Index", "Home");
 

@@ -1,32 +1,60 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
 using Library.Mvc.Models;
 using Library.Mvc.Providers;
+using Microsoft.Owin;
 
 namespace Library.Mvc.Controllers
 {
     public abstract class BaseController : Controller
     {
         protected ServiceProvider Services;
-        protected UserModel Usermodel;
+        private UserModel _usermodel;
+        private IOwinContext _authContext;
 
         protected BaseController()
         {
             Services = new ServiceProvider();
+            
         }
 
-        protected override void OnActionExecuting(ActionExecutingContext filterContext)
+
+        public IOwinContext GetAuthContext => _authContext ?? (_authContext = Request.GetOwinContext());
+
+        public UserModel CurrentUserModel
         {
-            var session = filterContext.HttpContext.Session;
-
-            if (session.IsNewSession || session["Information"] == null)
+            get
             {
-                filterContext.Result = RedirectToAction("Index", "Authentication");
+                if (_usermodel == null)
+                {
+                    _usermodel = new UserModel();
 
+                    var ctx = GetAuthContext;
+
+                    var identity = ctx.Authentication.User;
+
+                    var name = identity.Claims.FirstOrDefault(c => c.Type == "Name").Value;
+                    var gender = identity.Claims.FirstOrDefault(c => c.Type == "Gender").Value;
+                    var Identity = identity.Claims.FirstOrDefault(c => c.Type == "Identity").Value;
+                    var LastLoginDate = identity.Claims.FirstOrDefault(c => c.Type == "LastLoginDate").Value;
+                    var Occupation = identity.Claims.FirstOrDefault(c => c.Type == "Occupation").Value;
+                    var UserId = identity.Claims.FirstOrDefault(c => c.Type == "UserId").Value;
+
+                    _usermodel.Name = name;
+                    _usermodel.Gender = gender;
+
+                    _usermodel.Identity = Guid.Parse(Identity);
+                    _usermodel.LastLoginDate = DateTime.Parse(LastLoginDate);
+                    _usermodel.Occupation = Occupation;
+                    _usermodel.UserId = int.Parse(UserId);
+
+                    return _usermodel;
+                }
+
+                return _usermodel;
             }
-
-            Usermodel = Session["Information"] as UserModel;
-
-            base.OnActionExecuting(filterContext);
         }
 
         public abstract ActionResult Index();
