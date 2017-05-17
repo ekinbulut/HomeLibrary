@@ -995,8 +995,6 @@
     <Content Include="plugins\datatables\extensions\TableTools\Readme.md" />
     <Content Include="plugins\input-mask\phone-codes\phone-be.json" />
     <Content Include="plugins\input-mask\phone-codes\phone-codes.json" />
-    <None Include="Properties\PublishProfiles\libraryos - Web Deploy.pubxml" />
-    <None Include="Properties\PublishProfiles\sub.ekinbulut.com - Web Deploy.pubxml" />
     <Content Include="Views\Home\EditBookRecord.cshtml" />
     <Content Include="Template\Template.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -1012,6 +1010,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Properties\PublishProfiles\" />
     <Folder Include="UploadFiles\" />
     <Folder Include="Views\Sections\" />
   </ItemGroup>

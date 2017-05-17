@@ -17,7 +17,7 @@ namespace Library.Web
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 
-            AntiForgeryConfig.UniqueClaimTypeIdentifier = "Name";
+            AntiForgeryConfig.UniqueClaimTypeIdentifier = "Identity";
 
             //calls : windsor castle registration and wcf services
             Registeration.RegisterBase();

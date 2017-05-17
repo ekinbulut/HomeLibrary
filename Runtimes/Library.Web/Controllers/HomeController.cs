@@ -26,8 +26,10 @@ namespace Library.Web.Controllers
                 var books = Services.BookServiceClient.GetBookListByUserId(CurrentUserModel.UserId);
                 CurrentUserModel.BookOutputDto = books;
 
-
-                BookCache.Cache.Dictionary.Add(CurrentUserModel.Identity,books);
+                if (!BookCache.Cache.Dictionary.ContainsKey(CurrentUserModel.Identity))
+                {
+                    BookCache.Cache.Dictionary.Add(CurrentUserModel.Identity,books);
+                }
 
             }
             else
