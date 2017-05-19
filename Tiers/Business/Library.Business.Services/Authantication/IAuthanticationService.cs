@@ -13,5 +13,13 @@ namespace Library.Business.Services.Authantication
         /// <returns></returns>
         [OperationContract]
         UserOutputDto Authenticate(UserInputDto input);
+
+        /// <summary>
+        /// Registers user.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        [OperationContract]
+        UserOutputDto Register(UserInputDto input);
     }
 }

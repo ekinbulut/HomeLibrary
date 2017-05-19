@@ -21,10 +21,12 @@ namespace Library.Mvc.Providers
         /// The _book service client
         /// </summary>
         private IBookService _bookServiceClient;
+
         /// <summary>
         /// The _integration service client
         /// </summary>
         private IIntegrationService _integrationServiceClient;
+
         /// <summary>
         /// The _item provider service client
         /// </summary>

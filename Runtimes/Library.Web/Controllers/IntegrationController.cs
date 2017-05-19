@@ -10,6 +10,7 @@ using Library.Mvc.Models;
 
 namespace Library.Web.Controllers
 {
+    [Authorize]
     public class IntegrationController : BaseController
     {
         public override ActionResult Index()

@@ -15,6 +15,11 @@ namespace Library.Data.Repositories.Users
             return DbContext.Set<EUser>().FirstOrDefault(u => u.Userame.Equals(username) && u.IsActive);
         }
 
+        public EUser GetUserByNameAndPassword(string username, string password)
+        {
+            return DbContext.Set<EUser>().FirstOrDefault(u => u.Userame.Equals(username) && u.Password.Equals(password) && u.IsActive);
+        }
+
         public UserRepository(BaseContext dbContext) : base(dbContext)
         {
         }
