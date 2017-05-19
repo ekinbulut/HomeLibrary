@@ -12,7 +12,7 @@ namespace Library.Data.Repositories.Users
 
         public EUser GetUserByName(string username)
         {
-            return DbContext.Set<EUser>().FirstOrDefault(u => u.Userame.Equals(username));
+            return DbContext.Set<EUser>().FirstOrDefault(u => u.Userame.Equals(username) && u.IsActive);
         }
 
         public UserRepository(BaseContext dbContext) : base(dbContext)

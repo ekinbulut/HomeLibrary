@@ -39,7 +39,8 @@ namespace Library.Business.Services.Authentication
                         Name = user.Name,
                         Gender =  Enum.GetName(typeof(Gender),user.Gender),
                         Occupation = user.Occupation,
-                        LastLoginDate = user.CreatedDateTime
+                        LastLoginDate = user.CreatedDateTime,
+                        Role = user.ERole.Name
                     };
                 }
             }

@@ -5,6 +5,7 @@ using System.Web.Mvc;
 using Library.Business.Services.Authantication.Dtos;
 using Library.Mvc.Models;
 using Library.Mvc.Providers;
+using Microsoft.Owin.Security;
 
 namespace Library.Web.Controllers
 {
@@ -38,22 +39,34 @@ namespace Library.Web.Controllers
 
             if (output != null)
             {
+
+
+                #region [ OWIN ]
+
                 // OWIN Auth
-                var identity = new ClaimsIdentity(new[] {
+                var claims = new ClaimsIdentity(new[] {
                         new Claim("Name", output.Name),
                         new Claim("Gender", output.Gender),
-                        new Claim("Identity",Guid.NewGuid().ToString()), 
-                        new Claim("LastLoginDate",output.LastLoginDate.ToString()), 
-                        new Claim("Occupation",output.Occupation), 
-                        new Claim("UserId",output.UserId.ToString()), 
+                        new Claim("Identity",Guid.NewGuid().ToString()),
+                        new Claim("LastLoginDate",output.LastLoginDate.ToString()),
+                        new Claim("Occupation",output.Occupation),
+                        new Claim("UserId",output.UserId.ToString()),
+                        new Claim("Role",output.Role),
                     },
                     "ApplicationCookie");
 
+                var properties = new AuthenticationProperties();
+
+                properties.IsPersistent = model.RememberMe;
+                properties.ExpiresUtc   = DateTimeOffset.UtcNow.AddDays(1.0);
 
                 var ctx = Request.GetOwinContext();
                 var authManager = ctx.Authentication;
 
-                authManager.SignIn(identity);
+                authManager.SignIn(properties, claims);
+
+                #endregion
+
 
                 return RedirectToAction("Index", "Home");
             }

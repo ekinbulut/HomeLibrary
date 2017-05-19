@@ -10,8 +10,9 @@ namespace Library.Mvc.Models
         public string Gender { get; set; }
         public string Occupation { get; set; }
         public DateTime? LastLoginDate { get; set; }
-        public int RoleId { get; set; }
+        public string Role { get; set; }
         public int UserId { get; set; }
+        public bool RememberMe { get; set; }
 
         public BookOutputDto BookOutputDto { get; set; }
         public BookModel BookModel { get; set; }

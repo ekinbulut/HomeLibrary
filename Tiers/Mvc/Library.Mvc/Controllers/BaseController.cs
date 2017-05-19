@@ -20,43 +20,63 @@ namespace Library.Mvc.Controllers
             
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
         public IOwinContext GetAuthContext => _authContext ?? (_authContext = Request.GetOwinContext());
 
+        /// <summary>
+        /// 
+        /// </summary>
         public UserModel CurrentUserModel
         {
             get
             {
                 if (_usermodel == null)
                 {
-                    _usermodel = new UserModel();
-
-                    var ctx = GetAuthContext;
-
-                    var identity = ctx.Authentication.User;
-
-                    var name = identity.Claims.FirstOrDefault(c => c.Type == "Name").Value;
-                    var gender = identity.Claims.FirstOrDefault(c => c.Type == "Gender").Value;
-                    var Identity = identity.Claims.FirstOrDefault(c => c.Type == "Identity").Value;
-                    var LastLoginDate = identity.Claims.FirstOrDefault(c => c.Type == "LastLoginDate").Value;
-                    var Occupation = identity.Claims.FirstOrDefault(c => c.Type == "Occupation").Value;
-                    var UserId = identity.Claims.FirstOrDefault(c => c.Type == "UserId").Value;
-
-                    _usermodel.Name = name;
-                    _usermodel.Gender = gender;
-
-                    _usermodel.Identity = Guid.Parse(Identity);
-                    _usermodel.LastLoginDate = DateTime.Parse(LastLoginDate);
-                    _usermodel.Occupation = Occupation;
-                    _usermodel.UserId = int.Parse(UserId);
-
-                    return _usermodel;
+                    _usermodel = GetUserModel();
                 }
 
                 return _usermodel;
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        private UserModel GetUserModel()
+        {
+            var usermodel = new UserModel();
+
+            var ctx = GetAuthContext;
+
+            var identity = ctx.Authentication.User;
+
+            var name = identity.Claims.FirstOrDefault(c => c.Type == "Name").Value;
+            var gender = identity.Claims.FirstOrDefault(c => c.Type == "Gender").Value;
+            var Identity = identity.Claims.FirstOrDefault(c => c.Type == "Identity").Value;
+            var LastLoginDate = identity.Claims.FirstOrDefault(c => c.Type == "LastLoginDate").Value;
+            var Occupation = identity.Claims.FirstOrDefault(c => c.Type == "Occupation").Value;
+            var Role = identity.Claims.FirstOrDefault(c => c.Type == "Role").Value;
+            var UserId = identity.Claims.FirstOrDefault(c => c.Type == "UserId").Value;
+
+            usermodel.Name = name;
+            usermodel.Gender = gender;
+            usermodel.Identity = Guid.Parse(Identity);
+            usermodel.LastLoginDate = DateTime.Parse(LastLoginDate);
+            usermodel.Occupation = Occupation;
+            usermodel.UserId = int.Parse(UserId);
+            usermodel.Role = Role;
+
+            return usermodel;
+
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public abstract ActionResult Index();
 
     }
