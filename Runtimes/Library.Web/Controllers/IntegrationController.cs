@@ -10,11 +10,12 @@ using Library.Mvc.Models;
 
 namespace Library.Web.Controllers
 {
+    [Authorize]
     public class IntegrationController : BaseController
     {
         public override ActionResult Index()
         {
-            return View(Usermodel);
+            return View(CurrentUserModel);
         }
 
         /// <summary>
@@ -45,15 +46,15 @@ namespace Library.Web.Controllers
                     {
                         ByteArray = mybytearray,
                         DocName = file,
-                        UserId = Usermodel.UserId
+                        UserId = CurrentUserModel.UserId
                     }
                 });
 
                 if (result)
                 {
                     BookCache.Cache.Dictionary.Clear();
-                    Usermodel = Session["Information"] as UserModel;
-                    Usermodel.BookOutputDto = null;
+                    //Usermodel = Session["Information"] as UserModel;
+                    CurrentUserModel.BookOutputDto = null;
 
                     return RedirectToAction("Index", "Home");
                 }

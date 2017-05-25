@@ -1,11 +1,17 @@
 ﻿using System;
+using System.Security.Claims;
+using System.Web;
 using System.Web.Mvc;
 using Library.Business.Services.Authantication.Dtos;
+using Library.Common.Helpers;
+using Library.Mvc.Helpers;
 using Library.Mvc.Models;
 using Library.Mvc.Providers;
+using Microsoft.Owin.Security;
 
 namespace Library.Web.Controllers
 {
+    [AllowAnonymous]
     public class AuthenticationController : Controller
     {
         protected ServiceProvider Services;
@@ -20,32 +26,51 @@ namespace Library.Web.Controllers
             return View();
         }
 
+        #region [ Login ]
+        
         [HttpPost]
         public ActionResult Login(UserLoginModel model)
         {
-            
-            var output = Services.AuthService.Authenticate(new UserInputDto
+
+            var response = Services.AuthService.Authenticate(new UserInputDto
             {
                 User = new UserDto
                 {
                     Username = model.Username,
-                    Password = model.Password
+                    Password = model.Password.HashMd5()
                 }
             });
 
-            if (output != null)
+            if (response != null)
             {
 
-                var Usermodel = new UserModel();
-                Usermodel.Identity = Guid.NewGuid();
-                Usermodel.Name = output.Name;
-                Usermodel.LastLoginDate = output.LastLoginDate;
-                Usermodel.Gender = output.Gender;
-                Usermodel.Occupation = output.Occupation;
-                Usermodel.UserId = output.UserId;
 
-                Session.Add("Information",Usermodel);
-                Session.Timeout = 5;
+                #region [ OWIN ]
+
+                // OWIN Auth
+                var claims = new ClaimsIdentity(new[] {
+                        new Claim("Name", response.Name),
+                        new Claim("Gender", response.Gender),
+                        new Claim("Identity",Guid.NewGuid().ToString()),
+                        new Claim("LastLoginDate",response.LastLoginDate.ToString()),
+                        new Claim("Occupation",response.Occupation),
+                        new Claim("UserId",response.UserId.ToString()),
+                        new Claim("Role",response.Role),
+                    },
+                    "ApplicationCookie");
+
+                var properties = new AuthenticationProperties();
+
+                properties.IsPersistent = model.RememberMe;
+                properties.ExpiresUtc = DateTimeOffset.UtcNow.AddDays(1.0);
+                
+                var ctx = Request.GetOwinContext();
+                var authManager = ctx.Authentication;
+
+                authManager.SignIn(properties, claims);
+
+                #endregion
+
 
                 return RedirectToAction("Index", "Home");
             }
@@ -55,14 +80,67 @@ namespace Library.Web.Controllers
 
         public ActionResult Logout()
         {
-            if (!Session.IsNewSession || Session["Information"] != null)
-            {
-                Session.Remove("Information");
-                
-                Session.Clear();
-            }
+
+            var ctx = Request.GetOwinContext();
+            var authManager = ctx.Authentication;
+
+            authManager.SignOut("ApplicationCookie");
 
             return RedirectToAction("Index", "Authentication");
         }
+        
+        
+        #endregion
+
+        #region [ Registeration ] 
+
+        public ActionResult Register()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        public ActionResult Register(UserRegistrationModel model)
+        {
+            // validation of the model
+            bool isModelValid = Validate(model);
+
+
+            if (isModelValid)
+            {
+                // create user input dto
+                var uid = new UserInputDto
+                {
+                    User = new UserDto()
+                    {
+                        Name = model.Name,
+                        Username = model.Username,
+                        Occupation = model.Occupation,
+                        Password = model.Password.HashMd5()
+                    }
+                };
+
+                // send registeration request
+                var response = Services.AuthService.Register(uid);
+
+                if (response != null)
+                {
+                    return RedirectToAction("Index");
+                }
+
+                
+            }
+
+            return RedirectToAction("Register");
+        }
+
+        private bool Validate(UserRegistrationModel model)
+        {
+            return !String.IsNullOrEmpty(model.Username) || !String.IsNullOrEmpty(model.Password) ||
+                   !String.IsNullOrEmpty(model.RetypePassword) || model.IsAgree;
+        }
+
+        #endregion
     }
 }

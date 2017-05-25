@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using Library.Common.Helpers;
 using Library.UI.Services.Applications;
 using Library.UI.Services.Controller;
 using Library.UI.Services.Model;
@@ -45,7 +46,7 @@ namespace Library.Wpf
         /// <param name="e"></param>
         private void login_btn_Click(object sender, RoutedEventArgs e)
         {
-            var response = _authenticaton.Login(userNametextBox.Text, passwordBox.Password);
+            var response = _authenticaton.Login(userNametextBox.Text, passwordBox.Password.HashMd5());
 
             if (response != null)
             {

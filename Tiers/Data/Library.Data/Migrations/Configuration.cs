@@ -1,4 +1,8 @@
+using System;
 using System.Data.Entity.Migrations;
+using System.Linq;
+using Library.Common.Helpers;
+using Library.Data.Entities;
 
 namespace Library.Data.Migrations
 {
@@ -24,7 +28,37 @@ namespace Library.Data.Migrations
             //    );
             //
 
+            // sets roles
+            context.Set<ERole>().AddOrUpdate(new ERole()
+            {
+                Name = "Administrator",
+                CreatedDateTime = DateTime.Now
+            });
 
+            context.Set<ERole>().AddOrUpdate(new ERole()
+            {
+                Name = "User",
+                CreatedDateTime = DateTime.Now
+            });
+
+
+            var pass = "p@ssw0rd";
+            var crypt = pass.HashMd5();
+
+            // sets users
+            context.Set<EUser>().AddOrUpdate(new EUser()
+            {
+                Name = "admin@admin.com",
+                Gender = Gender.Male,
+                Occupation = "Developer",
+                Password = crypt,
+                IsActive = true,
+                CreatedDateTime = DateTime.Now,
+                UserName = "admin@admin.com",
+                //ERole = role,
+                LastLoginDate = null,
+                RoleId = 2
+            });
 
         }
     }
