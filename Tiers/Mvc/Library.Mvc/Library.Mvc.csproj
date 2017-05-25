@@ -122,7 +122,6 @@
     <Compile Include="Cache\BookCache.cs" />
     <Compile Include="Cache\ICacheManager.cs" />
     <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Helpers\CryptHelper.cs" />
     <Compile Include="Helpers\HtmlHelper.cs" />
     <Compile Include="Helpers\StreamOperator.cs" />
     <Compile Include="IoC\IoCManager.cs" />

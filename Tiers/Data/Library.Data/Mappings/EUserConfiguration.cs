@@ -8,7 +8,7 @@ namespace Library.Data.Mappings
         public EUserConfiguration():base("USERS")
         {
             Property(x => x.Name).HasMaxLength(35).IsRequired();
-            Property(x => x.Userame).HasMaxLength(35).IsRequired();
+            Property(x => x.UserName).HasMaxLength(35).IsRequired();
             Property(x => x.Password).HasMaxLength(35).IsRequired();
             Property(x => x.Occupation).HasMaxLength(100).IsRequired();
             Property(x => x.Gender);

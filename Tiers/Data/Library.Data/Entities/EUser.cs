@@ -7,7 +7,7 @@ namespace Library.Data.Entities
     public class EUser : Entity<int>
     {
         public virtual string Name { get; set; }
-        public virtual string Userame { get; set; }
+        public virtual string UserName { get; set; }
         public virtual string Password { get; set; }
         public virtual string Occupation { get; set; }
         public virtual Gender Gender { get; set; } 

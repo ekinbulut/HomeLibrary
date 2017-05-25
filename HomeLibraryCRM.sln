@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Runtimes", "Runtimes", "{259B38F3-F460-4298-BCDB-C39CADF0CAED}"
 EndProject
@@ -54,6 +54,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Data.UnitTest", "Tiers\Unit Tests\Library.Data.UnitTest\Library.Data.UnitTest.csproj", "{EF3E1AB8-E4C5-4223-983B-21135F96ED91}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Data", "Tiers\Data\Library.Data\Library.Data.csproj", "{F77B7920-FEE8-471F-AD3D-C59A93154279}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Common", "Tiers\Common\Library.Common\Library.Common.csproj", "{1E6D6DE7-3B55-4538-91D7-AD52D7C2B013}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -175,6 +177,14 @@ Global
 		{F77B7920-FEE8-471F-AD3D-C59A93154279}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F77B7920-FEE8-471F-AD3D-C59A93154279}.Release|x64.ActiveCfg = Release|Any CPU
 		{F77B7920-FEE8-471F-AD3D-C59A93154279}.Release|x64.Build.0 = Release|Any CPU
+		{1E6D6DE7-3B55-4538-91D7-AD52D7C2B013}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E6D6DE7-3B55-4538-91D7-AD52D7C2B013}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E6D6DE7-3B55-4538-91D7-AD52D7C2B013}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{1E6D6DE7-3B55-4538-91D7-AD52D7C2B013}.Debug|x64.Build.0 = Debug|Any CPU
+		{1E6D6DE7-3B55-4538-91D7-AD52D7C2B013}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E6D6DE7-3B55-4538-91D7-AD52D7C2B013}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E6D6DE7-3B55-4538-91D7-AD52D7C2B013}.Release|x64.ActiveCfg = Release|Any CPU
+		{1E6D6DE7-3B55-4538-91D7-AD52D7C2B013}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -202,5 +212,6 @@ Global
 		{104E5630-4157-4B1B-8A55-BFEE9B8661F0} = {5BECE7AA-D570-4318-8B96-1774F508ADAB}
 		{EF3E1AB8-E4C5-4223-983B-21135F96ED91} = {7456E363-FA94-46A3-8A10-BDC168C0912C}
 		{F77B7920-FEE8-471F-AD3D-C59A93154279} = {4706905B-A344-440F-ABF9-C3F4F564DDBE}
+		{1E6D6DE7-3B55-4538-91D7-AD52D7C2B013} = {68DDA41A-C93F-4BA2-B1AB-9C983FD4FDB3}
 	EndGlobalSection
 EndGlobal

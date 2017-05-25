@@ -57,7 +57,7 @@ namespace Library.Business.Services.Authentication
             var record = new EUser();
             record.Gender = Gender.Male;
             record.Occupation = input.User.Occupation;
-            record.Userame = input.User.Username;
+            record.UserName = input.User.Username;
             record.Password = input.User.Password;
             record.IsActive = true;
             record.Name = input.User.Name;

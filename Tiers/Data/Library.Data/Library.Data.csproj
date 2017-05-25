@@ -108,6 +108,12 @@
       <DependentUpon>201703081421498_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Library.Common\Library.Common.csproj">
+      <Project>{1e6d6de7-3b55-4538-91d7-ad52d7c2b013}</Project>
+      <Name>Library.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
