@@ -46,7 +46,8 @@ By default, connection string will be configured for sqlexpress dafault instance
 ### Configuration Settings (App.config)
 
 Configuration consists of five different appSettings. End user should configure sql connection parameter to use database.
-  <appSettings>
+```javascript
+<appSettings>
     <add key="TypeConfigurationAssembly" value="SenseFramework.Data.EntityFramework.dll;Library.Data.dll"/>
     <add key="SchemaName" value="dbo"/>
     <add key="TablePrefix" value="XXX"/>
@@ -55,18 +56,19 @@ Configuration consists of five different appSettings. End user should configure 
   </appSettings>
   <connectionStrings>
     <add name="Context" connectionString="Data Source=.\SQLEXPRESS;Initial Catalog=LibraryDB;User Id=sa;Password=demo2017;" providerName="System.Data.SqlClient"/>
-  </connectionStrings>
+  </connectionStrings> 
+  ```
 
 ### AppKeys
 
-TypeConfigurationAssembly
-•	Value : Name of the assembly or assemblies.
-SchemaName
-•	Value : prefix of the database schema
-TablePrefix
-•	Value : prefix of the database tables
-MigrationEnabled
-•	Value : True if you want to enable migrations which will give default values
-UploadFile
-•	Value : Name of the directory which will be used while recieving data from client.
+* TypeConfigurationAssembly
+Value : Name of the assembly or assemblies.
+* SchemaName
+Value : prefix of the database schema
+* TablePrefix
+Value : prefix of the database tables
+* MigrationEnabled
+Value : True if you want to enable migrations which will give default values
+* UploadFile
+Value : Name of the directory which will be used while recieving data from client.
 
