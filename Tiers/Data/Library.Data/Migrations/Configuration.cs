@@ -48,7 +48,7 @@ namespace Library.Data.Migrations
             // sets users
             context.Set<EUser>().AddOrUpdate(new EUser()
             {
-                Name = "admin@admin.com",
+                Name = "Administrator",
                 Gender = Gender.Male,
                 Occupation = "Developer",
                 Password = crypt,

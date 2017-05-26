@@ -25,3 +25,55 @@ In this project you will only see the compiled dlls.
 ## Requirements
 * SQL Server 2015 or higher
 * IIS server for ASP.NET MVC client application
+
+# How does it works ?
+
+## Configure workspace
+
+After pulling the project, you need to open PM from Visual Studio and type Update-Database command. Database will be created initially. If you want to add users and roles to your database so that you need to write your own code on HomeLibrary/Tiers/Data/Library.Data/Migrations/Configuration.cs to insert records.
+
+
+## Installation with .msi
+To install the application use LibraryOS_Installer.msi. After installation you need to configure Library.Console.exe.config file. This file includes several keys to work with. You must verify the connection string and you must run the application as an administrator.
+
+If you enable migrations, it will trigger migrations which inserts default values to your database.
+
+### Application Startup
+
+Application must be run as an administator. Otherwise services will not be working. 
+### Service bindings
+
+At initial run services will be served from local ip adress from ports 8056 to 8098. You will not be able to change the port numbers.
+### Connection string
+
+By default, connection string will be configured for sqlexpress dafault instance with user Id and password. Change the string values if needed. 
+
+### Configuration Settings (App.config)
+
+Configuration consists of five different appSettings. End user should configure sql connection parameter to use database.
+```javascript
+<appSettings>
+    <add key="TypeConfigurationAssembly" value="SenseFramework.Data.EntityFramework.dll;Library.Data.dll"/>
+    <add key="SchemaName" value="dbo"/>
+    <add key="TablePrefix" value="XXX"/>
+    <add key="MigrationEnabled" value="false"/>
+    <add key="UploadFile" value="E:\Uploads"/>
+  </appSettings>
+  <connectionStrings>
+    <add name="Context" connectionString="Data Source=.\SQLEXPRESS;Initial Catalog=LibraryDB;User Id=sa;Password=demo2017;" providerName="System.Data.SqlClient"/>
+  </connectionStrings> 
+  ```
+
+### AppKeys
+
+* TypeConfigurationAssembly
+Value : Name of the assembly or assemblies.
+* SchemaName
+Value : prefix of the database schema
+* TablePrefix
+Value : prefix of the database tables
+* MigrationEnabled
+Value : True if you want to enable migrations which will give default values
+* UploadFile
+Value : Name of the directory which will be used while recieving data from client.
+
