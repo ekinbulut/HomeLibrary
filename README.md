@@ -30,7 +30,7 @@ In this project you will only see the compiled dlls.
 
 ## Configure workspace
 
-After pulling the project, you need to open PM from Visual Studio and type Update-Database command. Database will be created initially. You want to add users and roles to your database so that you need to write your own code on HomeLibrary/Tiers/Data/Library.Data/Migrations/Configuration.cs to insert records.
+After pulling the project, you need to open PM from Visual Studio and type Update-Database command. Database will be created initially. If you want to add users and roles to your database so that you need to write your own code on HomeLibrary/Tiers/Data/Library.Data/Migrations/Configuration.cs to insert records.
 
 
 ## Installation with .msi
