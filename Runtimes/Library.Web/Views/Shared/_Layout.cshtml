@@ -1,9 +1,11 @@
-﻿@using System.Web.Optimization
+﻿@using System.Reflection
+@using System.Web.Optimization
 @using Library.Mvc.Helpers
 @model Library.Mvc.Models.UserModel
 
 @{
-    ViewBag.Version = "3.1";
+    ViewBag.Version = "1.0.95.24";
+    
 }
 
 <!DOCTYPE html>
@@ -36,7 +38,7 @@
             <nav class="navbar navbar-static-top">
                 <div class="container">
                     <div class="navbar-header">
-                        <a href="@Url.Action("Index", "Home")" class="navbar-brand"><b>Library</b>LTE</a>
+                        <a href="@Url.Action("Index", "Home")" class="navbar-brand"><b>Library</b>OS</a>
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
                             <i class="fa fa-bars"></i>
                         </button>
@@ -44,8 +46,18 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
                         <ul class="nav navbar-nav">
-                            <li><a href="@Url.Action("AddBook", "Home")">Add Book <span class="sr-only">(current)</span></a></li>
-                            <li><a href="@Url.Action("Index", "Integration")">Import</a></li>
+                            <li><a href="@Url.Action("Index", "Home")">Home<span class="sr-only"></span></a></li>
+                            <li><a href="@Url.Action("BookList", "Home")">Books<span class="sr-only"></span></a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Integrations<span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="@Url.Action("AddBook", "Home")">Add Book <span class="sr-only">(current)</span></a></li>
+                                    <li><a href="@Url.Action("CreateWriter", "Home")">Add Writer<span class="sr-only"></span></a></li>
+                                    <li><a href="@Url.Action("CreatePublisher", "Home")">Add Publisher<span class="sr-only"></span></a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="@Url.Action("Index", "Integration")">Import Book List</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                     <!-- /.navbar-collapse -->
