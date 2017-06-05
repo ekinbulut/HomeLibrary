@@ -47,6 +47,7 @@ namespace Library.Business.Services.Book
                     book.SkinType = Enum.GetName(typeof(SkinType), eBook.SkinType);
                     book.Serie = eBook.Serie != null ? eBook.Serie.Name : string.Empty;
                     book.PublishDate = eBook.PublishDate;
+                    book.CreatedDateTime = eBook.CreatedDateTime;
 
                     bookoutput.Books.Add(book);
                 }
@@ -77,6 +78,7 @@ namespace Library.Business.Services.Book
                     book.SkinType = Enum.GetName(typeof(SkinType), eBook.SkinType);
                     book.Serie = eBook.Serie != null ? eBook.Serie.Name : string.Empty;
                     book.PublishDate = eBook.PublishDate;
+                    book.CreatedDateTime = eBook.CreatedDateTime;
 
                     bookoutput.Books.Add(book);
                 }

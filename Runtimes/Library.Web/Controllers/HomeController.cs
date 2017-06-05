@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -37,6 +38,27 @@ namespace Library.Web.Controllers
                 CurrentUserModel.BookOutputDto = BookCache.Cache.Dictionary[CurrentUserModel.Identity];
             }
 
+           
+            return View(CurrentUserModel);
+        }
+
+        public ActionResult BookList()
+        {
+            if (CurrentUserModel.BookOutputDto == null)
+            {
+                var books = Services.BookServiceClient.GetBookListByUserId(CurrentUserModel.UserId);
+                CurrentUserModel.BookOutputDto = books;
+
+                if (!BookCache.Cache.Dictionary.ContainsKey(CurrentUserModel.Identity))
+                {
+                    BookCache.Cache.Dictionary.Add(CurrentUserModel.Identity, books);
+                }
+
+            }
+            else
+            {
+                CurrentUserModel.BookOutputDto = BookCache.Cache.Dictionary[CurrentUserModel.Identity];
+            }
 
             return View(CurrentUserModel);
         }
