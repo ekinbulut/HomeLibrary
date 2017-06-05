@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.6
+VisualStudioVersion = 15.0.26430.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Runtimes", "Runtimes", "{259B38F3-F460-4298-BCDB-C39CADF0CAED}"
 EndProject
@@ -52,6 +52,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Data", "Tiers\Data\Library.Data\Library.Data.csproj", "{F77B7920-FEE8-471F-AD3D-C59A93154279}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Common", "Tiers\Common\Library.Common\Library.Common.csproj", "{1E6D6DE7-3B55-4538-91D7-AD52D7C2B013}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Integration.Tests", "Tiers\Unit Tests\Library.Integration.Tests\Library.Integration.Tests.csproj", "{CE32F83B-4119-413B-9B87-316BE184237B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -173,6 +175,14 @@ Global
 		{1E6D6DE7-3B55-4538-91D7-AD52D7C2B013}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1E6D6DE7-3B55-4538-91D7-AD52D7C2B013}.Release|x64.ActiveCfg = Release|Any CPU
 		{1E6D6DE7-3B55-4538-91D7-AD52D7C2B013}.Release|x64.Build.0 = Release|Any CPU
+		{CE32F83B-4119-413B-9B87-316BE184237B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE32F83B-4119-413B-9B87-316BE184237B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE32F83B-4119-413B-9B87-316BE184237B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{CE32F83B-4119-413B-9B87-316BE184237B}.Debug|x64.Build.0 = Debug|Any CPU
+		{CE32F83B-4119-413B-9B87-316BE184237B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE32F83B-4119-413B-9B87-316BE184237B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE32F83B-4119-413B-9B87-316BE184237B}.Release|x64.ActiveCfg = Release|Any CPU
+		{CE32F83B-4119-413B-9B87-316BE184237B}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -200,5 +210,6 @@ Global
 		{EF3E1AB8-E4C5-4223-983B-21135F96ED91} = {7456E363-FA94-46A3-8A10-BDC168C0912C}
 		{F77B7920-FEE8-471F-AD3D-C59A93154279} = {4706905B-A344-440F-ABF9-C3F4F564DDBE}
 		{1E6D6DE7-3B55-4538-91D7-AD52D7C2B013} = {68DDA41A-C93F-4BA2-B1AB-9C983FD4FDB3}
+		{CE32F83B-4119-413B-9B87-316BE184237B} = {7456E363-FA94-46A3-8A10-BDC168C0912C}
 	EndGlobalSection
 EndGlobal
