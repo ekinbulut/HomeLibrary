@@ -1,3 +1,5 @@
+using System;
+
 namespace Library.Business.Services.Book.Dtos
 {
     public class BookDto
@@ -13,6 +15,7 @@ namespace Library.Business.Services.Book.Dtos
         public string SkinType { get; set; }
         public string Shelf { get; set; }
         public int Rack { get; set; }
+        public DateTime CreatedDateTime { get; set; }
 
     }
 }

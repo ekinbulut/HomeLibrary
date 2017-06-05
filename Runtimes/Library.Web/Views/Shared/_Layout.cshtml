@@ -116,13 +116,14 @@
         <div class="content-wrapper">
 
             <div class="container">
-                @RenderSection("Information",false)
                 <div class="content-header">
                     <ol class="breadcrumb">
                         <li><a href="@Url.Action("Index", "Home")"><i class="fa fa-dashboard"></i>Home</a></li>
                         <li class="active">@ViewBag.Title</li>
                     </ol>
                 </div>
+                @RenderSection("Information", false)
+
                 <div class="content">
                     <div class="row">
                         <div class="col-xs-12">

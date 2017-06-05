@@ -15,10 +15,16 @@ namespace Library.Web
                 .Include("~/plugins/jQuery/jQuery-2.1.4.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/scripts")
-                .Include("~/bootstrap/js/bootstrap.min.js", "~/plugins/datatables/jquery.dataTables.min.js", "~/plugins/datatables/dataTables.bootstrap.min.js", "~/plugins/slimScroll/jquery.slimscroll.min.js", "~/plugins/fastclick/fastclick.js", "~/dist/js/app.min.js", "~/dist/js/demo.js"));
+                .Include("~/bootstrap/js/bootstrap.min.js", 
+                "~/plugins/datatables/jquery.dataTables.min.js", 
+                "~/plugins/datatables/dataTables.bootstrap.min.js", 
+                "~/plugins/slimScroll/jquery.slimscroll.min.js",
+                "~/plugins/fastclick/fastclick.js", 
+                "~/dist/js/app.min.js", "~/dist/js/demo.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/datatable")
-                .Include("~/Scripts/modifydatatable.js", "~/plugins/datatables/extentions/Responsive/js/dataTables.responsive.min.js"));
+                .Include("~/Scripts/modifydatatable.js", 
+                "~/plugins/datatables/extentions/Responsive/js/dataTables.responsive.min.js"));
 
             string bootstrap = "https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css";
             string ionicCdn = "https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css";

@@ -1,0 +1,98 @@
+﻿@using System.Web.Optimization
+@model Library.Mvc.Models.UserModel
+
+
+@{
+    ViewBag.Title = "List";
+}
+
+@if (Model.BookOutputDto.Books.Count > 0)
+{
+
+    <div class="box-header">
+        @*<h3 class="box-title">Books in database</h3>*@
+    </div>
+    <div class="box-body">
+        <table id="example" class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Author</th>
+                <th>Publisher</th>
+                <th>Series</th>
+                <th>Genre</th>
+                <th>No</th>
+                <th>Date</th>
+                <th>Skin</th>
+                <th>Shelf</th>
+                <th>Rack</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var book in Model.BookOutputDto.Books)
+            {
+                <tr>
+                    <td>
+                        @Html.Label(book.Name)
+                    </td>
+
+                    <td>
+                        @Html.Label(book.Author)
+                    </td>
+                    <td>
+                        @Html.Label(book.Publisher)
+                    </td>
+                    <td>
+                        @Html.Label(book.Serie)
+                    </td>
+                    <td>
+                        @Html.Label(book.Genre)
+                    </td>
+                    <td>
+                        @if (!string.IsNullOrEmpty(book.No))
+                        {
+                            @Html.Label(book.No)
+                        }
+                    </td>
+                    <td>
+                        @Html.Label(book.PublishDate.ToString())
+                    </td>
+                    <td>
+                        @Html.Label(book.SkinType)
+                    </td>
+                    <td>
+                        @Html.Label(book.Shelf)
+                    </td>
+                    <td>
+                        @Html.Label(book.Rack.ToString())
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "EditBookRecord", new { bookId = book.Id })
+                        <br />
+                        @Html.ActionLink("Delete", "DeleteBookRecord", new { bookId = book.Id })
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+
+}
+else
+{
+    <div class="box-header">
+        @*<h3 class="box-title">Books in database</h3>*@
+    </div>
+    <div class="box-body">
+        <div style="padding-left: 300px; padding-right: 300px;">
+            <h4>There is no record for this user. Add book to see your library</h4>
+        </div>
+        <div style="padding-left: 500px; padding-right: 500px;">
+            <input type="button" value="Add Book" class="btn btn-primary btn-flat" onclick="location.href='@Url.Action("AddBook", "Home")'" />
+        </div>
+    </div>
+}
+
+<!-- Datatable script-->
+@Scripts.Render("~/bundles/datatable")
