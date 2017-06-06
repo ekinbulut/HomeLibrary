@@ -91,7 +91,39 @@
             </div>
         </div>
         <!-- /.row -->
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title">Latest Books</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <table class="table table-bordered">
+                    <tr>
+                        <th style="width: 10px">#</th>
+                        <th>@Html.LabelFor(m=>m.Name , "Name")</th>
+                        <th>@Html.LabelFor(m=>m.AuthorModel.Name, "Author")</th>
+                        <th>@Html.LabelFor(m => m.BookModel.Publisher, "Publisher")</th>
+                        <th>@Html.LabelFor(m=>m.BookModel.Shelf, "Shelf No")</th>
+                        <th>@Html.LabelFor(m => m.BookModel.Rack, "Rack No")</th>
+                        <th style="width: 40px">@Html.LabelFor(m => m.BookDto.CreatedDateTime,"Created")</th>
+                    </tr>
+                    @foreach (var m in Model.BookOutputDto.Books.OrderByDescending(x => x.CreatedDateTime).Take(5))
+                    {
+                        <tr>
+                            <td>@m.Id</td>
+                            <td>@m.Name</td>
+                            <td>@m.Author</td>
+                            <td>@m.Publisher</td>
+                            <td>@m.Shelf</td>
+                            <td>@m.Rack</td>
+                            <td>@m.CreatedDateTime.ToString("dd.MM.yyyy")</td>
+                        </tr>
+                    }
 
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
 
     </div>
 
