@@ -30,7 +30,7 @@
             </tr>
             </thead>
             <tbody>
-            @foreach (var book in Model.BookOutputDto.Books)
+            @foreach (var book in Model.BookOutputDto.Books.OrderBy(b=>b.Author))
             {
                 <tr>
                     <td>
@@ -38,7 +38,8 @@
                     </td>
 
                     <td>
-                        @Html.Label(book.Author)
+                        @Html.Raw(book.Author)
+                        @*@Html.Label(book.Author)*@
                     </td>
                     <td>
                         @Html.Label(book.Publisher)
@@ -68,9 +69,11 @@
                         @Html.Label(book.Rack.ToString())
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "EditBookRecord", new { bookId = book.Id })
-                        <br />
-                        @Html.ActionLink("Delete", "DeleteBookRecord", new { bookId = book.Id })
+                        @*<input type="submit" value="Edit" onclick="location.href='@Url.Action("EditBookRecord", new {bookId = book.Id})'" class="btn btn-info btn-flat" />*@
+                        @Html.ActionLink("Edit", "EditBookRecord", new {bookId = book.Id}, new {@class = "btn btn-flat"})
+                        <br/>
+                        @*<input type="submit" value="Delete" onclick="location.href='@Url.Action("DeleteBookRecord", new {bookId = book.Id})'" class="btn btn-adn btn-flat" />*@
+                        @Html.ActionLink("Delete", "DeleteBookRecord", new {bookId = book.Id})
                     </td>
                 </tr>
             }
