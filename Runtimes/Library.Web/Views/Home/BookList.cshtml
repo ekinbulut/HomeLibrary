@@ -14,6 +14,16 @@
 @Scripts.Render("~/bundles/js/datatablesjs", "~/bundles/js/uikit", "~/bundles/js/datatable")
 
 
+@*@section SearchBar {
+    
+    <link href="~/Styles/searchBar.css" rel="stylesheet" />
+
+    <form class="form-wrapper cf">
+        <input type="text" placeholder="Search here..." required>
+        <button type="submit">Search</button>
+    </form>
+}*@
+
 @if (Model.BookOutputDto.Books.Count > 0)
 {
 
