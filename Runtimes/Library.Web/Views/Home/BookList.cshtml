@@ -6,6 +6,14 @@
     ViewBag.Title = "List";
 }
 
+
+
+
+
+<!-- Datatable script-->
+@Scripts.Render("~/bundles/js/datatablesjs", "~/bundles/js/uikit", "~/bundles/js/datatable")
+
+
 @if (Model.BookOutputDto.Books.Count > 0)
 {
 
@@ -30,7 +38,7 @@
             </tr>
             </thead>
             <tbody>
-            @foreach (var book in Model.BookOutputDto.Books.OrderBy(b=>b.Author))
+            @foreach (var book in Model.BookOutputDto.Books)
             {
                 <tr>
                     <td>
@@ -97,5 +105,4 @@ else
     </div>
 }
 
-<!-- Datatable script-->
-@Scripts.Render("~/bundles/datatable")
+@Styles.Render("~/bundles/css/uikit", "~/bundles/css/uikitmin")
