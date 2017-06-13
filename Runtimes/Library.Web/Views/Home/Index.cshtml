@@ -1,6 +1,9 @@
 ﻿@using System.Web.Optimization
 @model Library.Mvc.Models.UserModel
 
+@Scripts.Render("~/bundles/js/cdn/morris")
+@Scripts.Render("~/bundles/js/morris")
+
 @{
     ViewBag.Title = "Analytics";
 
@@ -13,8 +16,7 @@
     }
 
 }
-<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-<script src="~/plugins/morris/morris.js" type="text/javascript"></script>
+
 
 @if (Model.BookOutputDto.Books.Count > 0)
 {
@@ -132,13 +134,11 @@
         $(function() {
             "use strict";
 
-
-
-
             var line = new Morris.Line({
                 element: 'line-chart',
                 resize: true,
                 data: [
+
                     { month: '2017-02', count: @Html.Raw(data["2017-02"].ToString())},
                     { month: '2017-03', count: @Html.Raw(data["2017-03"].ToString())},
                     { month: '2017-04', count: @Html.Raw(data["2017-04"].ToString())},
@@ -170,11 +170,6 @@ else
     </div>
 }
 
+@Styles.Render("~/bundles/css/morris")
 
-
-
-
-
-
-<link href="~/plugins/morris/morris.css" rel="stylesheet" />
 
