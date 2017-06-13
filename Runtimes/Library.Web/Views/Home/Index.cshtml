@@ -1,36 +1,44 @@
 ﻿@using System.Web.Optimization
 @model Library.Mvc.Models.UserModel
 
+@Scripts.Render("~/bundles/js/cdn/morris")
+@Scripts.Render("~/bundles/js/morris")
+
 @{
     ViewBag.Title = "Analytics";
 
-    var data = Model.BookOutputDto.Books.GroupBy(b => b.CreatedDateTime.ToString("yyyy-MM")).ToDictionary(a => a.Key, a => a.Count());
+    var data = new Dictionary<string, int>();
+
+    if (Model.BookOutputDto.Books.Count > 0)
+    {
+        data = Model.BookOutputDto.Books.GroupBy(b => b.CreatedDateTime.ToString("yyyy-MM")).ToDictionary(a => a.Key, a => a.Count());
+
+    }
 
 }
-<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-<script src="~/plugins/morris/morris.js" type="text/javascript"></script>
 
 
+@if (Model.BookOutputDto.Books.Count > 0)
+{
     <div class="section-analytics">
-        
+
         <!-- LINE CHART -->
-        
-            <div class="box-header with-border">
-                <h3 class="box-title">Line Chart</h3>
 
-                <div class="box-tools pull-right">
-                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                    </button>
-                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                </div>
+        <div class="box-header with-border">
+            <h3 class="box-title">Line Chart</h3>
+
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
             </div>
-            <div class="box-body chart-responsive">
-                <div class="chart" id="line-chart" style="height: 300px;"></div>
-            </div>
-            <!-- /.box-body -->
-        
+        </div>
+        <div class="box-body chart-responsive">
+            <div class="chart" id="line-chart" style="height: 300px;"></div>
+        </div>
+        <!-- /.box-body -->
         <!-- /.box -->
-
         <!-- Small boxes (Stat box) -->
         <div class="row">
             <div class="col-lg-3 col-xs-6">
@@ -85,40 +93,83 @@
             </div>
         </div>
         <!-- /.row -->
-        
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title">Latest Books</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <table class="table table-bordered">
+                    <tr>
+                        <th style="width: 10px">#</th>
+                        <th>@Html.LabelFor(m=>m.Name , "Name")</th>
+                        <th>@Html.LabelFor(m=>m.AuthorModel.Name, "Author")</th>
+                        <th>@Html.LabelFor(m => m.BookModel.Publisher, "Publisher")</th>
+                        <th>@Html.LabelFor(m=>m.BookModel.Shelf, "Shelf No")</th>
+                        <th>@Html.LabelFor(m => m.BookModel.Rack, "Rack No")</th>
+                        <th style="width: 40px">@Html.LabelFor(m => m.BookDto.CreatedDateTime,"Created")</th>
+                    </tr>
+                    @foreach (var m in Model.BookOutputDto.Books.OrderByDescending(x => x.CreatedDateTime).Take(5))
+                    {
+                        <tr>
+                            <td>@m.Id</td>
+                            <td>@m.Name</td>
+                            <td>@m.Author</td>
+                            <td>@m.Publisher</td>
+                            <td>@m.Shelf</td>
+                            <td>@m.Rack</td>
+                            <td>@m.CreatedDateTime.ToString("dd.MM.yyyy")</td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
 
     </div>
 
 
+    <script type="text/javascript">
+        $(function() {
+            "use strict";
 
+            var line = new Morris.Line({
+                element: 'line-chart',
+                resize: true,
+                data: [
 
-
-
-<script type="text/javascript">
-    $(function() {
-        "use strict";
-
-        
-
-
-        var line = new Morris.Line({
-            element: 'line-chart',
-            resize: true,
-            data: [
-                { month: "2017-01", count: @Html.Raw(data["2017-01"].ToString())},
-                { month: '2017-02', count: @Html.Raw(data["2017-02"].ToString())},
-                { month: '2017-03', count: @Html.Raw(data["2017-03"].ToString())},
-                { month: '2017-04', count: @Html.Raw(data["2017-04"].ToString())},
-                { month: '2017-05', count: @Html.Raw(data["2017-05"].ToString())}
-            ],
-            xkey: 'month',
-            ykeys: ['count'],
-            xlabels: 'month',
-            labels: ['Books added'],
-            lineColors: ['#3c8dbc'],
-            hideHover: 'auto'
+                    { month: '2017-02', count: @Html.Raw(data["2017-02"].ToString())},
+                    { month: '2017-03', count: @Html.Raw(data["2017-03"].ToString())},
+                    { month: '2017-04', count: @Html.Raw(data["2017-04"].ToString())},
+                    { month: '2017-05', count: @Html.Raw(data["2017-05"].ToString())},
+                    { month: "2017-06", count: @Html.Raw(data["2017-06"].ToString())}
+                ],
+                xkey: 'month',
+                ykeys: ['count'],
+                xlabels: 'month',
+                labels: ['Books added'],
+                lineColors: ['#3c8dbc'],
+                hideHover: 'auto'
+            });
         });
-    });
-</script>
-<link href="~/plugins/morris/morris.css" rel="stylesheet" />
+    </script>
+}
+else
+{
+    <div class="box-header">
+        @*<h3 class="box-title">Books in database</h3>*@
+    </div>
+    <div class="box-body">
+        <div style="padding-left: 300px; padding-right: 300px;">
+            <h4>There is no record for this user. Add book to see your library</h4>
+        </div>
+        <div style="padding-left: 500px; padding-right: 500px;">
+            <input type="button" value="Add Book" class="btn btn-primary btn-flat" onclick="location.href='@Url.Action("AddBook", "Home")'" />
+        </div>
+    </div>
+}
+
+@Styles.Render("~/bundles/css/morris")
+
 
