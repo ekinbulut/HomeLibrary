@@ -39,7 +39,7 @@ add users and roles for initial usage.
 Application must be run as an administator. Otherwise services will not be working. 
 ### Service bindings
 
-At initial run services will be served from local ip adress from ports 8056 to 8098. You will not be able to change the port numbers.
+At initial run services will be served from local ip adress from ports 8095 to 8098. You will not be able to change the port numbers.
 ### Connection string
 
 By default, connection string will be configured for sqlexpress dafault instance with user Id and password. Change the string values if needed. 
