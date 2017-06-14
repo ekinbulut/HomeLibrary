@@ -32,11 +32,7 @@ In this project you will only see the compiled dlls.
 
 After pulling the project, you need to open PM from Visual Studio and type Update-Database command. Database will be created initially. If you want to add users and roles to your database so that you need to write your own code on HomeLibrary/Tiers/Data/Library.Data/Migrations/Configuration.cs to insert records.
 
-
-## Installation with .msi
-To install the application use LibraryOS_Installer.msi. After installation you need to configure Library.Console.exe.config file. This file includes several keys to work with. You must verify the connection string and you must run the application as an administrator.
-
-If you enable migrations, it will trigger migrations which inserts default values to your database.
+add users and roles for initial usage.
 
 ### Application Startup
 
