@@ -69,7 +69,6 @@ namespace Library.Web.Controllers
         /// <returns></returns>
         public ActionResult AddBook()
         {
-
             return View(CurrentUserModel);
         }
 
@@ -79,6 +78,21 @@ namespace Library.Web.Controllers
         /// <returns></returns>
         public ActionResult CreateWriter()
         {
+            if (CurrentUserModel.BookOutputDto == null)
+            {
+                var books = Services.BookServiceClient.GetBookListByUserId(CurrentUserModel.UserId);
+                CurrentUserModel.BookOutputDto = books;
+
+                if (!BookCache.Cache.Dictionary.ContainsKey(CurrentUserModel.Identity))
+                {
+                    BookCache.Cache.Dictionary.Add(CurrentUserModel.Identity, books);
+                }
+
+            }
+            else
+            {
+                CurrentUserModel.BookOutputDto = BookCache.Cache.Dictionary[CurrentUserModel.Identity];
+            }
 
             return View(CurrentUserModel);
         }
@@ -89,6 +103,22 @@ namespace Library.Web.Controllers
         /// <returns></returns>
         public ActionResult CreatePublisher()
         {
+
+            if (CurrentUserModel.BookOutputDto == null)
+            {
+                var books = Services.BookServiceClient.GetBookListByUserId(CurrentUserModel.UserId);
+                CurrentUserModel.BookOutputDto = books;
+
+                if (!BookCache.Cache.Dictionary.ContainsKey(CurrentUserModel.Identity))
+                {
+                    BookCache.Cache.Dictionary.Add(CurrentUserModel.Identity, books);
+                }
+
+            }
+            else
+            {
+                CurrentUserModel.BookOutputDto = BookCache.Cache.Dictionary[CurrentUserModel.Identity];
+            }
 
             return View(CurrentUserModel);
         }
