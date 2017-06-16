@@ -1,9 +1,13 @@
-﻿@model Library.Mvc.Models.UserModel
+﻿@using System.Web.Optimization
+@using Microsoft.Ajax.Utilities
+@model Library.Mvc.Models.UserModel
 
 @{
     ViewBag.Title = "Create Writer";
 }
 
+<!-- Datatable script-->
+@Scripts.Render("~/bundles/js/datatablesjs", "~/bundles/js/uikit")
 
 <div class="box-body">
     @using (Html.BeginForm("CreateWriter", "Home", FormMethod.Post))
@@ -28,4 +32,43 @@
     }
 </div>
 
+@if (Model.BookOutputDto != null)
+{
+    <div class="box-body">
+        <table id="authorTable" class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Author</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var author in Model.BookOutputDto.Books.DistinctBy(x=>x.Author))
+            {
+                <tr>
+                    <td>
+                        @Html.Raw(author.Id)
+                    </td>
+                    <td>
+                        @Html.Raw(author.Author)
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
 
+    <script type="text/javascript">
+        $(function () {
+            $("#authorTable").DataTable({
+                "pagingType": "full",
+                responsive: true,
+                "order": [[1, "asc"]]
+            });
+        });
+    </script>
+}
+
+
+
+@Styles.Render("~/bundles/css/uikit", "~/bundles/css/uikitmin")
