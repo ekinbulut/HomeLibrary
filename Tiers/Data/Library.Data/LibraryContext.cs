@@ -11,21 +11,11 @@ namespace Library.Data
     {
         public LibraryContext()
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<LibraryContext,Configuration>());
+            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<LibraryContext,Configuration>());
+            Database.SetInitializer(new CreateDatabaseIfNotExists<LibraryContext>());
         }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            //var tierConfiguration = ConfigurationManager.AppSettings["TypeConfigurationAssembly"];
-
-            ////If there are more than one assembly it will separate them.
-            var typeMappingDll = "Library.Data.dll";
-
-            //foreach (string typeMappingDll in typeMappingDlls)
-            //{
-            var path = Path.Combine(AssemblyInstaller.AssemblyDirectory, typeMappingDll);
-
-            //modelBuilder.Configurations.AddFromAssembly(Assembly.LoadFile(path));
-
             modelBuilder.Configurations.Add(new EAuthorConfiguration());
             modelBuilder.Configurations.Add(new EBookConfiguration());
             modelBuilder.Configurations.Add(new EGenreConfiguration());
@@ -35,7 +25,6 @@ namespace Library.Data
             modelBuilder.Configurations.Add(new ESeriesConfiguration());
             modelBuilder.Configurations.Add(new EShelfConfiguration());
             modelBuilder.Configurations.Add(new EUserConfiguration());
-            //}
 
             base.OnModelCreating(modelBuilder);
         }

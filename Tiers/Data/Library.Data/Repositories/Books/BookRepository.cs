@@ -37,6 +37,21 @@ namespace Library.Data.Repositories.Books
 
         }
 
+        public IQueryable<EBook> GetBooksRangeBy(int start, int length, int userId)
+        {
+            return DbContext.Set<EBook>().OrderBy(x=>x.Id).Skip(start).Take(length).Where(x => x.Users.Any(u => u.Id == userId));
+        }
+
+        public IQueryable<EBook> GetBooksSearchRangeBy(string searchKey, int userId)
+        {
+            return DbContext.Set<EBook>()
+                .OrderBy(x => x.Id)
+                .Where(x => x.Users.Any(u => u.Id == userId) 
+                && x.Author.Name.Contains(searchKey)
+                || x.Name.Contains(searchKey));
+
+        }
+
         public BookRepository(BaseContext BaseContext) : base(BaseContext)
         {
         }

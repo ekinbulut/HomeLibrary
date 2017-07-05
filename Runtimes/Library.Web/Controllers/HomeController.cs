@@ -8,6 +8,7 @@ using Library.Business.Services.Integration.Dtos;
 using Library.Mvc.Cache;
 using Library.Mvc.Controllers;
 using Library.Mvc.Models;
+using Library.Web.Models;
 
 namespace Library.Web.Controllers
 {
@@ -268,6 +269,44 @@ namespace Library.Web.Controllers
             }
 
             return RedirectToAction("EditBookRecord", "Home");
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="draw"></param>
+        /// <param name="start"></param>
+        /// <param name="length"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult GetBooksByPageination(int draw, int start, int length)
+        {
+
+            var collection = HttpContext.Request.Form;
+            var searchKey = collection["search[value]"].ToString();
+
+            BookOutputDto bookOutputDto;
+
+            if (!String.IsNullOrEmpty(searchKey) && searchKey.Length > 2)
+            {
+                bookOutputDto = Services.BookServiceClient.GetBooksSearchRangeBy(start, length, searchKey, CurrentUserModel.UserId);
+            }
+            else
+            {
+                bookOutputDto = Services.BookServiceClient.GetBooksRangeBy(start, length, CurrentUserModel.UserId);
+            }
+
+            var returnformat = new BookReturnModel
+            {
+                Draw = draw,
+                RecordsTotal = bookOutputDto.TotalBook,
+                RecordsFiltered = bookOutputDto.TotalBook,
+                Data = bookOutputDto.Books as BookDto[]
+            };
+
+
+
+            return Json(returnformat);
         }
 
         #endregion
