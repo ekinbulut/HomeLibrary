@@ -13,10 +13,14 @@ namespace Library.Api.Services
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-            container.Register(Component.For<BaseContext>().ImplementedBy<LibraryContext>());
+            container.Register(Component.For<BaseContext>()
+                .ImplementedBy<LibraryContext>().LifestyleSingleton());
 
-            container.Register(Component.For<IBookRepository>().ImplementedBy<BookRepository>());
-            container.Register(Component.For<IUserRepository>().ImplementedBy<UserRepository>());
+            container.Register(Component.For<IBookRepository>()
+                .ImplementedBy<BookRepository>().LifestyleSingleton());
+
+            container.Register(Component.For<IUserRepository>()
+                .ImplementedBy<UserRepository>().LifestyleSingleton());
 
             container.Register(Classes.FromThisAssembly()
                 .BasedOn<IHttpController>()

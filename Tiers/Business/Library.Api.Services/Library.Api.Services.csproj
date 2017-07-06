@@ -59,6 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AuthApiController.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
     <Compile Include="Controllers\BookApiController.cs" />
     <Compile Include="Helpers\NumericConverter.cs" />
