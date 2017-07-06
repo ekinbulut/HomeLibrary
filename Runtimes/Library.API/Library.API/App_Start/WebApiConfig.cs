@@ -26,8 +26,10 @@ namespace Library.API
             //    defaults: new { id = RouteParameter.Optional }
             //);
 
+            config.Formatters.Remove(config.Formatters.XmlFormatter);
 
-            config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
+            // restrict access for every Web API controller
+            config.Filters.Add(new AuthorizeAttribute());
         }
     }
 }

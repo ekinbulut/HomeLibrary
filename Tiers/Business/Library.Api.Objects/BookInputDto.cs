@@ -3,8 +3,6 @@ using Newtonsoft.Json;
 
 namespace Library.Api.Objects
 {
-    [Serializable]
-    [JsonObject(MemberSerialization.Fields)]
     public class BookInputDto
     {
         public string Name { get; set; }

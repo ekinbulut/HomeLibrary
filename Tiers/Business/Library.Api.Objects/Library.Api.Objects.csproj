@@ -43,9 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AuthDto.cs" />
-    <Compile Include="AuthInputDto.cs" />
-    <Compile Include="AuthOutputDto.cs" />
     <Compile Include="BookDto.cs" />
     <Compile Include="BookInputDto.cs" />
     <Compile Include="BookOutputDto.cs" />

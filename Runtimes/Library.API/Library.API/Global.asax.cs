@@ -2,6 +2,7 @@
 using Castle.MicroKernel.Resolvers.SpecializedResolvers;
 using Castle.Windsor;
 using Library.Api.Services;
+using Newtonsoft.Json;
 
 namespace Library.API
 {
@@ -11,6 +12,9 @@ namespace Library.API
 
         protected void Application_Start()
         {
+            var json = GlobalConfiguration.Configuration.Formatters.JsonFormatter;
+            json.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
+
             GlobalConfiguration.Configure(WebApiConfig.Register);
 
             ConfigureWindsor(GlobalConfiguration.Configuration);

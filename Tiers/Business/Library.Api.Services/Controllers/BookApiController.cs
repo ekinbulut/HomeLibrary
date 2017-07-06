@@ -151,6 +151,7 @@ namespace Library.Api.Services.Controllers
         /// <param name="input">The input.</param>
         /// <returns></returns>
         [HttpPost]
+        [Authorize]
         public bool UpdateBook([FromBody]BookDto input)
         {
             var entity = _bookRepository.GetOne(input.Id);
@@ -215,6 +216,7 @@ namespace Library.Api.Services.Controllers
         /// <param name="input"></param>
         /// <returns></returns>
         [HttpDelete]
+        [Authorize]
         public bool DeleteBook([FromBody]BookDto input)
         {
             return _bookRepository.DeleteEntity(input.Id);
