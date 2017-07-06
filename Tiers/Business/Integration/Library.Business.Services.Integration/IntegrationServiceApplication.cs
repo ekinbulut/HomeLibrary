@@ -179,26 +179,48 @@ namespace Library.Business.Services.Integration
 
             var publisher = _publisherRepository.GetPublisherByName(input.PublisherName.Trim());
 
-            if (publisher != null) return true;
-
-            var newPublisher = _publisherRepository.CreateEntity(new EPublisher
+            // if publisher exist but needs to bind series to it
+            if (publisher != null)
             {
-                Name = input.PublisherName.Trim(),
-                CreatedDateTime = DateTime.Now
-            });
-
-            if (!String.IsNullOrEmpty(input.SeriesName))
-            {
-                _seriesRepository.CreateEntity(new ESeries
+                if (!String.IsNullOrEmpty(input.SeriesName))
                 {
-                    Name = input.SeriesName.Trim(),
-                    Publisher = publisher,
-                    CreatedDateTime = DateTime.Now
+                    var result = _seriesRepository.CreateEntity(new ESeries
+                    {
+                        Name = input.SeriesName.Trim(),
+                        Publisher = publisher,
+                        CreatedDateTime = DateTime.Now
 
+                    });
+
+                    return result != null;
+                }
+            }
+            else
+            {
+                // if publisher is not exist create new publisher
+                var newPublisher = _publisherRepository.CreateEntity(new EPublisher
+                {
+                    Name = input.PublisherName.Trim(),
+                    CreatedDateTime = DateTime.Now
                 });
+
+                // if series is not null bind to created publisher
+                if (!String.IsNullOrEmpty(input.SeriesName))
+                {
+                    _seriesRepository.CreateEntity(new ESeries
+                    {
+                        Name = input.SeriesName.Trim(),
+                        Publisher = newPublisher,
+                        CreatedDateTime = DateTime.Now
+
+                    });
+                }
+
+                return newPublisher != null;
+
             }
 
-            return newPublisher != null;
+            return false;
         }
 
         /// <summary>
