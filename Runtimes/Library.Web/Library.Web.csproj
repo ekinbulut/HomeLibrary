@@ -29,6 +29,10 @@
     <WebGreaseLibPath>..\..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
     <ApplicationInsightsResourceId>/subscriptions/ab6492fd-c879-479a-8ae7-35eb9f9f4a46/resourcegroups/LibraryOS/providers/microsoft.insights/components/Library.Web</ApplicationInsightsResourceId>
     <ApplicationInsightsAnnotationResourceId>/subscriptions/ab6492fd-c879-479a-8ae7-35eb9f9f4a46/resourcegroups/LibraryOS/providers/microsoft.insights/components/Library.Web</ApplicationInsightsAnnotationResourceId>
+    <UpdateAssemblyVersion>True</UpdateAssemblyVersion>
+    <UpdateAssemblyFileVersion>False</UpdateAssemblyFileVersion>
+    <UpdateAssemblyInfoVersion>False</UpdateAssemblyInfoVersion>
+    <AssemblyVersionSettings>None.None.DeltaDayStamp.Increment</AssemblyVersionSettings>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

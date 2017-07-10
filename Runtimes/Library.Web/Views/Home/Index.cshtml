@@ -11,7 +11,7 @@
 
     if (Model.BookOutputDto.Books.Count > 0)
     {
-        data = Model.BookOutputDto.Books.GroupBy(b => b.CreatedDateTime.ToString("yyyy-MM")).ToDictionary(a => a.Key, a => a.Count());
+        data = Model.BookOutputDto.Books.GroupBy(b => b.CreatedDateTime.ToString("yyyy-MM")).Skip(1).ToDictionary(a => a.Key, a => a.Count());
 
     }
 
@@ -128,15 +128,15 @@
                     </tr>
                     @foreach (var m in Model.BookOutputDto.Books.OrderByDescending(x => x.CreatedDateTime).Take(5))
                     {
-                        <tr>
-                            <td>@m.Id</td>
-                            <td>@m.Name</td>
-                            <td>@m.Author</td>
-                            <td>@m.Publisher</td>
-                            <td>@m.Shelf</td>
-                            <td>@m.Rack</td>
-                            <td>@m.CreatedDateTime.ToString("dd.MM.yyyy")</td>
-                        </tr>
+                    <tr>
+                        <td>@m.Id</td>
+                        <td>@m.Name</td>
+                        <td>@m.Author</td>
+                        <td>@m.Publisher</td>
+                        <td>@m.Shelf</td>
+                        <td>@m.Rack</td>
+                        <td>@m.CreatedDateTime.ToString("dd.MM.yyyy")</td>
+                    </tr>
                     }
 
                 </table>
@@ -156,12 +156,11 @@
                 resize: true,
                 data: [
 
-                    { month: '2017-02', count: @Html.Raw(data["2017-02"].ToString())},
-                    { month: '2017-03', count: @Html.Raw(data["2017-03"].ToString())},
-                    { month: '2017-04', count: @Html.Raw(data["2017-04"].ToString())},
-                    { month: '2017-05', count: @Html.Raw(data["2017-05"].ToString())},
-                    { month: "2017-06", count: @Html.Raw(data["2017-06"].ToString())},
-                    { month: "2017-07", count: @Html.Raw(data["2017-07"].ToString())}
+                @foreach (var key in data.Keys)
+                {
+                    @:{month : "@key", count : @Html.Raw(data[key].ToString())},
+                }
+
                 ],
                 xkey: 'month',
                 ykeys: ['count'],
