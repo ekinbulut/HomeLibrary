@@ -1,17 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
+using Newtonsoft.Json;
 
-namespace Library.Business.Services.Book.Dtos
+namespace Library.Api.Objects
 {
-    [DataContract]
-    [Serializable]
     public class BookOutputDto
     {
-        [DataMember]
         public ICollection<BookDto> Books { get; set; }
 
-        [DataMember]
         public int TotalBook { get; set; }
 
         public BookOutputDto()

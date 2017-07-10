@@ -74,9 +74,9 @@
     <Compile Include="Mappings\ESeriesConfiguration.cs" />
     <Compile Include="Mappings\EShelfConfiguration.cs" />
     <Compile Include="Mappings\EUserConfiguration.cs" />
-    <Compile Include="Migrations\201703081421498_Initial.cs" />
-    <Compile Include="Migrations\201703081421498_Initial.Designer.cs">
-      <DependentUpon>201703081421498_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201701221838471_InitialCreate.cs" />
+    <Compile Include="Migrations\201701221838471_InitialCreate.Designer.cs">
+      <DependentUpon>201701221838471_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -104,8 +104,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201703081421498_Initial.resx">
-      <DependentUpon>201703081421498_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201701221838471_InitialCreate.resx">
+      <DependentUpon>201701221838471_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

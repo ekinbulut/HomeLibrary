@@ -1,21 +1,23 @@
 ﻿using System;
 using System.Linq;
-using Castle.Core.Internal;
-using Library.Business.Services.Book.Dtos;
-using Library.Business.Services.Helper;
+using System.Web.Http;
+using Library.Api.Objects;
+using Library.Api.Services.Helpers;
 using Library.Data.Entities;
 using Library.Data.Enums;
 using Library.Data.Repositories.Books;
 using Library.Data.Repositories.Users;
 
-namespace Library.Business.Services.Book
+namespace Library.Api.Services.Controllers
 {
-    public class BookServiceApplication : IBookService
+    [RoutePrefix("api/book")]
+    [Authorize]
+    public class BookApiController : BaseApiController , IBookApiController
     {
         private readonly IBookRepository _bookRepository;
         private readonly IUserRepository _userRepository;
 
-        public BookServiceApplication(IBookRepository bookRepository, IUserRepository userRepository)
+        public BookApiController(IBookRepository bookRepository, IUserRepository userRepository)
         {
             _bookRepository = bookRepository;
             _userRepository = userRepository;
@@ -25,6 +27,8 @@ namespace Library.Business.Services.Book
         /// Gets the book list.
         /// </summary>
         /// <returns></returns>
+        /// 
+        [HttpGet]
         public BookOutputDto GetBookList()
         {
             BookOutputDto bookoutput = new BookOutputDto();
@@ -54,8 +58,14 @@ namespace Library.Business.Services.Book
 
             }
             return bookoutput;
+
         }
 
+        /// <summary>
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        [HttpGet]
         public BookOutputDto GetBookListByUserId(int userId)
         {
             BookOutputDto bookoutput = new BookOutputDto();
@@ -91,8 +101,10 @@ namespace Library.Business.Services.Book
         /// Adds the book.
         /// </summary>
         /// <param name="input">The input.</param>
-        /// <returns>boolean</returns>
-        public bool AddBook(BookInputDto input)
+        /// <returns></returns>
+        [HttpPost]
+        [Authorize]
+        public bool AddBook([FromBody]BookInputDto input)
         {
             var user = _userRepository.GetOne(input.UserId);
 
@@ -131,15 +143,16 @@ namespace Library.Business.Services.Book
 
 
             return newRecord != null;
-
         }
 
         /// <summary>
         /// Updates the book.
         /// </summary>
         /// <param name="input">The input.</param>
-        /// <returns>boolean</returns>
-        public bool UpdateBook(BookDto input)
+        /// <returns></returns>
+        [HttpPost]
+        [Authorize]
+        public bool UpdateBook([FromBody]BookDto input)
         {
             var entity = _bookRepository.GetOne(input.Id);
 
@@ -147,11 +160,11 @@ namespace Library.Business.Services.Book
 
             entity.Name = input.Name;
 
-            if (!input.Author.IsNullOrEmpty())
+            if (!String.IsNullOrEmpty(input.Author))
             {
                 entity.AuthorId = int.Parse(input.Author);
             }
-            if (!input.Publisher.IsNullOrEmpty())
+            if (!String.IsNullOrEmpty(input.Publisher))
             {
                 entity.PublisherId = Int32.Parse(input.Publisher);
             }
@@ -162,17 +175,17 @@ namespace Library.Business.Services.Book
 
             entity.PublishDate = input.PublishDate;
 
-            if (!input.Genre.IsNullOrEmpty())
+            if (!String.IsNullOrEmpty(input.Genre))
             {
                 entity.GenreId = Int32.Parse(input.Genre);
 
             }
-            if (!input.SkinType.IsNullOrEmpty())
+            if (!String.IsNullOrEmpty(input.SkinType))
             {
                 entity.SkinType = int.Parse(input.SkinType) == 0 ? SkinType.Ciltli : SkinType.Ciltsiz;
 
             }
-            if (!input.Shelf.IsNullOrEmpty())
+            if (!String.IsNullOrEmpty(input.Shelf))
             {
                 entity.ShelfId = Int32.Parse(input.Shelf);
 
@@ -198,13 +211,16 @@ namespace Library.Business.Services.Book
         }
 
         /// <summary>
-        /// Calls repository for deletetion
+        /// Deletes book record with Id
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        public bool DeleteBook(BookDto input)
+        [HttpDelete]
+        [Authorize]
+        public bool DeleteBook([FromBody]BookDto input)
         {
             return _bookRepository.DeleteEntity(input.Id);
+
         }
 
         /// <summary>
@@ -214,6 +230,7 @@ namespace Library.Business.Services.Book
         /// <param name="length"></param>
         /// <param name="userId"></param>
         /// <returns></returns>
+        [Authorize]
         public BookOutputDto GetBooksRangeBy(int start, int length, int userId)
         {
             BookOutputDto bookoutput = new BookOutputDto();
@@ -252,6 +269,16 @@ namespace Library.Business.Services.Book
 
         }
 
+
+        /// <summary>
+        /// Returns record in search
+        /// </summary>
+        /// <param name="start"></param>
+        /// <param name="length"></param>
+        /// <param name="searchKey"></param>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        [Authorize]
         public BookOutputDto GetBooksSearchRangeBy(int start, int length, string searchKey, int userId)
         {
             BookOutputDto bookoutput = new BookOutputDto();
@@ -262,7 +289,7 @@ namespace Library.Business.Services.Book
             bookoutput.TotalBook = count;
 
 
-            var books = _bookRepository.GetBooksSearchRangeBy(searchKey, userId).OrderBy(x=>x.Name).Skip(start).Take(length).ToList();
+            var books = _bookRepository.GetBooksSearchRangeBy(searchKey, userId).OrderBy(x => x.Name).Skip(start).Take(length).ToList();
 
             if (books.Any())
             {
@@ -287,6 +314,7 @@ namespace Library.Business.Services.Book
 
             }
             return bookoutput;
+
         }
     }
 }

@@ -1,16 +1,13 @@
-﻿using System.ServiceModel;
-using Library.Business.Services.Book.Dtos;
+using Library.Api.Objects;
 
-namespace Library.Business.Services.Book
+namespace Library.Api.Services
 {
-    [ServiceContract(Namespace = "com.sense.services.Services", Name = "BookService")]
-    public interface IBookService
+    public interface IBookApiController
     {
         /// <summary>
         /// Gets the book list.
         /// </summary>
         /// <returns></returns>
-        [OperationContract]
         BookOutputDto GetBookList();
 
         /// <summary>
@@ -18,7 +15,6 @@ namespace Library.Business.Services.Book
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        [OperationContract]
         BookOutputDto GetBookListByUserId(int userId);
 
         /// <summary>
@@ -26,7 +22,6 @@ namespace Library.Business.Services.Book
         /// </summary>
         /// <param name="input">The input.</param>
         /// <returns></returns>
-        [OperationContract]
         bool AddBook(BookInputDto input);
 
         /// <summary>
@@ -34,7 +29,6 @@ namespace Library.Business.Services.Book
         /// </summary>
         /// <param name="input">The input.</param>
         /// <returns></returns>
-        [OperationContract]
         bool UpdateBook(BookDto input);
 
         /// <summary>
@@ -42,7 +36,6 @@ namespace Library.Business.Services.Book
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        [OperationContract]
         bool DeleteBook(BookDto input);
 
         /// <summary>
@@ -52,7 +45,6 @@ namespace Library.Business.Services.Book
         /// <param name="length"></param>
         /// <param name="userId"></param>
         /// <returns></returns>
-        [OperationContract]
         BookOutputDto GetBooksRangeBy(int start, int length, int userId);
 
 
@@ -62,7 +54,6 @@ namespace Library.Business.Services.Book
         /// <param name="searchKey"></param>
         /// <param name="userId"></param>
         /// <returns></returns>
-        [OperationContract]
         BookOutputDto GetBooksSearchRangeBy(int start, int length, string searchKey, int userId);
     }
 }
