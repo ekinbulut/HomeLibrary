@@ -1,26 +1,24 @@
-# LibraryOS Service-Oriented Application
+## ![alt-text](https://github.com/ekinbulut/HomeLibrary/blob/develop/Logo100.png)
 
 This project is a service oriented CRM application which has been built on Senseframework. This project contains both host and client application and their tier developments.
 
 Project consist of several layers.
 
 ## 1. Runtimes
-  * Library.Console  (backend console application) which displays all the progress and hosting services.
-  * Library.Services (backend windows service application) same as console app but which you will intall it as a window service.
-  * Library.Web (ASP.Net MVC client application)
-  * Library.Wpf (WPF client application which is currently in development)
+  * Library.Console  - self hosted console application
+  * Library.Services - self hosted windows service
+  * Library.Web - ASP.Net MVC client application
+  * Library.Wpf - WPF client version of the application which is under development
 
 ## 2. Tiers
   * Bussiness
-    * Services (This layer containes services which are ready to be hosted as WCF services)
-    * Library.UI.Services (This layers is a middleware for WPF application. It provides Models and controllers for the interface interactions)
-  * Data (DataLayer uses entity framework with code first configuration.) Includes all repositories and entities.
-  * MVC (This layers has two layers which provides support for Library.Web application.)
+    * Services - Provides and registers WCF services.
+    * Library.UI.Services - Contains model and controllers for WPF
+  * Data - Includes all repositories and entities.
+  * MVC - Provides support for Library.Web application.
 
 ## 3. SenseFramework
-SenseFramework is a tool to develop n-tier applications easily. It provides several ORM tools and NOSQL library with repository patterns, unit of work, typeconfigurations etc. The framework works with Castle.Windsor and configures services as a WCF. It provides base libraries for tier modules. 
-
-In this project you will only see the compiled dlls.
+SenseFramework is a tool to develop n-tier applications easily. It provides several ORM tools and NOSQL library. The framework works with Castle.Windsor and supports WCF as service.
 
 ## Requirements
 * SQL Server 2015 or higher
@@ -33,17 +31,14 @@ In this project you will only see the compiled dlls.
 After pulling the project, you need to open PM from Visual Studio and type Update-Database command. Database will be created initially. If you want to add users and roles to your database so that you need to write your own code on HomeLibrary/Tiers/Data/Library.Data/Migrations/Configuration.cs to insert records.
 
 
-## Installation with .msi
-To install the application use LibraryOS_Installer.msi. After installation you need to configure Library.Console.exe.config file. This file includes several keys to work with. You must verify the connection string and you must run the application as an administrator.
-
-If you enable migrations, it will trigger migrations which inserts default values to your database.
-
 ### Application Startup
 
-Application must be run as an administator. Otherwise services will not be working. 
+Library.Console application must be run as an administator. It will be hosting services as a WCF endpoint.
+
 ### Service bindings
 
 At initial run services will be served from local ip adress from ports 8056 to 8098. You will not be able to change the port numbers.
+
 ### Connection string
 
 By default, connection string will be configured for sqlexpress dafault instance with user Id and password. Change the string values if needed. 
