@@ -75,9 +75,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Data\Library.Data\Library.Data.csproj">
-      <Project>{f77b7920-fee8-471f-ad3d-c59a93154279}</Project>
-      <Name>Library.Data</Name>
+    <ProjectReference Include="..\..\..\Data\Library.Data.Entities\Library.Data.Entities.csproj">
+      <Project>{88abc499-f459-4779-8988-e6c775c65577}</Project>
+      <Name>Library.Data.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Data\Library.Data.Roles\Library.Data.Roles.csproj">
+      <Project>{9bb3cf11-a664-4a24-a620-13d7c0a4df05}</Project>
+      <Name>Library.Data.Roles</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Data\Library.Data.Users\Library.Data.Users.csproj">
+      <Project>{bc27b622-f2a5-4665-b6d6-1c1679635ca6}</Project>
+      <Name>Library.Data.Users</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Library.Business.Services\Library.Business.Services.csproj">
       <Project>{7ccb141c-2b96-45e7-96bf-52eb1690ff52}</Project>

@@ -4,9 +4,9 @@ using Castle.Core.Internal;
 using Library.Business.Services.Book.Dtos;
 using Library.Business.Services.Helper;
 using Library.Data.Entities;
-using Library.Data.Enums;
-using Library.Data.Repositories.Books;
-using Library.Data.Repositories.Users;
+using Library.Data.Books.Repositories;
+using Library.Data.Users.Repositories;
+using Library.Data.Entities.Enums;
 
 namespace Library.Business.Services.Book
 {
