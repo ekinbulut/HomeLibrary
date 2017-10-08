@@ -25,7 +25,7 @@ namespace Library.Data.Books.Mappings
             {
                 tbl.MapLeftKey("BookIdFk");
                 tbl.MapRightKey("UserIdFk");
-                tbl.ToTable(Schema.Prefix + "_BOOKS_USERS");
+                tbl.ToTable(Schema.Prefix + "BOOKS_USERS");
             });
 
         }

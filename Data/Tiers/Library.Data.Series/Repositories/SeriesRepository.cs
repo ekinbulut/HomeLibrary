@@ -6,9 +6,9 @@ using SenseFramework.Data.EntityFramework.Repositories;
 
 namespace Library.Data.Series.Repositories
 {
-    public class SeriesRepository : EfRepositoryBase<ESeries,int> , ISeriesRepository
+    public class SeriesRepository : EfRepositoryBase<ESeries,int,SeriesContext> , ISeriesRepository
     {
-        public SeriesRepository(BaseContext dbContext) : base(dbContext)
+        public SeriesRepository(SeriesContext dbContext) : base(dbContext)
         {
         }
 

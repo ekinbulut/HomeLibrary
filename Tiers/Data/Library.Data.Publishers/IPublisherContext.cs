@@ -2,7 +2,7 @@
 
 namespace Library.Data.Publishers
 {
-    internal interface IPublisherContext : IDbContext
+    public interface IPublisherContext : IDbContext
     {
     }
 }

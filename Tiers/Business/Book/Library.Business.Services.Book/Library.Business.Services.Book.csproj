@@ -76,6 +76,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Data\Tiers\Library.Data.Series\Library.Data.Series.csproj">
+      <Project>{8a8f5504-db42-46b7-9afb-14c7d998466e}</Project>
+      <Name>Library.Data.Series</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Data\Library.Data.Author\Library.Data.Author.csproj">
+      <Project>{4e2ff1f4-4342-498f-bf44-4fe1847467cf}</Project>
+      <Name>Library.Data.Author</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Data\Library.Data.Books\Library.Data.Books.csproj">
       <Project>{4e740b12-7633-41aa-a6c5-30c9e6a5ca94}</Project>
       <Name>Library.Data.Books</Name>
@@ -83,6 +91,22 @@
     <ProjectReference Include="..\..\..\Data\Library.Data.Entities\Library.Data.Entities.csproj">
       <Project>{88abc499-f459-4779-8988-e6c775c65577}</Project>
       <Name>Library.Data.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Data\Library.Data.Genres\Library.Data.Genres.csproj">
+      <Project>{467c6cd2-a0e2-4984-b925-d3a56247eec0}</Project>
+      <Name>Library.Data.Genres</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Data\Library.Data.Publishers\Library.Data.Publishers.csproj">
+      <Project>{aa6af7c8-327f-431e-9669-0bdb5859b50d}</Project>
+      <Name>Library.Data.Publishers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Data\Library.Data.Raks\Library.Data.Racks.csproj">
+      <Project>{5016f46a-5a90-4409-b813-5d0b3e6d9d9f}</Project>
+      <Name>Library.Data.Racks</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Data\Library.Data.Shelfs\Library.Data.Shelfs.csproj">
+      <Project>{7319c327-3ce2-4615-8449-ed4562cb5a1f}</Project>
+      <Name>Library.Data.Shelfs</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Data\Library.Data.Users\Library.Data.Users.csproj">
       <Project>{bc27b622-f2a5-4665-b6d6-1c1679635ca6}</Project>

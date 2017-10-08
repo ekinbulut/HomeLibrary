@@ -7,8 +7,12 @@ using SenseFramework.Data.EntityFramework.Repositories;
 
 namespace Library.Data.Author.Repositories.Authors
 {
-    public class AuthorRepository : EfRepositoryBase<EAuthor,int> , IAuthorRepository
+    public class AuthorRepository : EfRepositoryBase<EAuthor,int,AuthorContext> , IAuthorRepository
     {
+
+        public AuthorRepository(AuthorContext dbContext) : base(dbContext)
+        {
+        }
 
         public EAuthor GetAuthorByName(string name)
         {
@@ -24,8 +28,6 @@ namespace Library.Data.Author.Repositories.Authors
         }
 
 
-        public AuthorRepository(BaseContext dbContext) : base(dbContext)
-        {
-        }
+
     }
 }

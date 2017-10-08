@@ -5,9 +5,11 @@ using SenseFramework.Data.EntityFramework.Repositories;
 
 namespace Library.Data.Users.Repositories
 {
-    public class UserRepository : EfRepositoryBase<EUser,int> , IUserRepository
+    public class UserRepository : EfRepositoryBase<EUser,int,UserContext> , IUserRepository
     {
-
+        public UserRepository(UserContext dbContext) : base(dbContext)
+        {
+        }
 
         public EUser GetUserByName(string username)
         {
@@ -19,8 +21,6 @@ namespace Library.Data.Users.Repositories
             return DbContext.Set<EUser>().FirstOrDefault(u => u.UserName.Equals(username) && u.Password.Equals(password) && u.IsActive);
         }
 
-        public UserRepository(BaseContext dbContext) : base(dbContext)
-        {
-        }
+
     }
 }

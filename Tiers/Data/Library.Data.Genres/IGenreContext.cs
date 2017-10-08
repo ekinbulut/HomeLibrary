@@ -2,7 +2,7 @@
 
 namespace Library.Data.Genres
 {
-    internal interface IGenreContext : IDbContext
+    public interface IGenreContext : IDbContext
     {
     }
 }

@@ -35,7 +35,10 @@ namespace Library.Business.Services.Authentication
                     var result = _userRepository.UpdateEntity(user);
 
                     if (!result) return null;
-                    
+
+
+                    var role = _roleRepository.GetOne(user.RoleId);
+
                     return new UserOutputDto
                     {
                         UserId = user.Id,
@@ -43,7 +46,7 @@ namespace Library.Business.Services.Authentication
                         Gender =  Enum.GetName(typeof(Gender),user.Gender),
                         Occupation = user.Occupation,
                         LastLoginDate = user.CreatedDateTime,
-                        Role = user.ERole.Name
+                        Role = role.Name
                     };
                 }
             }

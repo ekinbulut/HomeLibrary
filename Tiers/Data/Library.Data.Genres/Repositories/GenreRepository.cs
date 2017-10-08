@@ -7,9 +7,9 @@ using SenseFramework.Data.EntityFramework.Repositories;
 
 namespace Library.Data.Genres.Repositories
 {
-    public class GenreRepository : EfRepositoryBase<EGenre,int> , IGenreRepository
+    public class GenreRepository : EfRepositoryBase<EGenre,int, GenreContext> , IGenreRepository
     {
-        public GenreRepository(BaseContext dbContext) : base(dbContext)
+        public GenreRepository(GenreContext dbContext) : base(dbContext)
         {
         }
 

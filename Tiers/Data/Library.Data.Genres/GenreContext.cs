@@ -8,8 +8,7 @@ namespace Library.Data.Genres
     {
         public GenreContext()
         {
-
-
+            Database.SetInitializer(new CreateDatabaseIfNotExists<GenreContext>());
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

@@ -6,9 +6,11 @@ using SenseFramework.Data.EntityFramework.Repositories;
 
 namespace Library.Data.Books.Repositories
 {
-    public class BookRepository : EfRepositoryBase<EBook,int>, IBookRepository
+    public class BookRepository : EfRepositoryBase<EBook,int, BookContext>, IBookRepository
     {
-
+        public BookRepository(BookContext dbContext) : base(dbContext)
+        {
+        }
 
         public bool FindBook(string name)
         {
@@ -52,9 +54,6 @@ namespace Library.Data.Books.Repositories
 
         }
 
-        public BookRepository(BaseContext BaseContext) : base(BaseContext)
-        {
-        }
 
     }
 }

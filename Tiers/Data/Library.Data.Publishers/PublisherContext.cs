@@ -7,7 +7,7 @@ namespace Library.Data.Publishers
     public class PublisherContext : BaseContext , IPublisherContext
     {
 
-        public PublisherContext()
+        public PublisherContext():base()
         {
             Database.SetInitializer(new CreateDatabaseIfNotExists<PublisherContext>());
 
