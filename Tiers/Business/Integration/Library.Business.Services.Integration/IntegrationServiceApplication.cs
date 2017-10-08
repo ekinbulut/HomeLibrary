@@ -9,15 +9,15 @@ using Library.Business.Services.Integration.Dtos;
 using Library.Business.Services.Integration.Model;
 using Library.Business.Services.Integration.Parser;
 using Library.Data.Entities;
-using Library.Data.Enums;
-using Library.Data.Repositories.Authors;
-using Library.Data.Repositories.Books;
-using Library.Data.Repositories.Genres;
-using Library.Data.Repositories.Publishers;
-using Library.Data.Repositories.Racks;
-using Library.Data.Repositories.Series;
-using Library.Data.Repositories.Shelfs;
-using Library.Data.Repositories.Users;
+using Library.Data.Entities.Enums;
+using Library.Data.Books.Repositories;
+using Library.Data.Author.Repositories.Authors;
+using Library.Data.Publishers.Repositories;
+using Library.Data.Genres.Repositories;
+using Library.Data.Shelfs.Repositories;
+using Library.Data.Racks.Repositories;
+using Library.Data.Users.Repositories;
+using Library.Data.Series.Repositories;
 
 namespace Library.Business.Services.Integration
 {

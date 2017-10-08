@@ -60,7 +60,8 @@
                         @*@Html.Label(book.Author)*@
                     </td>
                     <td>
-                        @Html.Label(book.Publisher)
+                        @Html.Raw(book.Publisher)
+                        @*@Html.Label(book.Publisher)*@
                     </td>
                     <td>
                         @Html.Label(book.Serie)

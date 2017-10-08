@@ -1,9 +1,9 @@
 ﻿using System;
 using Library.Business.Services.Authantication;
 using Library.Business.Services.Authantication.Dtos;
+using Library.Data.Users.Repositories;
+using Library.Data.Roles.Repositories;
 using Library.Data.Entities;
-using Library.Data.Repositories.Roles;
-using Library.Data.Repositories.Users;
 
 namespace Library.Business.Services.Authentication
 {
@@ -35,7 +35,10 @@ namespace Library.Business.Services.Authentication
                     var result = _userRepository.UpdateEntity(user);
 
                     if (!result) return null;
-                    
+
+
+                    var role = _roleRepository.GetOne(user.RoleId);
+
                     return new UserOutputDto
                     {
                         UserId = user.Id,
@@ -43,7 +46,7 @@ namespace Library.Business.Services.Authentication
                         Gender =  Enum.GetName(typeof(Gender),user.Gender),
                         Occupation = user.Occupation,
                         LastLoginDate = user.CreatedDateTime,
-                        Role = user.ERole.Name
+                        Role = role.Name
                     };
                 }
             }
@@ -54,16 +57,18 @@ namespace Library.Business.Services.Authentication
         public UserOutputDto Register(UserInputDto input)
         {
             // create user record
-            var record = new EUser();
-            record.Gender = Gender.Male;
-            record.Occupation = input.User.Occupation;
-            record.UserName = input.User.Username;
-            record.Password = input.User.Password;
-            record.IsActive = true;
-            record.Name = input.User.Name;
+            var record = new EUser
+            {
+                Gender = Gender.Male,
+                Occupation = input.User.Occupation,
+                UserName = input.User.Username,
+                Password = input.User.Password,
+                IsActive = true,
+                Name = input.User.Name,
 
-            // set role
-            record.ERole = _roleRepository.GetOne(2);
+                // set role
+                ERole = _roleRepository.GetOne(2)
+            };
 
             // create record
             var user = _userRepository.CreateEntity(record);

@@ -1,11 +1,11 @@
 ﻿using Castle.Core.Internal;
 using Library.Business.Services.Provider.Dtos;
-using Library.Data.Repositories.Authors;
-using Library.Data.Repositories.Genres;
-using Library.Data.Repositories.Publishers;
-using Library.Data.Repositories.Racks;
-using Library.Data.Repositories.Series;
-using Library.Data.Repositories.Shelfs;
+using Library.Data.Author.Repositories.Authors;
+using Library.Data.Genres.Repositories;
+using Library.Data.Publishers.Repositories;
+using Library.Data.Racks.Repositories;
+using Library.Data.Series.Repositories;
+using Library.Data.Shelfs.Repositories;
 
 namespace Library.Business.Services.Provider
 {
