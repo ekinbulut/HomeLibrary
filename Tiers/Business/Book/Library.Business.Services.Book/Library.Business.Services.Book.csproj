@@ -112,6 +112,10 @@
       <Project>{bc27b622-f2a5-4665-b6d6-1c1679635ca6}</Project>
       <Name>Library.Data.Users</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Data\Library.Data\Library.Data.csproj">
+      <Project>{6f6863a9-9243-4a82-b95e-8e264b8590fe}</Project>
+      <Name>Library.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Library.Business.Services\Library.Business.Services.csproj">
       <Project>{7ccb141c-2b96-45e7-96bf-52eb1690ff52}</Project>
       <Name>Library.Business.Services</Name>

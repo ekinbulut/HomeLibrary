@@ -4,9 +4,9 @@ using SenseFramework.Data.EntityFramework.Repositories;
 
 namespace Library.Data.Roles.Repositories
 {
-    public class RoleRepository : EfRepositoryBase<ERole, int, RoleContext>, IRoleRepository
+    public class RoleRepository : EfRepositoryBase<ERole, int>, IRoleRepository
     {
-        public RoleRepository(RoleContext dbContext) : base(dbContext)
+        public RoleRepository(BaseContext dbContext) : base(dbContext)
         {
         }
     }

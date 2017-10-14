@@ -6,9 +6,9 @@ using SenseFramework.Data.EntityFramework.Repositories;
 
 namespace Library.Data.Books.Repositories
 {
-    public class BookRepository : EfRepositoryBase<EBook,int, BookContext>, IBookRepository
+    public class BookRepository : EfRepositoryBase<EBook,int>, IBookRepository
     {
-        public BookRepository(BookContext dbContext) : base(dbContext)
+        public BookRepository(BaseContext dbContext) : base(dbContext)
         {
         }
 

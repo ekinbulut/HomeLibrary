@@ -21,36 +21,13 @@ namespace Library.Business.Services.Book
         private readonly IBookRepository _bookRepository;
         private readonly IUserRepository _userRepository;
 
-        private readonly IAuthorRepository _authorRepository;
-        private readonly IPublisherRepository _publisherRepository;
-        private readonly IGenreRepository _genreRepository;
 
-        private readonly IRackRepository _rackRepository;
-        private readonly IShelfRepository _shelfRepository;
-        private readonly ISeriesRepository _seriesRepository;
-
-
-
-
-        public BookServiceApplication(IBookRepository bookRepository, 
-            IUserRepository userRepository,
-            IAuthorRepository authorRepository,
-            IPublisherRepository publisherRepository,
-            IGenreRepository genreRepository,
-            IRackRepository rackRepository,
-            IShelfRepository shelfRepository,
-            ISeriesRepository seriesRepository)
+        public BookServiceApplication(IBookRepository bookRepository, IUserRepository userRepository)
         {
             _bookRepository = bookRepository;
             _userRepository = userRepository;
-            _authorRepository = authorRepository;
-            _publisherRepository = publisherRepository;
-            _genreRepository = genreRepository;
-            _rackRepository = rackRepository;
-            _shelfRepository = shelfRepository;
-            _seriesRepository = seriesRepository;
-
         }
+
 
         /// <summary>
         /// Gets the book list.
@@ -69,14 +46,14 @@ namespace Library.Business.Services.Book
                     var book = new BookDto();
                     book.Id = eBook.Id;
                     book.Name = eBook.Name;
-                    book.Author = _authorRepository.GetOne(eBook.AuthorId).Name;
-                    book.Publisher = _publisherRepository.GetOne(eBook.PublisherId).Name;
-                    book.Genre = _genreRepository.GetOne(eBook.GenreId).Genre;
+                    book.Author = eBook.Author.Name;
+                    book.Publisher = eBook.Publisher.Name;
+                    book.Genre = eBook.Genre.Genre;
                     book.No = eBook.No.ToString();
-                    book.Rack = _rackRepository.GetOne(eBook.RackId).RackNumber;
-                    book.Shelf = _shelfRepository.GetOne(eBook.ShelfId).Name;
+                    book.Rack = eBook.Rack.RackNumber;
+                    book.Shelf = eBook.Shelf.Name;
                     book.SkinType = Enum.GetName(typeof(SkinType), eBook.SkinType);
-                    book.Serie = eBook.SeriesId != null ? _seriesRepository.GetOne((int)eBook.SeriesId).Name : String.Empty;
+                    book.Serie = eBook.Serie != null ? eBook.Serie.Name : string.Empty;
                     book.PublishDate = eBook.PublishDate;
                     book.CreatedDateTime = eBook.CreatedDateTime;
 
@@ -101,14 +78,14 @@ namespace Library.Business.Services.Book
                     var book = new BookDto();
                     book.Id = eBook.Id;
                     book.Name = eBook.Name;
-                    book.Author = _authorRepository.GetOne(eBook.AuthorId).Name;
-                    book.Publisher = _publisherRepository.GetOne(eBook.PublisherId).Name; 
-                    book.Genre = _genreRepository.GetOne(eBook.GenreId).Genre;
+                    book.Author = eBook.Author.Name;
+                    book.Publisher = eBook.Publisher.Name;
+                    book.Genre = eBook.Genre.Genre;
                     book.No = eBook.No.ToString();
-                    book.Rack = _rackRepository.GetOne(eBook.RackId).RackNumber;
-                    book.Shelf = _shelfRepository.GetOne(eBook.ShelfId).Name;
+                    book.Rack = eBook.Rack.RackNumber;
+                    book.Shelf = eBook.Shelf.Name;
                     book.SkinType = Enum.GetName(typeof(SkinType), eBook.SkinType);
-                    book.Serie = eBook.SeriesId != null ? _seriesRepository.GetOne((int)eBook.SeriesId).Name : String.Empty;
+                    book.Serie = eBook.Serie != null ? eBook.Serie.Name : string.Empty;
                     book.PublishDate = eBook.PublishDate;
                     book.CreatedDateTime = eBook.CreatedDateTime;
 
@@ -265,14 +242,14 @@ namespace Library.Business.Services.Book
                     var book = new BookDto();
                     book.Id = eBook.Id;
                     book.Name = eBook.Name;
-                    book.Author = _authorRepository.GetOne(eBook.AuthorId).Name;
-                    book.Publisher = _publisherRepository.GetOne(eBook.PublisherId).Name;
-                    book.Genre = _genreRepository.GetOne(eBook.GenreId).Genre;
+                    book.Author = eBook.Author.Name;
+                    book.Publisher = eBook.Publisher.Name;
+                    book.Genre = eBook.Genre.Genre;
                     book.No = eBook.No.ToString();
-                    book.Rack = _rackRepository.GetOne(eBook.RackId).RackNumber;
-                    book.Shelf = _shelfRepository.GetOne(eBook.ShelfId).Name;
+                    book.Rack = eBook.Rack.RackNumber;
+                    book.Shelf = eBook.Shelf.Name;
                     book.SkinType = Enum.GetName(typeof(SkinType), eBook.SkinType);
-                    book.Serie = eBook.SeriesId != null ? _seriesRepository.GetOne((int)eBook.SeriesId).Name : String.Empty;
+                    book.Serie = eBook.Serie != null ? eBook.Serie.Name : string.Empty;
                     book.PublishDate = eBook.PublishDate;
                     book.CreatedDateTime = eBook.CreatedDateTime;
 
@@ -303,14 +280,14 @@ namespace Library.Business.Services.Book
                     var book = new BookDto();
                     book.Id = eBook.Id;
                     book.Name = eBook.Name;
-                    book.Author = _authorRepository.GetOne(eBook.AuthorId).Name;
-                    book.Publisher = _publisherRepository.GetOne(eBook.PublisherId).Name;
-                    book.Genre = _genreRepository.GetOne(eBook.GenreId).Genre;
+                    book.Author = eBook.Author.Name;
+                    book.Publisher = eBook.Publisher.Name;
+                    book.Genre = eBook.Genre.Genre;
                     book.No = eBook.No.ToString();
-                    book.Rack = _rackRepository.GetOne(eBook.RackId).RackNumber;
-                    book.Shelf = _shelfRepository.GetOne(eBook.ShelfId).Name;
+                    book.Rack = eBook.Rack.RackNumber;
+                    book.Shelf = eBook.Shelf.Name;
                     book.SkinType = Enum.GetName(typeof(SkinType), eBook.SkinType);
-                    book.Serie = eBook.SeriesId != null ? _seriesRepository.GetOne((int)eBook.SeriesId).Name : String.Empty;
+                    book.Serie = eBook.Serie != null ? eBook.Serie.Name : string.Empty;
                     book.PublishDate = eBook.PublishDate;
                     book.CreatedDateTime = eBook.CreatedDateTime;
 

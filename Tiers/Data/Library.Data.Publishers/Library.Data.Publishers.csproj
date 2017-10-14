@@ -52,10 +52,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInstaller.cs" />
-    <Compile Include="IPublisherContext.cs" />
     <Compile Include="Mappings\EPublisherConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PublisherContext.cs" />
     <Compile Include="Repositories\IPublisherRepository.cs" />
     <Compile Include="Repositories\PublisherRepository.cs" />
   </ItemGroup>
