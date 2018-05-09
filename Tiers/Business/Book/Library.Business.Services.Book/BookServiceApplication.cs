@@ -7,12 +7,6 @@ using Library.Data.Entities;
 using Library.Data.Books.Repositories;
 using Library.Data.Users.Repositories;
 using Library.Data.Entities.Enums;
-using Library.Data.Genres.Repositories;
-using Library.Data.Author.Repositories.Authors;
-using Library.Data.Publishers.Repositories;
-using Library.Data.Racks.Repositories;
-using Library.Data.Shelfs.Repositories;
-using Library.Data.Series.Repositories;
 
 namespace Library.Business.Services.Book
 {
