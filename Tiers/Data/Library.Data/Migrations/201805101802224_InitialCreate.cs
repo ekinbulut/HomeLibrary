@@ -3,7 +3,7 @@ namespace Library.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Initial : DbMigration
+    public partial class InitialCreate : DbMigration
     {
         public override void Up()
         {
@@ -107,7 +107,7 @@ namespace Library.Data.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Name = c.String(nullable: false, maxLength: 35),
-                        Userame = c.String(nullable: false, maxLength: 35),
+                        UserName = c.String(nullable: false, maxLength: 35),
                         Password = c.String(nullable: false, maxLength: 35),
                         Occupation = c.String(nullable: false, maxLength: 100),
                         Gender = c.Int(nullable: false),

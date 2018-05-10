@@ -127,6 +127,10 @@
       <Project>{20a72ec4-8438-4020-a629-6a46b47e56a4}</Project>
       <Name>Library.Business.Services.Provider</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Tiers\Data\Library.Data\Library.Data.csproj">
+      <Project>{6f6863a9-9243-4a82-b95e-8e264b8590fe}</Project>
+      <Name>Library.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

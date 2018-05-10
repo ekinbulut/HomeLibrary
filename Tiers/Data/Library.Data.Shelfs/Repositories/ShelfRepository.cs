@@ -5,9 +5,9 @@ using SenseFramework.Data.EntityFramework.Repositories;
 
 namespace Library.Data.Shelfs.Repositories
 {
-    public class ShelfRepository : EfRepositoryBase<EShelf,int,ShelfContext> , IShelfRepository
+    public class ShelfRepository : EfRepositoryBase<EShelf,int> , IShelfRepository
     {
-        public ShelfRepository(ShelfContext dbContext) : base(dbContext)
+        public ShelfRepository(BaseContext dbContext) : base(dbContext)
         {
         }
 

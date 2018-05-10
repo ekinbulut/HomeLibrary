@@ -52,12 +52,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInstaller.cs" />
-    <Compile Include="IShelfContext.cs" />
     <Compile Include="Mappings\EShelfConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IShelfRepository.cs" />
     <Compile Include="Repositories\ShelfRepository.cs" />
-    <Compile Include="ShelfContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

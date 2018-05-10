@@ -52,12 +52,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInstaller.cs" />
-    <Compile Include="ISeriesContext.cs" />
     <Compile Include="Mappings\ESeriesConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ISeriesRepository.cs" />
     <Compile Include="Repositories\SeriesRepository.cs" />
-    <Compile Include="SeriesContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

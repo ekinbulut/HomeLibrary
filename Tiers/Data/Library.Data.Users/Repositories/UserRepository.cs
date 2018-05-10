@@ -5,9 +5,9 @@ using SenseFramework.Data.EntityFramework.Repositories;
 
 namespace Library.Data.Users.Repositories
 {
-    public class UserRepository : EfRepositoryBase<EUser,int,UserContext> , IUserRepository
+    public class UserRepository : EfRepositoryBase<EUser,int> , IUserRepository
     {
-        public UserRepository(UserContext dbContext) : base(dbContext)
+        public UserRepository(BaseContext dbContext) : base(dbContext)
         {
         }
 

@@ -6,9 +6,9 @@ using SenseFramework.Data.EntityFramework.Repositories;
 
 namespace Library.Data.Racks.Repositories
 {
-    public class RackRepository : EfRepositoryBase<ERack,int, RackContext> , IRackRepository
+    public class RackRepository : EfRepositoryBase<ERack,int> , IRackRepository
     {
-        public RackRepository(RackContext dbContext) : base(dbContext)
+        public RackRepository(BaseContext dbContext) : base(dbContext)
         {
         }
 

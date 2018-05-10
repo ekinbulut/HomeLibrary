@@ -52,12 +52,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInstaller.cs" />
-    <Compile Include="IRolesContext.cs" />
     <Compile Include="Mappings\ERoleConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IRoleRepository.cs" />
     <Compile Include="Repositories\RoleRepository.cs" />
-    <Compile Include="RoleContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

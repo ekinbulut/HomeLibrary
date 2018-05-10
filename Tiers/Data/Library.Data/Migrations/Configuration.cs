@@ -1,19 +1,18 @@
-using System;
-using System.Data.Entity.Migrations;
-using System.Linq;
-using Library.Common.Helpers;
-using Library.Data.Entities;
-
 namespace Library.Data.Migrations
 {
-    internal sealed class Configuration : DbMigrationsConfiguration<LibraryContext>
+    using System;
+    using System.Data.Entity;
+    using System.Data.Entity.Migrations;
+    using System.Linq;
+
+    internal sealed class Configuration : DbMigrationsConfiguration<Library.Data.LibraryContext>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(LibraryContext context)
+        protected override void Seed(Library.Data.LibraryContext context)
         {
             //  This method will be called after migrating to the latest version.
 
@@ -27,39 +26,6 @@ namespace Library.Data.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-
-            // sets roles
-            context.Set<ERole>().AddOrUpdate(new ERole()
-            {
-                Name = "Administrator",
-                CreatedDateTime = DateTime.Now
-            });
-
-            context.Set<ERole>().AddOrUpdate(new ERole()
-            {
-                Name = "User",
-                CreatedDateTime = DateTime.Now
-            });
-
-
-            var pass = "p@ssw0rd";
-            var crypt = pass.HashMd5();
-
-            // sets users
-            context.Set<EUser>().AddOrUpdate(new EUser()
-            {
-                Name = "Administrator",
-                Gender = Gender.Male,
-                Occupation = "Developer",
-                Password = crypt,
-                IsActive = true,
-                CreatedDateTime = DateTime.Now,
-                UserName = "admin@admin.com",
-                //ERole = role,
-                LastLoginDate = null,
-                RoleId = 2
-            });
-
         }
     }
 }

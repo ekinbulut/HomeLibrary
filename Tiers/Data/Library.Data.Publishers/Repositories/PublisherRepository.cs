@@ -7,9 +7,9 @@ using SenseFramework.Data.EntityFramework.Repositories;
 
 namespace Library.Data.Publishers.Repositories
 {
-    public class PublisherRepository : EfRepositoryBase<EPublisher,int, PublisherContext>, IPublisherRepository
+    public class PublisherRepository : EfRepositoryBase<EPublisher,int>, IPublisherRepository
     {
-        public PublisherRepository(PublisherContext dbContext) : base(dbContext)
+        public PublisherRepository(BaseContext dbContext) : base(dbContext)
         {
         }
 
