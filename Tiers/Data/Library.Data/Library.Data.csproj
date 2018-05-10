@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\..\..\packages\Castle.Core.3.3.0\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -53,6 +56,11 @@
   <ItemGroup>
     <Compile Include="ILibraryContext.cs" />
     <Compile Include="LibraryContext.cs" />
+    <Compile Include="Migrations\201805101802224_InitialCreate.cs" />
+    <Compile Include="Migrations\201805101802224_InitialCreate.Designer.cs">
+      <DependentUpon>201805101802224_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -100,6 +108,11 @@
       <Project>{bc27b622-f2a5-4665-b6d6-1c1679635ca6}</Project>
       <Name>Library.Data.Users</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201805101802224_InitialCreate.resx">
+      <DependentUpon>201805101802224_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
