@@ -32,20 +32,8 @@ namespace Library.Service
 
         public void Start()
         {
-            //var task = new Task(() =>
-            //{
-            //    var fm = new SenseFrameworkModule();
-            //    fm.StartUp();
-
-            //});
-
-            //task.Start();
-
             var thread = new Thread(StartHostingServices);
             thread.Start();
-
-            //var task = new Task(StartHostingServices, TaskCreationOptions.LongRunning);
-            //task.Start();
         }
 
         private void StartHostingServices()
