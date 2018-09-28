@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using SenseFramework;
+using Topshelf;
 
 namespace Library.Console
 {
@@ -8,39 +9,20 @@ namespace Library.Console
     {
         private static void Main(string[] args)
         {
-            
-            MainAsync(args).Start();
-            System.Console.ReadKey();
-        }
-
-        private static Task MainAsync(string[] args)
-        {
-
-            return new Task(() =>
+            HostFactory.Run(x =>
             {
-                try
-                {
-                    var fm = new SenseFrameworkModule();
-                    fm.TrackMessages += Fm_TrackMessages;
+                x.Service<ServiceEntry>();
 
-                    fm.StartUp();
+                x.SetServiceName("Library.Host.Controller");
+                x.SetDisplayName("Library Host Controller");
 
-                    System.Console.WriteLine($"Press any key to exit...");
-                    
-                }
-                catch (Exception err)
-                {
-                    System.Console.ForegroundColor = ConsoleColor.Red;
-                    System.Console.WriteLine(err.Message);
-                    System.Console.ResetColor();
-                }
+                x.UseLog4Net("log4net.config");
+
+
             });
-
         }
 
-        private static void Fm_TrackMessages(string message)
-        {
-            System.Console.WriteLine(message);
-        }
+
     }
+
 }

@@ -36,14 +36,14 @@ namespace Library.Business.Services.Provider
         {
             var output = new AuthorOutputDto();
 
-            _authorRepository.GetAll().ForEach(a =>
+            foreach (var a in _authorRepository.GetAll())
             {
                 output.AuthorDtos.Add(new AuthorDto
                 {
                     Name = a.Name,
                     Value = a.Id
                 });
-            });
+            }
 
             return output;
         }
@@ -56,14 +56,14 @@ namespace Library.Business.Services.Provider
         {
             var output = new PublisherOutputDto();
 
-            _publisherRepository.GetAll().ForEach(p =>
+            foreach (var p in _publisherRepository.GetAll())
             {
-                output.PublisherDtos.Add(new PublisherDto
+                 output.PublisherDtos.Add(new PublisherDto
                 {
                     Value = p.Id,
                     Name = p.Name
                 });
-            });
+            }
 
             return output;
         }
@@ -76,14 +76,14 @@ namespace Library.Business.Services.Provider
         {
             var output = new GenreOutputDto();
 
-            _genreRepository.GetAll().ForEach(g =>
+            foreach (var g in _genreRepository.GetAll())
             {
                 output.GenreDtos.Add(new GenreDto
                 {
                     Name = g.Genre,
                     Value = g.Id
                 });
-            });
+            }
 
             return output;
         }
@@ -96,15 +96,14 @@ namespace Library.Business.Services.Provider
         {
             var output = new SeriesOutputDto();
 
-            _seriesRepository.GetAll().ForEach(s =>
+            foreach (var s in _seriesRepository.GetAll())
             {
                 output.SeriesDtos.Add(new SeriesDto
                 {
                     Name = s.Name,
                     Value = s.Id
                 });
-            });
-
+            }
 
             return output;
         }
@@ -117,14 +116,14 @@ namespace Library.Business.Services.Provider
         {
             var output = new ShelfOutputDto();
 
-            _shelfRepository.GetAll().ForEach(s =>
+            foreach (var s in _seriesRepository.GetAll())
             {
-                output.ShelfDtos.Add(new ShelfDto
+                 output.ShelfDtos.Add(new ShelfDto
                 {
                     Name = s.Name,
                     Value = s.Id
                 });
-            });
+            }
 
             return output;
         }
@@ -137,14 +136,15 @@ namespace Library.Business.Services.Provider
         {
             var output = new RackOutputDto();
 
-            _rackRepository.GetAll().ForEach(r =>
+            foreach (var r in _rackRepository.GetAll())
             {
                 output.RackDtos.Add(new RackDto
                 {
                     Name = r.RackNumber.ToString(),
                     Value = r.Id
                 });
-            });
+            }
+
 
             return output;
         }

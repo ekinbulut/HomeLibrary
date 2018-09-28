@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.OleDb;
 using System.Text;
+using System.Linq;
 using Castle.Core.Internal;
 
 namespace Library.Business.Services.Integration.Parser
@@ -47,11 +48,14 @@ namespace Library.Business.Services.Integration.Parser
         public static DataTable ExecuteOleDbConnection(string[] parameters)
         {
             var strbuilder = new StringBuilder();
-            parameters.ForEach(t =>
+
+
+            foreach (var item in parameters)
             {
-                strbuilder.Append(t);
+                strbuilder.Append(item);
                 strbuilder.Append(',');
-            });
+
+            }
 
             var appendedline = strbuilder.ToString();
 
