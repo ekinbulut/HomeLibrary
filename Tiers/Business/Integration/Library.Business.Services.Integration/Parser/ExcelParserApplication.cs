@@ -99,9 +99,6 @@ namespace Library.Business.Services.Integration.Parser
             }
 
             return table;
-
-
-            return null;
         }
     }
 

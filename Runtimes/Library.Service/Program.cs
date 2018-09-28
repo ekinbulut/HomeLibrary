@@ -1,4 +1,5 @@
 ﻿using System.ServiceProcess;
+using System.Threading;
 
 namespace Library.Service
 {
@@ -9,15 +10,21 @@ namespace Library.Service
         /// </summary>
         static void Main()
         {
+#if !DEBUG
             ServiceBase[] ServicesToRun;
             ServicesToRun = new ServiceBase[]
             {
                 new LibraryService()
             };
             ServiceBase.Run(ServicesToRun);
+#else
+            var svc = new LibraryService();
+            svc.Start();
 
-            //var svc = new LibraryService();
-            //svc.Start();
+            Thread.Sleep(Timeout.Infinite);
+
+#endif
+
         }
     }
 }

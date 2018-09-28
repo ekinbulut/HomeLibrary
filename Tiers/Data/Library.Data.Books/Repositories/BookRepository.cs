@@ -19,7 +19,7 @@ namespace Library.Data.Books.Repositories
 
         public IQueryable<EBook> GetBooksWithUserId(int userId)
         {
-            return DbContext.Set<EBook>().Where(x => x.Users.Any(u => u.Id == userId));
+            return DbContext.Set<EBook>().Where(x => x.Users.Any(u => u.Id == userId)).Take(200).OrderByDescending(b=>b.CreatedDateTime);
         }
 
         public EBook GetBookByName(string bookName)
