@@ -1,13 +1,10 @@
-## ![alt-text](https://github.com/ekinbulut/HomeLibrary/blob/develop/Logo100.png)
-
-[![Build status](https://ci.appveyor.com/api/projects/status/6ux46qnboomanga6?svg=true)](https://ci.appveyor.com/project/ekinbulut/homelibrary)
-
-
 # LibraryOS Service-Oriented Application
 
 This project is a service oriented CRM application which has been built on Senseframework. This project contains both host and client application and their tier developments.
 
 Project consist of several layers.
+
+[![Build status](https://ci.appveyor.com/api/projects/status/0aq4xhqco0tjd1ac?svg=true)](https://ci.appveyor.com/project/ekinbulut/homelibrary)
 
 ## 1. Runtimes
   * Library.Console  - self hosted console application
