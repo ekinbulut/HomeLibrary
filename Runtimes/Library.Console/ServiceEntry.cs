@@ -1,8 +1,5 @@
 ﻿using SenseFramework;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Topshelf;
 
@@ -31,7 +28,9 @@ namespace Library.Console
                 try
                 {
                     var fm = new SenseFrameworkModule();
+#pragma warning disable CS0612 // Type or member is obsolete
                     fm.TrackMessages += Fm_TrackMessages;
+#pragma warning restore CS0612 // Type or member is obsolete
 
                     fm.StartUp();
 

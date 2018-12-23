@@ -1,4 +1,6 @@
-﻿namespace Library.Business.Services.Integration.Model
+﻿using Library.Data.Entities;
+
+namespace Library.Business.Services.Integration.Model
 {
     public class ImportObject
     {
@@ -12,6 +14,7 @@
         public string Skintype { get; set; }
         public string RackId { get; set; }
         public string ShelfId { get; set; }
+        public EUser User { get; set; }
 
     }
 }

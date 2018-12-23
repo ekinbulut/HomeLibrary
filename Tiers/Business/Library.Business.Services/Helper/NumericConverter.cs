@@ -4,7 +4,7 @@ namespace Library.Business.Services.Helper
 {
     public static class NumericConverter
     {
-        private static Dictionary<char, int> RomanMap;
+        private static readonly Dictionary<char, int> RomanMap;
 
         static NumericConverter()
         {

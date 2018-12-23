@@ -94,6 +94,7 @@
     <Compile Include="Parser\ExcelParserApplication.cs" />
     <Compile Include="Parser\FileReciever.cs" />
     <Compile Include="Parser\IFileReciever.cs" />
+    <Compile Include="Parser\IParserApplication.cs" />
     <Compile Include="Parser\OleDbAConnector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

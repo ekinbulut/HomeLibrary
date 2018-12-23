@@ -6,5 +6,6 @@ namespace Library.Data.Series.Repositories
     public interface ISeriesRepository : IRepository<ESeries,int>
     {
         ESeries GetSeriesbyName(string name);
+        ESeries CreateSeriesIfNotExists(string v, EPublisher publisher);
     }
 }
