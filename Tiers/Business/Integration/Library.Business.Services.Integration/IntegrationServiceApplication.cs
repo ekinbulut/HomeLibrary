@@ -21,7 +21,7 @@ using Library.Data.Series.Repositories;
 
 namespace Library.Business.Services.Integration
 {
-    public class IntegrationServiceApplication : IIntegrationService , IValidation
+    public class IntegrationServiceApplication : IIntegrationService, IValidation
     {
         private readonly IParserApplication _parserApplication;
         private readonly IBookRepository _bookRepository;
@@ -59,89 +59,85 @@ namespace Library.Business.Services.Integration
         /// <returns></returns>
         public bool Import(ImportInputDto input)
         {
+            DataTable datatable = _parserApplication.ReadExcelFile(input.ImportDto.Input);
+
+            EUser user = _userRepository.GetOne(input.ImportDto.UserId);
+            bool recordInserted = false;
+
+            foreach (DataRow row in datatable.Rows)
+            {
+                ImportObject importerObject = _importer.ConvertRowIntoImportObject(row);
+                importerObject.User = user;
+
+                if (IsEmpty(importerObject)) continue;
+
+                recordInserted = InsertBookRecord(importerObject);
+
+                if (!recordInserted) break;
+            }
+
+            return recordInserted;
+
+        }
+
+        private bool InsertBookRecord(ImportObject importerObject)
+        {
 
             try
             {
-                var datatable = _parserApplication.ReadExcelFile(input.ImportDto.Input);
+                ImportObject importerObj = importerObject;
+                bool exists = _bookRepository.CheckIfBookExistsByNameWriterAndByPublisher(importerObj.BookName, importerObj.AuthorName, importerObj.PublisherName);
 
-                var user = _userRepository.GetOne(input.ImportDto.UserId);
+                EBook book = new EBook();
 
-                foreach (DataRow row in datatable.Rows)
+                if (!exists)
                 {
-                    var importerObject = _importer.ConvertRowIntoImportObject(row);
+                     GenerateBookRecord(importerObj, ref book);
 
-                    if (IsEmpty(importerObject))
+                    _bookRepository.CreateEntity(book);
+                }
+                else
+                {
+                    book = _bookRepository.GetBookByNameAndByPublisher(importerObj.BookName, importerObj.AuthorName, importerObj.PublisherName);
+
+                    if (!book.Users.Contains(importerObj.User))
                     {
-                        continue;
+                        book.Users.Add(importerObj.User);
+                        _bookRepository.UpdateEntity(book);
                     }
-
-                    var exists = _bookRepository.CheckIfBookExistsByNameWriterAndByPublisher(importerObject.BookName.Trim(), importerObject.AuthorName.Trim(), importerObject.PublisherName.Trim());
-
-                    if (!exists)
-                    {
-                        var author = _authorRepository.CreateIfAuthorIsNotExists(importerObject.AuthorName.Trim());
-                        var publisher = _publisherRepository.CreatePublisherIfNotExists(importerObject.PublisherName.Trim());
-                        var genre = _genreRepository.CreateGenreIfNotExists(importerObject.GenreName.Trim());
-
-                        ESeries serie;
-                        if (!importerObject.SerieName.IsNullOrEmpty())
-                        {
-                            serie = _seriesRepository.GetSeriesbyName(importerObject.SerieName.Trim()) ?? _seriesRepository.CreateEntity(new ESeries { Name = importerObject.SerieName.Trim(), Publisher = publisher, CreatedDateTime = DateTime.Now });
-                        }
-                        else
-                        {
-                            serie = null;
-                        }
-                        var skin = importerObject.Skintype.ToLowerInvariant().Equals("ciltli") ? SkinType.Ciltli : SkinType.Ciltsiz;
-                        var rack = _rackRepository.GetRackByRackNumber(int.Parse(importerObject.RackId));
-                        var shelf = _shelfRepository.GetShelfById(int.Parse(importerObject.ShelfId));
-
-                        var entity = new EBook();
-                        entity.Name = importerObject.BookName.Trim();
-                        entity.Author = author;
-                        entity.Publisher = publisher;
-                        entity.PublishDate = int.Parse(importerObject.Publishdate);
-                        entity.Genre = genre;
-                        entity.Serie = serie;
-
-
-                        int no = 0;
-                        entity.No = !String.IsNullOrEmpty(importerObject.No)
-                            ? (entity.No =
-                                int.TryParse(importerObject.No, out no) ? no : importerObject.No.RomanToInteger())
-                            : entity.No = null;
-
-                        entity.SkinType = skin;
-                        entity.Rack = rack;
-                        entity.Shelf = shelf;
-                        entity.CreatedDateTime = DateTime.Now;
-
-                        entity.Users.Add(user);
-
-                        _bookRepository.CreateEntity(entity);
-                    }
-                    else
-                    {
-                        var book = _bookRepository.GetBookByNameAndByPublisher(importerObject.BookName.Trim(), importerObject.AuthorName.Trim(), importerObject.PublisherName.Trim());
-
-                        if (!book.Users.Contains(user))
-                        {
-                            book.Users.Add(user);
-                            _bookRepository.UpdateEntity(book);
-
-                        }
-                    }
-
                 }
 
                 return true;
             }
             catch (Exception error)
             {
-                _logger.Error("Integration Error", error);
+                _logger.Error("Integration Error while doing InsertBookRecord", error);
 
                 return false;
             }
+
+        }
+
+        private void GenerateBookRecord(ImportObject importerObj, ref EBook book)
+        {
+            book.Author = _authorRepository.CreateIfAuthorIsNotExists(importerObj.AuthorName);
+            book.Publisher = _publisherRepository.CreatePublisherIfNotExists(importerObj.PublisherName);
+            book.Genre = _genreRepository.CreateGenreIfNotExists(importerObj.GenreName);
+            book.Serie = _seriesRepository.CreateSeriesIfNotExists(importerObj.SerieName, book.Publisher);
+            book.Rack = _rackRepository.GetRackByRackNumber(int.Parse(importerObj.RackId));
+            book.Shelf = _shelfRepository.GetShelfById(int.Parse(importerObj.ShelfId));
+
+            book.Name = importerObj.BookName;
+            book.PublishDate = int.Parse(importerObj.Publishdate);
+            book.No = ConvertToRomanIntegers(importerObj.No);
+            book.SkinType = importerObj.Skintype.Equals("ciltli", StringComparison.InvariantCulture) ? SkinType.Ciltli : SkinType.Ciltsiz;
+            book.CreatedDateTime = DateTime.Now;
+            book.Users.Add(importerObj.User);
+        }
+
+        private int? ConvertToRomanIntegers(string number)
+        {
+            return !string.IsNullOrEmpty(number) ? (int.TryParse(number, out int no) ? no : number.RomanToInteger()) : null;
         }
 
         /// <summary>
@@ -253,7 +249,7 @@ namespace Library.Business.Services.Integration
                 }
             });
         }
-        
+
         /// <summary>
         /// Validation of the record
         /// </summary>

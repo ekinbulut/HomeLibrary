@@ -101,13 +101,4 @@ namespace Library.Business.Services.Integration.Parser
             return table;
         }
     }
-
-    public interface IParserApplication
-    {
-        DataTable ReadExcelFile(string filepath);
-
-        DataTable ReadExcelFile();
-
-        DataTable ReadCSVFile(string filepath);
-    }
 }
