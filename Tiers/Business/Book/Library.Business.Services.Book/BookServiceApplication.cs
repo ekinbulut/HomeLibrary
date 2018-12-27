@@ -37,19 +37,21 @@ namespace Library.Business.Services.Book
             {
                 foreach (var eBook in books)
                 {
-                    var book = new BookDto();
-                    book.Id = eBook.Id;
-                    book.Name = eBook.Name;
-                    book.Author = eBook.Author.Name;
-                    book.Publisher = eBook.Publisher.Name;
-                    book.Genre = eBook.Genre.Genre;
-                    book.No = eBook.No.ToString();
-                    book.Rack = eBook.Rack.RackNumber;
-                    book.Shelf = eBook.Shelf.Name;
-                    book.SkinType = Enum.GetName(typeof(SkinType), eBook.SkinType);
-                    book.Serie = eBook.Serie != null ? eBook.Serie.Name : string.Empty;
-                    book.PublishDate = eBook.PublishDate;
-                    book.CreatedDateTime = eBook.CreatedDateTime;
+                    BookDto book = new BookDto
+                    {
+                        Id = eBook.Id,
+                        Name = eBook.Name,
+                        Author = eBook.Author.Name,
+                        Publisher = eBook.Publisher.Name,
+                        Genre = eBook.Genre.Genre,
+                        No = eBook.No.ToString(),
+                        Rack = eBook.Rack.RackNumber,
+                        Shelf = eBook.Shelf.Name,
+                        SkinType = Enum.GetName(typeof(SkinType), eBook.SkinType),
+                        Serie = eBook.Serie != null ? eBook.Serie.Name : string.Empty,
+                        PublishDate = eBook.PublishDate,
+                        CreatedDateTime = eBook.CreatedDateTime
+                    };
 
 
                     bookoutput.Books.Add(book);
@@ -69,19 +71,21 @@ namespace Library.Business.Services.Book
             {
                 foreach (var eBook in books)
                 {
-                    var book = new BookDto();
-                    book.Id = eBook.Id;
-                    book.Name = eBook.Name;
-                    book.Author = eBook.Author.Name;
-                    book.Publisher = eBook.Publisher.Name;
-                    book.Genre = eBook.Genre.Genre;
-                    book.No = eBook.No.ToString();
-                    book.Rack = eBook.Rack.RackNumber;
-                    book.Shelf = eBook.Shelf.Name;
-                    book.SkinType = Enum.GetName(typeof(SkinType), eBook.SkinType);
-                    book.Serie = eBook.Serie != null ? eBook.Serie.Name : string.Empty;
-                    book.PublishDate = eBook.PublishDate;
-                    book.CreatedDateTime = eBook.CreatedDateTime;
+                    BookDto book = new BookDto
+                    {
+                        Id = eBook.Id,
+                        Name = eBook.Name,
+                        Author = eBook.Author.Name,
+                        Publisher = eBook.Publisher.Name,
+                        Genre = eBook.Genre.Genre,
+                        No = eBook.No.ToString(),
+                        Rack = eBook.Rack.RackNumber,
+                        Shelf = eBook.Shelf.Name,
+                        SkinType = Enum.GetName(typeof(SkinType), eBook.SkinType),
+                        Serie = eBook.Serie != null ? eBook.Serie.Name : string.Empty,
+                        PublishDate = eBook.PublishDate,
+                        CreatedDateTime = eBook.CreatedDateTime
+                    };
 
                     bookoutput.Books.Add(book);
                 }
@@ -117,9 +121,8 @@ namespace Library.Business.Services.Book
 
             if (!String.IsNullOrEmpty(input.No))
             {
-                int no = 0;
 
-                book.No = int.TryParse(input.No, out no) ? no : input.No.RomanToInteger();
+                book.No = int.TryParse(input.No, out int no) ? no : input.No.RomanToInteger();
             }
             else
             {
@@ -159,8 +162,7 @@ namespace Library.Business.Services.Book
                 entity.PublisherId = Int32.Parse(input.Publisher);
             }
 
-            int outValue = 0;
-            entity.SeriesId = Int32.TryParse(input.Serie, out outValue) ? outValue : (int?)null;
+            entity.SeriesId = Int32.TryParse(input.Serie, out int outValue) ? outValue : (int?)null;
 
 
             entity.PublishDate = input.PublishDate;
@@ -188,9 +190,8 @@ namespace Library.Business.Services.Book
 
             if (!String.IsNullOrEmpty(input.No))
             {
-                int no = 0;
 
-                entity.No = int.TryParse(input.No, out no) ? no : input.No.RomanToInteger();
+                entity.No = int.TryParse(input.No, out int no) ? no : input.No.RomanToInteger();
             }
             else
             {
@@ -233,19 +234,21 @@ namespace Library.Business.Services.Book
             {
                 foreach (var eBook in books)
                 {
-                    var book = new BookDto();
-                    book.Id = eBook.Id;
-                    book.Name = eBook.Name;
-                    book.Author = eBook.Author.Name;
-                    book.Publisher = eBook.Publisher.Name;
-                    book.Genre = eBook.Genre.Genre;
-                    book.No = eBook.No.ToString();
-                    book.Rack = eBook.Rack.RackNumber;
-                    book.Shelf = eBook.Shelf.Name;
-                    book.SkinType = Enum.GetName(typeof(SkinType), eBook.SkinType);
-                    book.Serie = eBook.Serie != null ? eBook.Serie.Name : string.Empty;
-                    book.PublishDate = eBook.PublishDate;
-                    book.CreatedDateTime = eBook.CreatedDateTime;
+                    BookDto book = new BookDto
+                    {
+                        Id = eBook.Id,
+                        Name = eBook.Name,
+                        Author = eBook.Author.Name,
+                        Publisher = eBook.Publisher.Name,
+                        Genre = eBook.Genre.Genre,
+                        No = eBook.No.ToString(),
+                        Rack = eBook.Rack.RackNumber,
+                        Shelf = eBook.Shelf.Name,
+                        SkinType = Enum.GetName(typeof(SkinType), eBook.SkinType),
+                        Serie = eBook.Serie != null ? eBook.Serie.Name : string.Empty,
+                        PublishDate = eBook.PublishDate,
+                        CreatedDateTime = eBook.CreatedDateTime
+                    };
 
                     bookoutput.Books.Add(book);
                 }
@@ -271,19 +274,21 @@ namespace Library.Business.Services.Book
             {
                 foreach (var eBook in books)
                 {
-                    var book = new BookDto();
-                    book.Id = eBook.Id;
-                    book.Name = eBook.Name;
-                    book.Author = eBook.Author.Name;
-                    book.Publisher = eBook.Publisher.Name;
-                    book.Genre = eBook.Genre.Genre;
-                    book.No = eBook.No.ToString();
-                    book.Rack = eBook.Rack.RackNumber;
-                    book.Shelf = eBook.Shelf.Name;
-                    book.SkinType = Enum.GetName(typeof(SkinType), eBook.SkinType);
-                    book.Serie = eBook.Serie != null ? eBook.Serie.Name : string.Empty;
-                    book.PublishDate = eBook.PublishDate;
-                    book.CreatedDateTime = eBook.CreatedDateTime;
+                    BookDto book = new BookDto
+                    {
+                        Id = eBook.Id,
+                        Name = eBook.Name,
+                        Author = eBook.Author.Name,
+                        Publisher = eBook.Publisher.Name,
+                        Genre = eBook.Genre.Genre,
+                        No = eBook.No.ToString(),
+                        Rack = eBook.Rack.RackNumber,
+                        Shelf = eBook.Shelf.Name,
+                        SkinType = Enum.GetName(typeof(SkinType), eBook.SkinType),
+                        Serie = eBook.Serie != null ? eBook.Serie.Name : string.Empty,
+                        PublishDate = eBook.PublishDate,
+                        CreatedDateTime = eBook.CreatedDateTime
+                    };
 
                     bookoutput.Books.Add(book);
                 }

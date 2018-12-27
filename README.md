@@ -1,8 +1,10 @@
-## ![alt-text](https://github.com/ekinbulut/HomeLibrary/blob/develop/Logo100.png)
+# LibraryOS Service-Oriented Application
 
 This project is a service oriented CRM application which has been built on Senseframework. This project contains both host and client application and their tier developments.
 
 Project consist of several layers.
+
+[![Build status](https://ci.appveyor.com/api/projects/status/0aq4xhqco0tjd1ac?svg=true)](https://ci.appveyor.com/project/ekinbulut/homelibrary)
 
 ## 1. Runtimes
   * Library.Console  - self hosted console application
@@ -30,14 +32,14 @@ SenseFramework is a tool to develop n-tier applications easily. It provides seve
 
 After pulling the project, you need to open PM from Visual Studio and type Update-Database command. Database will be created initially. If you want to add users and roles to your database so that you need to write your own code on HomeLibrary/Tiers/Data/Library.Data/Migrations/Configuration.cs to insert records.
 
-
+add users and roles for initial usage.
 ### Application Startup
 
 Library.Console application must be run as an administator. It will be hosting services as a WCF endpoint.
 
 ### Service bindings
 
-At initial run services will be served from local ip adress from ports 8056 to 8098. You will not be able to change the port numbers.
+At initial run services will be served from local ip adress from ports 8095 to 8098. You will not be able to change the port numbers.
 
 ### Connection string
 
