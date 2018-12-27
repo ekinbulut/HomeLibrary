@@ -13,7 +13,7 @@ namespace Library.Data.Racks.Mappings
             {
                 cs.MapLeftKey("RackRefId");
                 cs.MapRightKey("ShelfRefId");
-                cs.ToTable("XXX_SHELF_RACK");
+                cs.ToTable("SHELF_RACK");
             });
         }
     }
