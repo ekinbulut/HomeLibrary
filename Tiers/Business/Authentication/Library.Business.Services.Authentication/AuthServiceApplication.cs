@@ -66,7 +66,7 @@ namespace Library.Business.Services.Authentication
                 IsActive = true,
                 Name = input.User.Name,
 
-                // set role
+                // set role to USER role
                 ERole = _roleRepository.GetOne(2)
             };
 
