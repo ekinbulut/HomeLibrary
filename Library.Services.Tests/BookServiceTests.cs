@@ -33,12 +33,12 @@ namespace Library.Services.Tests
             EBook demo = new EBook()
             {
                 Id = 1,
-                Name = "",
+                Name = "demo",
                 Author = new EAuthor { Name = "" },
                 Publisher = new EPublisher { Name = "" },
                 Serie = new ESeries { Name = "" },
                 PublishDate = It.IsAny<int>(),
-                Genre = new EGenre {  Genre = "" },
+                Genre = new EGenre { Genre = "" },
                 No = 1,
                 SkinType = Data.Entities.Enums.SkinType.Ciltli,
                 Shelf = new EShelf { Name = "" },
@@ -47,20 +47,64 @@ namespace Library.Services.Tests
                 SeriesId = 0
             };
 
-             _bookRepository.Setup(r => r.GetAll()).Returns(
-                new List<EBook>()
-                {
+            _bookRepository.Setup(r => r.GetAll()).Returns(
+               new List<EBook>()
+               {
                     demo
-                });
+               });
 
 
 
             _bookServiceApplication = new BookServiceApplication(_bookRepository.Object, _userRepository.Object);
 
 
-            var list = _bookServiceApplication.GetBookList();
+            BookOutputDto output = _bookServiceApplication.GetBookList();
 
-            Assert.Equal(1, list.Books.Count);
+            Assert.Collection<BookDto>(output.Books, t => Assert.Contains("demo", t.Name));
+
+        }
+
+        [Fact]
+        public void WhenGetBookListByUserId_ReturnsSuccess()
+        {
+
+            EBook demo = new EBook()
+            {
+                Id = 1,
+                Name = "demo",
+                Author = new EAuthor { Name = "" },
+                Publisher = new EPublisher { Name = "" },
+                Serie = new ESeries { Name = "" },
+                PublishDate = It.IsAny<int>(),
+                Genre = new EGenre { Genre = "" },
+                No = 1,
+                SkinType = Data.Entities.Enums.SkinType.Ciltli,
+                Shelf = new EShelf { Name = "" },
+                Rack = new ERack { RackNumber = 1 },
+                CreatedDateTime = DateTime.Now,
+                SeriesId = 0
+            };
+
+            _bookRepository.Setup(m => m.GetBooksWithUserId(It.IsAny<int>()))
+                .Returns(new List<EBook>()
+                {
+                    demo
+                }.AsQueryable());
+
+            _bookServiceApplication = new BookServiceApplication(_bookRepository.Object, _userRepository.Object);
+
+            BookOutputDto output = _bookServiceApplication.GetBookListByUserId(It.IsAny<int>());
+
+            Assert.Collection<BookDto>(output.Books, t => Assert.Contains("demo", t.Name));
+
+        }
+
+        [Theory]
+        [MemberData(nameof(BookInput))]
+        public void WhenAddBook_ReturnsSuccess(BookInputDto input)
+        {
+            //TODO: setup userrepository Getone
+            //TODO: setup bookrepository createEntity
         }
 
         [Fact]
@@ -78,5 +122,16 @@ namespace Library.Services.Tests
             Assert.Throws<NullReferenceException>(() => { _bookServiceApplication.GetBookList(); });
         }
 
+
+        public static IEnumerable<object[]> BookInput()
+        {
+
+            yield return new object[] {
+
+                new BookInputDto{ },
+                new BookInputDto{ }
+
+            };
+        }
     }
 }
