@@ -59,11 +59,12 @@ namespace Library.Web.Controllers
                     },
                     "ApplicationCookie");
 
-                var properties = new AuthenticationProperties();
+                AuthenticationProperties properties = new AuthenticationProperties
+                {
+                    IsPersistent = model.RememberMe,
+                    ExpiresUtc = DateTimeOffset.UtcNow.AddDays(1.0)
+                };
 
-                properties.IsPersistent = model.RememberMe;
-                properties.ExpiresUtc = DateTimeOffset.UtcNow.AddDays(1.0);
-                
                 var ctx = Request.GetOwinContext();
                 var authManager = ctx.Authentication;
 

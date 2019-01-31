@@ -6,7 +6,6 @@ using Library.Business.Services.Integration.Dtos;
 using Library.Mvc.Cache;
 using Library.Mvc.Controllers;
 using Library.Mvc.Helpers;
-using Library.Mvc.Models;
 
 namespace Library.Web.Controllers
 {
@@ -53,7 +52,6 @@ namespace Library.Web.Controllers
                 if (result)
                 {
                     BookCache.Cache.Dictionary.Clear();
-                    //Usermodel = Session["Information"] as UserModel;
                     CurrentUserModel.BookOutputDto = null;
 
                     return RedirectToAction("Index", "Home");
