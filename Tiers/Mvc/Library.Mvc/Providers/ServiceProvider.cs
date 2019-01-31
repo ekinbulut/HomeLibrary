@@ -17,20 +17,7 @@ namespace Library.Mvc.Providers
     /// </summary>
     public class ServiceProvider
     {
-        /// <summary>
-        /// The _book service client
-        /// </summary>
-        private IBookService _bookServiceClient;
 
-        /// <summary>
-        /// The _integration service client
-        /// </summary>
-        private IIntegrationService _integrationServiceClient;
-
-        /// <summary>
-        /// The _item provider service client
-        /// </summary>
-        private IItemProvider _itemProviderServiceClient;
 
         /// <summary>
         /// Gets the book service client.
@@ -42,23 +29,10 @@ namespace Library.Mvc.Providers
         {
             get
             {
-                return _bookServiceClient = IoCManager.Container.Resolve<IBookService>();  
+                return IoCManager.Container.Resolve<IBookService>();  
             }
         }
 
-        /// <summary>
-        /// Gets the authentication service client.
-        /// </summary>
-        /// <value>
-        /// The authentication service client.
-        /// </value>
-        //public AuthServiceClient AuthServiceClient
-        //{
-        //    get
-        //    {
-        //        return new AuthServiceClient();
-        //    }
-        //}
 
         public IAuthenticationService AuthService
         {
@@ -76,7 +50,7 @@ namespace Library.Mvc.Providers
             get
             {
                 
-                return _itemProviderServiceClient = IoCManager.Container.Resolve<IItemProvider>();
+                return IoCManager.Container.Resolve<IItemProvider>();
             }
         }
 
@@ -90,9 +64,7 @@ namespace Library.Mvc.Providers
         {
             get
             {
-                _integrationServiceClient = IoCManager.Container.Resolve<IIntegrationService>();
-                
-                return _integrationServiceClient;
+                return IoCManager.Container.Resolve<IIntegrationService>();
             }
         }
     }

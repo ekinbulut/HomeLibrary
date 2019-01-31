@@ -13,9 +13,14 @@ namespace Library.Data.Series.Repositories
         {
         }
 
-        public ESeries CreateSeriesIfNotExists(string name, EPublisher publisher)
+        public ESeries CreateSeriesIfNotExists(string v, EPublisher publisher)
         {
-          return DbContext.Set<ESeries>().FirstOrDefault(x => x.Name == name) ?? CreateEntity(new ESeries {Name = name, Publisher = publisher, CreatedDateTime = DateTime.Now});
+            if (string.IsNullOrEmpty(v))
+            {
+                throw new ArgumentException("Name can not be empty", nameof(v));
+            }
+
+            return DbContext.Set<ESeries>().FirstOrDefault(x => x.Name == v) ?? CreateEntity(new ESeries {Name = v, Publisher = publisher, CreatedDateTime = DateTime.Now});
 
         }
 

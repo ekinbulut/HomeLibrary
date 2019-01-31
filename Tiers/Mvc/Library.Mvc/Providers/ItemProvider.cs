@@ -21,15 +21,7 @@ namespace Library.Mvc.Providers
         /// <summary>
         /// The provider
         /// </summary>
-        private static readonly ServiceProvider Provider;
-
-        /// <summary>
-        /// Initializes the <see cref="ItemProvider"/> class.
-        /// </summary>
-        static ItemProvider()
-        {
-            Provider = new ServiceProvider();
-        }
+        private static readonly ServiceProvider Provider = new ServiceProvider();
 
         /// <summary>
         /// Authors this instance.
@@ -44,7 +36,7 @@ namespace Library.Mvc.Providers
                 Value = authorDto.Value.ToString(),
                 Text = authorDto.Name
 
-            }).ToList().OrderBy(x=>x.Text);
+            }).OrderBy(x=>x.Text);
         }
 
         /// <summary>
@@ -60,7 +52,7 @@ namespace Library.Mvc.Providers
                 Value = pdto.Value.ToString(),
                 Text = pdto.Name
 
-            }).ToList().OrderBy(x => x.Text);
+            }).OrderBy(x => x.Text);
         }
 
         /// <summary>
@@ -76,7 +68,7 @@ namespace Library.Mvc.Providers
                 Value = t.Value.ToString(),
                 Text = t.Name
 
-            }).ToList().OrderBy(x => x.Text);
+            }).OrderBy(x => x.Text);
 
         }
 
@@ -113,7 +105,7 @@ namespace Library.Mvc.Providers
                 Value = t.Value.ToString(),
                 Text = t.Name
 
-            }).ToList().OrderBy(x => x.Text);
+            }).OrderBy(x => x.Text);
         }
 
         /// <summary>
@@ -129,7 +121,7 @@ namespace Library.Mvc.Providers
                 Value = t.Value.ToString(),
                 Text = t.Name
 
-            }).ToList().OrderBy(x => x.Text);
+            }).OrderBy(x => x.Text);
         }
 
         /// <summary>

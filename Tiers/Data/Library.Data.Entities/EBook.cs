@@ -24,7 +24,6 @@ namespace Library.Data.Entities
         public virtual int GenreId { get; set; }
         public virtual int ShelfId { get; set; }
         public virtual int RackId { get; set; }
-        //public virtual int UserId { get; set; }
 
         public EBook()
         {
