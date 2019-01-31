@@ -12,15 +12,8 @@ namespace Library.Business.Services.Integration.Parser
     /// </summary>
     public static class OleDbAConnector
     {
-        /// <summary>
-        /// The connection string
-        /// </summary>
-        public static string ConnectionStr;
-
-        /// <summary>
-        /// The sheet name
-        /// </summary>
-        public static string SheetName;
+        public static string ConnectionStr { get; set; }
+        public static string SheetName { get; set; }
 
         /// <summary>
         /// Executes the OLE database connection.

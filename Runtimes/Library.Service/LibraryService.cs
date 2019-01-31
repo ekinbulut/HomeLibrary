@@ -1,4 +1,5 @@
-﻿using System.ServiceProcess;
+﻿using System;
+using System.ServiceProcess;
 using System.Threading;
 using System.Threading.Tasks;
 using SenseFramework;
@@ -22,12 +23,11 @@ namespace Library.Service
             });
 
             task.Start();
-
-            //new Task(Start).Start();
         }
 
         protected override void OnStop()
         {
+            throw new NotSupportedException();
         }
 
         public void Start()

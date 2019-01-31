@@ -1,89 +1,86 @@
-﻿using System.Web.Optimization;
+﻿using Library.Web.Helpers;
+using System.Web.Optimization;
 
 namespace Library.Web
 {
-    public class BundleConfig
+    public static class BundleConfig
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
-            //bundles.Add(new ScriptBundle("~/bundles/jquery")
-            //   .Include("~/plugins/jQuery/jQuery-{version}.min.js"));
-
             bundles.UseCdn = true;
 
+            AddSciptBundles(bundles);
+            AddStyleBundles(bundles);
 
-            #region [ Script Bundles ]
+            BundleTable.EnableOptimizations = true;
+        }
 
-
-            // register jquery bundle from local file
-            bundles.Add(new ScriptBundle("~/bundles/js/jquery")
-                .Include("~/plugins/jQuery/jQuery-2.1.4.min.js"));
+        private static void AddSciptBundles(BundleCollection bundles)
+        {
+                        // register jquery bundle from local file
+            bundles.Add(new ScriptBundle(ScriptBundleParameters.JqueryBundles)
+                .Include(ScriptBundleParameters.JqueryPlugins));
 
             // register local js files
-            bundles.Add(new ScriptBundle("~/bundles/js/scripts")
+            bundles.Add(new ScriptBundle(ScriptBundleParameters.JqueryBundleScripts)
                 .Include(
-                "~/bootstrap/js/bootstrap.min.js",
-                "~/plugins/slimScroll/jquery.slimscroll.min.js",
-                "~/plugins/fastclick/fastclick.js",
-                "~/dist/js/app.min.js",
-                "~/dist/js/demo.js"));
+                ScriptBundleParameters.BootStrapMinJs,
+                ScriptBundleParameters.JquerySlimScroll,
+                ScriptBundleParameters.FastClick,
+                ScriptBundleParameters.AppMinJs,
+                ScriptBundleParameters.Demo));
 
             // register datatable scripts from cdn
-            string uikitjs = "https://cdn.datatables.net/1.10.15/js/dataTables.uikit.min.js";
-            string datatablesjs = "https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js";
+            string uikitjs = ScriptBundleParameters.UIKitJs;
+            string datatablesjs = ScriptBundleParameters.DataTableJs;
 
-            bundles.Add(new ScriptBundle("~/bundles/js/uikit", uikitjs));
-            bundles.Add(new ScriptBundle("~/bundles/js/datatablesjs", datatablesjs));
+            bundles.Add(new ScriptBundle(ScriptBundleParameters.UIKitJsBundle, uikitjs));
+            bundles.Add(new ScriptBundle(ScriptBundleParameters.DataTableJsBundle, datatablesjs));
 
 
 
             // register custom js files for database
-            bundles.Add(new ScriptBundle("~/bundles/js/datatable")
+            bundles.Add(new ScriptBundle(ScriptBundleParameters.CustomDataTableJsBundle)
                 .Include(
-                "~/Scripts/modifydatatable.js",
-                "~/plugins/datatables/extentions/Responsive/js/dataTables.responsive.min.js"));
+                ScriptBundleParameters.CustomDataTableScript,
+                ScriptBundleParameters.CustomDataTablePlugin));
 
             // register morris
-            string morris = "https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js";
+            string morris = ScriptBundleParameters.Morris;
 
-            bundles.Add(new ScriptBundle("~/bundles/js/cdn/morris",morris));
-            bundles.Add(new ScriptBundle("~/bundles/js/morris").Include("~/plugins/morris/morris.js"));
+            bundles.Add(new ScriptBundle(ScriptBundleParameters.MorrisCdnBundle,morris));
+            bundles.Add(new ScriptBundle(ScriptBundleParameters.MorrisBundle)
+                .Include(ScriptBundleParameters.MorrisScript));
 
-            #endregion
+        }
 
-            #region [ Style Bundles ]
-
+        private static void AddStyleBundles(BundleCollection bundles)
+        {
             // register local css
-            bundles.Add(new StyleBundle("~/bundles/css")
+            bundles.Add(new StyleBundle(StyleBundleParameters.Css)
                 .Include(
-                    "~/bootstrap/css/bootstrap.min.css",
-                    "~/dist/css/AdminLTE.min.css",
-                    "~/dist/css/skins/_all-skins.min.css"));
+                    StyleBundleParameters.BootStrapMinJs,
+                    StyleBundleParameters.AdminLTE,
+                    StyleBundleParameters.Skins));
 
             // register bootstrap and ionic
-            string bootstrap = "https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css";
-            string ionicCdn = "https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css";
+            string bootstrap = StyleBundleParameters.BootstrapCDN;
+            string ionicCdn = StyleBundleParameters.IonicCDN;
 
-            bundles.Add(new StyleBundle("~/bundles/css/bootstrap", bootstrap));
-            bundles.Add(new StyleBundle("~/bundles/css/ionic", ionicCdn));
+            bundles.Add(new StyleBundle(StyleBundleParameters.BootstrapCss, bootstrap));
+            bundles.Add(new StyleBundle(StyleBundleParameters.IonicCss, ionicCdn));
 
             // register uikit
-            string uikit = "https://cdn.datatables.net/1.10.15/css/dataTables.uikit.min.css";
-            string uikitmin = "//cdnjs.cloudflare.com/ajax/libs/uikit/2.24.3/css/uikit.min.css";
+            string uikit = StyleBundleParameters.UIKitCssCDN;
+            string uikitmin = StyleBundleParameters.UIKitCssMinCDN;
 
-            bundles.Add(new StyleBundle("~/bundles/css/uikit", uikit));
-            bundles.Add(new StyleBundle("~/bundles/css/uikitmin", uikitmin));
+            bundles.Add(new StyleBundle(StyleBundleParameters.UIKitCss, uikit));
+            bundles.Add(new StyleBundle(StyleBundleParameters.UIKitCssMin, uikitmin));
 
             // register morris
-            bundles.Add(new StyleBundle("~/bundles/css/morris")
-                .Include("~/plugins/morris/morris.css"));
+            bundles.Add(new StyleBundle(StyleBundleParameters.MorrisCssBundle)
+                .Include(StyleBundleParameters.MorrisCss));
 
-
-
-            #endregion
-
-
-            BundleTable.EnableOptimizations = true;
         }
     }
 }

@@ -11,7 +11,7 @@ namespace Library.Business.Services.Book
 {
     public class BookModuleRegisterar : IServiceApplication
     {
-        private ILogger _logger;
+        private readonly ILogger _logger;
 
         public BookModuleRegisterar(ILogger logger)
         {
@@ -20,7 +20,6 @@ namespace Library.Business.Services.Book
 
         public void RegisterServices(IWindsorContainer container)
         {
-           // string baseAddress = ConfigurationManager.AppSettings["BookServiceHost"];
             var ipaddress = IpFinder.GetLocalIpAddress();
 
             string baseAddress = $"http://{ipaddress}:8097/services/";

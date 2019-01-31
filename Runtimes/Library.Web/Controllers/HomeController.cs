@@ -218,8 +218,6 @@ namespace Library.Web.Controllers
                 return RedirectToAction("AddBook", "Home");
             }
 
-            //CurrentUserModel = Session["Information"] as CurrentUserModel;
-
             return View(CurrentUserModel);
         }
 
@@ -242,8 +240,6 @@ namespace Library.Web.Controllers
             {
                 return RedirectToAction("AddBook", "Home");
             }
-
-            //CurrentUserModel = Session["Information"] as CurrentUserModel;
 
             return View(CurrentUserModel);
         }

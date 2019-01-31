@@ -4,21 +4,17 @@ namespace Library.Business.Services.Helper
 {
     public static class NumericConverter
     {
-        private static readonly Dictionary<char, int> RomanMap;
-
-        static NumericConverter()
+        private static readonly Dictionary<char, int> RomanMap = new Dictionary<char, int>
         {
-            RomanMap = new Dictionary<char, int>
-            {
-                {'I', 1},
-                {'V', 5},
-                {'X', 10},
-                {'L', 50},
-                {'C', 100},
-                {'D', 500},
-                {'M', 1000}
-            };
-        }
+             {'I', 1},
+             {'V', 5},
+             {'X', 10},
+             {'L', 50},
+             {'C', 100},
+             {'D', 500},
+             {'M', 1000}
+        };
+
 
         public static int? RomanToInteger(this string roman)
         {

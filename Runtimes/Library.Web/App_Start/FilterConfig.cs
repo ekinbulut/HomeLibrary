@@ -2,7 +2,7 @@ using System.Web.Mvc;
 
 namespace Library.Web
 {
-    public partial class FilterConfig
+    public static partial class FilterConfig
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {

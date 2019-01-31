@@ -15,11 +15,9 @@ namespace Library.Data.Books.Mappings
             Property(x => x.PublishDate).IsRequired();
             HasRequired(x => x.Genre).WithMany(x=>x.Books).HasForeignKey(x=>x.GenreId);
             Property(x => x.No).IsOptional();
-            //Property(x => x.No).HasMaxLength(15).IsOptional();
             HasRequired(x => x.Shelf).WithMany(x=>x.Books).HasForeignKey(x=>x.ShelfId);
             HasRequired(x => x.Rack).WithMany(x=>x.Books).HasForeignKey(x=>x.RackId);
             HasOptional(x=>x.Serie).WithMany(x=>x.Books).HasForeignKey(x=>x.SeriesId);
-            //HasRequired(x=>x.User).WithMany(x=>x.Books).HasForeignKey(x=>x.UserId);
 
             HasMany(x => x.Users).WithMany(x => x.Books).Map(tbl =>
             {

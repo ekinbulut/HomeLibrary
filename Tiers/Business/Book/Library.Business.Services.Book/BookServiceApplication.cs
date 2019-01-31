@@ -149,8 +149,6 @@ namespace Library.Business.Services.Book
         {
             var entity = _bookRepository.GetOne(input.Id);
 
-            //todo: change entity
-
             entity.Name = input.Name;
 
             if (!input.Author.IsNullOrEmpty())
@@ -223,7 +221,7 @@ namespace Library.Business.Services.Book
             BookOutputDto bookoutput = new BookOutputDto();
 
             // get book count for related user
-            var count = _bookRepository.GetBooksWithUserId(userId).ToList().Count();
+            int count = _bookRepository.GetBooksWithUserId(userId).ToList().Count();
 
             bookoutput.TotalBook = count;
 
@@ -263,7 +261,7 @@ namespace Library.Business.Services.Book
             BookOutputDto bookoutput = new BookOutputDto();
 
             // get book count for related user
-            var count = _bookRepository.GetBooksSearchRangeBy(searchKey, userId).ToList().Count();
+            int count = _bookRepository.GetBooksSearchRangeBy(searchKey, userId).ToList().Count();
 
             bookoutput.TotalBook = count;
 

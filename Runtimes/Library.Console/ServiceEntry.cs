@@ -9,7 +9,7 @@ namespace Library.Console
     {
         public bool Start(HostControl hostControl)
         {
-            MainAsync(null).Start();
+            MainAsync().Start();
 
             return true;
         }
@@ -20,7 +20,7 @@ namespace Library.Console
         }
 
 
-        private Task MainAsync(string[] args)
+        private Task MainAsync()
         {
 
             return new Task(() =>
@@ -28,9 +28,6 @@ namespace Library.Console
                 try
                 {
                     var fm = new SenseFrameworkModule();
-#pragma warning disable CS0612 // Type or member is obsolete
-                    fm.TrackMessages += Fm_TrackMessages;
-#pragma warning restore CS0612 // Type or member is obsolete
 
                     fm.StartUp();
 
@@ -45,11 +42,6 @@ namespace Library.Console
                 }
             });
 
-        }
-
-        private void Fm_TrackMessages(string message)
-        {
-            System.Console.WriteLine(message);
         }
     }
 

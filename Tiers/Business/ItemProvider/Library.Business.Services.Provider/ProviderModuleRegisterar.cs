@@ -12,7 +12,7 @@ namespace Library.Business.Services.Provider
     public class ProviderModuleRegisterar : IServiceApplication
 
     {
-        private ILogger _logger;
+        private readonly ILogger _logger;
 
         public ProviderModuleRegisterar(ILogger logger)
         {
@@ -25,7 +25,6 @@ namespace Library.Business.Services.Provider
         /// <param name="container">The container.</param>
         public void RegisterServices(IWindsorContainer container)
         {
-            //string baseAddress = ConfigurationManager.AppSettings["ProviderServiceHost"];
             var ipaddress = IpFinder.GetLocalIpAddress();
 
             string baseAddress = $"http://{ipaddress}:8098/services/";

@@ -5,7 +5,7 @@ using Topshelf;
 
 namespace Library.Console
 {
-    class Program
+    static class Program
     {
         private static void Main(string[] args)
         {

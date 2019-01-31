@@ -48,7 +48,7 @@ namespace Library.Business.Services.Integration.Parser
                 _logger.Error("Upload folder is not configured.");
 
                 return false;
-            };
+            }
 
             return true;
         }

@@ -12,7 +12,7 @@ namespace Library.Business.Services.Authentication
 {
     public class AuthenticationModuleRegisterar : IServiceApplication
     {
-        private ILogger _logger;
+        private readonly ILogger _logger;
 
         public AuthenticationModuleRegisterar(ILogger logger)
         {
@@ -21,7 +21,6 @@ namespace Library.Business.Services.Authentication
 
         public void RegisterServices(IWindsorContainer container)
         {
-            //string baseAddress = ConfigurationManager.AppSettings["AuthHost"];
             var ipaddress = IpFinder.GetLocalIpAddress();
 
             string baseAddress = $"http://{ipaddress}:8095/services/";

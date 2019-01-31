@@ -13,7 +13,7 @@ namespace Library.Business.Services.Integration
 {
     public class IntegrationModuleRegisterar : IServiceApplication
     {
-        private ILogger _logger;
+        private readonly ILogger _logger;
 
         public IntegrationModuleRegisterar(ILogger logger)
         {
@@ -22,20 +22,11 @@ namespace Library.Business.Services.Integration
 
         public void RegisterServices(IWindsorContainer container)
         {
-            container.Register(
-                Component.For<IFileReciever>().ImplementedBy<FileReciever>().LifestyleTransient());
+            AddApplications(container);
 
-            container.Register(
-                Component.For<IParserApplication>().ImplementedBy<ExcelParserApplication>().LifestyleSingleton());
-
-            container.Register(
-                Component.For<IImporter>().ImplementedBy<Importer>().LifestyleSingleton());
-
-            //string baseAddress = ConfigurationManager.AppSettings["IntegrationServiceHost"];
             var ipaddress = IpFinder.GetLocalIpAddress();
 
             string baseAddress = $"http://{ipaddress}:8096/services/";
-
 
             container.Register(
                 Component.For<IIntegrationService>().ImplementedBy<IntegrationServiceApplication>()
@@ -54,6 +45,18 @@ namespace Library.Business.Services.Integration
                         .AddBaseAddresses(new Uri(baseAddress + "integration"))).LifestylePerWcfOperation());
 
             _logger.Info($"Server endpoint on : {baseAddress}integration");
+        }
+
+        private void AddApplications(IWindsorContainer container)
+        {
+            container.Register(
+                Component.For<IFileReciever>().ImplementedBy<FileReciever>().LifestyleTransient());
+
+            container.Register(
+                Component.For<IParserApplication>().ImplementedBy<ExcelParserApplication>().LifestyleSingleton());
+
+            container.Register(
+                Component.For<IImporter>().ImplementedBy<Importer>().LifestyleSingleton());
 
 
         }
