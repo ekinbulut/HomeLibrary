@@ -18,7 +18,12 @@ namespace Library.Business.Services.Provider
         private readonly IShelfRepository _shelfRepository;
         private readonly IRackRepository _rackRepository;
 
-        public ItemProviderServiceApplication(IAuthorRepository authorRepository, IPublisherRepository publisherRepository, IGenreRepository genreRepository, ISeriesRepository seriesRepository, IShelfRepository shelfRepository, IRackRepository rackRepository)
+        public ItemProviderServiceApplication(IAuthorRepository authorRepository
+            , IPublisherRepository publisherRepository
+            , IGenreRepository genreRepository
+            , ISeriesRepository seriesRepository
+            , IShelfRepository shelfRepository
+            , IRackRepository rackRepository)
         {
             _authorRepository = authorRepository;
             _publisherRepository = publisherRepository;
@@ -116,7 +121,7 @@ namespace Library.Business.Services.Provider
         {
             var output = new ShelfOutputDto();
 
-            foreach (var s in _seriesRepository.GetAll())
+            foreach (var s in _shelfRepository.GetAll())
             {
                  output.ShelfDtos.Add(new ShelfDto
                 {

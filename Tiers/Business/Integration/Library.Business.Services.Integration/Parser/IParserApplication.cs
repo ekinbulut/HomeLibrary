@@ -6,8 +6,6 @@ namespace Library.Business.Services.Integration.Parser
     {
         DataTable ReadExcelFile(string filepath);
 
-        DataTable ReadExcelFile();
-
         DataTable ReadCSVFile(string filepath);
     }
 }

@@ -59,6 +59,7 @@
     <Compile Include="Book\Dtos\BookInputDto.cs" />
     <Compile Include="Book\Dtos\BookOutputDto.cs" />
     <Compile Include="Book\IBookService.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Helper\IpFinder.cs" />
     <Compile Include="Helper\NumericConverter.cs" />
     <Compile Include="Integration\Dtos\AuthorDto.cs" />

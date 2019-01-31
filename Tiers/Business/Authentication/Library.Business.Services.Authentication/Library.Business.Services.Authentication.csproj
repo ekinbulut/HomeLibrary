@@ -86,6 +86,7 @@
   <ItemGroup>
     <Compile Include="AuthenticationModuleRegisterar.cs" />
     <Compile Include="AuthServiceApplication.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
