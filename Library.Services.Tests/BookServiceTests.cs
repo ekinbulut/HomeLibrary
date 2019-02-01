@@ -100,11 +100,59 @@ namespace Library.Services.Tests
         }
 
         [Theory]
-        [MemberData(nameof(BookInput))]
+        [MemberData(nameof(BookInputDto))]
         public void WhenAddBook_ReturnsSuccess(BookInputDto input)
         {
-            //TODO: setup userrepository Getone
-            //TODO: setup bookrepository createEntity
+            _userRepository.Setup(m => m.GetOne(It.IsAny<int>())).Returns(new EUser());
+            _bookRepository.Setup(m => m.CreateEntity(It.IsAny<EBook>())).Returns(new EBook());
+
+            _bookServiceApplication = new BookServiceApplication(_bookRepository.Object, _userRepository.Object);
+            bool result = _bookServiceApplication.AddBook(input);
+
+            Assert.True(result);
+        }
+
+        [Theory]
+        [MemberData(nameof(BookDto))]
+        public void WhenUpdateBook_ReturnSuccess(BookDto input)
+        {
+            EBook book = new EBook
+            {
+                Name = "DEMO",
+                AuthorId = 1,
+                PublisherId = 1,
+                SeriesId = 1,
+                PublishDate = 1,
+                GenreId = 1,
+                ShelfId = 1,
+                RackId = 1,
+            };
+
+
+            _bookRepository.Setup(m => m.GetOne(input.Id)).Returns(book);
+
+            _bookRepository.Setup(m => m.UpdateEntity(book)).Returns(true);
+
+
+            _bookServiceApplication = new BookServiceApplication(_bookRepository.Object, _userRepository.Object);
+
+            bool result = _bookServiceApplication.UpdateBook(input);
+
+            Assert.True(result);
+        }
+
+        [Theory]
+        [MemberData(nameof(BookDto))]
+        public void WhenDeleteBook_ReturnSucess(BookDto input)
+        {
+
+            _bookRepository.Setup(m => m.DeleteEntity(input.Id)).Returns(true);
+
+            _bookServiceApplication = new BookServiceApplication(_bookRepository.Object, _userRepository.Object);
+            bool result = _bookServiceApplication.DeleteBook(input);
+
+            Assert.True(result);
+
         }
 
         [Fact]
@@ -123,15 +171,17 @@ namespace Library.Services.Tests
         }
 
 
-        public static IEnumerable<object[]> BookInput()
+        public static IEnumerable<object[]> BookInputDto = new List<object[]>
         {
+            new object[]{ new BookInputDto { SkinType = 1, Name = "DEMO", Serie = 0, Author = 1, PublishDate = 1, Publisher = 1, Genre = 1, Shelf = 1, Rack = 1 } },
+            new object[]{ new BookInputDto { SkinType = 1, Name = "DEMO", Serie = 0, Author = 1, PublishDate = 1, Publisher = 1, Genre = 1, Shelf = 1, Rack = 1, No = "1" } }
+        };
 
-            yield return new object[] {
+        public static IEnumerable<object[]> BookDto = new List<object[]>
+        {
+            new object[]{ new BookDto { Id = 1, Name ="DEMO", Author = "1", Publisher = "1", Serie = "1", PublishDate = 1, Genre = "1", SkinType = "1", Shelf = "1", Rack=1, No = "1"  } },
+            new object[]{ new BookDto { Id = 1, Name ="DEMO", Author = "1", Publisher = "1", Serie = "", PublishDate = 1, Genre = "1", SkinType = "1", Shelf = "1", Rack=1, No = ""  } },
+        };
 
-                new BookInputDto{ },
-                new BookInputDto{ }
-
-            };
-        }
     }
 }

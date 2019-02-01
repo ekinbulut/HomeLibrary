@@ -115,7 +115,6 @@ namespace Library.Business.Services.Book
                 GenreId = input.Genre,
                 ShelfId = input.Shelf,
                 RackId = input.Rack
-                //No = int.TryParse(input.No, out number) ? number : (int?) null
             };
 
 
