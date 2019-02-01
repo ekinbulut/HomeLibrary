@@ -156,6 +156,54 @@ namespace Library.Services.Tests
         }
 
         [Fact]
+        public void WhenGetBooksRangeBy_ReturnsSuccess()
+        {
+
+            EBook book = new EBook
+            {
+                Id = 1,
+                Name = "demo",
+                Author = new EAuthor { Name = "" },
+                Publisher = new EPublisher { Name = "" },
+                Serie = new ESeries { Name = "" },
+                PublishDate = It.IsAny<int>(),
+                Genre = new EGenre { Genre = "" },
+                No = 1,
+                SkinType = Data.Entities.Enums.SkinType.Ciltli,
+                Shelf = new EShelf { Name = "" },
+                Rack = new ERack { RackNumber = 1 },
+                CreatedDateTime = DateTime.Now,
+                SeriesId = 0
+
+            };
+
+            _bookRepository.Setup(r => r.GetBooksWithUserId(It.IsAny<int>())).Returns(new List<EBook>() { book }.AsQueryable());
+            _bookRepository.Setup(r => r.GetBooksRangeBy(It.IsAny<int>(), It.IsAny<int>(), It.IsAny<int>())).Returns(new List<EBook>() { book }.AsQueryable());
+
+            _bookServiceApplication = new BookServiceApplication(_bookRepository.Object, _userRepository.Object);
+
+            var result = _bookServiceApplication.GetBooksRangeBy(0, 10, 1);
+
+            Assert.Equal(1, result.TotalBook);
+        }
+
+
+        [Fact]
+        public void WhenGetBooksSearchRangeBy_ReturnsSuccess()
+        {
+
+            IQueryable<EBook> list = Ebooks.AsQueryable();
+
+            _bookRepository.Setup(r => r.GetBooksSearchRangeBy("de", It.IsAny<int>())).Returns(list);
+
+            _bookServiceApplication = new BookServiceApplication(_bookRepository.Object, _userRepository.Object);
+
+            var result = _bookServiceApplication.GetBooksSearchRangeBy(0, 10, "de", 1);
+
+            Assert.Equal(list.Count(), result.TotalBook);
+        }
+
+        [Fact]
         public void WhenGetBookListMethodCall_ThrowNullReferenceException()
         {
             _bookRepository.Setup(r => r.GetAll()).Returns(
@@ -182,6 +230,45 @@ namespace Library.Services.Tests
             new object[]{ new BookDto { Id = 1, Name ="DEMO", Author = "1", Publisher = "1", Serie = "1", PublishDate = 1, Genre = "1", SkinType = "1", Shelf = "1", Rack=1, No = "1"  } },
             new object[]{ new BookDto { Id = 1, Name ="DEMO", Author = "1", Publisher = "1", Serie = "", PublishDate = 1, Genre = "1", SkinType = "1", Shelf = "1", Rack=1, No = ""  } },
         };
+
+        public static IEnumerable<EBook> Ebooks= new List<EBook>
+        {
+             new EBook
+            {
+                Id = 1,
+                Name = "demo",
+                Author = new EAuthor { Name = "" },
+                Publisher = new EPublisher { Name = "" },
+                Serie = new ESeries { Name = "" },
+                PublishDate = It.IsAny<int>(),
+                Genre = new EGenre { Genre = "" },
+                No = 1,
+                SkinType = Data.Entities.Enums.SkinType.Ciltli,
+                Shelf = new EShelf { Name = "" },
+                Rack = new ERack { RackNumber = 1 },
+                CreatedDateTime = DateTime.Now,
+                SeriesId = 0
+
+            },
+            new EBook
+            {
+                Id = 2,
+                Name = "ekin",
+                Author = new EAuthor { Name = "" },
+                Publisher = new EPublisher { Name = "" },
+                Serie = new ESeries { Name = "" },
+                PublishDate = It.IsAny<int>(),
+                Genre = new EGenre { Genre = "" },
+                No = 1,
+                SkinType = Data.Entities.Enums.SkinType.Ciltli,
+                Shelf = new EShelf { Name = "" },
+                Rack = new ERack { RackNumber = 1 },
+                CreatedDateTime = DateTime.Now,
+                SeriesId = 0
+
+            }
+        };
+
 
     }
 }
