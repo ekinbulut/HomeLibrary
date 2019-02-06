@@ -98,6 +98,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthServiceTests.cs" />
     <Compile Include="BookServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -136,6 +137,10 @@
     <ProjectReference Include="..\Tiers\Data\Library.Data.Entities\Library.Data.Entities.csproj">
       <Project>{88ABC499-F459-4779-8988-E6C775C65577}</Project>
       <Name>Library.Data.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tiers\Data\Library.Data.Roles\Library.Data.Roles.csproj">
+      <Project>{9BB3CF11-A664-4A24-A620-13D7C0A4DF05}</Project>
+      <Name>Library.Data.Roles</Name>
     </ProjectReference>
     <ProjectReference Include="..\Tiers\Data\Library.Data.Users\Library.Data.Users.csproj">
       <Project>{BC27B622-F2A5-4665-B6D6-1C1679635CA6}</Project>
