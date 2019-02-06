@@ -1,8 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Library.Business.Services.Helper
+namespace Library.Common
 {
-    public static class NumericConverter
+    public static class ExtentionMethods
     {
         private static readonly Dictionary<char, int> RomanMap = new Dictionary<char, int>
         {
