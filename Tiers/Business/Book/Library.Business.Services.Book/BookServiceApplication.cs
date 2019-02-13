@@ -7,6 +7,7 @@ using Library.Data.Entities;
 using Library.Data.Books.Repositories;
 using Library.Data.Users.Repositories;
 using Library.Data.Entities.Enums;
+using Library.Common;
 
 namespace Library.Business.Services.Book
 {
@@ -115,7 +116,6 @@ namespace Library.Business.Services.Book
                 GenreId = input.Genre,
                 ShelfId = input.Shelf,
                 RackId = input.Rack
-                //No = int.TryParse(input.No, out number) ? number : (int?) null
             };
 
 

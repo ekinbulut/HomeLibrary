@@ -1,8 +1,9 @@
 ﻿@using System.Web.Optimization
+@using Library.Web.Helpers
 @model Library.Mvc.Models.UserModel
 
-@Scripts.Render("~/bundles/js/cdn/morris")
-@Scripts.Render("~/bundles/js/morris")
+@Scripts.Render(ScriptBundleParameters.MorrisCdnBundle)
+@Scripts.Render(ScriptBundleParameters.MorrisBundle)
 
 @{
     ViewBag.Title = "Analytics";
@@ -11,7 +12,8 @@
 
     if (Model.BookOutputDto.Books.Count > 0)
     {
-        data = Model.BookOutputDto.Books.GroupBy(b => b.CreatedDateTime.ToString("yyyy-MM")).Skip(1).ToDictionary(a => a.Key, a => a.Count());
+
+        data = Model.BookOutputDto.Books.ToList().GroupBy(b => b.CreatedDateTime.ToString("yyyy-MM")).Skip(1).ToDictionary(a => a.Key, a => a.Count());
 
     }
 
@@ -62,7 +64,7 @@
                 <!-- small box -->
                 <div class="small-box bg-green">
                     <div class="inner">
-                        <h3>@Model.BookOutputDto.Books.GroupBy(x=>x.Shelf).Count()</h3>
+                        <h3>@Model.BookOutputDto.Books.GroupBy(x => x.Shelf).Count()</h3>
 
                         <p>Shelfs</p>
                     </div>
@@ -79,7 +81,7 @@
                 <!-- small box -->
                 <div class="small-box bg-yellow">
                     <div class="inner">
-                        <h3>@Model.BookOutputDto.Books.Where(x=>x.SkinType == "Ciltli").Count()</h3>
+                        <h3>@Model.BookOutputDto.Books.Where(x => x.SkinType == "Ciltli").Count()</h3>
 
                         <p>With Cover</p>
                     </div>
@@ -96,7 +98,7 @@
                 <!-- small box -->
                 <div class="small-box bg-lime">
                     <div class="inner">
-                        <h3>@Model.BookOutputDto.Books.GroupBy(x=>x.Author).Count()</h3>
+                        <h3>@Model.BookOutputDto.Books.GroupBy(x => x.Author).Count()</h3>
 
                         <p>Authors</p>
                     </div>
@@ -119,24 +121,24 @@
                 <table class="table table-bordered">
                     <tr>
                         <th style="width: 10px">#</th>
-                        <th>@Html.LabelFor(m=>m.Name , "Name")</th>
-                        <th>@Html.LabelFor(m=>m.AuthorModel.Name, "Author")</th>
+                        <th>@Html.LabelFor(m => m.Name, "Name")</th>
+                        <th>@Html.LabelFor(m => m.AuthorModel.Name, "Author")</th>
                         <th>@Html.LabelFor(m => m.BookModel.Publisher, "Publisher")</th>
-                        <th>@Html.LabelFor(m=>m.BookModel.Shelf, "Shelf No")</th>
+                        <th>@Html.LabelFor(m => m.BookModel.Shelf, "Shelf No")</th>
                         <th>@Html.LabelFor(m => m.BookModel.Rack, "Rack No")</th>
-                        <th style="width: 40px">@Html.LabelFor(m => m.BookDto.CreatedDateTime,"Created")</th>
+                        <th style="width: 40px">@Html.LabelFor(m => m.BookDto.CreatedDateTime, "Created")</th>
                     </tr>
                     @foreach (var m in Model.BookOutputDto.Books.OrderByDescending(x => x.CreatedDateTime).Take(5))
                     {
-                    <tr>
-                        <td>@m.Id</td>
-                        <td>@m.Name</td>
-                        <td>@m.Author</td>
-                        <td>@m.Publisher</td>
-                        <td>@m.Shelf</td>
-                        <td>@m.Rack</td>
-                        <td>@m.CreatedDateTime.ToString("dd.MM.yyyy")</td>
-                    </tr>
+                        <tr>
+                            <td>@m.Id</td>
+                            <td>@m.Name</td>
+                            <td>@m.Author</td>
+                            <td>@m.Publisher</td>
+                            <td>@m.Shelf</td>
+                            <td>@m.Rack</td>
+                            <td>@m.CreatedDateTime.ToString("dd.MM.yyyy")</td>
+                        </tr>
                     }
 
                 </table>

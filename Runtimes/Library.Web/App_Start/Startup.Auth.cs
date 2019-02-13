@@ -16,7 +16,6 @@ namespace Library.Web
             {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
                 LoginPath = new PathString("/Authentication/Index"),
-                //CookieSecure = CookieSecureOption.SameAsRequest
             });
 
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
