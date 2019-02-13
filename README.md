@@ -4,7 +4,9 @@ This project is a service oriented CRM application which has been built on Sense
 
 Project consist of several layers.
 
-[![Build status](https://ci.appveyor.com/api/projects/status/0aq4xhqco0tjd1ac?svg=true)](https://ci.appveyor.com/project/ekinbulut/homelibrary)
+[![Build status](https://ci.appveyor.com/api/projects/status/20uv4v5re5a036f4?svg=true)](https://ci.appveyor.com/project/ekinbulut/homelibrary)
+
+[![Build status](https://ci.appveyor.com/api/projects/status/20uv4v5re5a036f4/branch/master?svg=true)](https://ci.appveyor.com/project/ekinbulut/homelibrary/branch/master)
 
 ## 1. Runtimes
   * Library.Console  - self hosted console application
