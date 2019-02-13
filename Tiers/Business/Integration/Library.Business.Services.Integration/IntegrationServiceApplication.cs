@@ -2,12 +2,15 @@
 using System.Configuration;
 using System.Data;
 using System.IO;
-using Castle.Core.Internal;
 using Castle.Core.Logging;
-using Library.Business.Services.Helper;
-using Library.Business.Services.Integration.Dtos;
-using Library.Business.Services.Integration.Model;
-using Library.Business.Services.Integration.Parser;
+
+
+namespace Library.Business.Services.Integration
+{
+using Dtos;
+using Model;
+using Parser;
+using Validations;
 using Library.Data.Entities;
 using Library.Data.Entities.Enums;
 using Library.Data.Books.Repositories;
@@ -18,10 +21,9 @@ using Library.Data.Shelfs.Repositories;
 using Library.Data.Racks.Repositories;
 using Library.Data.Users.Repositories;
 using Library.Data.Series.Repositories;
+using Library.Common;
 
-namespace Library.Business.Services.Integration
-{
-    public class IntegrationServiceApplication : IIntegrationService, IValidation
+    public class IntegrationServiceApplication : IIntegrationService
     {
         private readonly IParserApplication _parserApplication;
         private readonly IBookRepository _bookRepository;
@@ -59,6 +61,8 @@ namespace Library.Business.Services.Integration
         /// <returns></returns>
         public bool Import(ImportInputDto input)
         {
+            ImportObjectValidaiton validator = new ImportObjectValidaiton();
+
             DataTable datatable = _parserApplication.ReadExcelFile(input.ImportDto.Input);
 
             EUser user = _userRepository.GetOne(input.ImportDto.UserId);
@@ -69,7 +73,8 @@ namespace Library.Business.Services.Integration
                 ImportObject importerObject = _importer.ConvertRowIntoImportObject(row);
                 importerObject.User = user;
 
-                if (IsEmpty(importerObject)) continue;
+                var result = validator.Validate(importerObject);
+                if (!result.IsValid) continue;
 
                 recordInserted = InsertBookRecord(importerObject);
 
@@ -250,15 +255,5 @@ namespace Library.Business.Services.Integration
             });
         }
 
-        /// <summary>
-        /// Validation of the record
-        /// </summary>
-        /// <param name="data">Row element of the document</param>
-        /// <returns></returns>
-        public bool IsEmpty(ImportObject data)
-        {
-            return String.IsNullOrEmpty(data.BookName) || String.IsNullOrEmpty(data.Publishdate) ||
-                   String.IsNullOrEmpty(data.GenreName);
-        }
     }
 }

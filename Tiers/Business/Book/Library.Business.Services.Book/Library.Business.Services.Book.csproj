@@ -99,6 +99,10 @@
       <Project>{8a8f5504-db42-46b7-9afb-14c7d998466e}</Project>
       <Name>Library.Data.Series</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\Library.Common\Library.Common.csproj">
+      <Project>{1e6d6de7-3b55-4538-91d7-ad52d7c2b013}</Project>
+      <Name>Library.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Data\Library.Data.Author\Library.Data.Author.csproj">
       <Project>{4e2ff1f4-4342-498f-bf44-4fe1847467cf}</Project>
       <Name>Library.Data.Author</Name>
