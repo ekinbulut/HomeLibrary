@@ -101,6 +101,7 @@
     <Compile Include="AuthServiceTests.cs" />
     <Compile Include="BookServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProviderServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -110,6 +111,10 @@
     <Analyzer Include="..\packages\xunit.analyzers.0.10.0\analyzers\dotnet\cs\xunit.analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Data\Tiers\Library.Data.Series\Library.Data.Series.csproj">
+      <Project>{8A8F5504-DB42-46B7-9AFB-14C7D998466E}</Project>
+      <Name>Library.Data.Series</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Tiers\Business\Authentication\Library.Business.Services.Authentication\Library.Business.Services.Authentication.csproj">
       <Project>{9f86c2c2-41f6-45ef-b2a3-515bfe9daebf}</Project>
       <Name>Library.Business.Services.Authentication</Name>
@@ -130,6 +135,10 @@
       <Project>{7CCB141C-2B96-45E7-96BF-52EB1690FF52}</Project>
       <Name>Library.Business.Services</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Tiers\Data\Library.Data.Author\Library.Data.Author.csproj">
+      <Project>{4E2FF1F4-4342-498F-BF44-4FE1847467CF}</Project>
+      <Name>Library.Data.Author</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Tiers\Data\Library.Data.Books\Library.Data.Books.csproj">
       <Project>{4E740B12-7633-41AA-A6C5-30C9E6A5CA94}</Project>
       <Name>Library.Data.Books</Name>
@@ -138,9 +147,25 @@
       <Project>{88ABC499-F459-4779-8988-E6C775C65577}</Project>
       <Name>Library.Data.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Tiers\Data\Library.Data.Genres\Library.Data.Genres.csproj">
+      <Project>{467C6CD2-A0E2-4984-B925-D3A56247EEC0}</Project>
+      <Name>Library.Data.Genres</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tiers\Data\Library.Data.Publishers\Library.Data.Publishers.csproj">
+      <Project>{AA6AF7C8-327F-431E-9669-0BDB5859B50D}</Project>
+      <Name>Library.Data.Publishers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tiers\Data\Library.Data.Raks\Library.Data.Racks.csproj">
+      <Project>{5016F46A-5A90-4409-B813-5D0B3E6D9D9F}</Project>
+      <Name>Library.Data.Racks</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Tiers\Data\Library.Data.Roles\Library.Data.Roles.csproj">
       <Project>{9BB3CF11-A664-4A24-A620-13D7C0A4DF05}</Project>
       <Name>Library.Data.Roles</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tiers\Data\Library.Data.Shelfs\Library.Data.Shelfs.csproj">
+      <Project>{7319C327-3CE2-4615-8449-ED4562CB5A1F}</Project>
+      <Name>Library.Data.Shelfs</Name>
     </ProjectReference>
     <ProjectReference Include="..\Tiers\Data\Library.Data.Users\Library.Data.Users.csproj">
       <Project>{BC27B622-F2A5-4665-B6D6-1C1679635CA6}</Project>
