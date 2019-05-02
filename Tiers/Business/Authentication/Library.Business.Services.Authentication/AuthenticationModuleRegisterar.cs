@@ -7,9 +7,11 @@ using Castle.Windsor;
 using Library.Business.Services.Authantication;
 using Library.Business.Services.Helper;
 using SenseFramework.Services.Integrations;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Library.Business.Services.Authentication
 {
+    [ExcludeFromCodeCoverage]
     public class AuthenticationModuleRegisterar : IServiceApplication
     {
         private readonly ILogger _logger;

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.ServiceModel;
 using Castle.Core.Logging;
 using Castle.Facilities.WcfIntegration;
@@ -9,6 +10,8 @@ using SenseFramework.Services.Integrations;
 
 namespace Library.Business.Services.Provider
 {
+
+    [ExcludeFromCodeCoverage]
     public class ProviderModuleRegisterar : IServiceApplication
 
     {

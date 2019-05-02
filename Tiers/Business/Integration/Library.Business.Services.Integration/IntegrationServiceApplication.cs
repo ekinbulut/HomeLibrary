@@ -7,21 +7,21 @@ using Castle.Core.Logging;
 
 namespace Library.Business.Services.Integration
 {
-using Dtos;
-using Model;
-using Parser;
-using Validations;
-using Library.Data.Entities;
-using Library.Data.Entities.Enums;
-using Library.Data.Books.Repositories;
-using Library.Data.Author.Repositories.Authors;
-using Library.Data.Publishers.Repositories;
-using Library.Data.Genres.Repositories;
-using Library.Data.Shelfs.Repositories;
-using Library.Data.Racks.Repositories;
-using Library.Data.Users.Repositories;
-using Library.Data.Series.Repositories;
-using Library.Common;
+    using Dtos;
+    using Model;
+    using Parser;
+    using Validations;
+    using Data.Entities;
+    using Data.Entities.Enums;
+    using Data.Books.Repositories;
+    using Data.Author.Repositories.Authors;
+    using Data.Publishers.Repositories;
+    using Data.Genres.Repositories;
+    using Data.Shelfs.Repositories;
+    using Data.Racks.Repositories;
+    using Data.Users.Repositories;
+    using Data.Series.Repositories;
+    using Common;
 
     public class IntegrationServiceApplication : IIntegrationService
     {
@@ -97,7 +97,7 @@ using Library.Common;
 
                 if (!exists)
                 {
-                     GenerateBookRecord(importerObj, ref book);
+                    GenerateBookRecord(importerObj, ref book);
 
                     _bookRepository.CreateEntity(book);
                 }
